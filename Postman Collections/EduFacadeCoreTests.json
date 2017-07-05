@@ -2789,7 +2789,7 @@
             "type": "text/javascript",
             "exec": [
               "tests[\"Status code is 404\"] = responseCode.code === 404;",
-              "tests[\"Good error\"] = responseBody.has(\"Resource not found\");"
+              "tests[\"Good errors\"] = responseBody.has(\"Resource not found\");"
             ]
           }
         },
