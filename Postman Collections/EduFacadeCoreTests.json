@@ -1792,7 +1792,7 @@
         },
         {
           "_postman_id": "18175f88-a954-5e62-887e-640ea203308c",
-          "name": "Get Schema copy",
+          "name": "Get Rostering Schema",
           "event": [
             {
               "listen": "test",
