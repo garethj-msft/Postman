@@ -4741,7 +4741,6 @@
                 "exec": [
                   "tests[\"Status code is 200\"] = responseCode.code === 200;",
                   "tests[\"User created\"] = responseBody.has('\"id\":')",
-                  "tests[\"Custom data created\"] = responseBody.has('\"Middle\"')",
                   ""
                 ]
               }
@@ -4851,7 +4850,7 @@
         },
         {
           "_postman_id": "33a8a5c3-b219-53ee-2a99-0d6aac730e06",
-          "name": "Check modification to Teacher",
+          "name": "Check just created Teacher copy",
           "event": [
             {
               "listen": "test",
