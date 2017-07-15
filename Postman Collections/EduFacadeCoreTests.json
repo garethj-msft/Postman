@@ -1651,6 +1651,38 @@
       "description": "",
       "item": [
         {
+          "_postman_id": "4fc6c01b-3bf6-199b-610d-cc9f75bd91c9",
+          "name": "Get Versions",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "url": "http://{{host}}/versions",
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{GraphAuth}}",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "description": ""
+          },
+          "response": []
+        },
+        {
           "_postman_id": "a2488bb6-2c9a-a8c9-7c14-505421ece1a4",
           "name": "Get Education",
           "event": [
@@ -1678,38 +1710,6 @@
                 "value": "{{AADAuth}}",
                 "description": "",
                 "disabled": true
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "description": ""
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "4fc6c01b-3bf6-199b-610d-cc9f75bd91c9",
-          "name": "Get Versions",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "url": "http://{{host}}/versions",
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}",
-                "description": ""
               }
             ],
             "body": {
@@ -4813,7 +4813,7 @@
         }
       ],
       "request": {
-        "url": "http://{{host}}/schemas/Microsoft.DirectoryServices",
+        "url": "http://{{host}}/schemas/Microsoft.EducationRosteringAPIS",
         "method": "GET",
         "header": [
           {
