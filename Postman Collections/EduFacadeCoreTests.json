@@ -2615,64 +2615,64 @@
             "description": ""
           },
           "response": []
-        },
-        {
-          "_postman_id": "1d84b419-4f05-4946-b620-a93b31c9dd79",
-          "name": "Get A User  Nav Schools",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Schools returned\"] = responseBody.has('value\":[{')"
-                ]
-              }
-            },
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (this.hasOwnProperty(\"GlobalFunctions\") )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "url": "http://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}/schools",
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}",
-                "description": ""
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "description": "",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}",
-                "description": ""
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
-            },
-            "description": ""
-          },
-          "response": []
         }
       ]
+    },
+    {
+      "_postman_id": "1d84b419-4f05-4946-b620-a93b31c9dd79",
+      "name": "Get A User  Nav Schools",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "tests[\"Schools returned\"] = responseBody.has('value\":[{')"
+            ]
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (this.hasOwnProperty(\"GlobalFunctions\") )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "http://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}/schools",
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}",
+            "description": ""
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "description": "",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
+        },
+        "description": ""
+      },
+      "response": []
     },
     {
       "_postman_id": "8b84616e-b861-4859-c668-289d2f27ec65",
