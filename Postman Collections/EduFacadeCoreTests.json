@@ -1698,10 +1698,7 @@
                   "    var jsonData = JSON.parse(responseBody);",
                   "    ",
                   "    postman.setEnvironmentVariable(\"rosteringVersion\", jsonData.EducationRosteringAPIS)",
-                  "}",
-                  "",
-                  "var jsonData = JSON.parse(responseBody);",
-                  "tests[\"Your test name\"] = jsonData.value === 100;"
+                  "}"
                 ]
               }
             }
