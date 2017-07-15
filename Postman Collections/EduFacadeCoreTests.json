@@ -128,6 +128,12 @@
       ]
     },
     {
+      "_postman_id": "757bc915-2606-2a61-09ff-e89e81206f28",
+      "name": "Initialize",
+      "description": "",
+      "item": []
+    },
+    {
       "_postman_id": "a2488bb6-2c9a-a8c9-7c14-505421ece1a4",
       "name": "Get Education",
       "event": [
