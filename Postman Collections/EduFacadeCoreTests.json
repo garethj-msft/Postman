@@ -1696,15 +1696,7 @@
                   "if (responseBody.has('EducationRosteringAPIS'))",
                   "{",
                   "    var jsonData = JSON.parse(responseBody);",
-                  "    var i;",
-                  "    for (i=0; i < jsonData.value.length; i++)",
-                  "    {",
-                  "        if (jsonData.value[i].displayName ===  'PrimaryTestSchool')",
-                  "        {",
-                  "            console.log(\"Primary test school id: \" + jsonData.value[i].id)",
-                  "            postman.setEnvironmentVariable(\"primaryTestSchoolId\", jsonData.value[i].id)",
-                  "        }",
-                  "    }",
+                  "    postman.setEnvironmentVariable(\"rosteringVersion\", jsonData['EducationRosteringAPIS'])",
                   "}"
                 ]
               }
