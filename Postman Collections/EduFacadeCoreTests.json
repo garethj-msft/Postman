@@ -4796,8 +4796,7 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"User created\"] = responseBody.has('\"id\":')",
+                  "tests[\"Status code is 204\"] = responseCode.code === 204;",
                   ""
                 ]
               }
@@ -4836,7 +4835,7 @@
                 "description": ""
               },
               {
-                "key": "Content",
+                "key": "Content-Type",
                 "value": "application/json",
                 "description": ""
               }
