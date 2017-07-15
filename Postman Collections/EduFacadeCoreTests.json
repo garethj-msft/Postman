@@ -1691,7 +1691,21 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;"
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "tests[\"Rostering deployed\"] = responseBody.has('EducationRosteringAPIS');",
+                  "if (responseBody.has('EducationRosteringAPIS'))",
+                  "{",
+                  "    var jsonData = JSON.parse(responseBody);",
+                  "    var i;",
+                  "    for (i=0; i < jsonData.value.length; i++)",
+                  "    {",
+                  "        if (jsonData.value[i].displayName ===  'PrimaryTestSchool')",
+                  "        {",
+                  "            console.log(\"Primary test school id: \" + jsonData.value[i].id)",
+                  "            postman.setEnvironmentVariable(\"primaryTestSchoolId\", jsonData.value[i].id)",
+                  "        }",
+                  "    }",
+                  "}"
                 ]
               }
             }
