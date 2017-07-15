@@ -1697,7 +1697,7 @@
                   "{",
                   "    var jsonData = JSON.parse(responseBody);",
                   "    ",
-                  "    postman.setEnvironmentVariable(\"rosteringVersion\", jsonData.EducationRosteringAPIS)",
+                  "    postman.setEnvironmentVariable(\"rosteringVersion\", jsonData.EducationRosteringAPIS);",
                   "}"
                 ]
               }
