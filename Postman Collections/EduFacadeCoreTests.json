@@ -4760,7 +4760,7 @@
           ],
           "request": {
             "url": "http://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}",
-            "method": "POST",
+            "method": "GET",
             "header": [
               {
                 "key": "Authorization",
