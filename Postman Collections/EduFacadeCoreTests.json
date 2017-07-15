@@ -1789,6 +1789,38 @@
             "description": ""
           },
           "response": []
+        },
+        {
+          "_postman_id": "18175f88-a954-5e62-887e-640ea203308c",
+          "name": "Get Schema copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "url": "http://{{host}}/schemas/Microsoft.EducationRosteringAPIS",
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{GraphAuth}}",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "description": ""
+          },
+          "response": []
         }
       ]
     },
