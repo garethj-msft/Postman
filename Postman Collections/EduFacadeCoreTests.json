@@ -1696,7 +1696,7 @@
                   "if (responseBody.has('EducationRosteringAPIS'))",
                   "{",
                   "    var jsonData = JSON.parse(responseBody);",
-                  "    ",
+                  "    console.log(jsonData.EducationRosteringAPIS);",
                   "    postman.setEnvironmentVariable(\"rosteringVersion\", jsonData.EducationRosteringAPIS);",
                   "}"
                 ]
