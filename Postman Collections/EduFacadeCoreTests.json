@@ -4901,7 +4901,7 @@
         },
         {
           "_postman_id": "9970a5f6-ee67-a213-da54-d2eab7920ee8",
-          "name": "Modify just created Teacher",
+          "name": "Check just created Teacher copy",
           "event": [
             {
               "listen": "test",
