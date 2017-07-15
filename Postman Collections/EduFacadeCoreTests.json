@@ -3,7 +3,7 @@
   "info": {
     "name": "EduFacadeCoreTests",
     "_postman_id": "d5079a3b-a9ad-7368-c568-947a6c926c08",
-    "description": "",
+    "description": "Core suite of integration tests for Rostering API on Microsoft Graph.",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
   "item": [
