@@ -956,6 +956,12 @@
       ]
     },
     {
+      "_postman_id": "26eb7966-a577-8b4b-e5ee-9b8376c78ad5",
+      "name": "20-ReadClasses",
+      "description": "",
+      "item": []
+    },
+    {
       "_postman_id": "3f90c359-1e10-8752-22ba-7135733fdf6d",
       "name": "Get Classes",
       "event": [
