@@ -94,6 +94,42 @@
         "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
       },
       "response": []
+    },
+    {
+      "_postman_id": "70a58f3d-98a9-4c9e-f4ef-311b2c291a98",
+      "name": "FINAL TEST",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "// The Sole purpose of this FINAL TEST is to reset the environment variable Metadata level to minimal",
+              "// Keep it as the last test in any run.",
+              "postman.setEnvironmentVariable(\"MetadataLevel\", \"minimal\");",
+              "postman.setNextRequest(null);",
+              ""
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "http://{{host}}/{{graphVersion}}/$metadata",
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "description": ""
+      },
+      "response": []
     }
   ]
 }
