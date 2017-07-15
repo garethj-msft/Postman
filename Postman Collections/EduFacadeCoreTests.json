@@ -3939,77 +3939,64 @@
       "_postman_id": "2f07e761-89af-a1f9-f50d-5a90e1698118",
       "name": "60-MutateClasses",
       "description": "",
-      "item": [
+      "item": []
+    },
+    {
+      "_postman_id": "6fa6c157-f2ce-85de-9697-3958b6c73a36",
+      "name": "Check just created Class retrievable",
+      "event": [
         {
-          "_postman_id": "6529be0b-a536-b36c-96cf-92693d2bd4e3",
-          "name": "Make a Class",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 201\"] = responseCode.code === 201;",
-                  "tests[\"Class created\"] = responseBody.has('\"id\":')",
-                  "if (responseBody.has('\"id\":'))",
-                  "{",
-                  "    var jsonData = JSON.parse(responseBody);",
-                  "    postman.setEnvironmentVariable(\"justCreatedId\", jsonData.id)",
-                  "}"
-                ]
-              }
-            },
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (this.hasOwnProperty(\"GlobalFunctions\") )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}",
-                  "var currentRandom = Math.floor(Math.random() * 1000).toString();",
-                  "var currentRandom2 = Math.floor(Math.random() * 1000).toString();",
-                  "postman.setEnvironmentVariable(\"currentRandom\", currentRandom + currentRandom2);"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "url": "http://{{host}}/{{graphVersion}}/education/classes",
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}",
-                "description": ""
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "description": "",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}",
-                "description": ""
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "description": ""
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"ClassTestRun{{currentRandom}}\",\n\t\"mailNickname\":\"classtest{{currentRandom}}\",\n\t\"period\":\"5\",\n\t\"externalSource\": \"SIS\"\n}"
-            },
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "tests[\"Class created\"] = responseBody.has('\"id\":')",
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (this.hasOwnProperty(\"GlobalFunctions\") )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "http://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}",
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}",
             "description": ""
           },
-          "response": []
-        }
-      ]
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "description": "",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
+        },
+        "description": ""
+      },
+      "response": []
     },
     {
       "_postman_id": "835de137-0f3d-ff8b-b3e5-d82c7a89c528",
@@ -5111,17 +5098,21 @@
       "response": []
     },
     {
-      "_postman_id": "6fa6c157-f2ce-85de-9697-3958b6c73a36",
-      "name": "Check just created Class retrievable",
+      "_postman_id": "6529be0b-a536-b36c-96cf-92693d2bd4e3",
+      "name": "Make a Class",
       "event": [
         {
           "listen": "test",
           "script": {
             "type": "text/javascript",
             "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "tests[\"Status code is 201\"] = responseCode.code === 201;",
               "tests[\"Class created\"] = responseBody.has('\"id\":')",
-              ""
+              "if (responseBody.has('\"id\":'))",
+              "{",
+              "    var jsonData = JSON.parse(responseBody);",
+              "    postman.setEnvironmentVariable(\"justCreatedId\", jsonData.id)",
+              "}"
             ]
           }
         },
@@ -5133,14 +5124,17 @@
               "if (this.hasOwnProperty(\"GlobalFunctions\") )",
               "{",
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
+              "}",
+              "var currentRandom = Math.floor(Math.random() * 1000).toString();",
+              "var currentRandom2 = Math.floor(Math.random() * 1000).toString();",
+              "postman.setEnvironmentVariable(\"currentRandom\", currentRandom + currentRandom2);"
             ]
           }
         }
       ],
       "request": {
-        "url": "http://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}",
-        "method": "GET",
+        "url": "http://{{host}}/{{graphVersion}}/education/classes",
+        "method": "POST",
         "header": [
           {
             "key": "Authorization",
@@ -5157,11 +5151,16 @@
             "key": "Accept",
             "value": "application/json;odata.metadata={{MetadataLevel}}",
             "description": ""
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "description": ""
           }
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
+          "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"ClassTestRun{{currentRandom}}\",\n\t\"mailNickname\":\"classtest{{currentRandom}}\",\n\t\"period\":\"5\",\n\t\"externalSource\": \"SIS\"\n}"
         },
         "description": ""
       },
