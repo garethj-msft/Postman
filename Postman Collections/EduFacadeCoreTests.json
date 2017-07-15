@@ -1683,38 +1683,6 @@
           "response": []
         },
         {
-          "_postman_id": "b99a5849-1807-73cc-a059-0a05b9f60a5c",
-          "name": "Get Schema",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "url": "http://{{host}}/schemas/Microsoft.EducationRosteringAPIS",
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}",
-                "description": ""
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "description": ""
-          },
-          "response": []
-        },
-        {
           "_postman_id": "a2488bb6-2c9a-a8c9-7c14-505421ece1a4",
           "name": "Get Education",
           "event": [
@@ -1742,6 +1710,38 @@
                 "value": "{{AADAuth}}",
                 "description": "",
                 "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "b99a5849-1807-73cc-a059-0a05b9f60a5c",
+          "name": "Get Schema",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "url": "http://{{host}}/schemas/Microsoft.EducationRosteringAPIS",
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{GraphAuth}}",
+                "description": ""
               }
             ],
             "body": {
