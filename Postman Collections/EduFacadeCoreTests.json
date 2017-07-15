@@ -905,7 +905,7 @@
     },
     {
       "_postman_id": "1a05c244-b80c-2a35-df17-40c3c88c04bc",
-      "name": "50-MutateSchool",
+      "name": "50-MutateSchools",
       "description": "",
       "item": [
         {
@@ -3802,7 +3802,7 @@
     },
     {
       "_postman_id": "2f07e761-89af-a1f9-f50d-5a90e1698118",
-      "name": "60-MutateClass",
+      "name": "60-MutateClasses",
       "description": "",
       "item": [
         {
