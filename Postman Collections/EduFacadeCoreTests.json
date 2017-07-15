@@ -5142,44 +5142,7 @@
       "_postman_id": "e29ad391-75cb-d013-951a-55092d06c925",
       "name": "999-Final",
       "description": "",
-      "item": [
-        {
-          "_postman_id": "e1f3de2d-04e9-0e9d-1747-302c0aa17e9f",
-          "name": "FINAL TEST",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "// The Sole purpose of this FINAL TEST is to reset the environment variable Metadata level to minimal",
-                  "// Keep it as the last test in any run.",
-                  "postman.setEnvironmentVariable(\"MetadataLevel\", \"minimal\");",
-                  "postman.setNextRequest(null);",
-                  ""
-                ]
-              }
-            }
-          ],
-          "request": {
-            "url": "http://{{host}}/{{graphVersion}}/$metadata",
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}",
-                "description": ""
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "description": ""
-          },
-          "response": []
-        }
-      ]
+      "item": []
     }
   ]
 }
