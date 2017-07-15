@@ -4817,7 +4817,7 @@
           ],
           "request": {
             "url": "http://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}",
-            "method": "GET",
+            "method": "PATCH",
             "header": [
               {
                 "key": "Authorization",
@@ -4834,11 +4834,16 @@
                 "key": "Accept",
                 "value": "application/json;odata.metadata={{MetadataLevel}}",
                 "description": ""
+              },
+              {
+                "key": "Content",
+                "value": "application/json",
+                "description": ""
               }
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
+              "raw": "{\n\t\"middleName\": \"Hann\"\n}"
             },
             "description": ""
           },
