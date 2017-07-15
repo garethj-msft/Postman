@@ -4544,7 +4544,7 @@
         },
         {
           "_postman_id": "5e3eae4f-e65b-4b30-a10e-8820b7cca727",
-          "name": "Modify just created Teacher copy",
+          "name": "Modify just created Class",
           "event": [
             {
               "listen": "test",
@@ -4597,7 +4597,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"middleName\": \"Hann\"\n}"
+              "raw": "{\n\t\"period\": \"7\"\n}"
             },
             "description": ""
           },
@@ -4605,7 +4605,7 @@
         },
         {
           "_postman_id": "21646dc4-4e53-58d3-815d-202ead7b193e",
-          "name": "Check modification to Teacher copy",
+          "name": "Check modification to Class",
           "event": [
             {
               "listen": "test",
