@@ -4760,7 +4760,7 @@
           ],
           "request": {
             "url": "http://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}",
-            "method": "GET",
+            "method": "POST",
             "header": [
               {
                 "key": "Authorization",
@@ -4781,7 +4781,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
+              "raw": ""
             },
             "description": ""
           },
