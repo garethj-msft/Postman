@@ -3801,6 +3801,12 @@
       ]
     },
     {
+      "_postman_id": "2f07e761-89af-a1f9-f50d-5a90e1698118",
+      "name": "60-MutateClass",
+      "description": "",
+      "item": []
+    },
+    {
       "_postman_id": "6529be0b-a536-b36c-96cf-92693d2bd4e3",
       "name": "Make a Class",
       "event": [
