@@ -11,7 +11,46 @@
       "_postman_id": "8793b432-3153-e4e3-aeba-68c17e7f4176",
       "name": "10-Read",
       "description": "",
-      "item": []
+      "item": [
+        {
+          "_postman_id": "a2488bb6-2c9a-a8c9-7c14-505421ece1a4",
+          "name": "Get Education",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Expected fail\"] = responseCode.code === 400;"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "url": "http://{{host}}/{{graphVersion}}/education",
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{GraphAuth}}",
+                "description": ""
+              },
+              {
+                "key": "Workload-Authorization",
+                "value": "{{AADAuth}}",
+                "description": "",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "description": ""
+          },
+          "response": []
+        }
+      ]
     },
     {
       "_postman_id": "757bc915-2606-2a61-09ff-e89e81206f28",
@@ -138,44 +177,6 @@
       "name": "20-Mutate",
       "description": "",
       "item": []
-    },
-    {
-      "_postman_id": "a2488bb6-2c9a-a8c9-7c14-505421ece1a4",
-      "name": "Get Education",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Expected fail\"] = responseCode.code === 400;"
-            ]
-          }
-        }
-      ],
-      "request": {
-        "url": "http://{{host}}/{{graphVersion}}/education",
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "description": "",
-            "disabled": true
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "description": ""
-      },
-      "response": []
     },
     {
       "_postman_id": "e35dcb4a-76b3-3b07-87af-33f3737aa12f",
