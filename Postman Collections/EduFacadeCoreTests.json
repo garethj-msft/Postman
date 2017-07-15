@@ -4850,7 +4850,7 @@
         },
         {
           "_postman_id": "33a8a5c3-b219-53ee-2a99-0d6aac730e06",
-          "name": "Check modification",
+          "name": "Check modification to Teacher",
           "event": [
             {
               "listen": "test",
