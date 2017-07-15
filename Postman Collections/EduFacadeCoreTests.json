@@ -1805,7 +1805,7 @@
             }
           ],
           "request": {
-            "url": "http://{{host}}/schemas/Microsoft.EducationRosteringAPIS",
+            "url": "http://{{host}}/schemas/Microsoft.EducationRosteringAPIS/{{rosteringVersion}}",
             "method": "GET",
             "header": [
               {
