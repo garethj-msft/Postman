@@ -8,6 +8,12 @@
   },
   "item": [
     {
+      "_postman_id": "cc712a6e-759b-26f1-5b2d-a7f32f65ab50",
+      "name": "09-ReadGeneral",
+      "description": "",
+      "item": []
+    },
+    {
       "_postman_id": "6b460f15-e25b-7772-e7a9-a70f3123d51e",
       "name": "T_RefreshToken Graph",
       "event": [
@@ -206,39 +212,6 @@
       ],
       "request": {
         "url": "http://{{host}}/schemas/Microsoft.EducationRosteringAPIS",
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "description": ""
-      },
-      "response": []
-    },
-    {
-      "_postman_id": "d379b2f4-c2f3-90c0-ef45-970906bbea7e",
-      "name": "Get Rostering Schema",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Real Content\"]= responseBody.has('Namespace=\"Microsoft.Education.Rostering.Api\"');"
-            ]
-          }
-        }
-      ],
-      "request": {
-        "url": "http://{{host}}/schemas/Microsoft.EducationRosteringAPIS/{{rosteringVersion}}",
         "method": "GET",
         "header": [
           {
@@ -5102,6 +5075,39 @@
       ],
       "request": {
         "url": "http://{{host}}/{{graphVersion}}/$metadata",
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "_postman_id": "d379b2f4-c2f3-90c0-ef45-970906bbea7e",
+      "name": "Get Rostering Schema",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "tests[\"Real Content\"]= responseBody.has('Namespace=\"Microsoft.Education.Rostering.Api\"');"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "http://{{host}}/schemas/Microsoft.EducationRosteringAPIS/{{rosteringVersion}}",
         "method": "GET",
         "header": [
           {
