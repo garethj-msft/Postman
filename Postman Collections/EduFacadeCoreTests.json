@@ -133,38 +133,6 @@
       "description": "",
       "item": [
         {
-          "_postman_id": "4fc6c01b-3bf6-199b-610d-cc9f75bd91c9",
-          "name": "Get Versions",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "url": "http://{{host}}/versions",
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}",
-                "description": ""
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "description": ""
-          },
-          "response": []
-        },
-        {
           "_postman_id": "db288b46-54bc-6a32-5958-d7ca10e26270",
           "name": "Get Specific Version",
           "event": [
@@ -236,6 +204,70 @@
           "response": []
         }
       ]
+    },
+    {
+      "_postman_id": "4fc6c01b-3bf6-199b-610d-cc9f75bd91c9",
+      "name": "Get Versions",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "http://{{host}}/versions",
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "_postman_id": "b99a5849-1807-73cc-a059-0a05b9f60a5c",
+      "name": "Get Schema",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "http://{{host}}/schemas/Microsoft.EducationRosteringAPIS",
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "description": ""
+      },
+      "response": []
     },
     {
       "_postman_id": "a2488bb6-2c9a-a8c9-7c14-505421ece1a4",
@@ -5084,38 +5116,6 @@
       ],
       "request": {
         "url": "http://{{host}}/{{graphVersion}}/$metadata",
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "description": ""
-      },
-      "response": []
-    },
-    {
-      "_postman_id": "b99a5849-1807-73cc-a059-0a05b9f60a5c",
-      "name": "Get Schema",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;"
-            ]
-          }
-        }
-      ],
-      "request": {
-        "url": "http://{{host}}/schemas/Microsoft.EducationRosteringAPIS",
         "method": "GET",
         "header": [
           {
