@@ -229,6 +229,39 @@
       "response": []
     },
     {
+      "_postman_id": "d379b2f4-c2f3-90c0-ef45-970906bbea7e",
+      "name": "Get Rostering Schema",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "tests[\"Real Content\"]= responseBody.has('Namespace=\"Microsoft.Education.Rostering.Api\"');"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "http://{{host}}/schemas/Microsoft.EducationRosteringAPIS/{{rosteringVersion}}",
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
       "_postman_id": "a2488bb6-2c9a-a8c9-7c14-505421ece1a4",
       "name": "Get Education",
       "event": [
@@ -5075,39 +5108,6 @@
       ],
       "request": {
         "url": "http://{{host}}/{{graphVersion}}/$metadata",
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "description": ""
-      },
-      "response": []
-    },
-    {
-      "_postman_id": "d379b2f4-c2f3-90c0-ef45-970906bbea7e",
-      "name": "Get Rostering Schema",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Real Content\"]= responseBody.has('Namespace=\"Microsoft.Education.Rostering.Api\"');"
-            ]
-          }
-        }
-      ],
-      "request": {
-        "url": "http://{{host}}/schemas/Microsoft.EducationRosteringAPIS/{{rosteringVersion}}",
         "method": "GET",
         "header": [
           {
