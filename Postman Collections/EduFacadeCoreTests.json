@@ -466,6 +466,84 @@
       ]
     },
     {
+      "_postman_id": "08f89f90-6e35-384f-7717-c61c4b2e9964",
+      "name": "Get Schools Expand Classes",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "tests[\"Classes returned\"] = responseBody.has('classes\":[{'); ",
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (this.hasOwnProperty(\"GlobalFunctions\") )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": {
+          "raw": "http://{{host}}/{{graphVersion}}/education/schools?$expand=classes",
+          "protocol": "http",
+          "auth": {},
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "{{graphVersion}}",
+            "education",
+            "schools"
+          ],
+          "query": [
+            {
+              "key": "$expand",
+              "value": "classes",
+              "equals": true,
+              "description": ""
+            }
+          ],
+          "variable": []
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}",
+            "description": ""
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "description": "",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
       "_postman_id": "e5abe4c0-bbbe-a154-0828-70988156c24a",
       "name": "Get Schools Expand Users",
       "event": [
@@ -5050,84 +5128,6 @@
           {
             "key": "Authorization",
             "value": "{{GraphAuth}}",
-            "description": ""
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "description": ""
-      },
-      "response": []
-    },
-    {
-      "_postman_id": "08f89f90-6e35-384f-7717-c61c4b2e9964",
-      "name": "Get Schools Expand Classes",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Classes returned\"] = responseBody.has('classes\":[{'); ",
-              ""
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (this.hasOwnProperty(\"GlobalFunctions\") )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
-            ]
-          }
-        }
-      ],
-      "request": {
-        "url": {
-          "raw": "http://{{host}}/{{graphVersion}}/education/schools?$expand=classes",
-          "protocol": "http",
-          "auth": {},
-          "host": [
-            "{{host}}"
-          ],
-          "path": [
-            "{{graphVersion}}",
-            "education",
-            "schools"
-          ],
-          "query": [
-            {
-              "key": "$expand",
-              "value": "classes",
-              "equals": true,
-              "description": ""
-            }
-          ],
-          "variable": []
-        },
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "description": "",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
             "description": ""
           }
         ],
