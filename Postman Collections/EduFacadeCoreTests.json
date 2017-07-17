@@ -162,84 +162,6 @@
             "description": ""
           },
           "response": []
-        },
-        {
-          "_postman_id": "08f89f90-6e35-384f-7717-c61c4b2e9964",
-          "name": "Get Schools Expand Classes",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Classes returned\"] = responseBody.has('classes\":[{'); ",
-                  ""
-                ]
-              }
-            },
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (this.hasOwnProperty(\"GlobalFunctions\") )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "url": {
-              "raw": "http://{{host}}/{{graphVersion}}/education/schools?$expand=classes",
-              "protocol": "http",
-              "auth": {},
-              "host": [
-                "{{host}}"
-              ],
-              "path": [
-                "{{graphVersion}}",
-                "education",
-                "schools"
-              ],
-              "query": [
-                {
-                  "key": "$expand",
-                  "value": "classes",
-                  "equals": true,
-                  "description": ""
-                }
-              ],
-              "variable": []
-            },
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}",
-                "description": ""
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "description": "",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}",
-                "description": ""
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "description": ""
-          },
-          "response": []
         }
       ]
     },
@@ -542,6 +464,83 @@
           "response": []
         }
       ]
+    },
+    {
+      "_postman_id": "e5abe4c0-bbbe-a154-0828-70988156c24a",
+      "name": "Get Schools Expand Users",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "tests[\"Users returned\"] = responseBody.has('users\":[{')"
+            ]
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (this.hasOwnProperty(\"GlobalFunctions\") )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": {
+          "raw": "http://{{host}}/{{graphVersion}}/education/schools?$expand=users",
+          "protocol": "http",
+          "auth": {},
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "{{graphVersion}}",
+            "education",
+            "schools"
+          ],
+          "query": [
+            {
+              "key": "$expand",
+              "value": "users",
+              "equals": true,
+              "description": ""
+            }
+          ],
+          "variable": []
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}",
+            "description": ""
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "description": "",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "description": ""
+      },
+      "response": []
     },
     {
       "_postman_id": "730d1be6-5657-3ea6-61df-9673926927b8",
@@ -5063,8 +5062,8 @@
       "response": []
     },
     {
-      "_postman_id": "e5abe4c0-bbbe-a154-0828-70988156c24a",
-      "name": "Get Schools Expand Users",
+      "_postman_id": "08f89f90-6e35-384f-7717-c61c4b2e9964",
+      "name": "Get Schools Expand Classes",
       "event": [
         {
           "listen": "test",
@@ -5072,7 +5071,8 @@
             "type": "text/javascript",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Users returned\"] = responseBody.has('users\":[{')"
+              "tests[\"Classes returned\"] = responseBody.has('classes\":[{'); ",
+              ""
             ]
           }
         },
@@ -5091,7 +5091,7 @@
       ],
       "request": {
         "url": {
-          "raw": "http://{{host}}/{{graphVersion}}/education/schools?$expand=users",
+          "raw": "http://{{host}}/{{graphVersion}}/education/schools?$expand=classes",
           "protocol": "http",
           "auth": {},
           "host": [
@@ -5105,7 +5105,7 @@
           "query": [
             {
               "key": "$expand",
-              "value": "users",
+              "value": "classes",
               "equals": true,
               "description": ""
             }
