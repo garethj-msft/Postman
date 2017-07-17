@@ -8,304 +8,263 @@
   },
   "item": [
     {
-      "_postman_id": "757bc915-2606-2a61-09ff-e89e81206f28",
-      "name": "00-Initialize",
-      "description": "",
-      "item": [
-        {
-          "_postman_id": "6b460f15-e25b-7772-e7a9-a70f3123d51e",
-          "name": "T_RefreshToken Graph",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Successful Request\"] = responseCode.code === 200;",
-                  "if(responseCode.code === 200)",
-                  "{",
-                  "    var data = JSON.parse(responseBody);",
-                  "    postman.setEnvironmentVariable(\"GraphAuth\", \"Bearer \" + data.access_token);",
-                  "    postman.setEnvironmentVariable(\"GraphRefresh\", data.refresh_token);",
-                  "    tests[\"New tokens written to environment\"] = true;",
-                  "}"
-                ]
-              }
-            },
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "postman.setEnvironmentVariable(\"retryCount\", \"0\");\r",
-                  "postman.setEnvironmentVariable(\"retryDelay\", \"3\");\r",
-                  "GlobalFunctions = {\r",
-                  "setupMetadataLevel: function(iteration, postman) {\r",
-                  "    if (iteration % 3 === 0)\r",
-                  "    {\r",
-                  "      postman.setEnvironmentVariable(\"MetadataLevel\", \"none\");\r",
-                  "      console.log(\"Metadata = none\");\r",
-                  "    }\r",
-                  "    else if ( iteration % 3 === 1)\r",
-                  "    {\r",
-                  "      postman.setEnvironmentVariable(\"MetadataLevel\", \"minimal\");\r",
-                  "      console.log(\"Metadata = minimal\");\r",
-                  "    }\r",
-                  "    else if ( iteration % 3 === 2)\r",
-                  "    {\r",
-                  "      postman.setEnvironmentVariable(\"MetadataLevel\", \"full\");\r",
-                  "      console.log(\"Metadata = full\");\r",
-                  "    }\r",
-                  "},\r",
-                  "retryTest: function(requestName, testName, postman, tests) {\r",
-                  "    var retryString = postman.getEnvironmentVariable(\"retryCount\");\r",
-                  "    if (retryString === null || retryString === \"\")\r",
-                  "    {\r",
-                  "        retryString = \"0\";\r",
-                  "    }\r",
-                  "    var retryCount = parseInt(retryString);\r",
-                  "    retryCount++;\r",
-                  "    postman.setEnvironmentVariable(\"retryCount\", retryCount);\r",
-                  "    if (retryCount < 16)\r",
-                  "    {\r",
-                  "        postman.setEnvironmentVariable(\"returnRequest\", requestName);\r",
-                  "        postman.setNextRequest(\"Delay\");\r",
-                  "        console.log(\"iteration \" + retryCount);\r",
-                  "    }\r",
-                  "    else\r",
-                  "    {\r",
-                  "        postman.setEnvironmentVariable(\"retryCount\", \"0\");\r",
-                  "        tests[testName] = false;\r",
-                  "    }\r",
-                  "},\r",
-                  "delayBefore: function(requestName, postman) {\r",
-                  "    postman.setEnvironmentVariable(\"returnRequest\", requestName);\r",
-                  "    postman.setNextRequest(\"Delay\");\r",
-                  "}\r",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "url": "https://{{loginHost}}/common/oauth2/token",
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "formdata",
-              "formdata": [
-                {
-                  "key": "grant_type",
-                  "value": "refresh_token",
-                  "type": "text"
-                },
-                {
-                  "key": "refresh_token",
-                  "value": "{{GraphRefresh}}",
-                  "type": "text"
-                },
-                {
-                  "key": "client_id",
-                  "value": "{{graphClientId}}",
-                  "type": "text"
-                },
-                {
-                  "key": "client_secret",
-                  "value": "{{graphSecret}}",
-                  "type": "text"
-                },
-                {
-                  "key": "resource",
-                  "value": "{{loginResource}}",
-                  "type": "text"
-                }
-              ]
-            },
-            "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
-          },
-          "response": []
-        }
-      ]
-    },
-    {
       "_postman_id": "cc712a6e-759b-26f1-5b2d-a7f32f65ab50",
       "name": "09-ReadGeneral",
       "description": "",
-      "item": [
+      "item": []
+    },
+    {
+      "_postman_id": "6b460f15-e25b-7772-e7a9-a70f3123d51e",
+      "name": "T_RefreshToken Graph",
+      "event": [
         {
-          "_postman_id": "4fc6c01b-3bf6-199b-610d-cc9f75bd91c9",
-          "name": "Get Versions",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "url": "http://{{host}}/versions",
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}",
-                "description": ""
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "description": ""
-          },
-          "response": []
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Successful Request\"] = responseCode.code === 200;",
+              "if(responseCode.code === 200)",
+              "{",
+              "    var data = JSON.parse(responseBody);",
+              "    postman.setEnvironmentVariable(\"GraphAuth\", \"Bearer \" + data.access_token);",
+              "    postman.setEnvironmentVariable(\"GraphRefresh\", data.refresh_token);",
+              "    tests[\"New tokens written to environment\"] = true;",
+              "}"
+            ]
+          }
         },
         {
-          "_postman_id": "db288b46-54bc-6a32-5958-d7ca10e26270",
-          "name": "Get Specific Version",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Rostering deployed\"] = responseBody.has('EducationRosteringAPIS');",
-                  "if (responseBody.has('EducationRosteringAPIS'))",
-                  "{",
-                  "    var jsonData = JSON.parse(responseBody);",
-                  "    postman.setEnvironmentVariable(\"rosteringVersion\", jsonData['Microsoft.EducationRosteringAPIS']);",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "url": "http://{{host}}/versions/{{graphVersion}}",
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}",
-                "description": ""
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "description": ""
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "b99a5849-1807-73cc-a059-0a05b9f60a5c",
-          "name": "Get Schema",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "url": "http://{{host}}/schemas/Microsoft.EducationRosteringAPIS",
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}",
-                "description": ""
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "description": ""
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "a2488bb6-2c9a-a8c9-7c14-505421ece1a4",
-          "name": "Get Education",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Expected fail\"] = responseCode.code === 400;"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "url": "http://{{host}}/{{graphVersion}}/education",
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}",
-                "description": ""
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "description": "",
-                "disabled": true
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "description": ""
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "18175f88-a954-5e62-887e-640ea203308c",
-          "name": "Get Rostering Schema",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Real Content\"]= responseBody.has('Namespace=\"Microsoft.Education.Rostering.Api\"');"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "url": "http://{{host}}/schemas/Microsoft.EducationRosteringAPIS/{{rosteringVersion}}",
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}",
-                "description": ""
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "description": ""
-          },
-          "response": []
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "postman.setEnvironmentVariable(\"retryCount\", \"0\");\r",
+              "postman.setEnvironmentVariable(\"retryDelay\", \"3\");\r",
+              "GlobalFunctions = {\r",
+              "setupMetadataLevel: function(iteration, postman) {\r",
+              "    if (iteration % 3 === 0)\r",
+              "    {\r",
+              "      postman.setEnvironmentVariable(\"MetadataLevel\", \"none\");\r",
+              "      console.log(\"Metadata = none\");\r",
+              "    }\r",
+              "    else if ( iteration % 3 === 1)\r",
+              "    {\r",
+              "      postman.setEnvironmentVariable(\"MetadataLevel\", \"minimal\");\r",
+              "      console.log(\"Metadata = minimal\");\r",
+              "    }\r",
+              "    else if ( iteration % 3 === 2)\r",
+              "    {\r",
+              "      postman.setEnvironmentVariable(\"MetadataLevel\", \"full\");\r",
+              "      console.log(\"Metadata = full\");\r",
+              "    }\r",
+              "},\r",
+              "retryTest: function(requestName, testName, postman, tests) {\r",
+              "    var retryString = postman.getEnvironmentVariable(\"retryCount\");\r",
+              "    if (retryString === null || retryString === \"\")\r",
+              "    {\r",
+              "        retryString = \"0\";\r",
+              "    }\r",
+              "    var retryCount = parseInt(retryString);\r",
+              "    retryCount++;\r",
+              "    postman.setEnvironmentVariable(\"retryCount\", retryCount);\r",
+              "    if (retryCount < 16)\r",
+              "    {\r",
+              "        postman.setEnvironmentVariable(\"returnRequest\", requestName);\r",
+              "        postman.setNextRequest(\"Delay\");\r",
+              "        console.log(\"iteration \" + retryCount);\r",
+              "    }\r",
+              "    else\r",
+              "    {\r",
+              "        postman.setEnvironmentVariable(\"retryCount\", \"0\");\r",
+              "        tests[testName] = false;\r",
+              "    }\r",
+              "},\r",
+              "delayBefore: function(requestName, postman) {\r",
+              "    postman.setEnvironmentVariable(\"returnRequest\", requestName);\r",
+              "    postman.setNextRequest(\"Delay\");\r",
+              "}\r",
+              "}"
+            ]
+          }
         }
-      ]
+      ],
+      "request": {
+        "url": "https://{{loginHost}}/common/oauth2/token",
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "grant_type",
+              "value": "refresh_token",
+              "type": "text"
+            },
+            {
+              "key": "refresh_token",
+              "value": "{{GraphRefresh}}",
+              "type": "text"
+            },
+            {
+              "key": "client_id",
+              "value": "{{graphClientId}}",
+              "type": "text"
+            },
+            {
+              "key": "client_secret",
+              "value": "{{graphSecret}}",
+              "type": "text"
+            },
+            {
+              "key": "resource",
+              "value": "{{loginResource}}",
+              "type": "text"
+            }
+          ]
+        },
+        "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
+      },
+      "response": []
+    },
+    {
+      "_postman_id": "b7336210-fcda-9bfa-5bc1-4d20e9abfeff",
+      "name": "Get Specific Version",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "tests[\"Rostering deployed\"] = responseBody.has('EducationRosteringAPIS');",
+              "if (responseBody.has('EducationRosteringAPIS'))",
+              "{",
+              "    var jsonData = JSON.parse(responseBody);",
+              "    postman.setEnvironmentVariable(\"rosteringVersion\", jsonData['Microsoft.EducationRosteringAPIS']);",
+              "}"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "http://{{host}}/versions/{{graphVersion}}",
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "_postman_id": "4fc6c01b-3bf6-199b-610d-cc9f75bd91c9",
+      "name": "Get Versions",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "http://{{host}}/versions",
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "_postman_id": "b99a5849-1807-73cc-a059-0a05b9f60a5c",
+      "name": "Get Schema",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "http://{{host}}/schemas/Microsoft.EducationRosteringAPIS",
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "_postman_id": "a2488bb6-2c9a-a8c9-7c14-505421ece1a4",
+      "name": "Get Education",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Expected fail\"] = responseCode.code === 400;"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "http://{{host}}/{{graphVersion}}/education",
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}",
+            "description": ""
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "description": "",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "description": ""
+      },
+      "response": []
     },
     {
       "_postman_id": "e35dcb4a-76b3-3b07-87af-33f3737aa12f",
