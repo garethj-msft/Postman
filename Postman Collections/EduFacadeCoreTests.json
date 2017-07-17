@@ -235,6 +235,44 @@
           "response": []
         },
         {
+          "_postman_id": "a2488bb6-2c9a-a8c9-7c14-505421ece1a4",
+          "name": "Get Education",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Expected fail\"] = responseCode.code === 400;"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "url": "http://{{host}}/{{graphVersion}}/education",
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{GraphAuth}}",
+                "description": ""
+              },
+              {
+                "key": "Workload-Authorization",
+                "value": "{{AADAuth}}",
+                "description": "",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "description": ""
+          },
+          "response": []
+        },
+        {
           "_postman_id": "18175f88-a954-5e62-887e-640ea203308c",
           "name": "Get Rostering Schema",
           "event": [
@@ -5084,44 +5122,6 @@
             "key": "Authorization",
             "value": "{{GraphAuth}}",
             "description": ""
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "description": ""
-      },
-      "response": []
-    },
-    {
-      "_postman_id": "a2488bb6-2c9a-a8c9-7c14-505421ece1a4",
-      "name": "Get Education",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Expected fail\"] = responseCode.code === 400;"
-            ]
-          }
-        }
-      ],
-      "request": {
-        "url": "http://{{host}}/{{graphVersion}}/education",
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "description": "",
-            "disabled": true
           }
         ],
         "body": {
