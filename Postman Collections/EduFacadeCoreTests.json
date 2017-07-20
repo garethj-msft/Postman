@@ -4929,7 +4929,6 @@
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
               "tests[\"User created\"] = responseBody.has('\"id\":')",
               "tests[\"Custom data created\"] = responseBody.has('\"Middle\"')",
-              "tests[\"Custom teacher data created\"] = responseBody.has('\"teacherNumber\":\"456\"')",
               ""
             ]
           }
