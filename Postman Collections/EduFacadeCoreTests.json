@@ -3221,7 +3221,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationSchool\",\n\t\"displayName\":\"SchoolTestRun{{currentRandom}}\",\n\t\"description\": \"A lovely school to test.\",\n\t\"externalSource\": \"SIS\",\n\t\"address\": {\n\t    \"street\": \"1 Bash Street\",\n\t    \"city\": \"Redmond\",\n\t    \"state\": \"WA\",\n\t    \"countryOrRegion\": \"USA\",\n\t    \"postalCode\": \"98052\"\n \t}\n}"
+          "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationSchool\",\n\t\"displayName\":\"SchoolTestRun{{currentRandom}}\",\n\t\"description\": \"A lovely school to test.\",\n\t\"externalSource\": \"SIS\"\n}"
         },
         "description": ""
       },
@@ -4860,8 +4860,6 @@
               "if (responseBody.has('\"id\":'))",
               "{",
               "    var jsonData = JSON.parse(responseBody);",
-              "    tests[\"Role set\"] = jsonData.primaryRole === 'teacher';",
-              "    tests[\"TeacherNumber set\"] = jsonData.teacher.teacherNumber === '456';",
               "    postman.setEnvironmentVariable(\"justCreatedId\", jsonData.id)",
               "}"
             ]
@@ -4911,7 +4909,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationUser\",\n\t\"accountEnabled\": true,\n\t\"displayName\":\"Teacher TestRun{{currentRandom}}\",\n\t\"mailNickname\": \"TeacherTR{{currentRandom}}\",\n\t\"userPrincipalName\": \"TeacherTR{{currentRandom}}@{{tenantDomain}}\",\n\t\"middleName\": \"Middle\",\n\t\"passwordProfile\":{\n\t\t\"forceChangePasswordNextSignIn\": false,\n\t\t\"password\": \"!!abc123\"\n\t},\n\t\"primaryRole\": \"Teacher\",\n\t\"teacher\": {\n\t\t\"teacherNumber\": \"456\",\n\t\t\"externalId\": \"123\"\n\t}\n}"
+          "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationUser\",\n\t\"accountEnabled\": true,\n\t\"displayName\":\"Teacher TestRun{{currentRandom}}\",\n\t\"mailNickname\": \"TeacherTR{{currentRandom}}\",\n\t\"userPrincipalName\": \"TeacherTR{{currentRandom}}@{{tenantDomain}}\",\n\t\"middleName\": \"Middle\",\n\t\"passwordProfile\":{\n\t\t\"forceChangePasswordNextSignIn\": false,\n\t\t\"password\": \"!!abc123\"\n\t},\n\t\"primaryRole\": \"Teacher\"\n}"
         },
         "description": ""
       },
@@ -4929,7 +4927,6 @@
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
               "tests[\"User created\"] = responseBody.has('\"id\":')",
               "tests[\"Custom data created\"] = responseBody.has('\"Middle\"')",
-              "tests[\"Custom teacher data created\"] = responseBody.has('\"teacherNumber\":\"456\"')",
               ""
             ]
           }
@@ -5031,7 +5028,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n\t\"displayName\": \"Reacher TestRun\",\n\t\"middleName\": \"Hann\",\n\t\"teacher\": {\n\t\t\"teacherNumber\": \"102\"\n\t  }\n}"
+          "raw": "{\n\t\"middleName\": \"Hann\"\n}"
         },
         "description": ""
       },
