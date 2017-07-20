@@ -5238,6 +5238,29 @@
         "description": ""
       },
       "response": []
+    },
+    {
+      "_postman_id": "e8b4a8d3-74da-ef72-9a64-5801e676e7d1",
+      "name": "Delay",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "postman.setNextRequest(postman.getEnvironmentVariable(\"returnRequest\"));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "https://echo.getpostman.com/delay/10",
+        "method": "GET",
+        "header": [],
+        "body": {},
+        "description": "Using this endpoint one can configure how long it takes for the server to come back with a response. Appending a number to the URL defines the time (in seconds) the server will wait before responding.\n\nNote that a maximum delay of 10 seconds is accepted by the server."
+      },
+      "response": []
     }
   ]
 }
