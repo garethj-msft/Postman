@@ -3221,7 +3221,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationSchool\",\n\t\"displayName\":\"SchoolTestRun{{currentRandom}}\",\n\t\"description\": \"A lovely school to test.\",\n\t\"externalSource\": \"SIS\"\n}"
+          "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationSchool\",\n\t\"displayName\":\"SchoolTestRun{{currentRandom}}\",\n\t\"description\": \"A lovely school to test.\",\n\t\"externalSource\": \"SIS\",\n\t\"address\": {\n\t    \"street\": \"1 Bash Street\",\n\t    \"city\": \"Redmond\",\n\t    \"state\": \"WA\",\n\t    \"countryOrRegion\": \"USA\",\n\t    \"postalCode\": \"98052\"\n \t}\n}"
         },
         "description": ""
       },
@@ -5048,7 +5048,10 @@
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
               "tests[\"User present\"] = responseBody.has('\"id\":')",
-              "tests[\"Custom data modified\"] = responseBody.has('\"Hann\"')"
+              "tests[\"Simple data modified\"] = responseBody.has('\"displayName\":\"Reacher TestRun\"');",
+              "tests[\"Custom data modified\"] = responseBody.has('\"Hann\"')",
+              "tests[\"Custom teacher data modified\"] = responseBody.has('\"teacherNumber\":\"102\"')",
+              ""
             ]
           }
         },
