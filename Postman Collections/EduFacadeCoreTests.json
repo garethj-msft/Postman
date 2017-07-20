@@ -4929,6 +4929,7 @@
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
               "tests[\"User created\"] = responseBody.has('\"id\":')",
               "tests[\"Custom data created\"] = responseBody.has('\"Middle\"')",
+              "tests[\"Custom teacher data created\"] = responseBody.has('\"teacherNumber\":\"456\"')",
               ""
             ]
           }
@@ -5030,7 +5031,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n\t\"middleName\": \"Hann\"\n}"
+          "raw": "{\n\t\"displayName\": \"Reacher TestRun\",\n\t\"middleName\": \"Hann\",\n\t\"teacher\": {\n\t\t\"teacherNumber\": \"102\"\n\t  }\n}"
         },
         "description": ""
       },
