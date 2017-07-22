@@ -4687,8 +4687,9 @@
             "type": "text/javascript",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Class present\"] = responseBody.has('\"id\":')",
-              "tests[\"Custom data modified\"] = responseBody.has('\"period\":\"7\"')"
+              "tests[\"Class present\"] = responseBody.has('\"id\":');",
+              "tests[\"Custom data modified\"] = responseBody.has('\"period\":\"7\"');",
+              "tests[\"Standard data modified\"] = responseBody.has('\"displayName\":\"ChangedClass\"');"
             ]
           }
         },
