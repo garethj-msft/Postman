@@ -4671,7 +4671,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n\t\"period\": \"7\"\n}"
+          "raw": "{\n\t\"period\": \"7\",\n\t\"displayName\": \"ChangedClass\"\n}"
         },
         "description": ""
       },
