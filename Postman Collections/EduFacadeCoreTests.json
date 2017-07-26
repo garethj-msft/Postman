@@ -2048,8 +2048,8 @@
           "script": {
             "type": "text/javascript",
             "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Groups found\"] = responseBody.has('\"id\":')"
+              "tests[\"Status code is 403\"] = responseCode.code === 403;",
+              ""
             ]
           }
         },
