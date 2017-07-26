@@ -3028,7 +3028,7 @@
     },
     {
       "_postman_id": "0b831e58-63ad-8ac3-5895-5fb26922101d",
-      "name": "Get Vanilla Users",
+      "name": "Fail to Get Vanilla Users",
       "event": [
         {
           "listen": "test",
