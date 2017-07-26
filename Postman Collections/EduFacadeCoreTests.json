@@ -2041,7 +2041,7 @@
     },
     {
       "_postman_id": "83edf54d-d981-ebe1-32d1-1af57a24d74e",
-      "name": "GET Vanilla Groups",
+      "name": "Fail to GET Vanilla Groups",
       "event": [
         {
           "listen": "test",
