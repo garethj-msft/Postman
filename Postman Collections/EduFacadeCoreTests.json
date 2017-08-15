@@ -1898,7 +1898,20 @@
             "exec": [
               "tests[\"Status code is 404\"] = responseCode.code === 404;",
               "tests[\"Good error\"] = responseBody.has(\"Resource not found\");",
-              "//nonEducationGroupId"
+              "//nonEducationGroupId",
+              "if (responseBody.has('\"id\":'))",
+              "{",
+              "    var jsonData = JSON.parse(responseBody);",
+              "    var i;",
+              "    for (i=0; i < jsonData.value.length; i++)",
+              "    {",
+              "        if (jsonData.value[i].displayName ===  'noneducationgroup')",
+              "        {",
+              "            console.log(\"noneducationgroup id: \" + jsonData.value[i].id)",
+              "            postman.setEnvironmentVariable(\"noneducationgroup\", jsonData.value[i].id)",
+              "        }",
+              "    }",
+              "}"
             ]
           }
         },
