@@ -1897,7 +1897,8 @@
             "type": "text/javascript",
             "exec": [
               "tests[\"Status code is 404\"] = responseCode.code === 404;",
-              "tests[\"Good error\"] = responseBody.has(\"Resource not found\");"
+              "tests[\"Good error\"] = responseBody.has(\"Resource not found\");",
+              "//nonEducationGroupId"
             ]
           }
         },
@@ -1915,7 +1916,27 @@
         }
       ],
       "request": {
-        "url": "http://{{host}}/{{graphVersion}}/education/classes/{{nonEducationGroupId}}",
+        "url": {
+          "raw": "http://{{host}}/{{graphVersion}}/groups?$filter=displayName eq 'noneducationgroup'",
+          "protocol": "http",
+          "auth": {},
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "{{graphVersion}}",
+            "groups"
+          ],
+          "query": [
+            {
+              "key": "$filter",
+              "value": "displayName eq 'noneducationgroup'",
+              "equals": true,
+              "description": ""
+            }
+          ],
+          "variable": []
+        },
         "method": "GET",
         "header": [
           {
