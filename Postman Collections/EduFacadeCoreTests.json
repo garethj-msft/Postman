@@ -1898,7 +1898,7 @@
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
               "tests[\"noneducationgroup found\"] = responseBody.has(\"noneducationgroup\");",
-              "if (responseBody.has('\"id\":'))",
+              "if (responseBody.has('noneducationgroup'))",
               "{",
               "    var jsonData = JSON.parse(responseBody);",
               "    var i;",
