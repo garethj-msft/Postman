@@ -2896,7 +2896,7 @@
               "        if (jsonData.value[i].displayName ===  'noneducationgroup')",
               "        {",
               "            console.log(\"noneducationgroup id: \" + jsonData.value[i].id)",
-              "            postman.setEnvironmentVariable(\"noneducationgroup\", jsonData.value[i].id)",
+              "            postman.setEnvironmentVariable(\"nonEducationUserId\", jsonData.value[i].id)",
               "        }",
               "    }",
               "}"
