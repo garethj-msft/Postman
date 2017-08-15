@@ -1977,95 +1977,6 @@
       "response": []
     },
     {
-      "_postman_id": "cb2c6c33-3aae-2ab4-4303-3ba68c5266df",
-      "name": "FIND A non-education User",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"noneducationgroup found\"] = responseBody.has(\"noneducationgroup\");",
-              "if (responseBody.has('noneducationgroup'))",
-              "{",
-              "    var jsonData = JSON.parse(responseBody);",
-              "    var i;",
-              "    for (i=0; i < jsonData.value.length; i++)",
-              "    {",
-              "        if (jsonData.value[i].displayName ===  'noneducationgroup')",
-              "        {",
-              "            console.log(\"noneducationgroup id: \" + jsonData.value[i].id)",
-              "            postman.setEnvironmentVariable(\"nonEducationGroupId\", jsonData.value[i].id)",
-              "        }",
-              "    }",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (this.hasOwnProperty(\"GlobalFunctions\") )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
-            ]
-          }
-        }
-      ],
-      "request": {
-        "url": {
-          "raw": "http://{{host}}/{{graphVersion}}/groups?$filter=displayName eq 'noneducationgroup'",
-          "protocol": "http",
-          "auth": {},
-          "host": [
-            "{{host}}"
-          ],
-          "path": [
-            "{{graphVersion}}",
-            "groups"
-          ],
-          "query": [
-            {
-              "key": "$filter",
-              "value": "displayName eq 'noneducationgroup'",
-              "equals": true,
-              "description": ""
-            }
-          ],
-          "variable": []
-        },
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "description": "",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{  \"@odata.type\":\"microsoft.graph.group\",\n   \"displayName\":\"GarethClass28\",\n   \"mailNickname\":\"class282\",\n   \"mailEnabled\":true,\n   \"securityEnabled\":false,\n   \"extension_fe2174665583431c953114ff7268b7b3_Education_Period\":\"5\",\n   \"groupTypes\":[\"Unified\"]}"
-        },
-        "description": ""
-      },
-      "response": []
-    },
-    {
       "_postman_id": "b03d6606-b80d-6483-bd98-fe374c8997ae",
       "name": "GET A non-education Group as Class",
       "event": [
@@ -2958,6 +2869,95 @@
         "body": {
           "mode": "raw",
           "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "_postman_id": "cb2c6c33-3aae-2ab4-4303-3ba68c5266df",
+      "name": "FIND A non-education User",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "tests[\"noneducationgroup found\"] = responseBody.has(\"noneducationgroup\");",
+              "if (responseBody.has('noneducationgroup'))",
+              "{",
+              "    var jsonData = JSON.parse(responseBody);",
+              "    var i;",
+              "    for (i=0; i < jsonData.value.length; i++)",
+              "    {",
+              "        if (jsonData.value[i].displayName ===  'noneducationgroup')",
+              "        {",
+              "            console.log(\"noneducationgroup id: \" + jsonData.value[i].id)",
+              "            postman.setEnvironmentVariable(\"nonEducationGroupId\", jsonData.value[i].id)",
+              "        }",
+              "    }",
+              "}"
+            ]
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (this.hasOwnProperty(\"GlobalFunctions\") )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": {
+          "raw": "http://{{host}}/{{graphVersion}}/groups?$filter=displayName eq 'noneducationgroup'",
+          "protocol": "http",
+          "auth": {},
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "{{graphVersion}}",
+            "groups"
+          ],
+          "query": [
+            {
+              "key": "$filter",
+              "value": "displayName eq 'noneducationgroup'",
+              "equals": true,
+              "description": ""
+            }
+          ],
+          "variable": []
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}",
+            "description": ""
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "description": "",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{  \"@odata.type\":\"microsoft.graph.group\",\n   \"displayName\":\"GarethClass28\",\n   \"mailNickname\":\"class282\",\n   \"mailEnabled\":true,\n   \"securityEnabled\":false,\n   \"extension_fe2174665583431c953114ff7268b7b3_Education_Period\":\"5\",\n   \"groupTypes\":[\"Unified\"]}"
         },
         "description": ""
       },
