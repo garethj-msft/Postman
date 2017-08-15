@@ -1898,7 +1898,6 @@
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
               "tests[\"noneducationgroup found\"] = responseBody.has(\"noneducationgroup\");",
-              "//nonEducationGroupId",
               "if (responseBody.has('\"id\":'))",
               "{",
               "    var jsonData = JSON.parse(responseBody);",
