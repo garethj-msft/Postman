@@ -1979,7 +1979,7 @@
     },
     {
       "_postman_id": "4395d06a-8e4c-2c48-dfd4-b829e92d76b5",
-      "name": "FIND A non-education Group copy",
+      "name": "FIND A non-education User",
       "event": [
         {
           "listen": "test",
