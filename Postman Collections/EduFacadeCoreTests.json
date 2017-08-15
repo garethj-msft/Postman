@@ -1888,8 +1888,8 @@
       "response": []
     },
     {
-      "_postman_id": "b03d6606-b80d-6483-bd98-fe374c8997ae",
-      "name": "GET A non-education Group as Class",
+      "_postman_id": "7c69230e-3f8e-1108-09a7-9105c709a1d6",
+      "name": "GET A non-education Group as Class copy",
       "event": [
         {
           "listen": "test",
@@ -1944,8 +1944,8 @@
       "response": []
     },
     {
-      "_postman_id": "7c69230e-3f8e-1108-09a7-9105c709a1d6",
-      "name": "GET A non-education Group as Class copy",
+      "_postman_id": "b03d6606-b80d-6483-bd98-fe374c8997ae",
+      "name": "GET A non-education Group as Class",
       "event": [
         {
           "listen": "test",
