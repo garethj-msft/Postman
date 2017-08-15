@@ -2916,7 +2916,7 @@
       ],
       "request": {
         "url": {
-          "raw": "http://{{host}}/{{graphVersion}}/groups?$filter=displayName eq 'SchoolAdministrator'",
+          "raw": "http://{{host}}/{{graphVersion}}/users?$filter=displayName eq 'SchoolAdministrator'",
           "protocol": "http",
           "auth": {},
           "host": [
@@ -2924,7 +2924,7 @@
           ],
           "path": [
             "{{graphVersion}}",
-            "groups"
+            "users"
           ],
           "query": [
             {
