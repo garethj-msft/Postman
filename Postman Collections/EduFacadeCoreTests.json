@@ -122,7 +122,7 @@
     },
     {
       "_postman_id": "cf78f9a7-42d2-ca78-ff82-b3a66a1428fb",
-      "name": "T_RefreshToken Graph copy",
+      "name": "T_InitializeScripts",
       "event": [
         {
           "listen": "test",
