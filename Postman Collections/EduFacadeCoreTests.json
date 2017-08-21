@@ -12,22 +12,6 @@
       "name": "T_InitializeScripts",
       "event": [
         {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Successful Request\"] = responseCode.code === 200;",
-              "if(responseCode.code === 200)",
-              "{",
-              "    var data = JSON.parse(responseBody);",
-              "    postman.setEnvironmentVariable(\"GraphAuth\", \"Bearer \" + data.access_token);",
-              "    postman.setEnvironmentVariable(\"GraphRefresh\", data.refresh_token);",
-              "    tests[\"New tokens written to environment\"] = true;",
-              "}"
-            ]
-          }
-        },
-        {
           "listen": "prerequest",
           "script": {
             "type": "text/javascript",
