@@ -84,7 +84,7 @@
       ],
       "request": {
         "url": "http://{{host}}/{{graphVersion}}/$metadata",
-        "method": "POST",
+        "method": "GET",
         "header": [],
         "body": {},
         "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
