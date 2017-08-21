@@ -83,39 +83,10 @@
         }
       ],
       "request": {
-        "url": "https://{{loginHost}}/common/oauth2/token",
+        "url": "http://{{host}}/{{graphVersion}}/$metadata",
         "method": "POST",
         "header": [],
-        "body": {
-          "mode": "formdata",
-          "formdata": [
-            {
-              "key": "grant_type",
-              "value": "refresh_token",
-              "type": "text"
-            },
-            {
-              "key": "refresh_token",
-              "value": "{{GraphRefresh}}",
-              "type": "text"
-            },
-            {
-              "key": "client_id",
-              "value": "{{graphClientId}}",
-              "type": "text"
-            },
-            {
-              "key": "client_secret",
-              "value": "{{graphSecret}}",
-              "type": "text"
-            },
-            {
-              "key": "resource",
-              "value": "{{loginResource}}",
-              "type": "text"
-            }
-          ]
-        },
+        "body": {},
         "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
       },
       "response": []
