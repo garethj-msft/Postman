@@ -122,7 +122,7 @@
     },
     {
       "_postman_id": "4b0cec2b-256f-01ec-01e2-901fa69be28d",
-      "name": "T_RefreshToken ReadWrite",
+      "name": "T_RefreshToken GraphReadWrite",
       "event": [
         {
           "listen": "test",
