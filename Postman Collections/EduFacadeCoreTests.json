@@ -139,60 +139,6 @@
               "}"
             ]
           }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "postman.setEnvironmentVariable(\"retryCount\", \"0\");\r",
-              "postman.setEnvironmentVariable(\"retryDelay\", \"3\");\r",
-              "GlobalFunctions = {\r",
-              "setupMetadataLevel: function(iteration, postman) {\r",
-              "    if (iteration % 3 === 0)\r",
-              "    {\r",
-              "      postman.setEnvironmentVariable(\"MetadataLevel\", \"none\");\r",
-              "      console.log(\"Metadata = none\");\r",
-              "    }\r",
-              "    else if ( iteration % 3 === 1)\r",
-              "    {\r",
-              "      postman.setEnvironmentVariable(\"MetadataLevel\", \"minimal\");\r",
-              "      console.log(\"Metadata = minimal\");\r",
-              "    }\r",
-              "    else if ( iteration % 3 === 2)\r",
-              "    {\r",
-              "      postman.setEnvironmentVariable(\"MetadataLevel\", \"full\");\r",
-              "      console.log(\"Metadata = full\");\r",
-              "    }\r",
-              "},\r",
-              "retryTest: function(requestName, testName, postman, tests) {\r",
-              "    var retryString = postman.getEnvironmentVariable(\"retryCount\");\r",
-              "    if (retryString === null || retryString === \"\")\r",
-              "    {\r",
-              "        retryString = \"0\";\r",
-              "    }\r",
-              "    var retryCount = parseInt(retryString);\r",
-              "    retryCount++;\r",
-              "    postman.setEnvironmentVariable(\"retryCount\", retryCount);\r",
-              "    if (retryCount < 16)\r",
-              "    {\r",
-              "        postman.setEnvironmentVariable(\"returnRequest\", requestName);\r",
-              "        postman.setNextRequest(\"Delay\");\r",
-              "        console.log(\"iteration \" + retryCount);\r",
-              "    }\r",
-              "    else\r",
-              "    {\r",
-              "        postman.setEnvironmentVariable(\"retryCount\", \"0\");\r",
-              "        tests[testName] = false;\r",
-              "    }\r",
-              "},\r",
-              "delayBefore: function(requestName, postman) {\r",
-              "    postman.setEnvironmentVariable(\"returnRequest\", requestName);\r",
-              "    postman.setNextRequest(\"Delay\");\r",
-              "}\r",
-              "}"
-            ]
-          }
         }
       ],
       "request": {
@@ -209,17 +155,17 @@
             },
             {
               "key": "refresh_token",
-              "value": "{{GraphRefresh}}",
+              "value": "{{GraphRefreshReadWrite}}",
               "type": "text"
             },
             {
               "key": "client_id",
-              "value": "{{graphClientId}}",
+              "value": "{{GraphClientIdReadWrite}}",
               "type": "text"
             },
             {
               "key": "client_secret",
-              "value": "{{graphSecret}}",
+              "value": "{{GraphSecretReadWrite}}",
               "type": "text"
             },
             {
