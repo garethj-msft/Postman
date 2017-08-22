@@ -202,17 +202,17 @@
                 },
                 {
                   "key": "refresh_token",
-                  "value": "{{GraphRefreshReadBasic}}",
+                  "value": "{{GraphRefresh}}",
                   "type": "text"
                 },
                 {
                   "key": "client_id",
-                  "value": "{{GraphClientIdReadBasic}}",
+                  "value": "{{GraphClientId}}",
                   "type": "text"
                 },
                 {
                   "key": "client_secret",
-                  "value": "{{GraphSecretReadBasic}}",
+                  "value": "{{GraphSecret}}",
                   "type": "text"
                 },
                 {
