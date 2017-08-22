@@ -101,7 +101,7 @@
                   "{",
                   "    var data = JSON.parse(responseBody);",
                   "    postman.setEnvironmentVariable(\"GraphAuth\", \"Bearer \" + data.access_token);",
-                  "    postman.setEnvironmentVariable(\"GraphRefresh\", data.refresh_token);",
+                  "    postman.setEnvironmentVariable(\"GraphRefreshReadBasic\", data.refresh_token);",
                   "    tests[\"New tokens written to environment\"] = true;",
                   "}"
                 ]
