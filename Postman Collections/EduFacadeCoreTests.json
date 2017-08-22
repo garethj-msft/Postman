@@ -1482,6 +1482,65 @@
           "response": []
         },
         {
+          "_postman_id": "21c34892-0a65-8da6-a82b-3c7de2425053",
+          "name": "T_RefreshToken GraphRead copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Successful Request\"] = responseCode.code === 200;",
+                  "if(responseCode.code === 200)",
+                  "{",
+                  "    var data = JSON.parse(responseBody);",
+                  "    postman.setEnvironmentVariable(\"GraphAuth\", \"Bearer \" + data.access_token);",
+                  "    postman.setEnvironmentVariable(\"GraphRefresh\", data.refresh_token);",
+                  "    tests[\"New tokens written to environment\"] = true;",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "url": "https://{{loginHost}}/common/oauth2/token",
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "grant_type",
+                  "type": "text",
+                  "value": "refresh_token"
+                },
+                {
+                  "key": "refresh_token",
+                  "type": "text",
+                  "value": "{{GraphRefreshReadBasic}}"
+                },
+                {
+                  "key": "client_id",
+                  "type": "text",
+                  "value": "{{GraphClientIdReadBasic}}"
+                },
+                {
+                  "key": "client_secret",
+                  "type": "text",
+                  "value": "{{GraphSecretReadBasic}}"
+                },
+                {
+                  "key": "resource",
+                  "type": "text",
+                  "value": "{{loginResource}}"
+                }
+              ]
+            },
+            "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
+          },
+          "response": []
+        },
+        {
           "_postman_id": "08f89f90-6e35-384f-7717-c61c4b2e9964",
           "name": "Get Schools Expand Classes",
           "event": [
@@ -2041,65 +2100,6 @@
             ],
             "body": {},
             "description": ""
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "21c34892-0a65-8da6-a82b-3c7de2425053",
-          "name": "T_RefreshToken GraphRead copy",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Successful Request\"] = responseCode.code === 200;",
-                  "if(responseCode.code === 200)",
-                  "{",
-                  "    var data = JSON.parse(responseBody);",
-                  "    postman.setEnvironmentVariable(\"GraphAuth\", \"Bearer \" + data.access_token);",
-                  "    postman.setEnvironmentVariable(\"GraphRefresh\", data.refresh_token);",
-                  "    tests[\"New tokens written to environment\"] = true;",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "url": "https://{{loginHost}}/common/oauth2/token",
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "formdata",
-              "formdata": [
-                {
-                  "key": "grant_type",
-                  "type": "text",
-                  "value": "refresh_token"
-                },
-                {
-                  "key": "refresh_token",
-                  "type": "text",
-                  "value": "{{GraphRefreshReadBasic}}"
-                },
-                {
-                  "key": "client_id",
-                  "type": "text",
-                  "value": "{{GraphClientIdReadBasic}}"
-                },
-                {
-                  "key": "client_secret",
-                  "type": "text",
-                  "value": "{{GraphSecretReadBasic}}"
-                },
-                {
-                  "key": "resource",
-                  "type": "text",
-                  "value": "{{loginResource}}"
-                }
-              ]
-            },
-            "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
           },
           "response": []
         }
