@@ -2183,9 +2183,9 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "postman.setEnvironmentVariable(\"GraphRefresh\", postman.getEnvironmentVariable(\"GraphRefreshReadBasic\"));\r",
-                  "postman.setEnvironmentVariable(\"GraphClientId\", postman.getEnvironmentVariable(\"GraphClientIdReadBasic\"));\r",
-                  "postman.setEnvironmentVariable(\"GraphSecret\", postman.getEnvironmentVariable(\"GraphSecretReadBasic\"));\r",
+                  "postman.setEnvironmentVariable(\"GraphRefresh\", postman.getEnvironmentVariable(\"GraphRefreshNonEdu\"));\r",
+                  "postman.setEnvironmentVariable(\"GraphClientId\", postman.getEnvironmentVariable(\"GraphClientIdNonEdu\"));\r",
+                  "postman.setEnvironmentVariable(\"GraphSecret\", postman.getEnvironmentVariable(\"GraphSecretNonEdu\"));\r",
                   ""
                 ]
               }
