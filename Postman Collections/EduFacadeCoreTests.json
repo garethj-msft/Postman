@@ -102,6 +102,44 @@
             "description": ""
           },
           "response": []
+        },
+        {
+          "_postman_id": "b7336210-fcda-9bfa-5bc1-4d20e9abfeff",
+          "name": "Get Specific Version",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "tests[\"Rostering deployed\"] = responseBody.has('EducationRosteringAPIS');",
+                  "if (responseBody.has('EducationRosteringAPIS'))",
+                  "{",
+                  "    var jsonData = JSON.parse(responseBody);",
+                  "    postman.setEnvironmentVariable(\"rosteringVersion\", jsonData['Microsoft.EducationRosteringAPIS']);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "url": "http://{{host}}/versions/{{graphVersion}}",
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{GraphAuth}}",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "description": ""
+          },
+          "response": []
         }
       ]
     },
@@ -288,44 +326,6 @@
           ]
         },
         "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
-      },
-      "response": []
-    },
-    {
-      "_postman_id": "b7336210-fcda-9bfa-5bc1-4d20e9abfeff",
-      "name": "Get Specific Version",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Rostering deployed\"] = responseBody.has('EducationRosteringAPIS');",
-              "if (responseBody.has('EducationRosteringAPIS'))",
-              "{",
-              "    var jsonData = JSON.parse(responseBody);",
-              "    postman.setEnvironmentVariable(\"rosteringVersion\", jsonData['Microsoft.EducationRosteringAPIS']);",
-              "}"
-            ]
-          }
-        }
-      ],
-      "request": {
-        "url": "http://{{host}}/versions/{{graphVersion}}",
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "description": ""
       },
       "response": []
     },
