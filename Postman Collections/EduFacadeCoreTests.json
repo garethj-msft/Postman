@@ -182,6 +182,12 @@
       "item": []
     },
     {
+      "_postman_id": "39bf9548-1c37-4f91-a8aa-16b4d70886a0",
+      "name": "Initialize",
+      "description": "",
+      "item": []
+    },
+    {
       "_postman_id": "4b0cec2b-256f-01ec-01e2-901fa69be28d",
       "name": "T_RefreshToken GraphReadWrite",
       "event": [
