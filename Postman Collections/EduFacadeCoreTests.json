@@ -3472,25 +3472,25 @@
         "method": "POST",
         "header": [
           {
+            "description": "",
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
+            "description": "",
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
+            "description": "",
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           },
           {
+            "description": "",
             "key": "Content-Type",
-            "value": "application/json",
-            "description": ""
+            "value": "application/json"
           }
         ],
         "body": {
@@ -3595,25 +3595,25 @@
         "method": "POST",
         "header": [
           {
+            "description": "",
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
+            "description": "",
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
+            "description": "",
             "key": "Content-Type",
-            "value": "application/json",
-            "description": ""
+            "value": "application/json"
           },
           {
+            "description": "",
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
