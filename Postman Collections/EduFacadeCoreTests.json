@@ -102,46 +102,46 @@
             "description": ""
           },
           "response": []
-        },
-        {
-          "_postman_id": "b7336210-fcda-9bfa-5bc1-4d20e9abfeff",
-          "name": "Get Specific Version",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Rostering deployed\"] = responseBody.has('EducationRosteringAPIS');",
-                  "if (responseBody.has('EducationRosteringAPIS'))",
-                  "{",
-                  "    var jsonData = JSON.parse(responseBody);",
-                  "    postman.setEnvironmentVariable(\"rosteringVersion\", jsonData['Microsoft.EducationRosteringAPIS']);",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "url": "http://{{host}}/versions/{{graphVersion}}",
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}",
-                "description": ""
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "description": ""
-          },
-          "response": []
         }
       ]
+    },
+    {
+      "_postman_id": "b7336210-fcda-9bfa-5bc1-4d20e9abfeff",
+      "name": "Get Specific Version",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "tests[\"Rostering deployed\"] = responseBody.has('EducationRosteringAPIS');",
+              "if (responseBody.has('EducationRosteringAPIS'))",
+              "{",
+              "    var jsonData = JSON.parse(responseBody);",
+              "    postman.setEnvironmentVariable(\"rosteringVersion\", jsonData['Microsoft.EducationRosteringAPIS']);",
+              "}"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "http://{{host}}/versions/{{graphVersion}}",
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "description": ""
+      },
+      "response": []
     },
     {
       "_postman_id": "cf78f9a7-42d2-ca78-ff82-b3a66a1428fb",
