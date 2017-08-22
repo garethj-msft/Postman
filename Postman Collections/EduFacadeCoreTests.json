@@ -76,65 +76,6 @@
       "response": []
     },
     {
-      "_postman_id": "6b460f15-e25b-7772-e7a9-a70f3123d51e",
-      "name": "T_RefreshToken Graph",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Successful Request\"] = responseCode.code === 200;",
-              "if(responseCode.code === 200)",
-              "{",
-              "    var data = JSON.parse(responseBody);",
-              "    postman.setEnvironmentVariable(\"GraphAuth\", \"Bearer \" + data.access_token);",
-              "    postman.setEnvironmentVariable(\"GraphRefresh\", data.refresh_token);",
-              "    tests[\"New tokens written to environment\"] = true;",
-              "}"
-            ]
-          }
-        }
-      ],
-      "request": {
-        "url": "https://{{loginHost}}/common/oauth2/token",
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "formdata",
-          "formdata": [
-            {
-              "key": "grant_type",
-              "value": "refresh_token",
-              "type": "text"
-            },
-            {
-              "key": "refresh_token",
-              "value": "{{GraphRefresh}}",
-              "type": "text"
-            },
-            {
-              "key": "client_id",
-              "value": "{{graphClientId}}",
-              "type": "text"
-            },
-            {
-              "key": "client_secret",
-              "value": "{{graphSecret}}",
-              "type": "text"
-            },
-            {
-              "key": "resource",
-              "value": "{{loginResource}}",
-              "type": "text"
-            }
-          ]
-        },
-        "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
-      },
-      "response": []
-    },
-    {
       "_postman_id": "4b0cec2b-256f-01ec-01e2-901fa69be28d",
       "name": "T_RefreshToken GraphReadWrite",
       "event": [
