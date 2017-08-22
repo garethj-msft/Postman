@@ -541,6 +541,12 @@
       ]
     },
     {
+      "_postman_id": "7c1d23df-57e4-0199-7504-173248972ac4",
+      "name": "Read",
+      "description": "",
+      "item": []
+    },
+    {
       "_postman_id": "cbe8a664-6982-73cc-3a00-8053f13aa7ee",
       "name": "T_RefreshToken GraphRead",
       "event": [
