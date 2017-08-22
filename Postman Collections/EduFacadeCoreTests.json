@@ -2080,17 +2080,17 @@
                 {
                   "key": "refresh_token",
                   "type": "text",
-                  "value": "{{GraphRefreshReadBasic}}"
+                  "value": "{{GraphRefreshNonEdu}}"
                 },
                 {
                   "key": "client_id",
                   "type": "text",
-                  "value": "{{GraphClientIdReadBasic}}"
+                  "value": "{{GraphClientIdNonEdu}}"
                 },
                 {
                   "key": "client_secret",
                   "type": "text",
-                  "value": "{{GraphSecretReadBasic}}"
+                  "value": "{{GraphSecretNonEdu}}"
                 },
                 {
                   "key": "resource",
