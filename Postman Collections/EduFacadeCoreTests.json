@@ -1545,27 +1545,32 @@
                 {
                   "key": "grant_type",
                   "value": "refresh_token",
-                  "type": "text"
+                  "type": "text",
+                  "description": ""
                 },
                 {
                   "key": "refresh_token",
-                  "value": "{{GraphRefreshReadBasic}}",
-                  "type": "text"
+                  "value": "{{GraphRefresh}}",
+                  "type": "text",
+                  "description": ""
                 },
                 {
                   "key": "client_id",
-                  "value": "{{GraphClientIdReadBasic}}",
-                  "type": "text"
+                  "value": "{{GraphClientId}}",
+                  "type": "text",
+                  "description": ""
                 },
                 {
                   "key": "client_secret",
-                  "value": "{{GraphSecretReadBasic}}",
-                  "type": "text"
+                  "value": "{{GraphSecret}}",
+                  "type": "text",
+                  "description": ""
                 },
                 {
                   "key": "resource",
                   "value": "{{loginResource}}",
-                  "type": "text"
+                  "type": "text",
+                  "description": ""
                 }
               ]
             },
