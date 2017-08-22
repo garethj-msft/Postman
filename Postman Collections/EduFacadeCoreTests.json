@@ -8,12 +8,6 @@
   },
   "item": [
     {
-      "_postman_id": "cb778f16-5e1c-62de-8016-8959b8ef91b9",
-      "name": "ReadWrite",
-      "description": "",
-      "item": []
-    },
-    {
       "_postman_id": "a9fe72cf-81c4-e41d-3943-954f947dce7c",
       "name": "Read",
       "description": "",
@@ -180,6 +174,12 @@
           "response": []
         }
       ]
+    },
+    {
+      "_postman_id": "cb778f16-5e1c-62de-8016-8959b8ef91b9",
+      "name": "ReadWrite",
+      "description": "",
+      "item": []
     },
     {
       "_postman_id": "cf78f9a7-42d2-ca78-ff82-b3a66a1428fb",
