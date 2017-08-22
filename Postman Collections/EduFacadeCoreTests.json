@@ -2200,28 +2200,33 @@
               "formdata": [
                 {
                   "key": "grant_type",
+                  "value": "refresh_token",
                   "type": "text",
-                  "value": "refresh_token"
+                  "description": ""
                 },
                 {
                   "key": "refresh_token",
+                  "value": "{{GraphRefresh}}",
                   "type": "text",
-                  "value": "{{GraphRefreshNonEdu}}"
+                  "description": ""
                 },
                 {
                   "key": "client_id",
+                  "value": "{{GraphClientId}}",
                   "type": "text",
-                  "value": "{{GraphClientIdNonEdu}}"
+                  "description": ""
                 },
                 {
                   "key": "client_secret",
+                  "value": "{{GraphSecret}}",
                   "type": "text",
-                  "value": "{{GraphSecretNonEdu}}"
+                  "description": ""
                 },
                 {
                   "key": "resource",
+                  "value": "{{loginResource}}",
                   "type": "text",
-                  "value": "{{loginResource}}"
+                  "description": ""
                 }
               ]
             },
