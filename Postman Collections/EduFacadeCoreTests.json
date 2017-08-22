@@ -1521,6 +1521,18 @@
                   "}"
                 ]
               }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "postman.setEnvironmentVariable(\"GraphRefresh\", postman.getEnvironmentVariable(\"GraphRefreshRead\"));\r",
+                  "postman.setEnvironmentVariable(\"GraphClientId\", postman.getEnvironmentVariable(\"GraphClientIdRead\"));\r",
+                  "postman.setEnvironmentVariable(\"GraphSecret\", postman.getEnvironmentVariable(\"GraphSecretRead\"));\r",
+                  ""
+                ]
+              }
             }
           ],
           "request": {
