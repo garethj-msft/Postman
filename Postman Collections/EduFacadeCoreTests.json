@@ -1292,6 +1292,62 @@
             "description": ""
           },
           "response": []
+        },
+        {
+          "_postman_id": "e9e0dcc1-b686-935b-5c45-381d2472c73b",
+          "name": "Get A Class Nav Schools",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "tests[\"Schools returned\"] = responseBody.has('value\":[{')"
+                ]
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (this.hasOwnProperty(\"GlobalFunctions\") )",
+                  "{",
+                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "url": "http://{{host}}/{{graphVersion}}/education/classes/{{primaryTestClassId}}/schools",
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{GraphAuth}}",
+                "description": ""
+              },
+              {
+                "key": "Workload-Authorization",
+                "value": "{{AADAuth}}",
+                "description": "",
+                "disabled": true
+              },
+              {
+                "key": "Accept",
+                "value": "application/json;odata.metadata={{MetadataLevel}}",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "description": ""
+          },
+          "response": []
         }
       ]
     },
@@ -1991,60 +2047,10 @@
       ]
     },
     {
-      "_postman_id": "e9e0dcc1-b686-935b-5c45-381d2472c73b",
-      "name": "Get A Class Nav Schools",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Schools returned\"] = responseBody.has('value\":[{')"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (this.hasOwnProperty(\"GlobalFunctions\") )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
-            ]
-          }
-        }
-      ],
-      "request": {
-        "url": "http://{{host}}/{{graphVersion}}/education/classes/{{primaryTestClassId}}/schools",
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "description": "",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "description": ""
-      },
-      "response": []
+      "_postman_id": "8d2a2f43-b975-96e4-246c-bb8c1c480b5d",
+      "name": "NonEdu",
+      "description": "",
+      "item": []
     },
     {
       "_postman_id": "7c69230e-3f8e-1108-09a7-9105c709a1d6",
