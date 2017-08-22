@@ -318,82 +318,6 @@
             "description": ""
           },
           "response": []
-        },
-        {
-          "_postman_id": "e35dcb4a-76b3-3b07-87af-33f3737aa12f",
-          "name": "Get Schools",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Schools found\"] = responseBody.has('\"id\":')",
-                  "if (!responseBody.has('\"PrimaryTestSchool\"'))",
-                  "{",
-                  "    tests[\"School named PrimaryTestSchool required\"] = false;",
-                  "    postman.setNextRequest(null);",
-                  "}",
-                  "else",
-                  "{",
-                  " ",
-                  "  if (responseBody.has('\"id\":'))",
-                  "  {",
-                  "    var jsonData = JSON.parse(responseBody);",
-                  "    var i;",
-                  "    for (i=0; i < jsonData.value.length; i++)",
-                  "    {",
-                  "        if (jsonData.value[i].displayName ===  'PrimaryTestSchool')",
-                  "        {",
-                  "            tests[\"School named PrimaryTestSchool found\"] = true;",
-                  "            console.log(\"Primary test school id: \" + jsonData.value[i].id)",
-                  "            postman.setEnvironmentVariable(\"primaryTestSchoolId\", jsonData.value[i].id)",
-                  "        }",
-                  "    }",
-                  "  }",
-                  "}"
-                ]
-              }
-            },
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (this.hasOwnProperty(\"GlobalFunctions\") )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "url": "http://{{host}}/{{graphVersion}}/education/schools",
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}",
-                "description": ""
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "description": "",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}",
-                "description": ""
-              }
-            ],
-            "body": {},
-            "description": ""
-          },
-          "response": []
         }
       ]
     },
@@ -519,6 +443,157 @@
           ]
         },
         "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
+      },
+      "response": []
+    },
+    {
+      "_postman_id": "e35dcb4a-76b3-3b07-87af-33f3737aa12f",
+      "name": "Get Schools",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "tests[\"Schools found\"] = responseBody.has('\"id\":')",
+              "if (!responseBody.has('\"PrimaryTestSchool\"'))",
+              "{",
+              "    tests[\"School named PrimaryTestSchool required\"] = false;",
+              "    postman.setNextRequest(null);",
+              "}",
+              "if (responseBody.has('\"id\":'))",
+              "{",
+              "    var jsonData = JSON.parse(responseBody);",
+              "    var i;",
+              "    for (i=0; i < jsonData.value.length; i++)",
+              "    {",
+              "        if (jsonData.value[i].displayName ===  'PrimaryTestSchool')",
+              "        {",
+              "            console.log(\"Primary test school id: \" + jsonData.value[i].id)",
+              "            postman.setEnvironmentVariable(\"primaryTestSchoolId\", jsonData.value[i].id)",
+              "        }",
+              "    }",
+              "}"
+            ]
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (this.hasOwnProperty(\"GlobalFunctions\") )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "http://{{host}}/{{graphVersion}}/education/schools",
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}",
+            "description": ""
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "description": "",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "_postman_id": "582310ac-0287-ca77-84ef-c53784025a42",
+      "name": "Get Schools with Filter",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "tests[\"Schools found\"] = responseBody.has('\"id\":')"
+            ]
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (this.hasOwnProperty(\"GlobalFunctions\") )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": {
+          "raw": "http://{{host}}/{{graphVersion}}/education/schools?$filter=displayName eq 'PrimaryTestSchool'",
+          "protocol": "http",
+          "auth": {},
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "{{graphVersion}}",
+            "education",
+            "schools"
+          ],
+          "query": [
+            {
+              "key": "$filter",
+              "value": "displayName eq 'PrimaryTestSchool' ",
+              "equals": true,
+              "description": ""
+            }
+          ],
+          "variable": []
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}",
+            "description": ""
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "description": "",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "description": ""
       },
       "response": []
     },
@@ -5311,83 +5386,6 @@
         "header": [],
         "body": {},
         "description": "Using this endpoint one can configure how long it takes for the server to come back with a response. Appending a number to the URL defines the time (in seconds) the server will wait before responding.\n\nNote that a maximum delay of 10 seconds is accepted by the server."
-      },
-      "response": []
-    },
-    {
-      "_postman_id": "582310ac-0287-ca77-84ef-c53784025a42",
-      "name": "Get Schools with Filter",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Schools found\"] = responseBody.has('\"id\":')"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (this.hasOwnProperty(\"GlobalFunctions\") )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
-            ]
-          }
-        }
-      ],
-      "request": {
-        "url": {
-          "raw": "http://{{host}}/{{graphVersion}}/education/schools?$filter=displayName eq 'PrimaryTestSchool'",
-          "protocol": "http",
-          "auth": {},
-          "host": [
-            "{{host}}"
-          ],
-          "path": [
-            "{{graphVersion}}",
-            "education",
-            "schools"
-          ],
-          "query": [
-            {
-              "key": "$filter",
-              "value": "displayName eq 'PrimaryTestSchool' ",
-              "equals": true,
-              "description": ""
-            }
-          ],
-          "variable": []
-        },
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "description": "",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "description": ""
       },
       "response": []
     }
