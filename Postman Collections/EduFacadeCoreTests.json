@@ -2998,6 +2998,29 @@
       "description": "",
       "item": [
         {
+          "_postman_id": "8e2534bb-0c14-1543-23c6-190446eacf68",
+          "name": "InitializePointerReadWrite",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  " postman.setNextRequest(\"Delay\");"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "url": "InitializePointerReadWrite",
+            "method": "GET",
+            "header": [],
+            "body": {},
+            "description": ""
+          },
+          "response": []
+        },
+        {
           "_postman_id": "4b0cec2b-256f-01ec-01e2-901fa69be28d",
           "name": "T_RefreshToken GraphReadWrite",
           "event": [
@@ -3070,29 +3093,6 @@
               ]
             },
             "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "8e2534bb-0c14-1543-23c6-190446eacf68",
-          "name": "InitializePointerReadWrite",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  " postman.setNextRequest(\"Delay\");"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "url": "InitializePointerReadWrite",
-            "method": "GET",
-            "header": [],
-            "body": {},
-            "description": ""
           },
           "response": []
         },
