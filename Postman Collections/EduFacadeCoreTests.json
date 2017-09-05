@@ -5124,6 +5124,29 @@
             "description": ""
           },
           "response": []
+        },
+        {
+          "_postman_id": "8e2534bb-0c14-1543-23c6-190446eacf68",
+          "name": "InitializePointerReadWrite",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  " postman.setNextRequest(\"Delay\");"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "url": "InitializePointerReadWrite",
+            "method": "GET",
+            "header": [],
+            "body": {},
+            "description": ""
+          },
+          "response": []
         }
       ]
     },
@@ -5605,29 +5628,6 @@
         "header": [],
         "body": {},
         "description": "Using this endpoint one can configure how long it takes for the server to come back with a response. Appending a number to the URL defines the time (in seconds) the server will wait before responding.\n\nNote that a maximum delay of 10 seconds is accepted by the server."
-      },
-      "response": []
-    },
-    {
-      "_postman_id": "8e2534bb-0c14-1543-23c6-190446eacf68",
-      "name": "InitializePointerReadWrite",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              " postman.setNextRequest(\"Delay\");"
-            ]
-          }
-        }
-      ],
-      "request": {
-        "url": "InitializePointerReadWrite",
-        "method": "GET",
-        "header": [],
-        "body": {},
-        "description": ""
       },
       "response": []
     }
