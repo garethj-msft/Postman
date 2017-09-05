@@ -3006,7 +3006,7 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  " postman.setNextRequest(\"Delay\");"
+                  " postman.setNextRequest(\"T_InitializeScripts\");"
                 ]
               }
             }
