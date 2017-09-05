@@ -3074,6 +3074,29 @@
           "response": []
         },
         {
+          "_postman_id": "8e2534bb-0c14-1543-23c6-190446eacf68",
+          "name": "InitializePointerReadWrite",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  " postman.setNextRequest(\"Delay\");"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "url": "InitializePointerReadWrite",
+            "method": "GET",
+            "header": [],
+            "body": {},
+            "description": ""
+          },
+          "response": []
+        },
+        {
           "_postman_id": "e3d7c87e-c374-f8f0-792e-96eb41cd8a77",
           "name": "Make a School",
           "event": [
@@ -5121,29 +5144,6 @@
               "mode": "raw",
               "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
             },
-            "description": ""
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "8e2534bb-0c14-1543-23c6-190446eacf68",
-          "name": "InitializePointerReadWrite",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  " postman.setNextRequest(\"Delay\");"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "url": "InitializePointerReadWrite",
-            "method": "GET",
-            "header": [],
-            "body": {},
             "description": ""
           },
           "response": []
