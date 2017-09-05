@@ -13,74 +13,6 @@
       "description": "",
       "item": [
         {
-          "_postman_id": "38fe746d-3065-c383-c8a7-06d3bb68c4b5",
-          "name": "T_InitializeScripts",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "postman.setEnvironmentVariable(\"retryCount\", \"0\");\r",
-                  "postman.setEnvironmentVariable(\"retryDelay\", \"3\");\r",
-                  "GlobalFunctions = {\r",
-                  "setupMetadataLevel: function(iteration, postman) {\r",
-                  "    if (iteration % 3 === 0)\r",
-                  "    {\r",
-                  "      postman.setEnvironmentVariable(\"MetadataLevel\", \"none\");\r",
-                  "      console.log(\"Metadata = none\");\r",
-                  "    }\r",
-                  "    else if ( iteration % 3 === 1)\r",
-                  "    {\r",
-                  "      postman.setEnvironmentVariable(\"MetadataLevel\", \"minimal\");\r",
-                  "      console.log(\"Metadata = minimal\");\r",
-                  "    }\r",
-                  "    else if ( iteration % 3 === 2)\r",
-                  "    {\r",
-                  "      postman.setEnvironmentVariable(\"MetadataLevel\", \"full\");\r",
-                  "      console.log(\"Metadata = full\");\r",
-                  "    }\r",
-                  "},\r",
-                  "retryTest: function(requestName, testName, postman, tests) {\r",
-                  "    var retryString = postman.getEnvironmentVariable(\"retryCount\");\r",
-                  "    if (retryString === null || retryString === \"\")\r",
-                  "    {\r",
-                  "        retryString = \"0\";\r",
-                  "    }\r",
-                  "    var retryCount = parseInt(retryString);\r",
-                  "    retryCount++;\r",
-                  "    postman.setEnvironmentVariable(\"retryCount\", retryCount);\r",
-                  "    if (retryCount < 16)\r",
-                  "    {\r",
-                  "        postman.setEnvironmentVariable(\"returnRequest\", requestName);\r",
-                  "        postman.setNextRequest(\"Delay\");\r",
-                  "        console.log(\"iteration \" + retryCount);\r",
-                  "    }\r",
-                  "    else\r",
-                  "    {\r",
-                  "        postman.setEnvironmentVariable(\"retryCount\", \"0\");\r",
-                  "        tests[testName] = false;\r",
-                  "    }\r",
-                  "},\r",
-                  "delayBefore: function(requestName, postman) {\r",
-                  "    postman.setEnvironmentVariable(\"returnRequest\", requestName);\r",
-                  "    postman.setNextRequest(\"Delay\");\r",
-                  "}\r",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "url": "http://{{host}}/{{graphVersion}}/$metadata",
-            "method": "GET",
-            "header": [],
-            "body": {},
-            "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
-          },
-          "response": []
-        },
-        {
           "_postman_id": "73d30c08-5927-c903-8bb4-e5ea9e9fc30b",
           "name": "T_RefreshToken GraphReadBasic",
           "event": [
@@ -3106,25 +3038,25 @@
             "method": "POST",
             "header": [
               {
+                "description": "",
                 "key": "Authorization",
-                "value": "{{GraphAuth}}",
-                "description": ""
+                "value": "{{GraphAuth}}"
               },
               {
+                "description": "",
                 "key": "Workload-Authorization",
                 "value": "{{AADAuth}}",
-                "description": "",
                 "disabled": true
               },
               {
+                "description": "",
                 "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}",
-                "description": ""
+                "value": "application/json;odata.metadata={{MetadataLevel}}"
               },
               {
+                "description": "",
                 "key": "Content-Type",
-                "value": "application/json",
-                "description": ""
+                "value": "application/json"
               }
             ],
             "body": {
@@ -3361,20 +3293,20 @@
             "method": "GET",
             "header": [
               {
+                "description": "",
                 "key": "Authorization",
-                "value": "{{GraphAuth}}",
-                "description": ""
+                "value": "{{GraphAuth}}"
               },
               {
+                "description": "",
                 "key": "Workload-Authorization",
                 "value": "{{AADAuth}}",
-                "description": "",
                 "disabled": true
               },
               {
+                "description": "",
                 "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}",
-                "description": ""
+                "value": "application/json;odata.metadata={{MetadataLevel}}"
               }
             ],
             "body": {
@@ -3423,20 +3355,20 @@
             "method": "GET",
             "header": [
               {
+                "description": "",
                 "key": "Authorization",
-                "value": "{{GraphAuth}}",
-                "description": ""
+                "value": "{{GraphAuth}}"
               },
               {
+                "description": "",
                 "key": "Workload-Authorization",
                 "value": "{{AADAuth}}",
-                "description": "",
                 "disabled": true
               },
               {
+                "description": "",
                 "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}",
-                "description": ""
+                "value": "application/json;odata.metadata={{MetadataLevel}}"
               }
             ],
             "body": {
@@ -5598,6 +5530,74 @@
         "header": [],
         "body": {},
         "description": "Using this endpoint one can configure how long it takes for the server to come back with a response. Appending a number to the URL defines the time (in seconds) the server will wait before responding.\n\nNote that a maximum delay of 10 seconds is accepted by the server."
+      },
+      "response": []
+    },
+    {
+      "_postman_id": "38fe746d-3065-c383-c8a7-06d3bb68c4b5",
+      "name": "T_InitializeScripts",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "postman.setEnvironmentVariable(\"retryCount\", \"0\");\r",
+              "postman.setEnvironmentVariable(\"retryDelay\", \"3\");\r",
+              "GlobalFunctions = {\r",
+              "setupMetadataLevel: function(iteration, postman) {\r",
+              "    if (iteration % 3 === 0)\r",
+              "    {\r",
+              "      postman.setEnvironmentVariable(\"MetadataLevel\", \"none\");\r",
+              "      console.log(\"Metadata = none\");\r",
+              "    }\r",
+              "    else if ( iteration % 3 === 1)\r",
+              "    {\r",
+              "      postman.setEnvironmentVariable(\"MetadataLevel\", \"minimal\");\r",
+              "      console.log(\"Metadata = minimal\");\r",
+              "    }\r",
+              "    else if ( iteration % 3 === 2)\r",
+              "    {\r",
+              "      postman.setEnvironmentVariable(\"MetadataLevel\", \"full\");\r",
+              "      console.log(\"Metadata = full\");\r",
+              "    }\r",
+              "},\r",
+              "retryTest: function(requestName, testName, postman, tests) {\r",
+              "    var retryString = postman.getEnvironmentVariable(\"retryCount\");\r",
+              "    if (retryString === null || retryString === \"\")\r",
+              "    {\r",
+              "        retryString = \"0\";\r",
+              "    }\r",
+              "    var retryCount = parseInt(retryString);\r",
+              "    retryCount++;\r",
+              "    postman.setEnvironmentVariable(\"retryCount\", retryCount);\r",
+              "    if (retryCount < 16)\r",
+              "    {\r",
+              "        postman.setEnvironmentVariable(\"returnRequest\", requestName);\r",
+              "        postman.setNextRequest(\"Delay\");\r",
+              "        console.log(\"iteration \" + retryCount);\r",
+              "    }\r",
+              "    else\r",
+              "    {\r",
+              "        postman.setEnvironmentVariable(\"retryCount\", \"0\");\r",
+              "        tests[testName] = false;\r",
+              "    }\r",
+              "},\r",
+              "delayBefore: function(requestName, postman) {\r",
+              "    postman.setEnvironmentVariable(\"returnRequest\", requestName);\r",
+              "    postman.setNextRequest(\"Delay\");\r",
+              "}\r",
+              "}"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "http://{{host}}/{{graphVersion}}/$metadata",
+        "method": "GET",
+        "header": [],
+        "body": {},
+        "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
       },
       "response": []
     }
