@@ -981,7 +981,7 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/versions",
+        "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata",
         "method": "GET",
         "header": [
           {
