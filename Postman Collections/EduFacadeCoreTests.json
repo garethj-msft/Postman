@@ -6556,33 +6556,6 @@
         "description": "Using this endpoint one can configure how long it takes for the server to come back with a response. Appending a number to the URL defines the time (in seconds) the server will wait before responding.\n\nNote that a maximum delay of 10 seconds is accepted by the server."
       },
       "response": []
-    },
-    {
-      "_postman_id": "4a9d544b-041c-18f2-047c-bc04fb8942cb",
-      "name": "Delay copy",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              " tests[\"Status code is 200\"] = responseCode.code === 200;",
-              " postman.setNextRequest(postman.getEnvironmentVariable(\"returnRequest\"));"
-            ]
-          }
-        }
-      ],
-      "request": {
-        "url": "https://postman-echo.com/delay/10",
-        "method": "GET",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "description": "Using this endpoint one can configure how long it takes for the server to come back with a response. Appending a number to the URL defines the time (in seconds) the server will wait before responding.\n\nNote that a maximum delay of 10 seconds is accepted by the server."
-      },
-      "response": []
     }
   ]
 }
