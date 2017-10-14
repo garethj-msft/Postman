@@ -1256,7 +1256,8 @@
           {
             "key": "Authorization",
             "value": "{{GraphAuth}}",
-            "description": ""
+            "description": "",
+            "disabled": true
           },
           {
             "key": "Workload-Authorization",
