@@ -967,8 +967,8 @@
       "response": []
     },
     {
-      "_postman_id": "b749bc49-5335-665d-1103-905f0d98925b",
-      "name": "Get Versions",
+      "_postman_id": "fedd5f0c-856f-766a-cd70-88bef7a7ff7d",
+      "name": "Get Metadata",
       "event": [
         {
           "listen": "test",
@@ -999,8 +999,8 @@
       "response": []
     },
     {
-      "_postman_id": "fedd5f0c-856f-766a-cd70-88bef7a7ff7d",
-      "name": "Get Metadata",
+      "_postman_id": "b749bc49-5335-665d-1103-905f0d98925b",
+      "name": "Get Versions",
       "event": [
         {
           "listen": "test",
