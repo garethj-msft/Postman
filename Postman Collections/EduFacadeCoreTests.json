@@ -91,7 +91,6 @@
               "    postman.setNextRequest(\"Delay\");\r",
               "},\r",
               "reportFails: function(tests, responseCode, responseBody) {\r",
-              "  console.log(\"reportFails.\");\r",
               "  var anyFalse = false;\r",
               "  for (var name in tests)  {\r",
               "    if (tests.hasOwnProperty(name) && tests[name] === false) {\r",
