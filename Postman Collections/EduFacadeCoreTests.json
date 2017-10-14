@@ -1388,10 +1388,6 @@
         }
       ],
       "request": {
-        "auth": {
-          "type": "oAuth2",
-          "oAuth2": {}
-        },
         "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{primaryTestSchoolId}}",
         "method": "GET",
         "header": [
