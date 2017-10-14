@@ -1397,11 +1397,6 @@
             "key": "Accept",
             "value": "application/json;odata.metadata={{MetadataLevel}}",
             "description": ""
-          },
-          {
-            "key": "Authorization",
-            "value": "",
-            "description": ""
           }
         ],
         "body": {
