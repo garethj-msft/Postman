@@ -967,38 +967,6 @@
       "response": []
     },
     {
-      "_postman_id": "fedd5f0c-856f-766a-cd70-88bef7a7ff7d",
-      "name": "Get Metadata",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;"
-            ]
-          }
-        }
-      ],
-      "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata",
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "description": ""
-      },
-      "response": []
-    },
-    {
       "_postman_id": "b749bc49-5335-665d-1103-905f0d98925b",
       "name": "Get Versions",
       "event": [
@@ -1052,6 +1020,38 @@
       ],
       "request": {
         "url": "{{https}}://{{host}}/versions/{{graphVersion}}",
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "_postman_id": "fedd5f0c-856f-766a-cd70-88bef7a7ff7d",
+      "name": "Get Metadata",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata",
         "method": "GET",
         "header": [
           {
