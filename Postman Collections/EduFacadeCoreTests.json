@@ -4082,7 +4082,7 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata",
+        "url": "https://postman-echo.com/get",
         "method": "GET",
         "header": [],
         "body": {
