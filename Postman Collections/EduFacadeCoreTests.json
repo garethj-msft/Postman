@@ -28,6 +28,10 @@
             "exec": [
               "postman.setEnvironmentVariable(\"retryCount\", \"0\");\r",
               "postman.setEnvironmentVariable(\"retryDelay\", \"3\");\r",
+              "if (postman.hasEnvironmentVariable(\"authType\") === false)\r",
+              "{\r",
+              "  postman.setEnvironmentVariable(\"authType\", 'appOnly');  \r",
+              "}\r",
               "if (iteration === 0)\r",
               "{\r",
               "    // Remember the initial authType so we can switch on later iterations\r",
