@@ -28,7 +28,7 @@
             "exec": [
               "postman.setEnvironmentVariable(\"retryCount\", \"0\");\r",
               "postman.setEnvironmentVariable(\"retryDelay\", \"3\");\r",
-              "if (postman.hasEnvironmentVariable(\"authType\") === false)\r",
+              "if (pm.environment.has(\"authType\") === false)\r",
               "{\r",
               "  postman.setEnvironmentVariable(\"authType\", 'appOnly');  \r",
               "}\r",
@@ -111,7 +111,7 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata",
+        "url": "https://postman-echo.com/get",
         "method": "GET",
         "header": [],
         "body": {},
