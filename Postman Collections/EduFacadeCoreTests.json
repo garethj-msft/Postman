@@ -1225,10 +1225,6 @@
         }
       ],
       "request": {
-        "auth": {
-          "type": "oAuth2",
-          "oAuth2": {}
-        },
         "url": {
           "raw": "{{https}}://{{host}}/{{graphVersion}}/education/schools?$filter=displayName eq 'PrimaryTestSchool'",
           "protocol": "{{https}}",
@@ -1256,8 +1252,7 @@
           {
             "key": "Authorization",
             "value": "{{GraphAuth}}",
-            "description": "",
-            "disabled": true
+            "description": ""
           },
           {
             "key": "Workload-Authorization",
