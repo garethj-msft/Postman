@@ -1000,7 +1000,7 @@
     },
     {
       "_postman_id": "fedd5f0c-856f-766a-cd70-88bef7a7ff7d",
-      "name": "Get Versions copy",
+      "name": "Get Metadata",
       "event": [
         {
           "listen": "test",
