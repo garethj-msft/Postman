@@ -1394,12 +1394,6 @@
         "method": "GET",
         "header": [
           {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "description": "",
-            "disabled": true
-          },
-          {
             "key": "Accept",
             "value": "application/json;odata.metadata={{MetadataLevel}}",
             "description": ""
@@ -1407,7 +1401,8 @@
           {
             "key": "Authorization",
             "value": "{{GraphAuth}}",
-            "description": ""
+            "description": "",
+            "disabled": true
           }
         ],
         "body": {
