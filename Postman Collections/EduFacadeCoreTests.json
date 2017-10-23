@@ -6560,8 +6560,8 @@
       "response": []
     },
     {
-      "_postman_id": "ac80506c-756f-9280-cf1f-f9dc4788b9b3",
-      "name": "Make a Teacher copy",
+      "_postman_id": "51063015-95f3-c59d-a6c6-61538589f8e9",
+      "name": "Make a School copy",
       "event": [
         {
           "listen": "test",
@@ -6572,18 +6572,16 @@
               "if(!expectedSuccess)",
               "{",
               "    tests[\"Status code is 403\"] = responseCode.code === 403;",
-              "    postman.setEnvironmentVariable(\"justCreatedId\", \"9900AA5E-8EBF-4407-B151-CBCF310F1383\"); // Dummy GUID",
+              "    postman.setEnvironmentVariable(\"justCreatedId\", \"9900AA5E-8EBF-4407-B151-CBCF310F1383\"); // Dummy guid",
               "}",
               "else",
               "{",
               "    tests[\"Status code is 201\"] = responseCode.code === 201;",
-              "    tests[\"User created\"] = responseBody.has('\"id\":')",
+              "    tests[\"School created\"] = responseBody.has('\"id\":')",
               "    if (responseBody.has('\"id\":'))",
               "    {",
               "        var jsonData = JSON.parse(responseBody);",
-              "        tests[\"Role set\"] = jsonData.primaryRole === 'teacher';",
-              "        tests[\"TeacherNumber set\"] = jsonData.teacher.teacherNumber === '456';",
-              "        postman.setEnvironmentVariable(\"justCreatedId\", jsonData.id)",
+              "        postman.setEnvironmentVariable(\"justCreatedId\", jsonData.id);",
               "    }",
               "}"
             ]
@@ -6606,7 +6604,7 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users",
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools",
         "method": "POST",
         "header": [
           {
@@ -6633,7 +6631,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"@odata.type\": \"microsoft.graph.educationUser\",\n  \"accountEnabled\": true,\n  \"displayName\":\"Teacher TestRun{{currentRandom}}\",\n  \"mailNickname\": \"TeacherTR{{currentRandom}}\",\n  \"userPrincipalName\": \"TeacherTR{{currentRandom}}@{{tenantDomain}}\",\n  \"middleName\": \"Middle\",\n  \"passwordProfile\":{\n    \"forceChangePasswordNextSignIn\": false,\n    \"password\": \"!!abc123\"\n  },\n  \"primaryRole\": \"Teacher\",\n  \"teacher\": {\n    \"teacherNumber\": \"456\",\n    \"externalId\": \"123\"\n  }\n}"
+          "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationSchool\",\n\t\"displayName\":\"SchoolTestRun{{currentRandom}}\",\n\t\"description\": \"A lovely school to test.\",\n\t\"externalSource\": \"SIS\",\n\t\"address\": {\n\t    \"street\": \"1 Bash Street\",\n\t    \"city\": \"Redmond\",\n\t    \"state\": \"WA\",\n\t    \"countryOrRegion\": \"USA\",\n\t    \"postalCode\": \"98052\"\n \t}\n}"
         },
         "description": ""
       },
