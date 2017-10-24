@@ -2876,8 +2876,8 @@
           "script": {
             "type": "text/javascript",
             "exec": [
-              "tests[\"Status code is 404\"] = responseCode.code === 404;",
-              "tests[\"Good error\"] = responseBody.has(\"Resource not found\");"
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "tests[\"PrimaryRole appropriate\"] = !responseBody.has(\"primaryRole\");"
             ]
           }
         },
@@ -2899,20 +2899,20 @@
         "method": "GET",
         "header": [
           {
-            "description": "",
             "key": "Authorization",
-            "value": "{{GraphAuth}}"
+            "value": "{{GraphAuth}}",
+            "description": ""
           },
           {
-            "description": "",
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
+            "description": "",
             "disabled": true
           },
           {
-            "description": "",
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
+            "value": "application/json;odata.metadata={{MetadataLevel}}",
+            "description": ""
           }
         ],
         "body": {
