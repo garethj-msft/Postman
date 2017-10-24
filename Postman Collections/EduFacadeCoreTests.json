@@ -4239,8 +4239,8 @@
       "response": []
     },
     {
-      "_postman_id": "92f7b388-86e1-a797-68e7-7bd7c00c3df3",
-      "name": "Add a School Class copy",
+      "_postman_id": "12df80c0-0c40-ddbc-ea46-a0ac425560b1",
+      "name": "Add a School User",
       "event": [
         {
           "listen": "test",
@@ -4255,7 +4255,10 @@
               "else",
               "{",
               "    tests[\"Status code is 204\"] = responseCode.code === 204;",
-              "}"
+              "    postman.setEnvironmentVariable(\"retryCount\", \"0\");",
+              "    GlobalFunctions.delayBefore(\"Check just added Class\", postman);",
+              "}",
+              ""
             ]
           }
         },
@@ -4273,7 +4276,7 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/classes/$ref",
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/users/$ref",
         "method": "POST",
         "header": [
           {
@@ -4300,15 +4303,15 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{  \n\t\"@odata.id\":\"https://{{host}}/{{graphVersion}}/education/classes/{{primaryTestClassId}}\" \n}\n"
+          "raw": "{  \n\t\"@odata.id\":\"https://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}\" \n}\n"
         },
         "description": ""
       },
       "response": []
     },
     {
-      "_postman_id": "12df80c0-0c40-ddbc-ea46-a0ac425560b1",
-      "name": "Add a School User",
+      "_postman_id": "a6014642-b743-e010-2da6-0bcc4d9e9480",
+      "name": "Add a School User copy",
       "event": [
         {
           "listen": "test",
@@ -6624,77 +6627,6 @@
           "raw": ""
         },
         "description": "Using this endpoint one can configure how long it takes for the server to come back with a response. Appending a number to the URL defines the time (in seconds) the server will wait before responding.\n\nNote that a maximum delay of 10 seconds is accepted by the server."
-      },
-      "response": []
-    },
-    {
-      "_postman_id": "a6014642-b743-e010-2da6-0bcc4d9e9480",
-      "name": "Add a School User copy",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-              "if(!expectedSuccess)",
-              "{",
-              "    tests[\"Status code is 403\"] = responseCode.code === 403;",
-              "}",
-              "else",
-              "{",
-              "    tests[\"Status code is 204\"] = responseCode.code === 204;",
-              "    postman.setEnvironmentVariable(\"retryCount\", \"0\");",
-              "    GlobalFunctions.delayBefore(\"Check just added Class\", postman);",
-              "}",
-              ""
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
-            ]
-          }
-        }
-      ],
-      "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/users/$ref",
-        "method": "POST",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "description": "",
-            "disabled": true
-          },
-          {
-            "key": "Content-Type",
-            "value": "application/json",
-            "description": ""
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{  \n\t\"@odata.id\":\"https://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}\" \n}\n"
-        },
-        "description": ""
       },
       "response": []
     }
