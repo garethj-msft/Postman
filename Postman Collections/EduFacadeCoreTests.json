@@ -3069,7 +3069,7 @@
     },
     {
       "_postman_id": "f09e19e9-c921-9a6f-eb5f-a36a7e99de10",
-      "name": "Get EDU me schools",
+      "name": "Get EDU me cschools",
       "event": [
         {
           "listen": "test",
