@@ -3069,7 +3069,7 @@
     },
     {
       "_postman_id": "f09e19e9-c921-9a6f-eb5f-a36a7e99de10",
-      "name": "Get EDU me schools",
+      "name": "Get EDU me classes copy",
       "event": [
         {
           "listen": "test",
@@ -3077,7 +3077,7 @@
             "type": "text/javascript",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "// tests[\"Schools found\"] = responseBody.has('\"id\":')"
+              "tests[\"Classes found\"] = responseBody.has('\"id\":')"
             ]
           }
         },
@@ -3095,7 +3095,7 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/me/schools",
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/me/classes",
         "method": "GET",
         "header": [
           {
