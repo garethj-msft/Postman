@@ -3013,7 +3013,7 @@
     },
     {
       "_postman_id": "397a95c7-2bc6-eaf4-a054-220ab9bd7b1a",
-      "name": "Get EDU me copy",
+      "name": "Get EDU me classes",
       "event": [
         {
           "listen": "test",
