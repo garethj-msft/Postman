@@ -3077,7 +3077,7 @@
             "type": "text/javascript",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "// tests[\"Schools found\"] = responseBody.has('\"id\":')"
+              "tests[\"Schools found\"] = responseBody.has('\"id\":')"
             ]
           }
         },
