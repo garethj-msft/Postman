@@ -110,10 +110,10 @@
         }
       ],
       "request": {
-        "url": "https://postman-echo.com/get",
         "method": "GET",
         "header": [],
         "body": {},
+        "url": "https://postman-echo.com/get",
         "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
       },
       "response": []
@@ -139,7 +139,6 @@
         }
       ],
       "request": {
-        "url": "https://{{loginHost}}/{{tenantDomain}}/oauth2/token",
         "method": "POST",
         "header": [],
         "body": {
@@ -167,6 +166,7 @@
             }
           ]
         },
+        "url": "https://{{loginHost}}/{{tenantDomain}}/oauth2/token",
         "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
       },
       "response": []
@@ -193,7 +193,6 @@
         }
       ],
       "request": {
-        "url": "https://{{loginHost}}/common/oauth2/token",
         "method": "POST",
         "header": [],
         "body": {
@@ -231,6 +230,7 @@
             }
           ]
         },
+        "url": "https://{{loginHost}}/common/oauth2/token",
         "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
       },
       "response": []
@@ -276,10 +276,29 @@
         }
       ],
       "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}"
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{  \"@odata.type\":\"microsoft.graph.group\",\n   \"displayName\":\"GarethClass28\",\n   \"mailNickname\":\"class282\",\n   \"mailEnabled\":true,\n   \"securityEnabled\":false,\n   \"extension_fe2174665583431c953114ff7268b7b3_Education_Period\":\"5\",\n   \"groupTypes\":[\"Unified\"]}"
+        },
         "url": {
           "raw": "{{https}}://{{host}}/{{graphVersion}}/groups?$filter=displayName eq 'noneducationgroup'",
           "protocol": "{{https}}",
-          "auth": {},
           "host": [
             "{{host}}"
           ],
@@ -289,36 +308,11 @@
           ],
           "query": [
             {
-              "description": "",
               "equals": true,
               "key": "$filter",
               "value": "displayName eq 'noneducationgroup'"
             }
-          ],
-          "variable": []
-        },
-        "method": "GET",
-        "header": [
-          {
-            "description": "",
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          },
-          {
-            "description": "",
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "disabled": true
-          },
-          {
-            "description": "",
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{  \"@odata.type\":\"microsoft.graph.group\",\n   \"displayName\":\"GarethClass28\",\n   \"mailNickname\":\"class282\",\n   \"mailEnabled\":true,\n   \"securityEnabled\":false,\n   \"extension_fe2174665583431c953114ff7268b7b3_Education_Period\":\"5\",\n   \"groupTypes\":[\"Unified\"]}"
+          ]
         },
         "description": ""
       },
@@ -365,10 +359,29 @@
         }
       ],
       "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}"
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{  \"@odata.type\":\"microsoft.graph.group\",\n   \"displayName\":\"GarethClass28\",\n   \"mailNickname\":\"class282\",\n   \"mailEnabled\":true,\n   \"securityEnabled\":false,\n   \"extension_fe2174665583431c953114ff7268b7b3_Education_Period\":\"5\",\n   \"groupTypes\":[\"Unified\"]}"
+        },
         "url": {
           "raw": "{{https}}://{{host}}/{{graphVersion}}/users?$filter=displayName eq 'SchoolAdministrator'",
           "protocol": "{{https}}",
-          "auth": {},
           "host": [
             "{{host}}"
           ],
@@ -378,36 +391,11 @@
           ],
           "query": [
             {
-              "description": "",
               "equals": true,
               "key": "$filter",
               "value": "displayName eq 'SchoolAdministrator'"
             }
-          ],
-          "variable": []
-        },
-        "method": "GET",
-        "header": [
-          {
-            "description": "",
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          },
-          {
-            "description": "",
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "disabled": true
-          },
-          {
-            "description": "",
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{  \"@odata.type\":\"microsoft.graph.group\",\n   \"displayName\":\"GarethClass28\",\n   \"mailNickname\":\"class282\",\n   \"mailEnabled\":true,\n   \"securityEnabled\":false,\n   \"extension_fe2174665583431c953114ff7268b7b3_Education_Period\":\"5\",\n   \"groupTypes\":[\"Unified\"]}"
+          ]
         },
         "description": ""
       },
@@ -460,10 +448,29 @@
         }
       ],
       "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}"
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
         "url": {
           "raw": "{{https}}://{{host}}/{{graphVersion}}/groups?$filter=displayName eq 'PrimaryTestClass'",
           "protocol": "{{https}}",
-          "auth": {},
           "host": [
             "{{host}}"
           ],
@@ -475,34 +482,9 @@
             {
               "key": "$filter",
               "value": "displayName eq 'PrimaryTestClass'",
-              "equals": true,
-              "description": ""
+              "equals": true
             }
-          ],
-          "variable": []
-        },
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "description": "",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
+          ]
         },
         "description": ""
       },
@@ -555,10 +537,29 @@
         }
       ],
       "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}"
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
         "url": {
           "raw": "{{https}}://{{host}}/{{graphVersion}}/administrativeUnits?$filter=displayName eq 'PrimaryTestSchool'",
           "protocol": "{{https}}",
-          "auth": {},
           "host": [
             "{{host}}"
           ],
@@ -570,34 +571,9 @@
             {
               "key": "$filter",
               "value": "displayName eq 'PrimaryTestSchool'",
-              "equals": true,
-              "description": ""
+              "equals": true
             }
-          ],
-          "variable": []
-        },
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "description": "",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
+          ]
         },
         "description": ""
       },
@@ -650,10 +626,29 @@
         }
       ],
       "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}"
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
         "url": {
           "raw": "{{https}}://{{host}}/{{graphVersion}}/users?$filter=displayName eq 'PrimaryTestUser'",
           "protocol": "{{https}}",
-          "auth": {},
           "host": [
             "{{host}}"
           ],
@@ -665,34 +660,9 @@
             {
               "key": "$filter",
               "value": "displayName eq 'PrimaryTestUser'",
-              "equals": true,
-              "description": ""
+              "equals": true
             }
-          ],
-          "variable": []
-        },
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "description": "",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
+          ]
         },
         "description": ""
       },
@@ -743,30 +713,27 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/users",
         "method": "GET",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": ""
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/users",
         "description": ""
       },
       "response": []
@@ -797,13 +764,13 @@
         }
       ],
       "request": {
-        "url": "https://postman-echo.com/get",
         "method": "GET",
         "header": [],
         "body": {
           "mode": "raw",
           "raw": ""
         },
+        "url": "https://postman-echo.com/get",
         "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
       },
       "response": []
@@ -839,7 +806,6 @@
         }
       ],
       "request": {
-        "url": "https://{{loginHost}}/common/oauth2/token",
         "method": "POST",
         "header": [],
         "body": {
@@ -872,6 +838,7 @@
             }
           ]
         },
+        "url": "https://{{loginHost}}/common/oauth2/token",
         "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
       },
       "response": []
@@ -906,7 +873,6 @@
         }
       ],
       "request": {
-        "url": "https://{{loginHost}}/{{tenantDomain}}/oauth2/token",
         "method": "POST",
         "header": [],
         "body": {
@@ -934,6 +900,7 @@
             }
           ]
         },
+        "url": "https://{{loginHost}}/{{tenantDomain}}/oauth2/token",
         "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
       },
       "response": []
@@ -955,13 +922,13 @@
         }
       ],
       "request": {
-        "url": "https://postman-echo.com/get",
         "method": "GET",
         "header": [],
         "body": {
           "mode": "raw",
           "raw": ""
         },
+        "url": "https://postman-echo.com/get",
         "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
       },
       "response": []
@@ -981,19 +948,18 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/versions",
         "method": "GET",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": ""
         },
+        "url": "{{https}}://{{host}}/versions",
         "description": ""
       },
       "response": []
@@ -1019,19 +985,18 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/versions/{{graphVersion}}",
         "method": "GET",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": ""
         },
+        "url": "{{https}}://{{host}}/versions/{{graphVersion}}",
         "description": ""
       },
       "response": []
@@ -1051,19 +1016,18 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata",
         "method": "GET",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": ""
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata",
         "description": ""
       },
       "response": []
@@ -1083,19 +1047,18 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/schemas/Microsoft.EducationRosteringAPIS",
         "method": "GET",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": ""
         },
+        "url": "{{https}}://{{host}}/schemas/Microsoft.EducationRosteringAPIS",
         "description": ""
       },
       "response": []
@@ -1115,18 +1078,15 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education",
         "method": "GET",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           }
         ],
@@ -1134,6 +1094,7 @@
           "mode": "raw",
           "raw": ""
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education",
         "description": ""
       },
       "response": []
@@ -1170,27 +1131,24 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools",
         "method": "GET",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {},
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools",
         "description": ""
       },
       "response": []
@@ -1227,10 +1185,29 @@
         }
       ],
       "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}"
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
         "url": {
           "raw": "{{https}}://{{host}}/{{graphVersion}}/education/schools?$filter=displayName eq 'PrimaryTestSchool'",
           "protocol": "{{https}}",
-          "auth": {},
           "host": [
             "{{host}}"
           ],
@@ -1243,34 +1220,9 @@
             {
               "key": "$filter",
               "value": "displayName eq 'PrimaryTestSchool' ",
-              "equals": true,
-              "description": ""
+              "equals": true
             }
-          ],
-          "variable": []
-        },
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "description": "",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
+          ]
         },
         "description": ""
       },
@@ -1308,10 +1260,29 @@
         }
       ],
       "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}"
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
         "url": {
           "raw": "{{https}}://{{host}}/{{graphVersion}}/education/schools?$expand=classes",
           "protocol": "{{https}}",
-          "auth": {},
           "host": [
             "{{host}}"
           ],
@@ -1324,34 +1295,9 @@
             {
               "key": "$expand",
               "value": "classes",
-              "equals": true,
-              "description": ""
+              "equals": true
             }
-          ],
-          "variable": []
-        },
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "description": "",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
+          ]
         },
         "description": ""
       },
@@ -1388,24 +1334,22 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{primaryTestSchoolId}}",
         "method": "GET",
         "header": [
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           },
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": ""
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{primaryTestSchoolId}}",
         "description": ""
       },
       "response": []
@@ -1442,10 +1386,29 @@
         }
       ],
       "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}"
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
         "url": {
           "raw": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{primaryTestSchoolId}}?$expand=classes",
           "protocol": "{{https}}",
-          "auth": {},
           "host": [
             "{{host}}"
           ],
@@ -1459,34 +1422,9 @@
             {
               "key": "$expand",
               "value": "classes",
-              "equals": true,
-              "description": ""
+              "equals": true
             }
-          ],
-          "variable": []
-        },
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "description": "",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
+          ]
         },
         "description": ""
       },
@@ -1524,30 +1462,27 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{primaryTestSchoolId}}/classes",
         "method": "GET",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": ""
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{primaryTestSchoolId}}/classes",
         "description": ""
       },
       "response": []
@@ -1599,22 +1534,18 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes",
         "method": "GET",
         "header": [
           {
-            "description": "",
             "key": "Authorization",
             "value": "{{GraphAuth}}"
           },
           {
-            "description": "",
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
             "disabled": true
           },
           {
-            "description": "",
             "key": "Accept",
             "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
@@ -1623,6 +1554,7 @@
           "mode": "raw",
           "raw": ""
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes",
         "description": ""
       },
       "response": []
@@ -1655,10 +1587,29 @@
         }
       ],
       "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}"
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
         "url": {
           "raw": "{{https}}://{{host}}/{{graphVersion}}/education/classes?filter=displayName eq 'PrimaryTestClass' and mailNickname eq 'PrimaryTestClass'",
           "protocol": "{{https}}",
-          "auth": {},
           "host": [
             "{{host}}"
           ],
@@ -1671,34 +1622,9 @@
             {
               "key": "filter",
               "value": "displayName eq 'PrimaryTestClass' and mailNickname eq 'PrimaryTestClass'",
-              "equals": true,
-              "description": ""
+              "equals": true
             }
-          ],
-          "variable": []
-        },
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "description": "",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
+          ]
         },
         "description": ""
       },
@@ -1732,10 +1658,29 @@
         }
       ],
       "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}"
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
         "url": {
           "raw": "{{https}}://{{host}}/{{graphVersion}}/education/classes?$expand=members",
           "protocol": "{{https}}",
-          "auth": {},
           "host": [
             "{{host}}"
           ],
@@ -1746,36 +1691,11 @@
           ],
           "query": [
             {
-              "description": "",
               "equals": true,
               "key": "$expand",
               "value": "members"
             }
-          ],
-          "variable": []
-        },
-        "method": "GET",
-        "header": [
-          {
-            "description": "",
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          },
-          {
-            "description": "",
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "disabled": true
-          },
-          {
-            "description": "",
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
+          ]
         },
         "description": ""
       },
@@ -1809,10 +1729,29 @@
         }
       ],
       "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}"
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
         "url": {
           "raw": "{{https}}://{{host}}/{{graphVersion}}/education/classes?$expand=teachers",
           "protocol": "{{https}}",
-          "auth": {},
           "host": [
             "{{host}}"
           ],
@@ -1823,36 +1762,11 @@
           ],
           "query": [
             {
-              "description": "",
               "equals": true,
               "key": "$expand",
               "value": "teachers"
             }
-          ],
-          "variable": []
-        },
-        "method": "GET",
-        "header": [
-          {
-            "description": "",
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          },
-          {
-            "description": "",
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "disabled": true
-          },
-          {
-            "description": "",
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
+          ]
         },
         "description": ""
       },
@@ -1886,10 +1800,29 @@
         }
       ],
       "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}"
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
         "url": {
           "raw": "{{https}}://{{host}}/{{graphVersion}}/education/classes?$expand=schools",
           "protocol": "{{https}}",
-          "auth": {},
           "host": [
             "{{host}}"
           ],
@@ -1902,34 +1835,9 @@
             {
               "key": "$expand",
               "value": "schools",
-              "equals": true,
-              "description": ""
+              "equals": true
             }
-          ],
-          "variable": []
-        },
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "description": "",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
+          ]
         },
         "description": ""
       },
@@ -1962,22 +1870,18 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{primaryTestClassId}}",
         "method": "GET",
         "header": [
           {
-            "description": "",
             "key": "Authorization",
             "value": "{{GraphAuth}}"
           },
           {
-            "description": "",
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
             "disabled": true
           },
           {
-            "description": "",
             "key": "Accept",
             "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
@@ -1986,6 +1890,7 @@
           "mode": "raw",
           "raw": ""
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{primaryTestClassId}}",
         "description": ""
       },
       "response": []
@@ -2018,10 +1923,29 @@
         }
       ],
       "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}"
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
         "url": {
           "raw": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{primaryTestClassId}}?$expand=members",
           "protocol": "{{https}}",
-          "auth": {},
           "host": [
             "{{host}}"
           ],
@@ -2033,36 +1957,11 @@
           ],
           "query": [
             {
-              "description": "",
               "equals": true,
               "key": "$expand",
               "value": "members"
             }
-          ],
-          "variable": []
-        },
-        "method": "GET",
-        "header": [
-          {
-            "description": "",
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          },
-          {
-            "description": "",
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "disabled": true
-          },
-          {
-            "description": "",
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
+          ]
         },
         "description": ""
       },
@@ -2096,10 +1995,29 @@
         }
       ],
       "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}"
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
         "url": {
           "raw": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{primaryTestClassId}}?$expand=teachers",
           "protocol": "{{https}}",
-          "auth": {},
           "host": [
             "{{host}}"
           ],
@@ -2111,36 +2029,11 @@
           ],
           "query": [
             {
-              "description": "",
               "equals": true,
               "key": "$expand",
               "value": "teachers"
             }
-          ],
-          "variable": []
-        },
-        "method": "GET",
-        "header": [
-          {
-            "description": "",
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          },
-          {
-            "description": "",
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "disabled": true
-          },
-          {
-            "description": "",
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
+          ]
         },
         "description": ""
       },
@@ -2174,10 +2067,29 @@
         }
       ],
       "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}"
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
         "url": {
           "raw": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{primaryTestClassId}}?$expand=schools",
           "protocol": "{{https}}",
-          "auth": {},
           "host": [
             "{{host}}"
           ],
@@ -2189,36 +2101,11 @@
           ],
           "query": [
             {
-              "description": "",
               "equals": true,
               "key": "$expand",
               "value": "schools"
             }
-          ],
-          "variable": []
-        },
-        "method": "GET",
-        "header": [
-          {
-            "description": "",
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          },
-          {
-            "description": "",
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "disabled": true
-          },
-          {
-            "description": "",
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
+          ]
         },
         "description": ""
       },
@@ -2252,22 +2139,18 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{primaryTestClassId}}/members",
         "method": "GET",
         "header": [
           {
-            "description": "",
             "key": "Authorization",
             "value": "{{GraphAuth}}"
           },
           {
-            "description": "",
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
             "disabled": true
           },
           {
-            "description": "",
             "key": "Accept",
             "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
@@ -2276,6 +2159,7 @@
           "mode": "raw",
           "raw": ""
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{primaryTestClassId}}/members",
         "description": ""
       },
       "response": []
@@ -2308,22 +2192,18 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{primaryTestClassId}}/teachers",
         "method": "GET",
         "header": [
           {
-            "description": "",
             "key": "Authorization",
             "value": "{{GraphAuth}}"
           },
           {
-            "description": "",
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
             "disabled": true
           },
           {
-            "description": "",
             "key": "Accept",
             "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
@@ -2332,6 +2212,7 @@
           "mode": "raw",
           "raw": ""
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{primaryTestClassId}}/teachers",
         "description": ""
       },
       "response": []
@@ -2364,22 +2245,18 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{primaryTestClassId}}/schools",
         "method": "GET",
         "header": [
           {
-            "description": "",
             "key": "Authorization",
             "value": "{{GraphAuth}}"
           },
           {
-            "description": "",
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
             "disabled": true
           },
           {
-            "description": "",
             "key": "Accept",
             "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
@@ -2388,6 +2265,7 @@
           "mode": "raw",
           "raw": ""
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{primaryTestClassId}}/schools",
         "description": ""
       },
       "response": []
@@ -2421,30 +2299,27 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{nonEducationGroupId}}",
         "method": "GET",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": "{  \"@odata.type\":\"microsoft.graph.group\",\n   \"displayName\":\"GarethClass28\",\n   \"mailNickname\":\"class282\",\n   \"mailEnabled\":true,\n   \"securityEnabled\":false,\n   \"extension_fe2174665583431c953114ff7268b7b3_Education_Period\":\"5\",\n   \"groupTypes\":[\"Unified\"]}"
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{nonEducationGroupId}}",
         "description": ""
       },
       "response": []
@@ -2477,30 +2352,27 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}",
         "method": "GET",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}",
         "description": ""
       },
       "response": []
@@ -2533,10 +2405,29 @@
         }
       ],
       "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}"
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
+        },
         "url": {
           "raw": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}?$expand=schools",
           "protocol": "{{https}}",
-          "auth": {},
           "host": [
             "{{host}}"
           ],
@@ -2550,34 +2441,9 @@
             {
               "key": "$expand",
               "value": "schools",
-              "equals": true,
-              "description": ""
+              "equals": true
             }
-          ],
-          "variable": []
-        },
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "description": "",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
+          ]
         },
         "description": ""
       },
@@ -2615,10 +2481,29 @@
         }
       ],
       "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}"
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
+        },
         "url": {
           "raw": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}?$expand=classes",
           "protocol": "{{https}}",
-          "auth": {},
           "host": [
             "{{host}}"
           ],
@@ -2632,34 +2517,9 @@
             {
               "key": "$expand",
               "value": "classes",
-              "equals": true,
-              "description": ""
+              "equals": true
             }
-          ],
-          "variable": []
-        },
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "description": "",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
+          ]
         },
         "description": ""
       },
@@ -2697,10 +2557,29 @@
         }
       ],
       "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}"
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
+        },
         "url": {
           "raw": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}?$expand=schools,classes",
           "protocol": "{{https}}",
-          "auth": {},
           "host": [
             "{{host}}"
           ],
@@ -2714,34 +2593,9 @@
             {
               "key": "$expand",
               "value": "schools,classes",
-              "equals": true,
-              "description": ""
+              "equals": true
             }
-          ],
-          "variable": []
-        },
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "description": "",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
+          ]
         },
         "description": ""
       },
@@ -2775,30 +2629,27 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}/schools",
         "method": "GET",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}/schools",
         "description": ""
       },
       "response": []
@@ -2839,30 +2690,27 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}/classes",
         "method": "GET",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}/classes",
         "description": ""
       },
       "response": []
@@ -2895,30 +2743,27 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{nonEducationUserId}}",
         "method": "GET",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": "{  \"@odata.type\":\"microsoft.graph.group\",\n   \"displayName\":\"GarethClass28\",\n   \"mailNickname\":\"class282\",\n   \"mailEnabled\":true,\n   \"securityEnabled\":false,\n   \"extension_fe2174665583431c953114ff7268b7b3_Education_Period\":\"5\",\n   \"groupTypes\":[\"Unified\"]}"
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{nonEducationUserId}}",
         "description": ""
       },
       "response": []
@@ -2944,13 +2789,13 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata",
         "method": "GET",
         "header": [],
         "body": {
           "mode": "raw",
           "raw": ""
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata",
         "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
       },
       "response": []
@@ -2983,22 +2828,18 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/me",
         "method": "GET",
         "header": [
           {
-            "description": "",
             "key": "Authorization",
             "value": "{{GraphAuth}}"
           },
           {
-            "description": "",
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
             "disabled": true
           },
           {
-            "description": "",
             "key": "Accept",
             "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
@@ -3007,6 +2848,7 @@
           "mode": "raw",
           "raw": ""
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/me",
         "description": ""
       },
       "response": []
@@ -3039,30 +2881,27 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/me/classes",
         "method": "GET",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": ""
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/me/classes",
         "description": ""
       },
       "response": []
@@ -3095,30 +2934,27 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/me/schools",
         "method": "GET",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": ""
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/me/schools",
         "description": ""
       },
       "response": []
@@ -3138,13 +2974,13 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata",
         "method": "GET",
         "header": [],
         "body": {
           "mode": "raw",
           "raw": ""
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata",
         "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
       },
       "response": []
@@ -3177,13 +3013,13 @@
         }
       ],
       "request": {
-        "url": "https://postman-echo.com/get",
         "method": "GET",
         "header": [],
         "body": {
           "mode": "raw",
           "raw": ""
         },
+        "url": "https://postman-echo.com/get",
         "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
       },
       "response": []
@@ -3219,7 +3055,6 @@
         }
       ],
       "request": {
-        "url": "https://{{loginHost}}/common/oauth2/token",
         "method": "POST",
         "header": [],
         "body": {
@@ -3257,6 +3092,7 @@
             }
           ]
         },
+        "url": "https://{{loginHost}}/common/oauth2/token",
         "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
       },
       "response": []
@@ -3291,7 +3127,6 @@
         }
       ],
       "request": {
-        "url": "https://{{loginHost}}/{{tenantDomain}}/oauth2/token",
         "method": "POST",
         "header": [],
         "body": {
@@ -3319,6 +3154,7 @@
             }
           ]
         },
+        "url": "https://{{loginHost}}/{{tenantDomain}}/oauth2/token",
         "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
       },
       "response": []
@@ -3340,13 +3176,13 @@
         }
       ],
       "request": {
-        "url": "https://postman-echo.com/get",
         "method": "GET",
         "header": [],
         "body": {
           "mode": "raw",
           "raw": ""
         },
+        "url": "https://postman-echo.com/get",
         "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
       },
       "response": []
@@ -3389,30 +3225,27 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users",
         "method": "GET",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users",
         "description": ""
       },
       "response": []
@@ -3455,10 +3288,29 @@
         }
       ],
       "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}"
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
         "url": {
           "raw": "{{https}}://{{host}}/{{graphVersion}}/education/users?$filter=displayName eq 'PrimaryTestUser'",
           "protocol": "{{https}}",
-          "auth": {},
           "host": [
             "{{host}}"
           ],
@@ -3471,34 +3323,9 @@
             {
               "key": "$filter",
               "value": "displayName eq 'PrimaryTestUser'",
-              "equals": true,
-              "description": ""
+              "equals": true
             }
-          ],
-          "variable": []
-        },
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "description": "",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
+          ]
         },
         "description": ""
       },
@@ -3540,10 +3367,29 @@
         }
       ],
       "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}"
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
+        },
         "url": {
           "raw": "{{https}}://{{host}}/{{graphVersion}}/education/users?$expand=schools",
           "protocol": "{{https}}",
-          "auth": {},
           "host": [
             "{{host}}"
           ],
@@ -3556,34 +3402,9 @@
             {
               "key": "$expand",
               "value": "schools",
-              "equals": true,
-              "description": ""
+              "equals": true
             }
-          ],
-          "variable": []
-        },
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "description": "",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
+          ]
         },
         "description": ""
       },
@@ -3625,10 +3446,29 @@
         }
       ],
       "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}"
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
+        },
         "url": {
           "raw": "{{https}}://{{host}}/{{graphVersion}}/education/users?$expand=classes",
           "protocol": "{{https}}",
-          "auth": {},
           "host": [
             "{{host}}"
           ],
@@ -3641,34 +3481,9 @@
             {
               "key": "$expand",
               "value": "classes",
-              "equals": true,
-              "description": ""
+              "equals": true
             }
-          ],
-          "variable": []
-        },
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "description": "",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
+          ]
         },
         "description": ""
       },
@@ -3710,10 +3525,29 @@
         }
       ],
       "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}"
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
+        },
         "url": {
           "raw": "{{https}}://{{host}}/{{graphVersion}}/education/users?$expand=classes,schools",
           "protocol": "{{https}}",
-          "auth": {},
           "host": [
             "{{host}}"
           ],
@@ -3726,34 +3560,9 @@
             {
               "key": "$expand",
               "value": "classes,schools",
-              "equals": true,
-              "description": ""
+              "equals": true
             }
-          ],
-          "variable": []
-        },
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "description": "",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
+          ]
         },
         "description": ""
       },
@@ -3800,30 +3609,27 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}",
         "method": "GET",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}",
         "description": ""
       },
       "response": []
@@ -3868,27 +3674,24 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{primaryTestSchoolId}}/users",
         "method": "GET",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {},
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{primaryTestSchoolId}}/users",
         "description": ""
       },
       "response": []
@@ -3921,22 +3724,18 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/groups",
         "method": "GET",
         "header": [
           {
-            "description": "",
             "key": "Authorization",
             "value": "{{GraphAuth}}"
           },
           {
-            "description": "",
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
             "disabled": true
           },
           {
-            "description": "",
             "key": "Accept",
             "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
@@ -3945,6 +3744,7 @@
           "mode": "raw",
           "raw": "{  \"@odata.type\":\"microsoft.graph.group\",\n   \"displayName\":\"GarethClass28\",\n   \"mailNickname\":\"class282\",\n   \"mailEnabled\":true,\n   \"securityEnabled\":false,\n   \"extension_fe2174665583431c953114ff7268b7b3_Education_Period\":\"5\",\n   \"groupTypes\":[\"Unified\"]}"
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/groups",
         "description": ""
       },
       "response": []
@@ -3977,22 +3777,18 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/users",
         "method": "GET",
         "header": [
           {
-            "description": "",
             "key": "Authorization",
             "value": "{{GraphAuth}}"
           },
           {
-            "description": "",
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
             "disabled": true
           },
           {
-            "description": "",
             "key": "Accept",
             "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
@@ -4001,6 +3797,7 @@
           "mode": "raw",
           "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/users",
         "description": ""
       },
       "response": []
@@ -4030,13 +3827,13 @@
         }
       ],
       "request": {
-        "url": "https://postman-echo.com/get",
         "method": "GET",
         "header": [],
         "body": {
           "mode": "raw",
           "raw": ""
         },
+        "url": "https://postman-echo.com/get",
         "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
       },
       "response": []
@@ -4072,7 +3869,6 @@
         }
       ],
       "request": {
-        "url": "https://{{loginHost}}/common/oauth2/token",
         "method": "POST",
         "header": [],
         "body": {
@@ -4110,6 +3906,7 @@
             }
           ]
         },
+        "url": "https://{{loginHost}}/common/oauth2/token",
         "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
       },
       "response": []
@@ -4144,7 +3941,6 @@
         }
       ],
       "request": {
-        "url": "https://{{loginHost}}/{{tenantDomain}}/oauth2/token",
         "method": "POST",
         "header": [],
         "body": {
@@ -4172,6 +3968,7 @@
             }
           ]
         },
+        "url": "https://{{loginHost}}/{{tenantDomain}}/oauth2/token",
         "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
       },
       "response": []
@@ -4193,13 +3990,13 @@
         }
       ],
       "request": {
-        "url": "https://postman-echo.com/get",
         "method": "GET",
         "header": [],
         "body": {
           "mode": "raw",
           "raw": ""
         },
+        "url": "https://postman-echo.com/get",
         "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
       },
       "response": []
@@ -4249,35 +4046,31 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools",
         "method": "POST",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           },
           {
             "key": "Content-Type",
-            "value": "application/json",
-            "description": ""
+            "value": "application/json"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationSchool\",\n\t\"displayName\":\"SchoolTestRun{{currentRandom}}\",\n\t\"description\": \"A lovely school to test.\",\n\t\"externalSource\": \"SIS\",\n\t\"address\": {\n\t    \"street\": \"1 Bash Street\",\n\t    \"city\": \"Redmond\",\n\t    \"state\": \"WA\",\n\t    \"countryOrRegion\": \"USA\",\n\t    \"postalCode\": \"98052\"\n \t}\n}"
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools",
         "description": ""
       },
       "response": []
@@ -4317,35 +4110,31 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/classes/$ref",
         "method": "POST",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Content-Type",
-            "value": "application/json",
-            "description": ""
+            "value": "application/json"
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": "{  \n\t\"@odata.id\":\"https://{{host}}/{{graphVersion}}/education/classes/{{primaryTestClassId}}\" \n}\n"
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/classes/$ref",
         "description": ""
       },
       "response": []
@@ -4388,35 +4177,31 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/users/$ref",
         "method": "POST",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Content-Type",
-            "value": "application/json",
-            "description": ""
+            "value": "application/json"
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": "{  \n\t\"@odata.id\":\"https://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}\" \n}\n"
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/users/$ref",
         "description": ""
       },
       "response": []
@@ -4461,30 +4246,27 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}",
         "method": "GET",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}",
         "description": ""
       },
       "response": []
@@ -4542,30 +4324,27 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/classes",
         "method": "GET",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/classes",
         "description": ""
       },
       "response": []
@@ -4615,30 +4394,27 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/users",
         "method": "GET",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/users",
         "description": ""
       },
       "response": []
@@ -4682,30 +4458,27 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/classes/{{primaryTestClassId}}/$ref",
         "method": "DELETE",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": ""
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/classes/{{primaryTestClassId}}/$ref",
         "description": ""
       },
       "response": []
@@ -4751,30 +4524,27 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/users/{{primaryTestUserId}}/$ref",
         "method": "DELETE",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": ""
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/users/{{primaryTestUserId}}/$ref",
         "description": ""
       },
       "response": []
@@ -4831,30 +4601,27 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/classes",
         "method": "GET",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/classes",
         "description": ""
       },
       "response": []
@@ -4903,30 +4670,27 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/users",
         "method": "GET",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/users",
         "description": ""
       },
       "response": []
@@ -4970,35 +4734,31 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}",
         "method": "PATCH",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           },
           {
             "key": "Content-Type",
-            "value": "application/json",
-            "description": ""
+            "value": "application/json"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": "{\n\t\"description\": \"An even better school to test.\",\n\t\"externalSource\": \"Manual\",\n\t\"address\": {\n\t    \"city\": \"Seattle\"\n \t}\n}"
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}",
         "description": ""
       },
       "response": []
@@ -5046,30 +4806,27 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}",
         "method": "GET",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": ""
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}",
         "description": ""
       },
       "response": []
@@ -5113,30 +4870,27 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}",
         "method": "DELETE",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}",
         "description": ""
       },
       "response": []
@@ -5172,30 +4926,27 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}",
         "method": "GET",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}",
         "description": ""
       },
       "response": []
@@ -5245,35 +4996,31 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes",
         "method": "POST",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           },
           {
             "key": "Content-Type",
-            "value": "application/json",
-            "description": ""
+            "value": "application/json"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"ClassTestRun{{currentRandom}}\",\n\t\"mailNickname\":\"classtest{{currentRandom}}\",\n\t\"period\":\"5\",\n\t\"externalSource\": \"SIS\",\n\t\"term\": {\n\t\t\"externalId\": \"S2\",\n\t\t\"displayName\": \"Semester 2\"\n\t}\n}"
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes",
         "description": ""
       },
       "response": []
@@ -5314,30 +5061,27 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}",
         "method": "GET",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}",
         "description": ""
       },
       "response": []
@@ -5377,35 +5121,31 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/members/$ref",
         "method": "POST",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Content-Type",
-            "value": "application/json",
-            "description": ""
+            "value": "application/json"
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": "{  \n\t\"@odata.id\":\"https://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}\" \n}\n"
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/members/$ref",
         "description": ""
       },
       "response": []
@@ -5450,35 +5190,31 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/teachers/$ref",
         "method": "POST",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Content-Type",
-            "value": "application/json",
-            "description": ""
+            "value": "application/json"
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": "{  \n\t\"@odata.id\":\"https://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}\" \n}\n"
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/teachers/$ref",
         "description": ""
       },
       "response": []
@@ -5518,35 +5254,31 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/teachers/$ref",
         "method": "POST",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Content-Type",
-            "value": "application/json",
-            "description": ""
+            "value": "application/json"
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": "{  \n\t\"@odata.id\":\"https://{{host}}/{{graphVersion}}/education/users/{{secondaryTestUserId}}\" \n}\n"
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/teachers/$ref",
         "description": "Need to add a second teacher because in App-only mode the caller is not automatically added, and so the first added teacher cannot be removed."
       },
       "response": []
@@ -5592,30 +5324,27 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/members",
         "method": "GET",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/members",
         "description": ""
       },
       "response": []
@@ -5661,30 +5390,27 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/teachers",
         "method": "GET",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/teachers",
         "description": ""
       },
       "response": []
@@ -5724,30 +5450,27 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/members/{{primaryTestUserId}}/$ref",
         "method": "DELETE",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": ""
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/members/{{primaryTestUserId}}/$ref",
         "description": ""
       },
       "response": []
@@ -5787,30 +5510,27 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/teachers/{{primaryTestUserId}}/$ref",
         "method": "DELETE",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": ""
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/teachers/{{primaryTestUserId}}/$ref",
         "description": ""
       },
       "response": []
@@ -5855,30 +5575,27 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/members",
         "method": "GET",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/members",
         "description": ""
       },
       "response": []
@@ -5923,30 +5640,27 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/teachers",
         "method": "GET",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/teachers",
         "description": ""
       },
       "response": []
@@ -5986,35 +5700,31 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}",
         "method": "PATCH",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           },
           {
             "key": "Content-Type",
-            "value": "application/json",
-            "description": ""
+            "value": "application/json"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": "{\n\t\"classCode\": \"777\",\n\t\"displayName\": \"ChangedClass\"\n}"
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}",
         "description": ""
       },
       "response": []
@@ -6057,30 +5767,27 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}",
         "method": "GET",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": ""
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}",
         "description": ""
       },
       "response": []
@@ -6120,30 +5827,27 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}",
         "method": "DELETE",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}",
         "description": ""
       },
       "response": []
@@ -6176,30 +5880,27 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}",
         "method": "GET",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}",
         "description": ""
       },
       "response": []
@@ -6251,35 +5952,31 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users",
         "method": "POST",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           },
           {
             "key": "Content-Type",
-            "value": "application/json",
-            "description": ""
+            "value": "application/json"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationUser\",\n\t\"accountEnabled\": true,\n\t\"displayName\":\"Teacher TestRun{{currentRandom}}\",\n\t\"mailNickname\": \"TeacherTR{{currentRandom}}\",\n\t\"userPrincipalName\": \"TeacherTR{{currentRandom}}@{{tenantDomain}}\",\n\t\"middleName\": \"Middle\",\n\t\"passwordProfile\":{\n\t\t\"forceChangePasswordNextSignIn\": false,\n\t\t\"password\": \"!!abc123\"\n\t},\n\t\"primaryRole\": \"Teacher\",\n\t\"teacher\": {\n\t\t\"teacherNumber\": \"456\",\n\t\t\"externalId\": \"123\"\n\t}\n}"
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users",
         "description": ""
       },
       "response": []
@@ -6322,30 +6019,27 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}",
         "method": "GET",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": ""
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}",
         "description": ""
       },
       "response": []
@@ -6385,35 +6079,31 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}",
         "method": "PATCH",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           },
           {
             "key": "Content-Type",
-            "value": "application/json",
-            "description": ""
+            "value": "application/json"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": "{\n\t\"displayName\": \"Reacher TestRun\",\n\t\"middleName\": \"Hann\",\n\t\"teacher\": {\n\t\t\"teacherNumber\": \"102\"\n\t  }\n}"
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}",
         "description": ""
       },
       "response": []
@@ -6457,30 +6147,27 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}",
         "method": "GET",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": ""
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}",
         "description": ""
       },
       "response": []
@@ -6520,30 +6207,27 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}",
         "method": "DELETE",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}",
         "description": ""
       },
       "response": []
@@ -6576,30 +6260,27 @@
         }
       ],
       "request": {
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}",
         "method": "GET",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           },
           {
             "key": "Workload-Authorization",
             "value": "{{AADAuth}}",
-            "description": "",
             "disabled": true
           },
           {
             "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}",
-            "description": ""
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
         },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}",
         "description": ""
       },
       "response": []
@@ -6624,19 +6305,18 @@
         }
       ],
       "request": {
-        "url": "https://postman-echo.com/get",
         "method": "GET",
         "header": [
           {
             "key": "Authorization",
-            "value": "{{GraphAuth}}",
-            "description": ""
+            "value": "{{GraphAuth}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": ""
         },
+        "url": "https://postman-echo.com/get",
         "description": ""
       },
       "response": []
@@ -6660,13 +6340,13 @@
         }
       ],
       "request": {
-        "url": "https://postman-echo.com/delay/10",
         "method": "GET",
         "header": [],
         "body": {
           "mode": "raw",
           "raw": ""
         },
+        "url": "https://postman-echo.com/delay/10",
         "description": "Using this endpoint one can configure how long it takes for the server to come back with a response. Appending a number to the URL defines the time (in seconds) the server will wait before responding.\n\nNote that a maximum delay of 10 seconds is accepted by the server."
       },
       "response": []
