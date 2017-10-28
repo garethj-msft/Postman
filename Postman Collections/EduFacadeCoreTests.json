@@ -17,6 +17,7 @@
             "type": "text/javascript",
             "exec": [
               "tests[\"GlobalsInitialized\"] = typeof(GlobalFunctions) !== 'undefined';",
+              "tests[postman.getEnvironmentVariable(\"authType\")] = true; ",
               "GlobalFunctions.reportFails(tests);"
             ]
           }
