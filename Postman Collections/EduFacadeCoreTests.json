@@ -4238,6 +4238,7 @@
               "if (typeof(GlobalFunctions) !== 'undefined' )",
               "{",
               "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
+              "    GlobalFunctions.delayBefore(\"Check just added Class\", postman);",
               "}"
             ]
           }
