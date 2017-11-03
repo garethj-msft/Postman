@@ -4171,6 +4171,10 @@
               "{",
               "    tests[\"Status code is 204\"] = responseCode.code === 204;",
               "    postman.setEnvironmentVariable(\"retryCount\", \"0\");",
+              "    if (typeof(GlobalFunctions) !== 'undefined' )",
+              "    {",
+              "        GlobalFunctions.reportFails(tests, responseCode, responseBody);",
+              "    }    ",
               "}",
               ""
             ]
