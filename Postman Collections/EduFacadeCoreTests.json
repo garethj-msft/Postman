@@ -4035,6 +4035,10 @@
               "        var jsonData = JSON.parse(responseBody);",
               "        postman.setEnvironmentVariable(\"justCreatedId\", jsonData.id);",
               "    }",
+              "    if (typeof(GlobalFunctions) !== 'undefined' )",
+              "    {",
+              "        GlobalFunctions.reportFails(tests, responseCode, responseBody);",
+              "    }",
               "}"
             ]
           }
