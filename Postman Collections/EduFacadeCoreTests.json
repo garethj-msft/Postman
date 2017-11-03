@@ -4167,7 +4167,6 @@
               "{",
               "    tests[\"Status code is 204\"] = responseCode.code === 204;",
               "    postman.setEnvironmentVariable(\"retryCount\", \"0\");",
-              "    GlobalFunctions.delayBefore(\"Check just added Class\", postman);",
               "}",
               ""
             ]
