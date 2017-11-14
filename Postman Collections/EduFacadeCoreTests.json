@@ -984,11 +984,11 @@
             "type": "text/javascript",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Rostering deployed\"] = responseBody.has('EducationRosteringAPIS');",
+              "tests[\"Rostering deployed\"] = responseBody.has('EducationRosteringAPIs');",
               "if (responseBody.has('EducationRosteringAPIS'))",
               "{",
               "    var jsonData = JSON.parse(responseBody);",
-              "    postman.setEnvironmentVariable(\"rosteringVersion\", jsonData['Microsoft.EducationRosteringAPIS']);",
+              "    postman.setEnvironmentVariable(\"rosteringVersion\", jsonData['Microsoft.EducationRosteringAPIs']);",
               "}"
             ]
           }
