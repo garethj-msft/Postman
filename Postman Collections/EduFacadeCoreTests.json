@@ -984,7 +984,7 @@
             "type": "text/javascript",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Rostering deployed\"] = responseBody.has('EducationRosteringAPIs');",
+              "tests[\"Rostering deployed\"] = responseBody.has('EducationRosteringAPI');",
               "if (responseBody.has('EducationRosteringAPIS'))",
               "{",
               "    var jsonData = JSON.parse(responseBody);",
