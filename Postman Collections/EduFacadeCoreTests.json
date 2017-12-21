@@ -6379,7 +6379,7 @@
         {
           "listen": "test",
           "script": {
-            "id": "ba99f510-586c-431d-b9cd-d0e76589d890",
+            "id": "8c835e7f-c6c8-4bbd-b37e-33d4a143280f",
             "type": "text/javascript",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
@@ -6399,7 +6399,7 @@
               "        ",
               "        var echoPostRequest = {",
               "              url: url,",
-              "              method: 'GET',",
+              "              method: 'DELETE',",
               "              header: 'Authorization: ' + postman.getEnvironmentVariable('GraphAuth'),",
               "              };",
               "",
