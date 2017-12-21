@@ -6379,14 +6379,14 @@
         {
           "listen": "test",
           "script": {
-            "id": "c989350d-2e4d-478f-a8fd-98142e9b976c",
+            "id": "dbcfca45-5739-47ac-8af3-9444b976f641",
             "type": "text/javascript",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
               "const echoPostRequest = {",
               "  url: 'https://postman-echo.com/post',",
               "  method: 'POST',",
-              "  header: 'Authorization:' + postman.getEnvironmentVariable('GraphAuth'),",
+              "  header: 'Authorization: ' + postman.getEnvironmentVariable('GraphAuth'),",
               "  body: {",
               "    mode: 'raw',",
               "    raw: JSON.stringify({ key: 'this is json' })",
