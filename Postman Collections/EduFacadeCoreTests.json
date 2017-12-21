@@ -6379,7 +6379,7 @@
         {
           "listen": "test",
           "script": {
-            "id": "e64e4002-7cd5-4f66-96ad-2e4ed9b80dbd",
+            "id": "2837c7ca-022a-446f-9cc0-142d284fd035",
             "type": "text/javascript",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
@@ -6387,6 +6387,9 @@
               "{",
               "    var jsonData = JSON.parse(responseBody);",
               "    var i;",
+              "    var handler = function (err, res) {",
+              "             console.log(err ? err : res.json());",
+              "        };",
               "    for (i=0; i < jsonData.value.length; i++)",
               "    {",
               "//        if (jsonData.value[i].displayName ===  'PrimaryTestSchool')",
@@ -6400,9 +6403,7 @@
               "                  }",
               "            };",
               "",
-              "        pm.sendRequest(echoPostRequest, function (err, res) {",
-              "             console.log(err ? err : res.json());",
-              "        });",
+              "        pm.sendRequest(echoPostRequest, handler);",
               "    }",
               "}",
               "",
