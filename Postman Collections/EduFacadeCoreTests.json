@@ -6379,7 +6379,7 @@
         {
           "listen": "test",
           "script": {
-            "id": "2837c7ca-022a-446f-9cc0-142d284fd035",
+            "id": "0d5572ba-3bb0-45d4-bbd8-99248a21c250",
             "type": "text/javascript",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
@@ -6399,7 +6399,7 @@
               "                  header: 'Authorization: ' + postman.getEnvironmentVariable('GraphAuth'),",
               "                  body: {",
               "                    mode: 'raw',",
-              "                    raw: JSON.stringify({ key: 'this is json' })",
+              "                    raw: JSON.stringify({ key: jsonData.value[i].id })",
               "                  }",
               "            };",
               "",
