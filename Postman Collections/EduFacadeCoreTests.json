@@ -182,7 +182,7 @@
     },
     {
       "_postman_id": "1b0e55fd-2060-f618-6adc-43ef25d12da3",
-      "name": "T_AppOnlyToken GraphNonEdu copy",
+      "name": "CLEANUP T_AppOnlyToken GraphNonEdu",
       "event": [
         {
           "listen": "test",
