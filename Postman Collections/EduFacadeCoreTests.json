@@ -6366,6 +6366,7 @@
         {
           "listen": "prerequest",
           "script": {
+            "id": "15681a8b-2401-440c-af86-f8956b4c1e7b",
             "type": "text/javascript",
             "exec": [
               "if (typeof(GlobalFunctions) !== 'undefined' )",
@@ -6378,9 +6379,10 @@
         {
           "listen": "test",
           "script": {
+            "id": "bcd24ca8-86be-475d-8b49-3eb5b49c27ce",
             "type": "text/javascript",
             "exec": [
-              "tests[\"Status code is 404\"] = responseCode.code === 404;",
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
               ""
             ]
           }
@@ -6407,7 +6409,33 @@
           "mode": "raw",
           "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}",
+        "url": {
+          "raw": "{{https}}://{{host}}/{{graphVersion}}/https://graph.microsoft.com/beta/administrativeUnits?$filter=startswith(displayName,'SchoolTest')&$select=id",
+          "protocol": "{{https}}",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "{{graphVersion}}",
+            "https:",
+            "",
+            "graph.microsoft.com",
+            "beta",
+            "administrativeUnits"
+          ],
+          "query": [
+            {
+              "key": "$filter",
+              "value": "startswith(displayName,'SchoolTest')",
+              "equals": true
+            },
+            {
+              "key": "$select",
+              "value": "id",
+              "equals": true
+            }
+          ]
+        },
         "description": null
       },
       "response": []
