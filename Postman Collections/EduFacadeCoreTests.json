@@ -6379,7 +6379,7 @@
         {
           "listen": "test",
           "script": {
-            "id": "0d5572ba-3bb0-45d4-bbd8-99248a21c250",
+            "id": "d62ba29d-d328-448f-89a4-760a0e6de0f5",
             "type": "text/javascript",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
@@ -6394,8 +6394,8 @@
               "    {",
               "//        if (jsonData.value[i].displayName ===  'PrimaryTestSchool')",
               "            var echoPostRequest = {",
-              "                  url: 'https://postman-echo.com/post',",
-              "                  method: 'POST',",
+              "                  url: '{{https}}://{{host}}/{{graphVersion}}/administrativeUnits/{id}',",
+              "                  method: 'GET',",
               "                  header: 'Authorization: ' + postman.getEnvironmentVariable('GraphAuth'),",
               "                  body: {",
               "                    mode: 'raw',",
