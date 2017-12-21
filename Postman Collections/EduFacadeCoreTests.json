@@ -246,7 +246,7 @@
     },
     {
       "_postman_id": "1d737740-e51f-ece2-8856-01fba71d0a5b",
-      "name": "T_RefreshToken GraphNonEdu copy",
+      "name": "CLEANUP T_RefreshToken GraphNonEdu",
       "event": [
         {
           "listen": "test",
