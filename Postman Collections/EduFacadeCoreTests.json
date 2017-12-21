@@ -2388,7 +2388,7 @@
     },
     {
       "_postman_id": "7e2d6059-f5d6-5374-42ff-c319e51453e2",
-      "name": "Get A User copy",
+      "name": "Get A User Photo",
       "event": [
         {
           "listen": "prerequest",
