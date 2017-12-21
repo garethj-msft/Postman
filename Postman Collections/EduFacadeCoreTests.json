@@ -1906,7 +1906,7 @@
     },
     {
       "_postman_id": "b65fc4ac-9ab3-a018-3732-65133321f6f6",
-      "name": "Get A Class copy",
+      "name": "Get A Class Group",
       "event": [
         {
           "listen": "prerequest",
