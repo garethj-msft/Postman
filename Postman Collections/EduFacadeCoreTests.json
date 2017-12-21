@@ -1,5 +1,4 @@
 {
-  "variables": [],
   "info": {
     "name": "EduFacadeCoreTests",
     "_postman_id": "b0ea17f4-2fbd-1a0f-7ec6-9519d1b3a70b",
@@ -11,17 +10,6 @@
       "_postman_id": "e3e41bd2-5185-b890-2863-0998afafde85",
       "name": "T_InitializeScripts",
       "event": [
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"GlobalsInitialized\"] = typeof(GlobalFunctions) !== 'undefined';",
-              "tests[postman.getEnvironmentVariable(\"authType\")] = true; ",
-              "GlobalFunctions.reportFails(tests);"
-            ]
-          }
-        },
         {
           "listen": "prerequest",
           "script": {
@@ -115,6 +103,17 @@
               "  }\r",
               "}\r",
               "};"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"GlobalsInitialized\"] = typeof(GlobalFunctions) !== 'undefined';",
+              "tests[postman.getEnvironmentVariable(\"authType\")] = true; ",
+              "GlobalFunctions.reportFails(tests);"
             ]
           }
         }
@@ -250,6 +249,18 @@
       "name": "FIND A non-education Group",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -268,18 +279,6 @@
               "            postman.setEnvironmentVariable(\"nonEducationGroupId\", jsonData.value[i].id)",
               "        }",
               "    }",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -333,6 +332,18 @@
       "name": "FIND A non-education User",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -351,18 +362,6 @@
               "            postman.setEnvironmentVariable(\"nonEducationUserId\", jsonData.value[i].id)",
               "        }",
               "    }",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -416,6 +415,18 @@
       "name": "FIND PrimaryTestClass",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -440,18 +451,6 @@
               "            postman.setEnvironmentVariable(\"primaryTestClassId\", jsonData.value[i].id)",
               "        }",
               "    }",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -505,6 +504,18 @@
       "name": "FIND PrimaryTestSchool",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -529,18 +540,6 @@
               "            postman.setEnvironmentVariable(\"primaryTestSchoolId\", jsonData.value[i].id)",
               "        }",
               "    }",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -594,6 +593,18 @@
       "name": "FIND PrimaryTestUser",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -618,18 +629,6 @@
               "            postman.setEnvironmentVariable(\"primaryTestUserId\", jsonData.value[i].id)",
               "        }",
               "    }",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -683,6 +682,18 @@
       "name": "FIND SecondaryTestUser",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -705,18 +716,6 @@
               "            break;",
               "        }",
               "    }",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -790,6 +789,15 @@
       "name": "T_RefreshToken GraphReadBasic",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "postman.setNextRequest(\"T_PostReadBasic\");"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -802,15 +810,6 @@
               "    postman.setEnvironmentVariable(\"GraphRefreshReadBasic\", data.refresh_token);",
               "    tests[\"New readbasic tokens written to environment\"] = true;",
               "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "postman.setNextRequest(\"T_PostReadBasic\");"
             ]
           }
         }
@@ -858,6 +857,15 @@
       "name": "T_AppOnlyToken GraphReadBasic",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "postman.setNextRequest(\"T_PostReadBasic\");"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -869,15 +877,6 @@
               "    postman.setEnvironmentVariable(\"GraphAuth\", \"Bearer \" + data.access_token);",
               "    tests[\"New app-only readbasic token written to environment\"] = true;",
               "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "postman.setNextRequest(\"T_PostReadBasic\");"
             ]
           }
         }
@@ -1114,6 +1113,18 @@
       "name": "Get Schools",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -1123,18 +1134,6 @@
               "if (typeof(GlobalFunctions) !== 'undefined' )",
               "{",
               "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -1168,6 +1167,18 @@
       "name": "Get Schools with Filter",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -1177,18 +1188,6 @@
               "if (typeof(GlobalFunctions) !== 'undefined' )",
               "{",
               "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -1243,6 +1242,18 @@
       "name": "Get Schools Expand Classes",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -1252,18 +1263,6 @@
               "if (typeof(GlobalFunctions) !== 'undefined' )",
               "{",
               "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -1318,6 +1317,18 @@
       "name": "Get A School",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -1326,18 +1337,6 @@
               "if (typeof(GlobalFunctions) !== 'undefined' )",
               "{",
               "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -1369,6 +1368,18 @@
       "name": "Get A School Expand Classes",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -1378,18 +1389,6 @@
               "if (typeof(GlobalFunctions) !== 'undefined' )",
               "{",
               "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -1445,6 +1444,18 @@
       "name": "Get A School Nav Classes",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -1454,18 +1465,6 @@
               "if (typeof(GlobalFunctions) !== 'undefined' )",
               "{",
               "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -1502,6 +1501,18 @@
       "name": "Get Classes",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -1526,18 +1537,6 @@
               "            postman.setEnvironmentVariable(\"primaryTestClassId\", jsonData.value[i].id)",
               "        }",
               "    }",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -1574,16 +1573,6 @@
       "name": "Get Classes with Filter",
       "event": [
         {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Classes found\"] = responseBody.has('\"id\":')"
-            ]
-          }
-        },
-        {
           "listen": "prerequest",
           "script": {
             "type": "text/javascript",
@@ -1592,6 +1581,16 @@
               "{",
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "tests[\"Classes found\"] = responseBody.has('\"id\":')"
             ]
           }
         }
@@ -1645,16 +1644,6 @@
       "name": "Get Classes Expand Members",
       "event": [
         {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Members returned\"] = responseBody.has('members\":[{'); "
-            ]
-          }
-        },
-        {
           "listen": "prerequest",
           "script": {
             "type": "text/javascript",
@@ -1663,6 +1652,16 @@
               "{",
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "tests[\"Members returned\"] = responseBody.has('members\":[{'); "
             ]
           }
         }
@@ -1716,16 +1715,6 @@
       "name": "Get Classes Expand Teachers",
       "event": [
         {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Teachers returned\"] = responseBody.has('teachers\":[{'); "
-            ]
-          }
-        },
-        {
           "listen": "prerequest",
           "script": {
             "type": "text/javascript",
@@ -1734,6 +1723,16 @@
               "{",
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "tests[\"Teachers returned\"] = responseBody.has('teachers\":[{'); "
             ]
           }
         }
@@ -1787,16 +1786,6 @@
       "name": "Get Classes Expand Schools",
       "event": [
         {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Schools returned\"] = responseBody.has('schools\":[{'); "
-            ]
-          }
-        },
-        {
           "listen": "prerequest",
           "script": {
             "type": "text/javascript",
@@ -1805,6 +1794,16 @@
               "{",
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "tests[\"Schools returned\"] = responseBody.has('schools\":[{'); "
             ]
           }
         }
@@ -1858,15 +1857,6 @@
       "name": "Get A Class",
       "event": [
         {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;"
-            ]
-          }
-        },
-        {
           "listen": "prerequest",
           "script": {
             "type": "text/javascript",
@@ -1875,6 +1865,15 @@
               "{",
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;"
             ]
           }
         }
@@ -1910,16 +1909,6 @@
       "name": "Get A Class Expand Members",
       "event": [
         {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Members returned\"] = responseBody.has('members\":[{'); "
-            ]
-          }
-        },
-        {
           "listen": "prerequest",
           "script": {
             "type": "text/javascript",
@@ -1928,6 +1917,16 @@
               "{",
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "tests[\"Members returned\"] = responseBody.has('members\":[{'); "
             ]
           }
         }
@@ -1982,16 +1981,6 @@
       "name": "Get A Class Expand Teachers",
       "event": [
         {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Teachers returned\"] = responseBody.has('teachers\":[{'); "
-            ]
-          }
-        },
-        {
           "listen": "prerequest",
           "script": {
             "type": "text/javascript",
@@ -2000,6 +1989,16 @@
               "{",
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "tests[\"Teachers returned\"] = responseBody.has('teachers\":[{'); "
             ]
           }
         }
@@ -2054,16 +2053,6 @@
       "name": "Get A Class Expand Schools",
       "event": [
         {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Schools returned\"] = responseBody.has('schools\":[{'); "
-            ]
-          }
-        },
-        {
           "listen": "prerequest",
           "script": {
             "type": "text/javascript",
@@ -2072,6 +2061,16 @@
               "{",
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "tests[\"Schools returned\"] = responseBody.has('schools\":[{'); "
             ]
           }
         }
@@ -2126,16 +2125,6 @@
       "name": "Get A Class Nav Members",
       "event": [
         {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Members returned\"] = responseBody.has('value\":[{')"
-            ]
-          }
-        },
-        {
           "listen": "prerequest",
           "script": {
             "type": "text/javascript",
@@ -2144,6 +2133,16 @@
               "{",
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "tests[\"Members returned\"] = responseBody.has('value\":[{')"
             ]
           }
         }
@@ -2179,16 +2178,6 @@
       "name": "Get A Class Nav Teachers",
       "event": [
         {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Teachers returned\"] = responseBody.has('value\":[{')"
-            ]
-          }
-        },
-        {
           "listen": "prerequest",
           "script": {
             "type": "text/javascript",
@@ -2197,6 +2186,16 @@
               "{",
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "tests[\"Teachers returned\"] = responseBody.has('value\":[{')"
             ]
           }
         }
@@ -2232,16 +2231,6 @@
       "name": "Get A Class Nav Schools",
       "event": [
         {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Schools returned\"] = responseBody.has('value\":[{')"
-            ]
-          }
-        },
-        {
           "listen": "prerequest",
           "script": {
             "type": "text/javascript",
@@ -2250,6 +2239,16 @@
               "{",
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "tests[\"Schools returned\"] = responseBody.has('value\":[{')"
             ]
           }
         }
@@ -2285,16 +2284,6 @@
       "name": "GET A non-education Group as Class",
       "event": [
         {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 404\"] = responseCode.code === 404;",
-              "tests[\"Good error\"] = responseBody.has(\"Resource not found\");"
-            ]
-          }
-        },
-        {
           "listen": "prerequest",
           "script": {
             "type": "text/javascript",
@@ -2304,6 +2293,16 @@
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}",
               ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 404\"] = responseCode.code === 404;",
+              "tests[\"Good error\"] = responseBody.has(\"Resource not found\");"
             ]
           }
         }
@@ -2339,16 +2338,6 @@
       "name": "Get A User",
       "event": [
         {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"User found\"] = responseBody.has('\"id\":')"
-            ]
-          }
-        },
-        {
           "listen": "prerequest",
           "script": {
             "type": "text/javascript",
@@ -2357,6 +2346,16 @@
               "{",
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "tests[\"User found\"] = responseBody.has('\"id\":')"
             ]
           }
         }
@@ -2392,16 +2391,6 @@
       "name": "Get A User  Expand Schools",
       "event": [
         {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Schools returned\"] = responseBody.has('schools\":[{'); "
-            ]
-          }
-        },
-        {
           "listen": "prerequest",
           "script": {
             "type": "text/javascript",
@@ -2410,6 +2399,16 @@
               "{",
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "tests[\"Schools returned\"] = responseBody.has('schools\":[{'); "
             ]
           }
         }
@@ -2464,6 +2463,18 @@
       "name": "Get A User  Expand Classes",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -2473,18 +2484,6 @@
               "{",
               "    tests[\"Status code is 200\"] = responseCode.code === 200;",
               "    tests[\"Classes returned\"] = responseBody.has('classes\":[{'); ",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -2540,6 +2539,18 @@
       "name": "Get A User  Expand Multi",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -2549,18 +2560,6 @@
               "if(expectedSuccess)",
               "{",
               "    tests[\"Schools and classes present\"] = responseBody.has('classes\":[{') && responseBody.has('schools\":[{')  ;",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -2616,16 +2615,6 @@
       "name": "Get A User  Nav Schools",
       "event": [
         {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Schools returned\"] = responseBody.has('value\":[{')"
-            ]
-          }
-        },
-        {
           "listen": "prerequest",
           "script": {
             "type": "text/javascript",
@@ -2634,6 +2623,16 @@
               "{",
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "tests[\"Schools returned\"] = responseBody.has('value\":[{')"
             ]
           }
         }
@@ -2669,6 +2668,18 @@
       "name": "Get A User  Nav Classes",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -2682,18 +2693,6 @@
               "{",
               "    tests[\"Status code is 200\"] = responseCode.code === 200;",
               "    tests[\"Classes returned\"] = responseBody.has('value\":[{');",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -2730,16 +2729,6 @@
       "name": "GET Non-education User as EduUser",
       "event": [
         {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"PrimaryRole appropriate\"] = !responseBody.has(\"primaryRole\");"
-            ]
-          }
-        },
-        {
           "listen": "prerequest",
           "script": {
             "type": "text/javascript",
@@ -2748,6 +2737,16 @@
               "{",
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "tests[\"PrimaryRole appropriate\"] = !responseBody.has(\"primaryRole\");"
             ]
           }
         }
@@ -2815,16 +2814,6 @@
       "name": "Get EDU me",
       "event": [
         {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"User found\"] = responseBody.has('\"id\":')"
-            ]
-          }
-        },
-        {
           "listen": "prerequest",
           "script": {
             "type": "text/javascript",
@@ -2833,6 +2822,16 @@
               "{",
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "tests[\"User found\"] = responseBody.has('\"id\":')"
             ]
           }
         }
@@ -2868,16 +2867,6 @@
       "name": "Get EDU me classes",
       "event": [
         {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Classes found\"] = responseBody.has('\"id\":')"
-            ]
-          }
-        },
-        {
           "listen": "prerequest",
           "script": {
             "type": "text/javascript",
@@ -2886,6 +2875,16 @@
               "{",
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "tests[\"Classes found\"] = responseBody.has('\"id\":')"
             ]
           }
         }
@@ -2921,16 +2920,6 @@
       "name": "Get EDU me schools",
       "event": [
         {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "// tests[\"Schools found\"] = responseBody.has('\"id\":')"
-            ]
-          }
-        },
-        {
           "listen": "prerequest",
           "script": {
             "type": "text/javascript",
@@ -2939,6 +2928,16 @@
               "{",
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "// tests[\"Schools found\"] = responseBody.has('\"id\":')"
             ]
           }
         }
@@ -3039,6 +3038,15 @@
       "name": "T_RefreshToken GraphRead",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "postman.setNextRequest(\"T_PostRead\");"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -3051,15 +3059,6 @@
               "    postman.setEnvironmentVariable(\"GraphRefreshRead\", data.refresh_token);",
               "    tests[\"New read tokens written to environment\"] = true;",
               "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "postman.setNextRequest(\"T_PostRead\");"
             ]
           }
         }
@@ -3112,6 +3111,15 @@
       "name": "T_AppOnlyToken GraphRead",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "postman.setNextRequest(\"T_PostRead\");"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -3123,15 +3131,6 @@
               "    postman.setEnvironmentVariable(\"GraphAuth\", \"Bearer \" + data.access_token);",
               "    tests[\"New app-only read token written to environment\"] = true;",
               "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "postman.setNextRequest(\"T_PostRead\");"
             ]
           }
         }
@@ -3202,6 +3201,18 @@
       "name": "Get Users",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -3218,18 +3229,6 @@
               "}",
               "",
               ""
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
             ]
           }
         }
@@ -3265,6 +3264,18 @@
       "name": "Get Users with Filter",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -3281,18 +3292,6 @@
               "    tests[\"Users found\"] = responseBody.has('\"id\":')",
               "}",
               ""
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
             ]
           }
         }
@@ -3346,6 +3345,18 @@
       "name": "Get Users Expand Schools",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -3359,18 +3370,6 @@
               "{",
               "    tests[\"Status code is 200\"] = responseCode.code === 200;",
               "    tests[\"Schools returned\"] = responseBody.has('schools\":[{'); ",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -3425,6 +3424,18 @@
       "name": "Get Users Expand Classes",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -3438,18 +3449,6 @@
               "{",
               "    tests[\"Status code is 200\"] = responseCode.code === 200;",
               "    tests[\"Classes returned\"] = responseBody.has('classes\":[{'); ",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -3504,6 +3503,18 @@
       "name": "Get Users Expand Multi",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -3517,18 +3528,6 @@
               "{",
               "    tests[\"Status code is 200\"] = responseCode.code === 200;",
               "    tests[\"Schools and classes present\"] = responseBody.has('classes\":[{') && responseBody.has('schools\":[{')  ;",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -3583,6 +3582,18 @@
       "name": "Get A User Check Detail",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -3602,18 +3613,6 @@
               "tests[\"student \" + found] = !responseBody.has('\"student\":') != expectedSuccess;",
               "tests[\"externalSource \" + found] = !responseBody.has('\"externalSource\":') != expectedSuccess;",
               ""
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
             ]
           }
         }
@@ -3649,6 +3648,18 @@
       "name": "Get A School Nav Users",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -3666,18 +3677,6 @@
               "if (typeof(GlobalFunctions) !== 'undefined' )",
               "{",
               "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -3711,16 +3710,6 @@
       "name": "Fail to GET Vanilla Groups",
       "event": [
         {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 403\"] = responseCode.code === 403;",
-              ""
-            ]
-          }
-        },
-        {
           "listen": "prerequest",
           "script": {
             "type": "text/javascript",
@@ -3729,6 +3718,16 @@
               "{",
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 403\"] = responseCode.code === 403;",
+              ""
             ]
           }
         }
@@ -3764,16 +3763,6 @@
       "name": "Fail to Get Vanilla Users",
       "event": [
         {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 403\"] = responseCode.code === 403;",
-              ""
-            ]
-          }
-        },
-        {
           "listen": "prerequest",
           "script": {
             "type": "text/javascript",
@@ -3782,6 +3771,16 @@
               "{",
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 403\"] = responseCode.code === 403;",
+              ""
             ]
           }
         }
@@ -3853,6 +3852,15 @@
       "name": "T_RefreshToken GraphReadWrite",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "postman.setNextRequest(\"T_PostReadWrite\");"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -3865,15 +3873,6 @@
               "    postman.setEnvironmentVariable(\"GraphRefreshReadWrite\", data.refresh_token);",
               "    tests[\"New readwrite tokens written to environment\"] = true;",
               "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "postman.setNextRequest(\"T_PostReadWrite\");"
             ]
           }
         }
@@ -3926,6 +3925,15 @@
       "name": "T_AppOnlyToken GraphReadWrite",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "postman.setNextRequest(\"T_PostReadWrite\");"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -3937,15 +3945,6 @@
               "    postman.setEnvironmentVariable(\"GraphAuth\", \"Bearer \" + data.access_token);",
               "    tests[\"New app-only readwrite token written to environment\"] = true;",
               "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "postman.setNextRequest(\"T_PostReadWrite\");"
             ]
           }
         }
@@ -4016,6 +4015,21 @@
       "name": "Make a School",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}",
+              "var currentRandom = Math.floor(Math.random() * 1000).toString();",
+              "var currentRandom2 = Math.floor(Math.random() * 1000).toString();",
+              "postman.setEnvironmentVariable(\"currentRandom\", currentRandom + currentRandom2);"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -4040,21 +4054,6 @@
               "        GlobalFunctions.reportFails(tests, responseCode, responseBody);",
               "    }",
               "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}",
-              "var currentRandom = Math.floor(Math.random() * 1000).toString();",
-              "var currentRandom2 = Math.floor(Math.random() * 1000).toString();",
-              "postman.setEnvironmentVariable(\"currentRandom\", currentRandom + currentRandom2);"
             ]
           }
         }
@@ -4094,6 +4093,18 @@
       "name": "Add a School Class",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -4110,18 +4121,6 @@
               "    {",
               "        GlobalFunctions.reportFails(tests, responseCode, responseBody);",
               "    }",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -4162,6 +4161,18 @@
       "name": "Add a School User",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -4181,18 +4192,6 @@
               "    }    ",
               "}",
               ""
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
             ]
           }
         }
@@ -4232,6 +4231,18 @@
       "name": "Check just created School",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -4250,18 +4261,6 @@
               "{",
               "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
               "    GlobalFunctions.delayBefore(\"Check just added Class\", postman);",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -4298,6 +4297,18 @@
       "name": "Check just added Class",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -4328,18 +4339,6 @@
               "if (typeof(GlobalFunctions) !== 'undefined' )",
               "{",
               "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -4376,6 +4375,18 @@
       "name": "Check just added User",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -4398,18 +4409,6 @@
               "if (typeof(GlobalFunctions) !== 'undefined' )",
               "{",
               "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -4446,6 +4445,18 @@
       "name": "Delete School Class",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -4462,18 +4473,6 @@
               "if (typeof(GlobalFunctions) !== 'undefined' )",
               "{",
               "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -4510,6 +4509,18 @@
       "name": "Delete School User",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -4528,18 +4539,6 @@
               "if (typeof(GlobalFunctions) !== 'undefined' )",
               "{",
               "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -4576,6 +4575,18 @@
       "name": "Check Class removed",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -4605,18 +4616,6 @@
               "if (typeof(GlobalFunctions) !== 'undefined' )",
               "{",
               "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -4653,6 +4652,18 @@
       "name": "Check User removed",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -4674,18 +4685,6 @@
               "if (typeof(GlobalFunctions) !== 'undefined' )",
               "{",
               "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -4722,6 +4721,18 @@
       "name": "Modify just created School",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -4738,18 +4749,6 @@
               "if (typeof(GlobalFunctions) !== 'undefined' )",
               "{",
               "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -4790,6 +4789,18 @@
       "name": "Check modification to School",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -4810,18 +4821,6 @@
               "if (typeof(GlobalFunctions) !== 'undefined' )",
               "{",
               "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -4858,6 +4857,18 @@
       "name": "Delete just created School",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -4874,18 +4885,6 @@
               "if (typeof(GlobalFunctions) !== 'undefined' )",
               "{",
               "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -4922,6 +4921,18 @@
       "name": "Check School deleted",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -4930,18 +4941,6 @@
               "if (typeof(GlobalFunctions) !== 'undefined' )",
               "{",
               "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -4978,6 +4977,21 @@
       "name": "Make a Class",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}",
+              "var currentRandom = Math.floor(Math.random() * 1000).toString();",
+              "var currentRandom2 = Math.floor(Math.random() * 1000).toString();",
+              "postman.setEnvironmentVariable(\"currentRandom\", currentRandom + currentRandom2);"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -4998,21 +5012,6 @@
               "        postman.setEnvironmentVariable(\"justCreatedId\", jsonData.id);",
               "    }",
               "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}",
-              "var currentRandom = Math.floor(Math.random() * 1000).toString();",
-              "var currentRandom2 = Math.floor(Math.random() * 1000).toString();",
-              "postman.setEnvironmentVariable(\"currentRandom\", currentRandom + currentRandom2);"
             ]
           }
         }
@@ -5052,6 +5051,18 @@
       "name": "Check just created Class retrievable",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -5065,18 +5076,6 @@
               "{",
               "    tests[\"Status code is 200\"] = responseCode.code === 200;",
               "    tests[\"Class created\"] = responseBody.has('\"id\":')",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -5113,6 +5112,18 @@
       "name": "Add a Class member",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -5125,18 +5136,6 @@
               "else",
               "{",
               "    tests[\"Status code is 204\"] = responseCode.code === 204;",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -5177,23 +5176,6 @@
       "name": "Add a Class teacher",
       "event": [
         {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-              "if(!expectedSuccess)",
-              "{",
-              "    tests[\"Status code is 403\"] = responseCode.code === 403;",
-              "}",
-              "else",
-              "{",
-              "    tests[\"Status code is 204\"] = responseCode.code === 204;",
-              "}"
-            ]
-          }
-        },
-        {
           "listen": "prerequest",
           "script": {
             "type": "text/javascript",
@@ -5206,6 +5188,23 @@
               "if (postman.getEnvironmentVariable(\"authType\") != \"appOnly\")",
               "{",
               "     postman.setNextRequest(\"Check just added member\");",
+              "}"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+              "if(!expectedSuccess)",
+              "{",
+              "    tests[\"Status code is 403\"] = responseCode.code === 403;",
+              "}",
+              "else",
+              "{",
+              "    tests[\"Status code is 204\"] = responseCode.code === 204;",
               "}"
             ]
           }
@@ -5246,6 +5245,18 @@
       "name": "Add a secondary Teacher",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -5258,18 +5269,6 @@
               "else",
               "{",
               "    tests[\"Status code is 204\"] = responseCode.code === 204;",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -5310,6 +5309,18 @@
       "name": "Check just added member",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -5328,18 +5339,6 @@
               "        tests[\"One Member\"] = jsonData.value.length === 1;",
               "        tests[\"Member added\"] = jsonData.value.length === 1 && jsonData.value[0].id === postman.getEnvironmentVariable(\"primaryTestUserId\");",
               "    }",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -5376,6 +5375,18 @@
       "name": "Check just added teacher",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -5394,18 +5405,6 @@
               "        tests[\"A least one Teacher\"] = jsonData.value.length >= 1;",
               "        tests[\"Teacher added\"] = (jsonData.value.length >= 1 && jsonData.value[0].id === postman.getEnvironmentVariable(\"primaryTestUserId\")) || (jsonData.value.length === 2 &&jsonData.value[1].id === postman.getEnvironmentVariable(\"primaryTestUserId\"));",
               "    }",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -5442,6 +5441,18 @@
       "name": "Delete Class member",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -5454,18 +5465,6 @@
               "else",
               "{",
               "    tests[\"Status code is 204\"] = responseCode.code === 204;",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -5502,6 +5501,18 @@
       "name": "Delete Class teacher",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -5514,18 +5525,6 @@
               "else",
               "{",
               "    tests[\"Status code is 204\"] = responseCode.code === 204;",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -5562,6 +5561,18 @@
       "name": "Check member removed",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -5579,18 +5590,6 @@
               "        var jsonData = JSON.parse(responseBody);",
               "        tests[\"Member removed\"] = jsonData.value.length === 0;",
               "    }",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -5627,6 +5626,18 @@
       "name": "Check teacher removed",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -5644,18 +5655,6 @@
               "        var jsonData = JSON.parse(responseBody);",
               "        tests[\"Teacher removed\"] = !responseBody.has(postman.getEnvironmentVariable(\"primaryTestUserId\"));",
               "    }",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -5692,6 +5691,18 @@
       "name": "Modify just created Class",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -5704,18 +5715,6 @@
               "else",
               "{",
               "    tests[\"Status code is 204\"] = responseCode.code === 204;",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -5756,6 +5755,18 @@
       "name": "Check modification to Class",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -5771,18 +5782,6 @@
               "    tests[\"Class present\"] = responseBody.has('\"id\":');",
               "    tests[\"Custom data modified\"] = responseBody.has('\"classCode\":\"777\"');",
               "    tests[\"Standard data modified\"] = responseBody.has('\"displayName\":\"ChangedClass\"');",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -5819,6 +5818,18 @@
       "name": "Delete just created Class",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -5831,18 +5842,6 @@
               "else",
               "{",
               "    tests[\"Status code is 204\"] = responseCode.code === 204;",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -5879,16 +5878,6 @@
       "name": "Check Class deleted",
       "event": [
         {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 404\"] = responseCode.code === 404;",
-              ""
-            ]
-          }
-        },
-        {
           "listen": "prerequest",
           "script": {
             "type": "text/javascript",
@@ -5897,6 +5886,16 @@
               "{",
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 404\"] = responseCode.code === 404;",
+              ""
             ]
           }
         }
@@ -5932,6 +5931,21 @@
       "name": "Make a Teacher",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}",
+              "var currentRandom = Math.floor(Math.random() * 1000).toString();",
+              "var currentRandom2 = Math.floor(Math.random() * 1000).toString();",
+              "postman.setEnvironmentVariable(\"currentRandom\", currentRandom + currentRandom2);"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -5954,21 +5968,6 @@
               "        postman.setEnvironmentVariable(\"justCreatedId\", jsonData.id)",
               "    }",
               "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}",
-              "var currentRandom = Math.floor(Math.random() * 1000).toString();",
-              "var currentRandom2 = Math.floor(Math.random() * 1000).toString();",
-              "postman.setEnvironmentVariable(\"currentRandom\", currentRandom + currentRandom2);"
             ]
           }
         }
@@ -6008,6 +6007,18 @@
       "name": "Check just created Teacher",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -6023,18 +6034,6 @@
               "    tests[\"User created\"] = responseBody.has('\"id\":')",
               "    tests[\"Custom data created\"] = responseBody.has('\"Middle\"')",
               "    tests[\"Custom teacher data created\"] = responseBody.has('\"teacherNumber\":\"456\"')",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -6071,6 +6070,18 @@
       "name": "Modify just created Teacher",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -6083,18 +6094,6 @@
               "else",
               "{",
               "    tests[\"Status code is 204\"] = responseCode.code === 204;",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -6135,6 +6134,18 @@
       "name": "Check modification to Teacher",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -6151,18 +6162,6 @@
               "    tests[\"Simple data modified\"] = responseBody.has('\"displayName\":\"Reacher TestRun\"');",
               "    tests[\"Custom data modified\"] = responseBody.has('\"Hann\"')",
               "    tests[\"Custom teacher data modified\"] = responseBody.has('\"teacherNumber\":\"102\"')",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -6199,6 +6198,18 @@
       "name": "Delete just created Teacher",
       "event": [
         {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
@@ -6211,18 +6222,6 @@
               "else",
               "{",
               "    tests[\"Status code is 204\"] = responseCode.code === 204;",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
             ]
           }
@@ -6259,16 +6258,6 @@
       "name": "Check Teacher deleted",
       "event": [
         {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 404\"] = responseCode.code === 404;",
-              ""
-            ]
-          }
-        },
-        {
           "listen": "prerequest",
           "script": {
             "type": "text/javascript",
@@ -6277,6 +6266,16 @@
               "{",
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 404\"] = responseCode.code === 404;",
+              ""
             ]
           }
         }
@@ -6370,6 +6369,59 @@
         },
         "url": "https://postman-echo.com/delay/10",
         "description": "Using this endpoint one can configure how long it takes for the server to come back with a response. Appending a number to the URL defines the time (in seconds) the server will wait before responding.\n\nNote that a maximum delay of 10 seconds is accepted by the server."
+      },
+      "response": []
+    },
+    {
+      "_postman_id": "bd00c996-df4b-7a65-0ec2-35ae0f49cfcc",
+      "name": "Check Teacher deleted copy",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 404\"] = responseCode.code === 404;",
+              ""
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}"
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
+        },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}",
+        "description": null
       },
       "response": []
     }
