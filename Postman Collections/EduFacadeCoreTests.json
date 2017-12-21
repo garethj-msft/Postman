@@ -6410,29 +6410,23 @@
           "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
         },
         "url": {
-          "raw": "{{https}}://{{host}}/{{graphVersion}}/https://graph.microsoft.com/beta/administrativeUnits?$filter=startswith(displayName,'SchoolTest')&$select=id",
+          "raw": "{{https}}://{{host}}/{{graphVersion}}/administrativeUnits?$filter=startswith(displayName,'SchoolTest')&$select=id",
           "protocol": "{{https}}",
           "host": [
             "{{host}}"
           ],
           "path": [
             "{{graphVersion}}",
-            "https:",
-            "",
-            "graph.microsoft.com",
-            "beta",
             "administrativeUnits"
           ],
           "query": [
             {
               "key": "$filter",
-              "value": "startswith(displayName,'SchoolTest')",
-              "equals": true
+              "value": "startswith(displayName,'SchoolTest')"
             },
             {
               "key": "$select",
-              "value": "id",
-              "equals": true
+              "value": "id"
             }
           ]
         },
