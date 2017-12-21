@@ -6379,7 +6379,7 @@
         {
           "listen": "test",
           "script": {
-            "id": "d62ba29d-d328-448f-89a4-760a0e6de0f5",
+            "id": "1836d851-b5fb-4988-8140-a0d88784fb0a",
             "type": "text/javascript",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
@@ -6392,7 +6392,11 @@
               "        };",
               "    for (i=0; i < jsonData.value.length; i++)",
               "    {",
-              "//        if (jsonData.value[i].displayName ===  'PrimaryTestSchool')",
+              "        var url = postman.getEnvironmentVariable('https') + '://' +",
+              "        postman.getEnvironmentVariable('host') + '/' +",
+              "        postman.getEnvironmentVariable('graphVersion') + '/administrativeUnits/' +",
+              "        jsonData.value[i].id;",
+              "        ",
               "            var echoPostRequest = {",
               "                  url: '{{https}}://{{host}}/{{graphVersion}}/administrativeUnits/{id}',",
               "                  method: 'GET',",
