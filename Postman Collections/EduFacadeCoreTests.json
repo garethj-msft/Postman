@@ -6308,7 +6308,7 @@
     },
     {
       "_postman_id": "bd00c996-df4b-7a65-0ec2-35ae0f49cfcc",
-      "name": "Check Teacher deleted copy",
+      "name": "CLEANUP GetSchoolAUList",
       "event": [
         {
           "listen": "prerequest",
