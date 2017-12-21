@@ -6385,7 +6385,7 @@
         {
           "listen": "test",
           "script": {
-            "id": "8c835e7f-c6c8-4bbd-b37e-33d4a143280f",
+            "id": "fab4fed9-5d6c-49ee-87ab-0f8eb749f403",
             "type": "text/javascript",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
@@ -6394,7 +6394,7 @@
               "    var jsonData = JSON.parse(responseBody);",
               "    var i;",
               "    var handler = function (err, res) {",
-              "             console.log(err ? err : res.json());",
+              "             console.log(err ? err : 'OK');",
               "        };",
               "    for (i=0; i < jsonData.value.length; i++)",
               "    {",
