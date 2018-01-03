@@ -3990,7 +3990,7 @@
     },
     {
       "_postman_id": "f798619a-5e30-7b3c-035c-a133ad9a7597",
-      "name": "T_AppOnlyToken GraphReadWrite copy",
+      "name": "AAD PowerShell Token",
       "event": [
         {
           "listen": "prerequest",
