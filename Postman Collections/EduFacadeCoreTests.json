@@ -4025,17 +4025,12 @@
           "formdata": [
             {
               "key": "grant_type",
-              "value": "client_credentials",
+              "value": "password",
               "type": "text"
             },
             {
               "key": "client_id",
-              "value": "{{GraphClientIdReadWrite}}",
-              "type": "text"
-            },
-            {
-              "key": "client_secret",
-              "value": "{{GraphSecretReadWrite}}",
+              "value": "1950a258-227b-4e31-a9cf-717495945fc2",
               "type": "text"
             },
             {
