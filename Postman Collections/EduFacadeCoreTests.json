@@ -3874,6 +3874,68 @@
       "response": []
     },
     {
+      "_postman_id": "5155ff78-21de-ad80-8784-bee86b4c857c",
+      "name": "Get A School Nav Users",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+              "if(!expectedSuccess)",
+              "{",
+              "    tests[\"Status code is 403\"] = responseCode.code === 403;",
+              "}",
+              "else",
+              "{",
+              "    tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "    tests[\"Users returned\"] = responseBody.has('value\":[{')",
+              "}",
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
+              "}"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}"
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
+          }
+        ],
+        "body": {},
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{primaryTestSchoolId}}/users",
+        "description": ""
+      },
+      "response": []
+    },
+    {
       "_postman_id": "fa80fee2-8f40-9e73-a3bb-6508e197fd6e",
       "name": "Get A School Expand Multi",
       "event": [
@@ -3942,68 +4004,6 @@
           ]
         },
         "description": null
-      },
-      "response": []
-    },
-    {
-      "_postman_id": "5155ff78-21de-ad80-8784-bee86b4c857c",
-      "name": "Get A School Nav Users",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-              "if(!expectedSuccess)",
-              "{",
-              "    tests[\"Status code is 403\"] = responseCode.code === 403;",
-              "}",
-              "else",
-              "{",
-              "    tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "    tests[\"Users returned\"] = responseBody.has('value\":[{')",
-              "}",
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
-              "}"
-            ]
-          }
-        }
-      ],
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
-          }
-        ],
-        "body": {},
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{primaryTestSchoolId}}/users",
-        "description": ""
       },
       "response": []
     },
