@@ -3957,6 +3957,7 @@
         {
           "listen": "prerequest",
           "script": {
+            "id": "c74530ab-a867-48dd-8ac1-b580ca8f8ea9",
             "type": "text/javascript",
             "exec": [
               "if (this.hasOwnProperty(\"GlobalFunctions\") )",
@@ -3969,10 +3970,18 @@
         {
           "listen": "test",
           "script": {
+            "id": "7eb689bc-09d8-43db-a2a7-5e66dfc173a3",
             "type": "text/javascript",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Users returned\"] = responseBody.has('users\":[{')"
+              "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+              "if(!expectedSuccess)",
+              "{",
+              "}",
+              "else",
+              "{",
+              "    tests[\"Users returned\"] = responseBody.has('users\":[{')",
+              "}"
             ]
           }
         }
@@ -4011,9 +4020,9 @@
           ],
           "query": [
             {
-              "equals": true,
               "key": "$expand",
-              "value": "users"
+              "value": "users",
+              "equals": true
             }
           ]
         },
