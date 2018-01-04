@@ -3955,12 +3955,15 @@
         {
           "listen": "test",
           "script": {
-            "id": "0903e3be-3845-4700-aa07-84d0d1ad37cd",
+            "id": "58355367-fdb2-4d5a-bb3b-576cf894842a",
             "type": "text/javascript",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
               "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-              "if(expectedSuccess)",
+              "if(!expectedSuccess)",
+              "{",
+              "}",
+              "else",
               "{",
               "    tests[\"Users and classes present\"] = responseBody.has('classes\":[{') && responseBody.has('users\":[{');",
               "}"
