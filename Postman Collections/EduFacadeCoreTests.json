@@ -3812,7 +3812,7 @@
         {
           "listen": "test",
           "script": {
-            "id": "aa16cc23-1957-454b-9068-fc8091e11da0",
+            "id": "fae3fb3e-1119-404a-b875-31c02ce678ea",
             "type": "text/javascript",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
@@ -3822,7 +3822,7 @@
               "}",
               "else",
               "{",
-              "    tests[\"Users and classes present\"] = responseBody.has('classes\":[{') && responseBody.has('users\":[{')  ;",
+              "    tests[\"Users and classes present\"] = responseBody.has('classes\":[{') && responseBody.has('users\":[{');",
               "}"
             ]
           }
