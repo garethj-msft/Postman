@@ -1319,77 +1319,6 @@
       "response": []
     },
     {
-      "_postman_id": "116bea15-d708-1442-32f0-438dce288ccd",
-      "name": "Get Schools Expand Users",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (this.hasOwnProperty(\"GlobalFunctions\") )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Users returned\"] = responseBody.has('users\":[{')"
-            ]
-          }
-        }
-      ],
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "url": {
-          "raw": "http://{{host}}/{{graphVersion}}/education/schools?$expand=users",
-          "protocol": "http",
-          "host": [
-            "{{host}}"
-          ],
-          "path": [
-            "{{graphVersion}}",
-            "education",
-            "schools"
-          ],
-          "query": [
-            {
-              "equals": true,
-              "key": "$expand",
-              "value": "users"
-            }
-          ]
-        },
-        "description": null
-      },
-      "response": []
-    },
-    {
       "_postman_id": "6a6fea18-3383-f25c-a2a7-d70ba23d2ecc",
       "name": "Get A School",
       "event": [
@@ -4005,6 +3934,77 @@
               "key": "$expand",
               "value": "users,classes",
               "equals": true
+            }
+          ]
+        },
+        "description": null
+      },
+      "response": []
+    },
+    {
+      "_postman_id": "116bea15-d708-1442-32f0-438dce288ccd",
+      "name": "Get Schools Expand Users",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (this.hasOwnProperty(\"GlobalFunctions\") )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "tests[\"Users returned\"] = responseBody.has('users\":[{')"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}"
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://{{host}}/{{graphVersion}}/education/schools?$expand=users",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "{{graphVersion}}",
+            "education",
+            "schools"
+          ],
+          "query": [
+            {
+              "equals": true,
+              "key": "$expand",
+              "value": "users"
             }
           ]
         },
