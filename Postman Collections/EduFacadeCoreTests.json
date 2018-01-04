@@ -2394,7 +2394,7 @@
     },
     {
       "_postman_id": "1530ce26-e559-9339-972c-d6bb29a5f014",
-      "name": "Get A User copy",
+      "name": "GET MSGraph RelatedContacts User",
       "event": [
         {
           "listen": "prerequest",
