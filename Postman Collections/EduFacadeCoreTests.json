@@ -2732,7 +2732,7 @@
     },
     {
       "_postman_id": "4249b879-f895-516f-9573-7d425e8c47b5",
-      "name": "Get A User  Nav Classes copy",
+      "name": "Get A User's Teachers",
       "event": [
         {
           "listen": "prerequest",
