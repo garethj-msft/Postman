@@ -4028,6 +4028,7 @@
         {
           "listen": "prerequest",
           "script": {
+            "id": "1883c8b7-0385-4eb5-ac99-ca34c0125b3d",
             "type": "text/javascript",
             "exec": [
               "if (this.hasOwnProperty(\"GlobalFunctions\") )",
@@ -4040,10 +4041,18 @@
         {
           "listen": "test",
           "script": {
+            "id": "f0aa16a1-34a6-40d5-a25e-3a212dcf2ada",
             "type": "text/javascript",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Users returned\"] = responseBody.has('users\":[{')"
+              "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+              "if(!expectedSuccess)",
+              "{",
+              "}",
+              "else",
+              "{",
+              "    tests[\"Users returned\"] = responseBody.has('users\":[{')",
+              "}"
             ]
           }
         }
@@ -4065,10 +4074,7 @@
             "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
+        "body": {},
         "url": {
           "raw": "http://{{host}}/{{graphVersion}}/education/schools/{{primaryTestSchoolId}}?$expand=users",
           "protocol": "http",
@@ -4083,9 +4089,9 @@
           ],
           "query": [
             {
-              "equals": true,
               "key": "$expand",
-              "value": "users"
+              "value": "users",
+              "equals": true
             }
           ]
         },
