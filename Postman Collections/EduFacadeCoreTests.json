@@ -1441,6 +1441,78 @@
       "response": []
     },
     {
+      "_postman_id": "26fc63d9-4e44-9882-cc3b-ff8a227b6f41",
+      "name": "Get A School Expand Users",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (this.hasOwnProperty(\"GlobalFunctions\") )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "tests[\"Users returned\"] = responseBody.has('users\":[{')"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}"
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://{{host}}/{{graphVersion}}/education/schools/{{primaryTestSchoolId}}?$expand=users",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "{{graphVersion}}",
+            "education",
+            "schools",
+            "{{primaryTestSchoolId}}"
+          ],
+          "query": [
+            {
+              "equals": true,
+              "key": "$expand",
+              "value": "users"
+            }
+          ]
+        },
+        "description": null
+      },
+      "response": []
+    },
+    {
       "_postman_id": "8a8f08d3-6e2c-e9ca-acac-7c8fa69dd0cb",
       "name": "Get A School Expand Classes",
       "event": [
@@ -6665,78 +6737,6 @@
         },
         "url": "https://postman-echo.com/delay/10",
         "description": "Using this endpoint one can configure how long it takes for the server to come back with a response. Appending a number to the URL defines the time (in seconds) the server will wait before responding.\n\nNote that a maximum delay of 10 seconds is accepted by the server."
-      },
-      "response": []
-    },
-    {
-      "_postman_id": "26fc63d9-4e44-9882-cc3b-ff8a227b6f41",
-      "name": "Get A School Expand Users",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (this.hasOwnProperty(\"GlobalFunctions\") )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Users returned\"] = responseBody.has('users\":[{')"
-            ]
-          }
-        }
-      ],
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "url": {
-          "raw": "http://{{host}}/{{graphVersion}}/education/schools/{{primaryTestSchoolId}}?$expand=users",
-          "protocol": "http",
-          "host": [
-            "{{host}}"
-          ],
-          "path": [
-            "{{graphVersion}}",
-            "education",
-            "schools",
-            "{{primaryTestSchoolId}}"
-          ],
-          "query": [
-            {
-              "equals": true,
-              "key": "$expand",
-              "value": "users"
-            }
-          ]
-        },
-        "description": null
       },
       "response": []
     }
