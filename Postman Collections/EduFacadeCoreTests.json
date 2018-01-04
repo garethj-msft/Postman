@@ -2929,7 +2929,27 @@
           "mode": "raw",
           "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}/classes",
+        "url": {
+          "raw": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}/classes?$expand=teachers",
+          "protocol": "{{https}}",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "{{graphVersion}}",
+            "education",
+            "users",
+            "{{primaryTestUserId}}",
+            "classes"
+          ],
+          "query": [
+            {
+              "key": "$expand",
+              "value": "teachers",
+              "equals": true
+            }
+          ]
+        },
         "description": null
       },
       "response": []
