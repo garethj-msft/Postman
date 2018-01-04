@@ -6507,36 +6507,6 @@
       "response": []
     },
     {
-      "_postman_id": "8f1511cc-11de-435c-fa66-36913ff6b704",
-      "name": "Delay",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (responseCode.code !== 200)",
-              "{",
-              "    tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "}",
-              "postman.setNextRequest(postman.getEnvironmentVariable(\"returnRequest\"));"
-            ]
-          }
-        }
-      ],
-      "request": {
-        "method": "GET",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "url": "https://postman-echo.com/delay/10",
-        "description": "Using this endpoint one can configure how long it takes for the server to come back with a response. Appending a number to the URL defines the time (in seconds) the server will wait before responding.\n\nNote that a maximum delay of 10 seconds is accepted by the server."
-      },
-      "response": []
-    },
-    {
       "_postman_id": "67476cbb-8079-9c8e-e270-28b65b47b98d",
       "name": "Modify just created Teacher copy",
       "event": [
@@ -6597,6 +6567,36 @@
         },
         "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}",
         "description": null
+      },
+      "response": []
+    },
+    {
+      "_postman_id": "8f1511cc-11de-435c-fa66-36913ff6b704",
+      "name": "Delay",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (responseCode.code !== 200)",
+              "{",
+              "    tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "}",
+              "postman.setNextRequest(postman.getEnvironmentVariable(\"returnRequest\"));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": "https://postman-echo.com/delay/10",
+        "description": "Using this endpoint one can configure how long it takes for the server to come back with a response. Appending a number to the URL defines the time (in seconds) the server will wait before responding.\n\nNote that a maximum delay of 10 seconds is accepted by the server."
       },
       "response": []
     }
