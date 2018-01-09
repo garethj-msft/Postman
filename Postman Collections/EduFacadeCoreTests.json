@@ -4083,8 +4083,8 @@
         ],
         "body": {},
         "url": {
-          "raw": "http://{{host}}/{{graphVersion}}/education/schools/{{primaryTestSchoolId}}?$expand=users",
-          "protocol": "http",
+          "raw": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{primaryTestSchoolId}}?$expand=users",
+          "protocol": "{{https}}",
           "host": [
             "{{host}}"
           ],
@@ -4097,8 +4097,7 @@
           "query": [
             {
               "key": "$expand",
-              "value": "users",
-              "equals": true
+              "value": "users"
             }
           ]
         },
