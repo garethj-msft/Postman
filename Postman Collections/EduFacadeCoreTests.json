@@ -3926,8 +3926,8 @@
         ],
         "body": {},
         "url": {
-          "raw": "http://{{host}}/{{graphVersion}}/education/schools/{{primaryTestSchoolId}}?$expand=users,classes",
-          "protocol": "http",
+          "raw": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{primaryTestSchoolId}}?$expand=users,classes",
+          "protocol": "{{https}}",
           "host": [
             "{{host}}"
           ],
@@ -3940,8 +3940,7 @@
           "query": [
             {
               "key": "$expand",
-              "value": "users,classes",
-              "equals": true
+              "value": "users,classes"
             }
           ]
         },
