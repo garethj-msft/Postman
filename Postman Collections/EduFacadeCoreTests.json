@@ -3056,59 +3056,6 @@
       "response": []
     },
     {
-      "_postman_id": "d05b84e6-85d6-ca87-e3dd-f6956b701a8b",
-      "name": "Get EDU me schools copy",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "// tests[\"Schools found\"] = responseBody.has('\"id\":')"
-            ]
-          }
-        }
-      ],
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/me/schools",
-        "description": null
-      },
-      "response": []
-    },
-    {
       "_postman_id": "ecedfc4a-cc68-517b-3677-7ed7689bed7a",
       "name": "T_PostME",
       "event": [
