@@ -1169,60 +1169,6 @@
       "response": []
     },
     {
-      "_postman_id": "73a118e2-250a-f3eb-5a38-9b32196c1c39",
-      "name": "Get Schools copy",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Schools found\"] = responseBody.has('\"id\":');",
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
-              "}"
-            ]
-          }
-        }
-      ],
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
-          }
-        ],
-        "body": {},
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools",
-        "description": null
-      },
-      "response": []
-    },
-    {
       "_postman_id": "493db0b7-539e-df98-6414-8f3205d9572c",
       "name": "Get Schools with Filter",
       "event": [
