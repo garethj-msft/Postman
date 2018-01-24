@@ -567,13 +567,13 @@
           "raw": ""
         },
         "url": {
-          "raw": "{{https}}://{{host}}/{{graphVersion}}/administrativeUnits?$filter=displayName eq 'PrimaryTestSchool'",
+          "raw": "{{https}}://{{host}}/beta/administrativeUnits?$filter=displayName eq 'PrimaryTestSchool'",
           "protocol": "{{https}}",
           "host": [
             "{{host}}"
           ],
           "path": [
-            "{{graphVersion}}",
+            "beta",
             "administrativeUnits"
           ],
           "query": [
