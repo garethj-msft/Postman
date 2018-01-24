@@ -2617,59 +2617,6 @@
       "response": []
     },
     {
-      "_postman_id": "78fe81f7-2d58-9fb0-79d7-fd5707e3c054",
-      "name": "Get A User  Nav Schools",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Schools returned\"] = responseBody.has('value\":[{')"
-            ]
-          }
-        }
-      ],
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
-        },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}/schools",
-        "description": ""
-      },
-      "response": []
-    },
-    {
       "_postman_id": "71b08033-acdd-e5fd-7d31-8d064765564f",
       "name": "Get A User  Nav Classes",
       "event": [
