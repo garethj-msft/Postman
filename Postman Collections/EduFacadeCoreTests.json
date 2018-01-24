@@ -1623,7 +1623,7 @@
           "raw": ""
         },
         "url": {
-          "raw": "{{https}}://{{host}}/{{graphVersion}}/education/classes?filter=displayName eq 'PrimaryTestClass' and mailNickname eq 'PrimaryTestClass'",
+          "raw": "{{https}}://{{host}}/{{graphVersion}}/education/classes?$filter=displayName eq 'PrimaryTestClass' and mailNickname eq 'PrimaryTestClass'",
           "protocol": "{{https}}",
           "host": [
             "{{host}}"
@@ -1635,7 +1635,7 @@
           ],
           "query": [
             {
-              "key": "filter",
+              "key": "$filter",
               "value": "displayName eq 'PrimaryTestClass' and mailNickname eq 'PrimaryTestClass'",
               "equals": true
             }
