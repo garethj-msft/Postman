@@ -6625,7 +6625,7 @@
         {
           "listen": "test",
           "script": {
-            "id": "fab4fed9-5d6c-49ee-87ab-0f8eb749f403",
+            "id": "c1f6deda-c89d-42b6-8047-002ad295005b",
             "type": "text/javascript",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
@@ -6640,7 +6640,7 @@
               "    {",
               "        var url = postman.getEnvironmentVariable('https') + '://' +",
               "        postman.getEnvironmentVariable('host') + '/' +",
-              "        postman.getEnvironmentVariable('graphVersion') + '/administrativeUnits/' +",
+              "        'beta/administrativeUnits/' +",
               "        jsonData.value[i].id;",
               "        ",
               "        var echoPostRequest = {",
