@@ -1,7 +1,7 @@
 {
   "info": {
-    "name": "EduFacadeCoreTests",
     "_postman_id": "b0ea17f4-2fbd-1a0f-7ec6-9519d1b3a70b",
+    "name": "EduFacadeCoreTests",
     "description": "Core suite of integration tests for Rostering API on Microsoft Graph. Expected to pass 100% on 3 iterations.",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
@@ -322,8 +322,7 @@
               "value": "displayName eq 'noneducationgroup'"
             }
           ]
-        },
-        "description": ""
+        }
       },
       "response": []
     },
@@ -405,8 +404,7 @@
               "value": "displayName eq 'SchoolAdministrator'"
             }
           ]
-        },
-        "description": ""
+        }
       },
       "response": []
     },
@@ -494,8 +492,7 @@
               "equals": true
             }
           ]
-        },
-        "description": ""
+        }
       },
       "response": []
     },
@@ -583,8 +580,7 @@
               "equals": true
             }
           ]
-        },
-        "description": ""
+        }
       },
       "response": []
     },
@@ -672,8 +668,7 @@
               "equals": true
             }
           ]
-        },
-        "description": ""
+        }
       },
       "response": []
     },
@@ -742,8 +737,7 @@
           "mode": "raw",
           "raw": ""
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/users",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/users"
       },
       "response": []
     },
@@ -974,8 +968,7 @@
           "mode": "raw",
           "raw": ""
         },
-        "url": "{{https}}://{{host}}/versions",
-        "description": ""
+        "url": "{{https}}://{{host}}/versions"
       },
       "response": []
     },
@@ -1011,8 +1004,7 @@
           "mode": "raw",
           "raw": ""
         },
-        "url": "{{https}}://{{host}}/versions/{{graphVersion}}",
-        "description": ""
+        "url": "{{https}}://{{host}}/versions/{{graphVersion}}"
       },
       "response": []
     },
@@ -1042,8 +1034,7 @@
           "mode": "raw",
           "raw": ""
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
       },
       "response": []
     },
@@ -1073,8 +1064,7 @@
           "mode": "raw",
           "raw": ""
         },
-        "url": "{{https}}://{{host}}/schemas/Microsoft.EducationRosteringAPIS",
-        "description": ""
+        "url": "{{https}}://{{host}}/schemas/Microsoft.EducationRosteringAPIS"
       },
       "response": []
     },
@@ -1109,8 +1099,7 @@
           "mode": "raw",
           "raw": ""
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education"
       },
       "response": []
     },
@@ -1163,8 +1152,7 @@
           }
         ],
         "body": {},
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools"
       },
       "response": []
     },
@@ -1238,8 +1226,7 @@
               "equals": true
             }
           ]
-        },
-        "description": ""
+        }
       },
       "response": []
     },
@@ -1313,8 +1300,7 @@
               "equals": true
             }
           ]
-        },
-        "description": ""
+        }
       },
       "response": []
     },
@@ -1364,8 +1350,7 @@
           "mode": "raw",
           "raw": ""
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{primaryTestSchoolId}}",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{primaryTestSchoolId}}"
       },
       "response": []
     },
@@ -1440,8 +1425,7 @@
               "equals": true
             }
           ]
-        },
-        "description": ""
+        }
       },
       "response": []
     },
@@ -1497,8 +1481,7 @@
           "mode": "raw",
           "raw": ""
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{primaryTestSchoolId}}/classes",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{primaryTestSchoolId}}/classes"
       },
       "response": []
     },
@@ -1569,8 +1552,7 @@
           "mode": "raw",
           "raw": ""
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes"
       },
       "response": []
     },
@@ -1640,8 +1622,7 @@
               "equals": true
             }
           ]
-        },
-        "description": ""
+        }
       },
       "response": []
     },
@@ -1711,8 +1692,7 @@
               "value": "members"
             }
           ]
-        },
-        "description": ""
+        }
       },
       "response": []
     },
@@ -1782,8 +1762,7 @@
               "value": "teachers"
             }
           ]
-        },
-        "description": ""
+        }
       },
       "response": []
     },
@@ -1853,8 +1832,7 @@
               "equals": true
             }
           ]
-        },
-        "description": ""
+        }
       },
       "response": []
     },
@@ -1905,8 +1883,7 @@
           "mode": "raw",
           "raw": ""
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{primaryTestClassId}}",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{primaryTestClassId}}"
       },
       "response": []
     },
@@ -1977,8 +1954,7 @@
               "value": "members"
             }
           ]
-        },
-        "description": ""
+        }
       },
       "response": []
     },
@@ -2049,8 +2025,7 @@
               "value": "teachers"
             }
           ]
-        },
-        "description": ""
+        }
       },
       "response": []
     },
@@ -2121,8 +2096,7 @@
               "value": "schools"
             }
           ]
-        },
-        "description": ""
+        }
       },
       "response": []
     },
@@ -2174,8 +2148,7 @@
           "mode": "raw",
           "raw": ""
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{primaryTestClassId}}/members",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{primaryTestClassId}}/members"
       },
       "response": []
     },
@@ -2227,8 +2200,7 @@
           "mode": "raw",
           "raw": ""
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{primaryTestClassId}}/teachers",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{primaryTestClassId}}/teachers"
       },
       "response": []
     },
@@ -2281,8 +2253,7 @@
           "mode": "raw",
           "raw": "{  \"@odata.type\":\"microsoft.graph.group\",\n   \"displayName\":\"GarethClass28\",\n   \"mailNickname\":\"class282\",\n   \"mailEnabled\":true,\n   \"securityEnabled\":false,\n   \"extension_fe2174665583431c953114ff7268b7b3_Education_Period\":\"5\",\n   \"groupTypes\":[\"Unified\"]}"
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{nonEducationGroupId}}",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{nonEducationGroupId}}"
       },
       "response": []
     },
@@ -2334,8 +2305,7 @@
           "mode": "raw",
           "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}"
       },
       "response": []
     },
@@ -2406,8 +2376,7 @@
               "equals": true
             }
           ]
-        },
-        "description": ""
+        }
       },
       "response": []
     },
@@ -2482,8 +2451,7 @@
               "equals": true
             }
           ]
-        },
-        "description": ""
+        }
       },
       "response": []
     },
@@ -2558,8 +2526,7 @@
               "equals": true
             }
           ]
-        },
-        "description": ""
+        }
       },
       "response": []
     },
@@ -2619,8 +2586,7 @@
           "mode": "raw",
           "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}/classes",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}/classes"
       },
       "response": []
     },
@@ -2700,8 +2666,7 @@
               "equals": true
             }
           ]
-        },
-        "description": null
+        }
       },
       "response": []
     },
@@ -2753,8 +2718,7 @@
           "mode": "raw",
           "raw": "{  \"@odata.type\":\"microsoft.graph.group\",\n   \"displayName\":\"GarethClass28\",\n   \"mailNickname\":\"class282\",\n   \"mailEnabled\":true,\n   \"securityEnabled\":false,\n   \"extension_fe2174665583431c953114ff7268b7b3_Education_Period\":\"5\",\n   \"groupTypes\":[\"Unified\"]}"
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{nonEducationUserId}}",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{nonEducationUserId}}"
       },
       "response": []
     },
@@ -2838,8 +2802,7 @@
           "mode": "raw",
           "raw": ""
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/me",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/me"
       },
       "response": []
     },
@@ -2891,8 +2854,7 @@
           "mode": "raw",
           "raw": ""
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/me/classes",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/me/classes"
       },
       "response": []
     },
@@ -3182,8 +3144,7 @@
           "mode": "raw",
           "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users"
       },
       "response": []
     },
@@ -3263,8 +3224,7 @@
               "equals": true
             }
           ]
-        },
-        "description": ""
+        }
       },
       "response": []
     },
@@ -3342,8 +3302,7 @@
               "equals": true
             }
           ]
-        },
-        "description": ""
+        }
       },
       "response": []
     },
@@ -3421,8 +3380,7 @@
               "equals": true
             }
           ]
-        },
-        "description": ""
+        }
       },
       "response": []
     },
@@ -3500,8 +3458,7 @@
               "equals": true
             }
           ]
-        },
-        "description": ""
+        }
       },
       "response": []
     },
@@ -3566,8 +3523,7 @@
           "mode": "raw",
           "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}"
       },
       "response": []
     },
@@ -3628,8 +3584,7 @@
           }
         ],
         "body": {},
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{primaryTestSchoolId}}/users",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{primaryTestSchoolId}}/users"
       },
       "response": []
     },
@@ -3707,8 +3662,7 @@
               "value": "users, classes"
             }
           ]
-        },
-        "description": null
+        }
       },
       "response": []
     },
@@ -3784,8 +3738,7 @@
               "value": "users,classes"
             }
           ]
-        },
-        "description": null
+        }
       },
       "response": []
     },
@@ -3863,8 +3816,7 @@
               "value": "users"
             }
           ]
-        },
-        "description": null
+        }
       },
       "response": []
     },
@@ -3940,8 +3892,7 @@
               "value": "users"
             }
           ]
-        },
-        "description": null
+        }
       },
       "response": []
     },
@@ -3993,8 +3944,7 @@
           "mode": "raw",
           "raw": "{  \"@odata.type\":\"microsoft.graph.group\",\n   \"displayName\":\"GarethClass28\",\n   \"mailNickname\":\"class282\",\n   \"mailEnabled\":true,\n   \"securityEnabled\":false,\n   \"extension_fe2174665583431c953114ff7268b7b3_Education_Period\":\"5\",\n   \"groupTypes\":[\"Unified\"]}"
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/groups",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/groups"
       },
       "response": []
     },
@@ -4046,8 +3996,7 @@
           "mode": "raw",
           "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/users",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/users"
       },
       "response": []
     },
@@ -4323,8 +4272,7 @@
           "mode": "raw",
           "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationSchool\",\n\t\"displayName\":\"SchoolTestRun{{currentRandom}}\",\n\t\"description\": \"A lovely school to test.\",\n\t\"externalSource\": \"SIS\",\n\t\"address\": {\n\t    \"street\": \"1 Bash Street\",\n\t    \"city\": \"Redmond\",\n\t    \"state\": \"WA\",\n\t    \"countryOrRegion\": \"USA\",\n\t    \"postalCode\": \"98052\"\n \t}\n}"
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools"
       },
       "response": []
     },
@@ -4391,8 +4339,7 @@
           "mode": "raw",
           "raw": "{  \n\t\"@odata.id\":\"https://{{host}}/{{graphVersion}}/education/classes/{{primaryTestClassId}}\" \n}\n"
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/classes/$ref",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/classes/$ref"
       },
       "response": []
     },
@@ -4461,8 +4408,7 @@
           "mode": "raw",
           "raw": "{  \n\t\"@odata.id\":\"https://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}\" \n}\n"
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/users/$ref",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/users/$ref"
       },
       "response": []
     },
@@ -4527,8 +4473,7 @@
           "mode": "raw",
           "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}"
       },
       "response": []
     },
@@ -4605,8 +4550,7 @@
           "mode": "raw",
           "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/classes",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/classes"
       },
       "response": []
     },
@@ -4675,8 +4619,7 @@
           "mode": "raw",
           "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/users",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/users"
       },
       "response": []
     },
@@ -4739,8 +4682,7 @@
           "mode": "raw",
           "raw": ""
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/classes/{{primaryTestClassId}}/$ref",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/classes/{{primaryTestClassId}}/$ref"
       },
       "response": []
     },
@@ -4805,8 +4747,7 @@
           "mode": "raw",
           "raw": ""
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/users/{{primaryTestUserId}}/$ref",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/users/{{primaryTestUserId}}/$ref"
       },
       "response": []
     },
@@ -4882,8 +4823,7 @@
           "mode": "raw",
           "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/classes",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/classes"
       },
       "response": []
     },
@@ -4951,8 +4891,7 @@
           "mode": "raw",
           "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/users",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/users"
       },
       "response": []
     },
@@ -5019,8 +4958,7 @@
           "mode": "raw",
           "raw": "{\n\t\"description\": \"An even better school to test.\",\n\t\"externalSource\": \"Manual\",\n\t\"address\": {\n\t    \"city\": \"Seattle\"\n \t}\n}"
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}"
       },
       "response": []
     },
@@ -5087,8 +5025,7 @@
           "mode": "raw",
           "raw": ""
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}"
       },
       "response": []
     },
@@ -5151,8 +5088,7 @@
           "mode": "raw",
           "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}"
       },
       "response": []
     },
@@ -5207,8 +5143,7 @@
           "mode": "raw",
           "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}"
       },
       "response": []
     },
@@ -5281,8 +5216,7 @@
           "mode": "raw",
           "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"ClassTestRun{{currentRandom}}\",\n\t\"mailNickname\":\"classtest{{currentRandom}}\",\n\t\"period\":\"5\",\n\t\"externalSource\": \"SIS\",\n\t\"term\": {\n\t\t\"externalId\": \"S2\",\n\t\t\"displayName\": \"Semester 2\"\n\t}\n}"
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes"
       },
       "response": []
     },
@@ -5342,8 +5276,7 @@
           "mode": "raw",
           "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}"
       },
       "response": []
     },
@@ -5406,8 +5339,7 @@
           "mode": "raw",
           "raw": "{  \n\t\"@odata.id\":\"https://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}\" \n}\n"
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/members/$ref",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/members/$ref"
       },
       "response": []
     },
@@ -5475,8 +5407,7 @@
           "mode": "raw",
           "raw": "{  \n\t\"@odata.id\":\"https://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}\" \n}\n"
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/teachers/$ref",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/teachers/$ref"
       },
       "response": []
     },
@@ -5605,8 +5536,7 @@
           "mode": "raw",
           "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/members",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/members"
       },
       "response": []
     },
@@ -5671,8 +5601,7 @@
           "mode": "raw",
           "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/teachers",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/teachers"
       },
       "response": []
     },
@@ -5731,8 +5660,7 @@
           "mode": "raw",
           "raw": ""
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/members/{{primaryTestUserId}}/$ref",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/members/{{primaryTestUserId}}/$ref"
       },
       "response": []
     },
@@ -5791,8 +5719,7 @@
           "mode": "raw",
           "raw": ""
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/teachers/{{primaryTestUserId}}/$ref",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/teachers/{{primaryTestUserId}}/$ref"
       },
       "response": []
     },
@@ -5856,8 +5783,7 @@
           "mode": "raw",
           "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/members",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/members"
       },
       "response": []
     },
@@ -5921,8 +5847,7 @@
           "mode": "raw",
           "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/teachers",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/teachers"
       },
       "response": []
     },
@@ -5985,8 +5910,7 @@
           "mode": "raw",
           "raw": "{\n\t\"classCode\": \"777\",\n\t\"displayName\": \"ChangedClass\"\n}"
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}"
       },
       "response": []
     },
@@ -6048,8 +5972,7 @@
           "mode": "raw",
           "raw": ""
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}"
       },
       "response": []
     },
@@ -6108,8 +6031,7 @@
           "mode": "raw",
           "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}"
       },
       "response": []
     },
@@ -6161,8 +6083,7 @@
           "mode": "raw",
           "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}"
       },
       "response": []
     },
@@ -6237,8 +6158,7 @@
           "mode": "raw",
           "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationUser\",\n\t\"accountEnabled\": true,\n\t\"displayName\":\"Teacher TestRun{{currentRandom}}\",\n\t\"mailNickname\": \"TeacherTR{{currentRandom}}\",\n\t\"userPrincipalName\": \"TeacherTR{{currentRandom}}@{{tenantDomain}}\",\n\t\"middleName\": \"Middle\",\n\t\"passwordProfile\":{\n\t\t\"forceChangePasswordNextSignIn\": false,\n\t\t\"password\": \"!!abc123\"\n\t},\n\t\"primaryRole\": \"teacher\",\n\t\"teacher\": {\n\t\t\"teacherNumber\": \"456\",\n\t\t\"externalId\": \"123\"\n\t}\n}"
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users"
       },
       "response": []
     },
@@ -6300,8 +6220,7 @@
           "mode": "raw",
           "raw": ""
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}"
       },
       "response": []
     },
@@ -6364,8 +6283,7 @@
           "mode": "raw",
           "raw": "{\n\t\"displayName\": \"Reacher TestRun\",\n\t\"middleName\": \"Hann\",\n\t\"teacher\": {\n\t\t\"teacherNumber\": \"102\"\n\t  }\n}"
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}"
       },
       "response": []
     },
@@ -6428,8 +6346,7 @@
           "mode": "raw",
           "raw": ""
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}"
       },
       "response": []
     },
@@ -6488,8 +6405,7 @@
           "mode": "raw",
           "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}"
       },
       "response": []
     },
@@ -6541,8 +6457,7 @@
           "mode": "raw",
           "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}",
-        "description": ""
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}"
       },
       "response": []
     },
@@ -6701,8 +6616,7 @@
               "equals": true
             }
           ]
-        },
-        "description": null
+        }
       },
       "response": []
     },
@@ -6737,8 +6651,7 @@
           "mode": "raw",
           "raw": ""
         },
-        "url": "https://postman-echo.com/get",
-        "description": ""
+        "url": "https://postman-echo.com/get"
       },
       "response": []
     },
@@ -6769,6 +6682,73 @@
         },
         "url": "https://postman-echo.com/delay/10",
         "description": "Using this endpoint one can configure how long it takes for the server to come back with a response. Appending a number to the URL defines the time (in seconds) the server will wait before responding.\n\nNote that a maximum delay of 10 seconds is accepted by the server."
+      },
+      "response": []
+    },
+    {
+      "_postman_id": "b580cab7-98ac-416e-bc46-6aed4dfe2aee",
+      "name": "Add a School Class Copy",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+              "if(!expectedSuccess)",
+              "{",
+              "    tests[\"Status code is 403\"] = responseCode.code === 403;",
+              "}",
+              "else",
+              "{",
+              "    tests[\"Status code is 204\"] = responseCode.code === 204;",
+              "    if (typeof(GlobalFunctions) !== 'undefined' )",
+              "    {",
+              "        GlobalFunctions.reportFails(tests, responseCode, responseBody);",
+              "    }",
+              "}"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}"
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "disabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{  \n  \"@odata.id\":\"https://{{host}}/{{graphVersion}}/education/classes/{{primaryTestClassId}}\" \n}\n"
+        },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/classes/$ref"
       },
       "response": []
     }
