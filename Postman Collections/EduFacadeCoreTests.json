@@ -330,90 +330,90 @@
             }
           },
           "response": []
+        },
+        {
+          "_postman_id": "deaf595e-0df4-c402-960f-f3cacb89cc7f",
+          "name": "FIND A non-education User",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (typeof(GlobalFunctions) !== 'undefined' )",
+                  "{",
+                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "tests[\"noneducationuser found\"] = responseBody.has(\"SchoolAdministrator\");",
+                  "if (responseBody.has('SchoolAdministrator'))",
+                  "{",
+                  "    var jsonData = JSON.parse(responseBody);",
+                  "    var i;",
+                  "    for (i=0; i < jsonData.value.length; i++)",
+                  "    {",
+                  "        if (jsonData.value[i].displayName ===  'SchoolAdministrator')",
+                  "        {",
+                  "            console.log(\"noneducationuser id: \" + jsonData.value[i].id)",
+                  "            postman.setEnvironmentVariable(\"nonEducationUserId\", jsonData.value[i].id)",
+                  "        }",
+                  "    }",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{GraphAuth}}"
+              },
+              {
+                "key": "Workload-Authorization",
+                "value": "{{AADAuth}}",
+                "disabled": true
+              },
+              {
+                "key": "Accept",
+                "value": "application/json;odata.metadata={{MetadataLevel}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{  \"@odata.type\":\"microsoft.graph.group\",\n   \"displayName\":\"GarethClass28\",\n   \"mailNickname\":\"class282\",\n   \"mailEnabled\":true,\n   \"securityEnabled\":false,\n   \"extension_fe2174665583431c953114ff7268b7b3_Education_Period\":\"5\",\n   \"groupTypes\":[\"Unified\"]}"
+            },
+            "url": {
+              "raw": "{{https}}://{{host}}/{{graphVersion}}/users?$filter=displayName eq 'SchoolAdministrator'",
+              "protocol": "{{https}}",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "{{graphVersion}}",
+                "users"
+              ],
+              "query": [
+                {
+                  "equals": true,
+                  "key": "$filter",
+                  "value": "displayName eq 'SchoolAdministrator'"
+                }
+              ]
+            }
+          },
+          "response": []
         }
       ]
-    },
-    {
-      "_postman_id": "deaf595e-0df4-c402-960f-f3cacb89cc7f",
-      "name": "FIND A non-education User",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"noneducationuser found\"] = responseBody.has(\"SchoolAdministrator\");",
-              "if (responseBody.has('SchoolAdministrator'))",
-              "{",
-              "    var jsonData = JSON.parse(responseBody);",
-              "    var i;",
-              "    for (i=0; i < jsonData.value.length; i++)",
-              "    {",
-              "        if (jsonData.value[i].displayName ===  'SchoolAdministrator')",
-              "        {",
-              "            console.log(\"noneducationuser id: \" + jsonData.value[i].id)",
-              "            postman.setEnvironmentVariable(\"nonEducationUserId\", jsonData.value[i].id)",
-              "        }",
-              "    }",
-              "}"
-            ]
-          }
-        }
-      ],
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{  \"@odata.type\":\"microsoft.graph.group\",\n   \"displayName\":\"GarethClass28\",\n   \"mailNickname\":\"class282\",\n   \"mailEnabled\":true,\n   \"securityEnabled\":false,\n   \"extension_fe2174665583431c953114ff7268b7b3_Education_Period\":\"5\",\n   \"groupTypes\":[\"Unified\"]}"
-        },
-        "url": {
-          "raw": "{{https}}://{{host}}/{{graphVersion}}/users?$filter=displayName eq 'SchoolAdministrator'",
-          "protocol": "{{https}}",
-          "host": [
-            "{{host}}"
-          ],
-          "path": [
-            "{{graphVersion}}",
-            "users"
-          ],
-          "query": [
-            {
-              "equals": true,
-              "key": "$filter",
-              "value": "displayName eq 'SchoolAdministrator'"
-            }
-          ]
-        }
-      },
-      "response": []
     },
     {
       "_postman_id": "cd6b2880-4ae7-1851-c592-8afa24307f3c",
