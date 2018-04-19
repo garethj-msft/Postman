@@ -500,96 +500,96 @@
             }
           },
           "response": []
+        },
+        {
+          "_postman_id": "0ec4b95d-18b5-a183-3746-798f25376d79",
+          "name": "FIND PrimaryTestSchool",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (typeof(GlobalFunctions) !== 'undefined' )",
+                  "{",
+                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "tests[\"Schools found\"] = responseBody.has('\"id\":')",
+                  "if (!responseBody.has('\"PrimaryTestSchool\"'))",
+                  "{",
+                  "    tests[\"School named PrimaryTestSchool required\"] = false;",
+                  "    postman.setNextRequest(null);",
+                  "}",
+                  "",
+                  "if (responseBody.has('\"id\":'))",
+                  "{",
+                  "    var jsonData = JSON.parse(responseBody);",
+                  "    var i;",
+                  "    for (i=0; i < jsonData.value.length; i++)",
+                  "    {",
+                  "        if (jsonData.value[i].displayName ===  'PrimaryTestSchool')",
+                  "        {",
+                  "            console.log(\"Primary test school id: \" + jsonData.value[i].id)",
+                  "            postman.setEnvironmentVariable(\"primaryTestSchoolId\", jsonData.value[i].id)",
+                  "        }",
+                  "    }",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{GraphAuth}}"
+              },
+              {
+                "key": "Workload-Authorization",
+                "value": "{{AADAuth}}",
+                "disabled": true
+              },
+              {
+                "key": "Accept",
+                "value": "application/json;odata.metadata={{MetadataLevel}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{https}}://{{host}}/beta/administrativeUnits?$filter=displayName eq 'PrimaryTestSchool'",
+              "protocol": "{{https}}",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "beta",
+                "administrativeUnits"
+              ],
+              "query": [
+                {
+                  "key": "$filter",
+                  "value": "displayName eq 'PrimaryTestSchool'",
+                  "equals": true
+                }
+              ]
+            }
+          },
+          "response": []
         }
       ]
-    },
-    {
-      "_postman_id": "0ec4b95d-18b5-a183-3746-798f25376d79",
-      "name": "FIND PrimaryTestSchool",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Schools found\"] = responseBody.has('\"id\":')",
-              "if (!responseBody.has('\"PrimaryTestSchool\"'))",
-              "{",
-              "    tests[\"School named PrimaryTestSchool required\"] = false;",
-              "    postman.setNextRequest(null);",
-              "}",
-              "",
-              "if (responseBody.has('\"id\":'))",
-              "{",
-              "    var jsonData = JSON.parse(responseBody);",
-              "    var i;",
-              "    for (i=0; i < jsonData.value.length; i++)",
-              "    {",
-              "        if (jsonData.value[i].displayName ===  'PrimaryTestSchool')",
-              "        {",
-              "            console.log(\"Primary test school id: \" + jsonData.value[i].id)",
-              "            postman.setEnvironmentVariable(\"primaryTestSchoolId\", jsonData.value[i].id)",
-              "        }",
-              "    }",
-              "}"
-            ]
-          }
-        }
-      ],
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "url": {
-          "raw": "{{https}}://{{host}}/beta/administrativeUnits?$filter=displayName eq 'PrimaryTestSchool'",
-          "protocol": "{{https}}",
-          "host": [
-            "{{host}}"
-          ],
-          "path": [
-            "beta",
-            "administrativeUnits"
-          ],
-          "query": [
-            {
-              "key": "$filter",
-              "value": "displayName eq 'PrimaryTestSchool'",
-              "equals": true
-            }
-          ]
-        }
-      },
-      "response": []
     },
     {
       "_postman_id": "6c790bcf-e5cd-a3ba-f52c-87af603ad5d0",
