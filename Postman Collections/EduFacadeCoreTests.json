@@ -7,6 +7,12 @@
   },
   "item": [
     {
+      "_postman_id": "0ae107f0-7101-45f6-8b8b-961abc83ecaa",
+      "name": "Setup",
+      "description": "",
+      "item": []
+    },
+    {
       "_postman_id": "e3e41bd2-5185-b890-2863-0998afafde85",
       "name": "T_InitializeScripts",
       "event": [
