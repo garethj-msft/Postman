@@ -588,96 +588,96 @@
             }
           },
           "response": []
+        },
+        {
+          "_postman_id": "6c790bcf-e5cd-a3ba-f52c-87af603ad5d0",
+          "name": "FIND PrimaryTestUser",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (typeof(GlobalFunctions) !== 'undefined' )",
+                  "{",
+                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "tests[\"User found\"] = responseBody.has('\"id\":')",
+                  "if (!responseBody.has('\"PrimaryTestUser\"'))",
+                  "{",
+                  "    tests[\"User named PrimaryTestUser required\"] = false;",
+                  "    postman.setNextRequest(null);",
+                  "}",
+                  "",
+                  "if (responseBody.has('\"id\":'))",
+                  "{",
+                  "    var jsonData = JSON.parse(responseBody);",
+                  "    var i;",
+                  "    for (i=0; i < jsonData.value.length; i++)",
+                  "    {",
+                  "        if (jsonData.value[i].displayName ===  'PrimaryTestUser')",
+                  "        {",
+                  "            console.log(\"Primary test user id: \" + jsonData.value[i].id)",
+                  "            postman.setEnvironmentVariable(\"primaryTestUserId\", jsonData.value[i].id)",
+                  "        }",
+                  "    }",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{GraphAuth}}"
+              },
+              {
+                "key": "Workload-Authorization",
+                "value": "{{AADAuth}}",
+                "disabled": true
+              },
+              {
+                "key": "Accept",
+                "value": "application/json;odata.metadata={{MetadataLevel}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{https}}://{{host}}/{{graphVersion}}/users?$filter=displayName eq 'PrimaryTestUser'",
+              "protocol": "{{https}}",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "{{graphVersion}}",
+                "users"
+              ],
+              "query": [
+                {
+                  "key": "$filter",
+                  "value": "displayName eq 'PrimaryTestUser'",
+                  "equals": true
+                }
+              ]
+            }
+          },
+          "response": []
         }
       ]
-    },
-    {
-      "_postman_id": "6c790bcf-e5cd-a3ba-f52c-87af603ad5d0",
-      "name": "FIND PrimaryTestUser",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"User found\"] = responseBody.has('\"id\":')",
-              "if (!responseBody.has('\"PrimaryTestUser\"'))",
-              "{",
-              "    tests[\"User named PrimaryTestUser required\"] = false;",
-              "    postman.setNextRequest(null);",
-              "}",
-              "",
-              "if (responseBody.has('\"id\":'))",
-              "{",
-              "    var jsonData = JSON.parse(responseBody);",
-              "    var i;",
-              "    for (i=0; i < jsonData.value.length; i++)",
-              "    {",
-              "        if (jsonData.value[i].displayName ===  'PrimaryTestUser')",
-              "        {",
-              "            console.log(\"Primary test user id: \" + jsonData.value[i].id)",
-              "            postman.setEnvironmentVariable(\"primaryTestUserId\", jsonData.value[i].id)",
-              "        }",
-              "    }",
-              "}"
-            ]
-          }
-        }
-      ],
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "url": {
-          "raw": "{{https}}://{{host}}/{{graphVersion}}/users?$filter=displayName eq 'PrimaryTestUser'",
-          "protocol": "{{https}}",
-          "host": [
-            "{{host}}"
-          ],
-          "path": [
-            "{{graphVersion}}",
-            "users"
-          ],
-          "query": [
-            {
-              "key": "$filter",
-              "value": "displayName eq 'PrimaryTestUser'",
-              "equals": true
-            }
-          ]
-        }
-      },
-      "response": []
     },
     {
       "_postman_id": "27902a19-da1a-4103-32d6-6a240023e61c",
