@@ -6680,7 +6680,7 @@
         "method": "GET",
         "header": [
           {
-            "key": "x-header",
+            "key": "X-Api-Key",
             "value": "050202b1ff3a4303a4bf77dddf4529bc"
           }
         ],
@@ -6688,7 +6688,7 @@
           "mode": "raw",
           "raw": ""
         },
-        "url": "https://postman-echo.com/get"
+        "url": "https://api.getpostman.com/environments"
       },
       "response": []
     },
