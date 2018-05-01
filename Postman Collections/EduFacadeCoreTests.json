@@ -6664,6 +6664,7 @@
         {
           "listen": "test",
           "script": {
+            "id": "c7410742-a897-4398-9f96-bf0748fb5fe3",
             "type": "text/javascript",
             "exec": [
               "// The Sole purpose of this FINAL TEST is to reset the environment variable Metadata level to minimal",
@@ -6672,6 +6673,16 @@
               "postman.setEnvironmentVariable('expectedSuccess', true);",
               "postman.setNextRequest(null);",
               ""
+            ]
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "c8690294-8dae-4cfd-91ee-bb3d635bdbcf",
+            "type": "text/javascript",
+            "exec": [
+              "console.log(pm.environment.Name);"
             ]
           }
         }
