@@ -6679,10 +6679,10 @@
         {
           "listen": "prerequest",
           "script": {
-            "id": "c8690294-8dae-4cfd-91ee-bb3d635bdbcf",
+            "id": "f7d722ae-6054-4013-aad0-07274dd0c532",
             "type": "text/javascript",
             "exec": [
-              "console.log(pm.environment.Name);"
+              "console.log(pm.info.eventName);"
             ]
           }
         }
@@ -6699,7 +6699,7 @@
           "mode": "raw",
           "raw": ""
         },
-        "url": "https://api.getpostman.com/environments"
+        "url": "https://api.getpostman.com/environments/41863a63-3d4f-0d33-0d13-059bb1a19644"
       },
       "response": []
     },
