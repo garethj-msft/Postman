@@ -6634,7 +6634,7 @@
         {
           "listen": "test",
           "script": {
-            "id": "e52ecaea-504d-46a2-ab94-f9820da2732c",
+            "id": "a57a804d-c11f-46b0-a963-b9592c84f397",
             "type": "text/javascript",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
@@ -6654,8 +6654,6 @@
               "    {",
               "        if (jsonData.environment.values[i].key === 'GraphRefreshReadBasic')",
               "        {",
-              "            console.log('Key ' + i + ': ' + jsonData.environment.values[i].key);",
-              "            console.log('Val ' + i + ': ' + jsonData.environment.values[i].value);",
               "            if (jsonData.environment.values[i].value === pm.variables.get('GraphRefreshReadBasic'))",
               "            {",
               "                console.log('GraphRefreshReadBasic tokens match - no update.');",
@@ -6663,6 +6661,8 @@
               "            else",
               "            {",
               "                console.log('GraphRefreshReadBasic tokens dont match - updating.');",
+              "                console.log('Old: ' + jsonData.environment.values[i].value);",
+              "                console.log('New: ' + pm.variables.get('GraphRefreshReadBasic'));",
               "                jsonData.environment.values[i].value = pm.variables.get('GraphRefreshReadBasic');",
               "            }",
               "        }",
@@ -6797,7 +6797,7 @@
   ],
   "variable": [
     {
-      "id": "26ecc6e8-f7bb-47db-9f06-b83041f490c1",
+      "id": "f0c82655-83b6-497c-8905-e41855f1fad4",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
