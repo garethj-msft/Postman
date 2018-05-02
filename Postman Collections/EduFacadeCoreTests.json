@@ -6634,7 +6634,7 @@
         {
           "listen": "test",
           "script": {
-            "id": "a775a755-1875-4710-82da-13394eda3392",
+            "id": "3cc6d37b-9be9-4a3f-b463-30f737efac02",
             "type": "text/javascript",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
@@ -6656,6 +6656,8 @@
               "",
               "    // Don't re-PUT the ID.        ",
               "    jsonData.environment.id = undefined;",
+              "    ",
+              "    // Don't do a PUT unless we make a meaningful change",
               "    var changes = false;",
               "        ",
               "    for (i=0; i < jsonData.environment.values.length; i++)",
@@ -6854,7 +6856,7 @@
   ],
   "variable": [
     {
-      "id": "33c059d9-db73-4f5d-9692-c80ea0c76c4f",
+      "id": "a88864a0-9d64-4d9b-bf55-94afe8b401e3",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
