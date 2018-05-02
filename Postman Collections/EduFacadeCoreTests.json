@@ -6634,7 +6634,7 @@
         {
           "listen": "test",
           "script": {
-            "id": "f70bd3fd-472a-494e-add4-4cf0f1fbd7b5",
+            "id": "5baef1cd-bd81-42b2-9b9c-b8f341126352",
             "type": "text/javascript",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
@@ -6669,7 +6669,7 @@
               "        }",
               "    }",
               "        ",
-              "    var url = 'https://api.getpostman.com/environments/' // + postman.getEnvironmentVariable('environmentId');",
+              "    var url = 'https://api.getpostman.com/environments/' + postman.getEnvironmentVariable('environmentId');",
               "        ",
               "    var envPostRequest = {",
               "        url: url,",
@@ -6798,7 +6798,7 @@
   ],
   "variable": [
     {
-      "id": "42067e60-d109-4822-8a73-acd621165e0d",
+      "id": "5baf9a81-e6da-4f8d-ae99-8bde56090754",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
