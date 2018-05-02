@@ -6634,12 +6634,14 @@
         {
           "listen": "test",
           "script": {
-            "id": "4a4f30e2-e3be-4546-986e-6909c1d4fab1",
+            "id": "8f72d337-ec3e-4681-8f6f-79fabb7d027a",
             "type": "text/javascript",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
               "if (responseCode.code === 200)",
               "{",
+              "    var apiKey = pm.variables['PostmanAPIKey'];",
+              "    console.log('API Key = ' + apiKey);",
               "    var jsonData = JSON.parse(responseBody);",
               "    var handler = function (err, res) {",
               "             console.log(err ? err : 'OK');",
@@ -6775,7 +6777,7 @@
   ],
   "variable": [
     {
-      "id": "9efc91a7-6b67-4702-a175-7c2477f5367d",
+      "id": "82fd7926-3e6e-4ccb-b41a-4a786b206ce1",
       "key": "PostmanAPIKey",
       "value": "dfdfdf",
       "type": "string",
