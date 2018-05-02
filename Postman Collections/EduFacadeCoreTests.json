@@ -6628,36 +6628,6 @@
       "response": []
     },
     {
-      "_postman_id": "42bb7e6b-6e54-5cc1-a958-d4188670e593",
-      "name": "FINAL TEST",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "// The Sole purpose of this FINAL TEST is to reset the environment variable Metadata level to minimal",
-              "// Keep it as the last test in any run.",
-              "postman.setEnvironmentVariable(\"MetadataLevel\", \"minimal\");",
-              "postman.setEnvironmentVariable('expectedSuccess', true);",
-              "postman.setNextRequest(null);",
-              ""
-            ]
-          }
-        }
-      ],
-      "request": {
-        "method": "GET",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "url": "https://postman-echo.com/get"
-      },
-      "response": []
-    },
-    {
       "_postman_id": "e2bff0ba-ffa4-47b1-93e0-db4bff651d06",
       "name": "AFTER FINAL UPDATE ENV",
       "event": [
@@ -6700,6 +6670,36 @@
           "raw": ""
         },
         "url": "https://api.getpostman.com/environments/{{environmentId}}"
+      },
+      "response": []
+    },
+    {
+      "_postman_id": "42bb7e6b-6e54-5cc1-a958-d4188670e593",
+      "name": "FINAL TEST",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "// The Sole purpose of this FINAL TEST is to reset the environment variable Metadata level to minimal",
+              "// Keep it as the last test in any run.",
+              "postman.setEnvironmentVariable(\"MetadataLevel\", \"minimal\");",
+              "postman.setEnvironmentVariable('expectedSuccess', true);",
+              "postman.setNextRequest(null);",
+              ""
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": "https://postman-echo.com/get"
       },
       "response": []
     },
