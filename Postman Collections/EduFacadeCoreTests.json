@@ -6634,7 +6634,7 @@
         {
           "listen": "test",
           "script": {
-            "id": "f3ed7dfa-8767-4439-832d-94bff9d339a9",
+            "id": "f70bd3fd-472a-494e-add4-4cf0f1fbd7b5",
             "type": "text/javascript",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
@@ -6675,7 +6675,7 @@
               "        url: url,",
               "        method: 'POST',",
               "        header: 'X-Api-Key:' + apiKey,",
-              "        body: jsonData",
+              "        body: { mode: 'raw', raw: JSON.stringify(jsonData) }",
               "    };",
               "    ",
               "    console.log(\"Output:\");",
@@ -6798,7 +6798,7 @@
   ],
   "variable": [
     {
-      "id": "0a63c609-cb07-4cf2-a40d-91544b533c9f",
+      "id": "c1c48e41-4ded-4b27-aac8-983b4b21e598",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
