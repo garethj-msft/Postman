@@ -6634,7 +6634,7 @@
         {
           "listen": "test",
           "script": {
-            "id": "183dbadb-7027-4f56-bc21-753f46e61398",
+            "id": "b7adfcd9-bd92-4cd6-8942-9f18d205a632",
             "type": "text/javascript",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
@@ -6652,8 +6652,8 @@
               "        ",
               "    for (i=0; i < jsonData.environment.values.length; i++)",
               "    {",
-              "        console.log('Key \" + i + ': \" + jsonData.environment.values[i].key);",
-              "        console.log('Val \" + i + ': \" + jsonData.environment.values[i].value);",
+              "        console.log('Key ' + i + ': ' + jsonData.environment.values[i].key);",
+              "        console.log('Val ' + i + ': ' + jsonData.environment.values[i].value);",
               "    }",
               "        ",
               "    var url = postman.getEnvironmentVariable('https') + '://' +",
@@ -6788,7 +6788,7 @@
   ],
   "variable": [
     {
-      "id": "118db28b-446d-425d-b17d-681e67cfe0a7",
+      "id": "37d04812-ea55-49ea-8e57-a784e6aaadb1",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
