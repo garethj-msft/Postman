@@ -1117,6 +1117,7 @@
         {
           "listen": "prerequest",
           "script": {
+            "id": "7d740648-00ed-4123-8d40-d6a5956102ab",
             "type": "text/javascript",
             "exec": [
               "if (typeof(GlobalFunctions) !== 'undefined' )",
@@ -1129,6 +1130,7 @@
         {
           "listen": "test",
           "script": {
+            "id": "6689f920-0607-4ea2-946a-0d7c6759955c",
             "type": "text/javascript",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
@@ -1136,7 +1138,8 @@
               "if (typeof(GlobalFunctions) !== 'undefined' )",
               "{",
               "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
-              "}"
+              "}",
+              "console.log(pm.response.headers.get('x-ms-ags-diagnostic'));"
             ]
           }
         }
@@ -6856,7 +6859,7 @@
   ],
   "variable": [
     {
-      "id": "0920307c-9aad-4219-b2f5-7db47e4da8a0",
+      "id": "ff2e61f5-03ce-40f6-91a3-59a3395aeb10",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
