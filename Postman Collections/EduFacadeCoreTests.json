@@ -6634,25 +6634,42 @@
         {
           "listen": "test",
           "script": {
-            "id": "c7410742-a897-4398-9f96-bf0748fb5fe3",
+            "id": "4a4f30e2-e3be-4546-986e-6909c1d4fab1",
             "type": "text/javascript",
             "exec": [
-              "// The Sole purpose of this FINAL TEST is to reset the environment variable Metadata level to minimal",
-              "// Keep it as the last test in any run.",
-              "postman.setEnvironmentVariable(\"MetadataLevel\", \"minimal\");",
-              "postman.setEnvironmentVariable('expectedSuccess', true);",
-              "postman.setNextRequest(null);",
-              ""
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "if (responseCode.code === 200)",
+              "{",
+              "    var jsonData = JSON.parse(responseBody);",
+              "    var handler = function (err, res) {",
+              "             console.log(err ? err : 'OK');",
+              "        };",
+              "        ",
+              "    jsonData.environment.name = jsonData.environment.name + '2';",
+              "    console.log(\"New name = \" + jsonData.environment.name);",
+              "        ",
+              "    var url = 'https://api.getpostman.com/environments/' // + postman.getEnvironmentVariable('environmentId');",
+              "        ",
+              "    var envPostRequest = {",
+              "        url: url,",
+              "        method: 'POST',",
+              "        header: 'X-Api-Key:3bce6780829b4d7fa2f9906793822c6e',",
+              "        body: {",
+              "        }",
+              "    };",
+              "",
+              "    //pm.sendRequest(envPostRequest, handler);",
+              "}"
             ]
           }
         },
         {
           "listen": "prerequest",
           "script": {
-            "id": "f7d722ae-6054-4013-aad0-07274dd0c532",
+            "id": "3982f01e-bdd6-44b0-bb64-aa6791f23b2d",
             "type": "text/javascript",
             "exec": [
-              "console.log(pm.info.eventName);"
+              ""
             ]
           }
         }
