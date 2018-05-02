@@ -6634,7 +6634,7 @@
         {
           "listen": "test",
           "script": {
-            "id": "3c6b0094-19fe-4b83-bd6b-bd07b869ec2e",
+            "id": "fc4604d4-6936-433e-b090-dbd531721ba9",
             "type": "text/javascript",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
@@ -6652,7 +6652,7 @@
               "        ",
               "    for (i=0; i < jsonData.environment.values.length; i++)",
               "    {",
-              "        if (jsonData.environment.values[i].key === '')",
+              "        if (jsonData.environment.values[i].key === 'GraphRefreshReadBasic')",
               "        {",
               "            console.log('Key ' + i + ': ' + jsonData.environment.values[i].key);",
               "            console.log('Val ' + i + ': ' + jsonData.environment.values[i].value);",
@@ -6791,7 +6791,7 @@
   ],
   "variable": [
     {
-      "id": "27807e5d-9d26-452f-b189-dba367b33b41",
+      "id": "d5a8acbc-498c-4abb-9551-e3857baa86c9",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
