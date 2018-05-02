@@ -6634,7 +6634,7 @@
         {
           "listen": "test",
           "script": {
-            "id": "d64ab9d4-8d57-462d-93f7-e6efe676167f",
+            "id": "dc9a2330-406a-4c11-917c-e585c0666b44",
             "type": "text/javascript",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
@@ -6644,7 +6644,14 @@
               "    tests[\"Postman API Key present\"] = apiKey !== '';",
               "    var jsonData = JSON.parse(responseBody);",
               "    var handler = function (err, res) {",
-              "             console.log(err ? err : 'OK');",
+              "        if (err)",
+              "            {",
+              "             tests['Environment update'] = false;",
+              "            }",
+              "            else",
+              "            {",
+              "             tests['Environment update'] = true;",
+              "            }",
               "        };",
               "        ",
               "    jsonData.environment.id = undefined;",
@@ -6848,7 +6855,7 @@
   ],
   "variable": [
     {
-      "id": "e05054e3-ab53-4407-ae3c-c71e410b0050",
+      "id": "09fc9d50-cbc7-49ab-974f-a7fc2e5cb665",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
