@@ -6634,7 +6634,7 @@
         {
           "listen": "test",
           "script": {
-            "id": "8260b7d3-c1ae-4266-99ad-e8ecaaa6e98c",
+            "id": "183dbadb-7027-4f56-bc21-753f46e61398",
             "type": "text/javascript",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
@@ -6649,6 +6649,17 @@
               "        ",
               "    jsonData.environment.name = jsonData.environment.name + '2';",
               "    console.log(\"New name = \" + jsonData.environment.name);",
+              "        ",
+              "    for (i=0; i < jsonData.environment.values.length; i++)",
+              "    {",
+              "        console.log('Key \" + i + ': \" + jsonData.environment.values[i].key);",
+              "        console.log('Val \" + i + ': \" + jsonData.environment.values[i].value);",
+              "    }",
+              "        ",
+              "    var url = postman.getEnvironmentVariable('https') + '://' +",
+              "        postman.getEnvironmentVariable('host') + '/' +",
+              "        'beta/administrativeUnits/' +",
+              "        jsonData.value[i].id;",
               "        ",
               "    var url = 'https://api.getpostman.com/environments/' // + postman.getEnvironmentVariable('environmentId');",
               "        ",
@@ -6777,7 +6788,7 @@
   ],
   "variable": [
     {
-      "id": "a69d71f0-3457-4a77-b0d1-8ada011c92ff",
+      "id": "118db28b-446d-425d-b17d-681e67cfe0a7",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
