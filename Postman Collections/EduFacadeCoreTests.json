@@ -6634,7 +6634,7 @@
         {
           "listen": "test",
           "script": {
-            "id": "102188f2-fa41-4a38-aa03-17e03940616d",
+            "id": "4c00ab5b-6e5d-48ec-a504-b530e8581d4d",
             "type": "text/javascript",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
@@ -6676,6 +6676,9 @@
               "        header: 'X-Api-Key:' + apiKey,",
               "        body: jsonData",
               "    };",
+              "    ",
+              "    console.log(\"Output:\");",
+              "    console.log(envPostRequest);",
               "",
               "    //pm.sendRequest(envPostRequest, handler);",
               "}"
@@ -6794,7 +6797,7 @@
   ],
   "variable": [
     {
-      "id": "0c1bdc44-3916-48a3-9fe4-7dcf8e445ca9",
+      "id": "e186d3e8-762f-42e3-a43a-a67581b3cf3a",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
