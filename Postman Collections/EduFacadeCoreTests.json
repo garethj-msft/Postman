@@ -6699,7 +6699,7 @@
           "mode": "raw",
           "raw": ""
         },
-        "url": "https://api.getpostman.com/environments"
+        "url": "https://api.getpostman.com/environments/{{environmentId}}"
       },
       "response": []
     },
