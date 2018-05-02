@@ -6634,7 +6634,7 @@
         {
           "listen": "test",
           "script": {
-            "id": "69b325bb-8949-4aba-803f-6ead1c2e1a68",
+            "id": "930c783d-e02c-479e-b2c8-19042988e56b",
             "type": "text/javascript",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
@@ -6662,7 +6662,8 @@
               "            }",
               "            else",
               "            {",
-              "                console.log('Do update');",
+              "                console.log('GraphRefreshReadBasic tokens dont match - updating.');",
+              "                jsonData.environment.values[i].value = pm.variables.get('GraphRefreshReadBasic');",
               "            }",
               "        }",
               "    }",
@@ -6794,7 +6795,7 @@
   ],
   "variable": [
     {
-      "id": "9b6274e2-159a-4f89-964d-65b3cf21b413",
+      "id": "28586c3b-1fd8-4830-b747-00a932fc6935",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
