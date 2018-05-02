@@ -6750,5 +6750,36 @@
       },
       "response": []
     }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "ec1bde02-516d-4fe0-8cf2-3de18601daa8",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "fcad2614-5a03-4ccb-bdcd-a6bdf320c6d3",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "id": "7590f077-9d86-4574-bce7-dd20aa8b90f9",
+      "key": "PostmanAPIKey",
+      "value": "dfdfdf",
+      "type": "string",
+      "description": ""
+    }
   ]
 }
