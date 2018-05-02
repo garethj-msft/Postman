@@ -6634,7 +6634,7 @@
         {
           "listen": "test",
           "script": {
-            "id": "21d5b291-bad0-4323-90b9-52b3b0fe77f7",
+            "id": "69b325bb-8949-4aba-803f-6ead1c2e1a68",
             "type": "text/javascript",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
@@ -6656,9 +6656,16 @@
               "        {",
               "            console.log('Key ' + i + ': ' + jsonData.environment.values[i].key);",
               "            console.log('Val ' + i + ': ' + jsonData.environment.values[i].value);",
+              "            if (jsonData.environment.values[i].value === pm.variables.get('GraphRefreshReadBasic'))",
+              "            {",
+              "                console.log('GraphRefreshReadBasic tokens match - no update.');",
+              "            }",
+              "            else",
+              "            {",
+              "                console.log('Do update');",
+              "            }",
               "        }",
               "    }",
-              "    console.log('new refresh token: ' + pm.variables.get('GraphRefreshReadBasic'));",
               "        ",
               "    var url = 'https://api.getpostman.com/environments/' // + postman.getEnvironmentVariable('environmentId');",
               "        ",
@@ -6787,7 +6794,7 @@
   ],
   "variable": [
     {
-      "id": "f7b43a26-f6bb-4e40-a7fa-6eb53e643d3b",
+      "id": "9b6274e2-159a-4f89-964d-65b3cf21b413",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
