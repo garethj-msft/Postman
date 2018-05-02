@@ -6634,7 +6634,7 @@
         {
           "listen": "test",
           "script": {
-            "id": "4c00ab5b-6e5d-48ec-a504-b530e8581d4d",
+            "id": "4731184c-b183-4b08-9248-de6cc13f1e86",
             "type": "text/javascript",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
@@ -6680,7 +6680,7 @@
               "    console.log(\"Output:\");",
               "    console.log(envPostRequest);",
               "",
-              "    //pm.sendRequest(envPostRequest, handler);",
+              "    pm.sendRequest(envPostRequest, handler);",
               "}"
             ]
           }
@@ -6797,7 +6797,7 @@
   ],
   "variable": [
     {
-      "id": "8104e9cc-ffdb-4ad0-93a2-290c8a7deedc",
+      "id": "7b6dde26-8839-4c98-9a88-1229a3e2292d",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
