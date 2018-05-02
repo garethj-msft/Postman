@@ -6679,7 +6679,7 @@
         "header": [
           {
             "key": "X-Api-Key",
-            "value": "3bce6780829b4d7fa2f9906793822c6e"
+            "value": "{{PostmanAPIKey}}"
           }
         ],
         "body": {
@@ -6775,7 +6775,7 @@
   ],
   "variable": [
     {
-      "id": "7590f077-9d86-4574-bce7-dd20aa8b90f9",
+      "id": "9efc91a7-6b67-4702-a175-7c2477f5367d",
       "key": "PostmanAPIKey",
       "value": "dfdfdf",
       "type": "string",
