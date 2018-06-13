@@ -745,6 +745,88 @@
             "url": "{{https}}://{{host}}/{{graphVersion}}/users"
           },
           "response": []
+        },
+        {
+          "_postman_id": "f5ad6c64-a02e-4a62-b3c0-b68e10adab8c",
+          "name": "GET profiles",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (typeof(GlobalFunctions) !== 'undefined' )",
+                  "{",
+                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "tests[\"noneducationgroup found\"] = responseBody.has(\"noneducationgroup\");",
+                  "if (responseBody.has('noneducationgroup'))",
+                  "{",
+                  "    var jsonData = JSON.parse(responseBody);",
+                  "    var i;",
+                  "    for (i=0; i < jsonData.value.length; i++)",
+                  "    {",
+                  "        if (jsonData.value[i].displayName ===  'noneducationgroup')",
+                  "        {",
+                  "            console.log(\"noneducationgroup id: \" + jsonData.value[i].id)",
+                  "            postman.setEnvironmentVariable(\"nonEducationGroupId\", jsonData.value[i].id)",
+                  "        }",
+                  "    }",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{GraphAuth}}"
+              },
+              {
+                "key": "Workload-Authorization",
+                "value": "{{AADAuth}}",
+                "disabled": true
+              },
+              {
+                "key": "Accept",
+                "value": "application/json;odata.metadata={{MetadataLevel}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{  \"@odata.type\":\"microsoft.graph.group\",\n   \"displayName\":\"GarethClass28\",\n   \"mailNickname\":\"class282\",\n   \"mailEnabled\":true,\n   \"securityEnabled\":false,\n   \"extension_fe2174665583431c953114ff7268b7b3_Education_Period\":\"5\",\n   \"groupTypes\":[\"Unified\"]}"
+            },
+            "url": {
+              "raw": "{{https}}://{{host}}/{{graphVersion}}/groups?$filter=displayName eq 'noneducationgroup'",
+              "protocol": "{{https}}",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "{{graphVersion}}",
+                "groups"
+              ],
+              "query": [
+                {
+                  "equals": true,
+                  "key": "$filter",
+                  "value": "displayName eq 'noneducationgroup'"
+                }
+              ]
+            }
+          },
+          "response": []
         }
       ]
     },
@@ -6859,7 +6941,7 @@
   ],
   "variable": [
     {
-      "id": "504b88a6-2333-4d4b-86bf-77b8b79da018",
+      "id": "c30915b2-8c1d-4267-8eb4-9a9e9d409362",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
