@@ -748,7 +748,7 @@
         },
         {
           "_postman_id": "f5ad6c64-a02e-4a62-b3c0-b68e10adab8c",
-          "name": "GET profiles",
+          "name": "FIND A non-education Group Copy",
           "event": [
             {
               "listen": "prerequest",
@@ -6941,7 +6941,7 @@
   ],
   "variable": [
     {
-      "id": "c30915b2-8c1d-4267-8eb4-9a9e9d409362",
+      "id": "6918616f-7c33-424e-a5d7-a1302dc17b1f",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
