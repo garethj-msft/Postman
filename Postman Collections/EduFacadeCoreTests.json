@@ -748,7 +748,7 @@
         },
         {
           "_postman_id": "f5ad6c64-a02e-4a62-b3c0-b68e10adab8c",
-          "name": "FIND A non-education Group Copy",
+          "name": "GET profiles",
           "event": [
             {
               "listen": "prerequest",
@@ -807,24 +807,7 @@
               "mode": "raw",
               "raw": "{  \"@odata.type\":\"microsoft.graph.group\",\n   \"displayName\":\"GarethClass28\",\n   \"mailNickname\":\"class282\",\n   \"mailEnabled\":true,\n   \"securityEnabled\":false,\n   \"extension_fe2174665583431c953114ff7268b7b3_Education_Period\":\"5\",\n   \"groupTypes\":[\"Unified\"]}"
             },
-            "url": {
-              "raw": "{{https}}://{{host}}/{{graphVersion}}/groups?$filter=displayName eq 'noneducationgroup'",
-              "protocol": "{{https}}",
-              "host": [
-                "{{host}}"
-              ],
-              "path": [
-                "{{graphVersion}}",
-                "groups"
-              ],
-              "query": [
-                {
-                  "equals": true,
-                  "key": "$filter",
-                  "value": "displayName eq 'noneducationgroup'"
-                }
-              ]
-            }
+            "url": "{{https}}://{{host}}/beta/education/synchronizationProfiles"
           },
           "response": []
         }
@@ -6941,7 +6924,7 @@
   ],
   "variable": [
     {
-      "id": "eac72bb6-9067-4dc6-b367-946990d6eebf",
+      "id": "d7f18fbf-ad7c-45ae-8fbb-5c5c4ab139de",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
