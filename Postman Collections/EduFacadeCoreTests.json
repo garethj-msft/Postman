@@ -6833,6 +6833,69 @@
         "description": "Using this endpoint one can configure how long it takes for the server to come back with a response. Appending a number to the URL defines the time (in seconds) the server will wait before responding.\n\nNote that a maximum delay of 10 seconds is accepted by the server."
       },
       "response": []
+    },
+    {
+      "_postman_id": "8cd5a369-eead-4c5e-850f-16d6bf9ef94d",
+      "name": "Modify just created Teacher Copy",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+              "if(!expectedSuccess)",
+              "{",
+              "    tests[\"Status code is 403\"] = responseCode.code === 403;",
+              "}",
+              "else",
+              "{",
+              "    tests[\"Status code is 204\"] = responseCode.code === 204;",
+              "}"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}"
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"displayName\": \"Reacher TestRun\",\n\t\"middleName\": \"Hann\",\n\t\"teacher\": {\n\t\t\"teacherNumber\": \"102\"\n\t  }\n}"
+        },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}"
+      },
+      "response": []
     }
   ],
   "event": [
@@ -6859,7 +6922,7 @@
   ],
   "variable": [
     {
-      "id": "6c665241-f2ab-486e-9765-88c8c1b8db92",
+      "id": "96dc6bcc-9d8c-433c-b9e5-0043cd405b41",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
