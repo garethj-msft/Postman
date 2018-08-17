@@ -5232,7 +5232,7 @@
     },
     {
       "_postman_id": "9b410a6e-2d48-4127-8b95-34c1f381b80d",
-      "name": "Make a Class Copy",
+      "name": "Make a No EMail Class",
       "event": [
         {
           "listen": "prerequest",
@@ -6932,7 +6932,7 @@
   ],
   "variable": [
     {
-      "id": "742a405d-d99f-4fad-ba63-6c1ff5fda932",
+      "id": "ee07f5f7-fe66-4842-8f70-66b1d391ce06",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
