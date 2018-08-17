@@ -5231,79 +5231,6 @@
       "response": []
     },
     {
-      "_postman_id": "9b410a6e-2d48-4127-8b95-34c1f381b80d",
-      "name": "Make a No EMail Class",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}",
-              "var currentRandom = Math.floor(Math.random() * 1000).toString();",
-              "var currentRandom2 = Math.floor(Math.random() * 1000).toString();",
-              "postman.setEnvironmentVariable(\"currentRandom\", currentRandom + currentRandom2);"
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-              "if(!expectedSuccess)",
-              "{",
-              "    tests[\"Status code is 403\"] = responseCode.code === 403;",
-              "    postman.setEnvironmentVariable(\"justCreatedId\", \"9900AA5E-8EBF-4407-B151-CBCF310F1383\"); // Dummy guid",
-              "}",
-              "else",
-              "{",
-              "    tests[\"Status code is 201\"] = responseCode.code === 201;",
-              "    tests[\"Class created\"] = responseBody.has('\"id\":')",
-              "    if (responseBody.has('\"id\":'))",
-              "    {",
-              "        var jsonData = JSON.parse(responseBody);",
-              "        postman.setEnvironmentVariable(\"justCreatedId\", jsonData.id);",
-              "    }",
-              "}"
-            ]
-          }
-        }
-      ],
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
-          },
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"ClassTestRun{{currentRandom}}\",\n\t\"mailNickname\":\"classtest{{currentRandom}}\",\n\t\"period\":\"5\",\n\t\"externalSource\": \"SIS\",\n\t\"term\": {\n\t\t\"externalId\": \"S2\",\n\t\t\"displayName\": \"Semester 2\"\n\t}\n}"
-        },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes"
-      },
-      "response": []
-    },
-    {
       "_postman_id": "2b51fd56-3ebd-7bfa-4b41-8570e451797b",
       "name": "Check just created Class retrievable",
       "event": [
@@ -6932,7 +6859,7 @@
   ],
   "variable": [
     {
-      "id": "ee07f5f7-fe66-4842-8f70-66b1d391ce06",
+      "id": "4959a45e-5589-45a2-b804-fee2112a01f5",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
