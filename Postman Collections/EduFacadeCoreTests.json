@@ -738,11 +738,8 @@
                 "value": "application/json;odata.metadata={{MetadataLevel}}"
               }
             ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": "{{https}}://{{host}}/{{graphVersion}}/users"
+            "body": {},
+            "url": "{{https}}://{{host}}/beta/users"
           },
           "response": []
         }
@@ -2819,6 +2816,58 @@
     {
       "_postman_id": "397a95c7-2bc6-eaf4-a054-220ab9bd7b1a",
       "name": "Get EDU me classes",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "tests[\"Classes found\"] = responseBody.has('\"id\":')"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}"
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/me/classes"
+      },
+      "response": []
+    },
+    {
+      "_postman_id": "04b9778f-ccc8-4324-8c93-5b47efe03973",
+      "name": "Get EDU me classes Copy",
       "event": [
         {
           "listen": "prerequest",
@@ -6859,7 +6908,7 @@
   ],
   "variable": [
     {
-      "id": "9685b8f4-ff2f-42ce-88ca-e9d52a4bb56a",
+      "id": "94fcc0f8-77b5-49d9-b24c-5531bc709aa1",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
