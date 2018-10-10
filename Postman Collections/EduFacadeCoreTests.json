@@ -2867,7 +2867,7 @@
     },
     {
       "_postman_id": "04b9778f-ccc8-4324-8c93-5b47efe03973",
-      "name": "Get EDU me classes Copy",
+      "name": "Get EDU me expand classes",
       "event": [
         {
           "listen": "prerequest",
@@ -6908,7 +6908,7 @@
   ],
   "variable": [
     {
-      "id": "94fcc0f8-77b5-49d9-b24c-5531bc709aa1",
+      "id": "b57fb412-4917-44ba-ae63-8457342dbf0b",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
