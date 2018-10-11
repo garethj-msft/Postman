@@ -688,7 +688,7 @@
         {
           "listen": "prerequest",
           "script": {
-            "type": "text/javascript",
+            "id": "59b746fe-89ac-42be-8b2b-3c2d2a29d96c",
             "exec": [
               "postman.setEnvironmentVariable(\"GraphAuth\", \"\");\r",
               "var authType = postman.getEnvironmentVariable(\"authType\");\r",
@@ -700,9 +700,10 @@
               "else\r",
               "{\r",
               "    postman.setEnvironmentVariable(\"expectedSuccess\", true);\r",
-              "    postman.setNextRequest(\"T_RefreshToken GraphReadBasic\");\r",
+              "    postman.setNextRequest(\"T_AppPlusUserToken GraphReadBasic\");\r",
               "}"
-            ]
+            ],
+            "type": "text/javascript"
           }
         }
       ],
@@ -6864,7 +6865,7 @@
   ],
   "variable": [
     {
-      "id": "ba39edda-e147-4401-b782-e2ad93b4544e",
+      "id": "874870ac-8c14-45e2-b605-0119c4e3850a",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
