@@ -2962,16 +2962,17 @@
         {
           "listen": "prerequest",
           "script": {
-            "type": "text/javascript",
+            "id": "f3a585db-6c80-46de-8bf1-d8cd3dea48de",
             "exec": [
               "postman.setNextRequest(\"T_PostRead\");"
-            ]
+            ],
+            "type": "text/javascript"
           }
         },
         {
           "listen": "test",
           "script": {
-            "type": "text/javascript",
+            "id": "0475fd6c-57dd-493e-9e4b-d216ad0462f9",
             "exec": [
               "tests[\"Successful Request\"] = responseCode.code === 200;",
               "if(responseCode.code === 200)",
@@ -2981,7 +2982,8 @@
               "    postman.setEnvironmentVariable(\"GraphRefreshRead\", data.refresh_token);",
               "    tests[\"New read tokens written to environment\"] = true;",
               "}"
-            ]
+            ],
+            "type": "text/javascript"
           }
         }
       ],
@@ -2993,13 +2995,7 @@
           "formdata": [
             {
               "key": "grant_type",
-              "value": "refresh_token",
-              "type": "text",
-              "description": ""
-            },
-            {
-              "key": "refresh_token",
-              "value": "{{GraphRefreshRead}}",
+              "value": "password",
               "type": "text",
               "description": ""
             },
@@ -3018,6 +3014,18 @@
             {
               "key": "resource",
               "value": "{{loginResource}}",
+              "type": "text",
+              "description": ""
+            },
+            {
+              "key": "username",
+              "value": "{{apiCaller}}",
+              "type": "text",
+              "description": ""
+            },
+            {
+              "key": "password",
+              "value": "{{apiCallerPwd}}",
               "type": "text",
               "description": ""
             }
@@ -6881,7 +6889,7 @@
   ],
   "variable": [
     {
-      "id": "635fa9d5-e2fc-4412-8c30-92b051504bd8",
+      "id": "341c9a5d-f62a-4827-8800-c723e39bd1e7",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
