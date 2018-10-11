@@ -854,77 +854,6 @@
       "response": []
     },
     {
-      "_postman_id": "ec393445-79bb-4cfa-a163-fe083878e820",
-      "name": "T_PwdGrant GraphReadBasic",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "postman.setNextRequest(\"T_PostReadBasic\");"
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Successful Request\"] = responseCode.code === 200;",
-              "if(responseCode.code === 200)",
-              "{",
-              "    var data = JSON.parse(responseBody);",
-              "    postman.setEnvironmentVariable(\"GraphAuth\", \"Bearer \" + data.access_token);",
-              "    postman.setEnvironmentVariable(\"GraphRefreshReadBasic\", data.refresh_token);",
-              "    tests[\"New readbasic tokens written to environment\"] = true;",
-              "}"
-            ]
-          }
-        }
-      ],
-      "request": {
-        "auth": {
-          "type": "noauth"
-        },
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "formdata",
-          "formdata": [
-            {
-              "key": "grant_type",
-              "value": "refresh_token",
-              "type": "text"
-            },
-            {
-              "key": "refresh_token",
-              "value": "{{GraphRefreshReadBasic}}",
-              "type": "text"
-            },
-            {
-              "key": "client_id",
-              "value": "{{GraphClientIdReadBasic}}",
-              "type": "text"
-            },
-            {
-              "key": "client_secret",
-              "value": "{{GraphSecretReadBasic}}",
-              "type": "text"
-            },
-            {
-              "key": "resource",
-              "value": "{{loginResource}}",
-              "type": "text"
-            }
-          ]
-        },
-        "url": "https://{{loginHost}}/common/oauth2/token",
-        "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
-      },
-      "response": []
-    },
-    {
       "_postman_id": "7ce03215-3584-1f9c-ed51-785c213fc2b2",
       "name": "T_AppOnlyToken GraphReadBasic",
       "event": [
@@ -2943,23 +2872,25 @@
         {
           "listen": "prerequest",
           "script": {
-            "type": "text/javascript",
+            "id": "afc872d5-5a80-4aeb-a80a-1fd141e024b6",
             "exec": [
               "if (typeof(GlobalFunctions) !== 'undefined' )",
               "{",
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
-            ]
+            ],
+            "type": "text/javascript"
           }
         },
         {
           "listen": "test",
           "script": {
-            "type": "text/javascript",
+            "id": "c97c12cc-6477-4f7a-b5b4-f28fef693f59",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
               "tests[\"Classes found\"] = responseBody.has('\"id\":')"
-            ]
+            ],
+            "type": "text/javascript"
           }
         }
       ],
@@ -2984,7 +2915,25 @@
           "mode": "raw",
           "raw": ""
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/me/classes"
+        "url": {
+          "raw": "{{https}}://{{host}}/{{graphVersion}}/education/me?$expand=classes",
+          "protocol": "{{https}}",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "{{graphVersion}}",
+            "education",
+            "me"
+          ],
+          "query": [
+            {
+              "key": "$expand",
+              "value": "classes",
+              "equals": true
+            }
+          ]
+        }
       },
       "response": []
     },
@@ -6979,7 +6928,7 @@
   ],
   "variable": [
     {
-      "id": "bba08615-4ce8-41c1-a0b0-0bd1439cff5d",
+      "id": "bad42f7c-9257-4ac5-bc09-bba4b3ae7229",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
