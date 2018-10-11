@@ -721,7 +721,7 @@
     },
     {
       "_postman_id": "4be741a9-7cd6-0bad-2921-6021297a3970",
-      "name": "T_RefreshToken GraphReadBasic",
+      "name": "T_AppPlusUserToken GraphReadBasic",
       "event": [
         {
           "listen": "prerequest",
@@ -6865,7 +6865,7 @@
   ],
   "variable": [
     {
-      "id": "874870ac-8c14-45e2-b605-0119c4e3850a",
+      "id": "499bedd9-e9a1-406e-9eee-4ab459272442",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
