@@ -2269,6 +2269,58 @@
       "response": []
     },
     {
+      "_postman_id": "851d353e-a221-4859-af2f-7f2c1a0eb962",
+      "name": "Get A User Copy",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "tests[\"User found\"] = responseBody.has('\"id\":')"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}"
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
+        },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}"
+      },
+      "response": []
+    },
+    {
       "_postman_id": "4871ce83-81e4-bcf2-447a-34f510b3657c",
       "name": "Get A User  Expand Schools",
       "event": [
@@ -6889,7 +6941,7 @@
   ],
   "variable": [
     {
-      "id": "341c9a5d-f62a-4827-8800-c723e39bd1e7",
+      "id": "fb88ca0c-7e7b-48a9-8fed-73f0cc4a41f2",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
