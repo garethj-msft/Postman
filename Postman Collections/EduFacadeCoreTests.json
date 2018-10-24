@@ -2984,7 +2984,8 @@
             "id": "c97c12cc-6477-4f7a-b5b4-f28fef693f59",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Schools found\"] = responseBody.has('\"schools\":')"
+              "tests[\"Schools found\"] = responseBody.has('\"schools\":');",
+              "tests[\"Classes found\"] = responseBody.has('\"classes\":');"
             ],
             "type": "text/javascript"
           }
@@ -7042,7 +7043,7 @@
   ],
   "variable": [
     {
-      "id": "41ffdf2b-13a6-4146-8bca-7f9e021e78ee",
+      "id": "191de053-c341-4bba-a02f-8c58de9e619d",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
