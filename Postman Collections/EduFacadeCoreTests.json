@@ -6874,15 +6874,18 @@
       "response": []
     },
     {
-      "_postman_id": "5cad63d8-04d5-44c9-a345-632dca30414e",
-      "name": "T_AppOnlyToken GraphReadWrite Copy",
+      "_postman_id": "5dd13551-1868-4690-b0e7-9787b088cb49",
+      "name": "Get EDU me classes Copy",
       "event": [
         {
           "listen": "prerequest",
           "script": {
             "type": "text/javascript",
             "exec": [
-              "postman.setNextRequest(\"T_PostReadWrite\");"
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
             ]
           }
         },
@@ -6891,47 +6894,34 @@
           "script": {
             "type": "text/javascript",
             "exec": [
-              "tests[\"Successful Request\"] = responseCode.code === 200;",
-              "if(responseCode.code === 200)",
-              "{",
-              "    var data = JSON.parse(responseBody);",
-              "    postman.setEnvironmentVariable(\"GraphAuth\", \"Bearer \" + data.access_token);",
-              "    tests[\"New app-only readwrite token written to environment\"] = true;",
-              "}"
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "tests[\"Classes found\"] = responseBody.has('\"id\":')"
             ]
           }
         }
       ],
       "request": {
-        "method": "POST",
-        "header": [],
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}"
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
+          }
+        ],
         "body": {
-          "mode": "formdata",
-          "formdata": [
-            {
-              "key": "grant_type",
-              "value": "client_credentials",
-              "type": "text"
-            },
-            {
-              "key": "client_id",
-              "value": "{{GraphClientIdReadWrite}}",
-              "type": "text"
-            },
-            {
-              "key": "client_secret",
-              "value": "{{GraphSecretReadWrite}}",
-              "type": "text"
-            },
-            {
-              "key": "resource",
-              "value": "{{loginResource}}",
-              "type": "text"
-            }
-          ]
+          "mode": "raw",
+          "raw": ""
         },
-        "url": "https://{{loginHost}}/{{tenantDomain}}/oauth2/token",
-        "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/me/classes"
       },
       "response": []
     }
@@ -6960,7 +6950,7 @@
   ],
   "variable": [
     {
-      "id": "cacdce3f-81a2-4c47-a9a0-03b00622d950",
+      "id": "a7725c27-a97a-45c6-a5b7-ec9e9f8ce411",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
