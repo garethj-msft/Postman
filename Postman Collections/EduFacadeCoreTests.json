@@ -2550,69 +2550,6 @@
       "response": []
     },
     {
-      "_postman_id": "8fead806-38c3-45c4-b00b-4dbda3366fee",
-      "name": "Get A User  Nav Schools",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "id": "2f3baff9-ec16-46c5-8c83-86d981a55720",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
-            ],
-            "type": "text/javascript"
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "id": "07a7c667-f23b-482f-8f5f-0b938c56735c",
-            "exec": [
-              "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-              "if(!expectedSuccess)",
-              "{",
-              "    tests[\"Status code is 403\"] = responseCode.code === 403;",
-              "}",
-              "else",
-              "{",
-              "    tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "    tests[\"Schools returned\"] = responseBody.has('value\":[{');",
-              "    console.log(\"BUGBUG BUGBUG - only works in beta - cast fails to translate to AAD types in V1.0\");",
-              "}"
-            ],
-            "type": "text/javascript"
-          }
-        }
-      ],
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
-        },
-        "url": "{{https}}://{{host}}/beta/education/users/{{primaryTestUserId}}/schools"
-      },
-      "response": []
-    },
-    {
       "_postman_id": "4249b879-f895-516f-9573-7d425e8c47b5",
       "name": "Get A User's Teachers",
       "event": [
@@ -7088,7 +7025,7 @@
   ],
   "variable": [
     {
-      "id": "8c20be6e-dc3b-42d6-95c2-11894b7a9190",
+      "id": "3c0ec031-9e44-4e27-9f8e-8d810469d324",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
