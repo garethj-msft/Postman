@@ -2966,7 +2966,7 @@
             "id": "c97c12cc-6477-4f7a-b5b4-f28fef693f59",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Classes found\"] = responseBody.has('\"classes\":')"
+              "tests[\"Schools found\"] = responseBody.has('\"schools\":')"
             ],
             "type": "text/javascript"
           }
@@ -2994,7 +2994,7 @@
           "raw": ""
         },
         "url": {
-          "raw": "{{https}}://{{host}}/{{graphVersion}}/education/me?$expand=schoold",
+          "raw": "{{https}}://{{host}}/{{graphVersion}}/education/me?$expand=schools",
           "protocol": "{{https}}",
           "host": [
             "{{host}}"
@@ -3007,7 +3007,7 @@
           "query": [
             {
               "key": "$expand",
-              "value": "schoold",
+              "value": "schools",
               "equals": true
             }
           ]
@@ -7024,7 +7024,7 @@
   ],
   "variable": [
     {
-      "id": "cf5113aa-2bfb-47b8-9b1c-f607855b1086",
+      "id": "c1babbf7-b437-4448-85e4-f578427e1d6f",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
