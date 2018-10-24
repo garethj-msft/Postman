@@ -2912,7 +2912,7 @@
             "id": "c97c12cc-6477-4f7a-b5b4-f28fef693f59",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Schools found\"] = responseBody.has('\"schools\":')"
+              "tests[\"Schools found\"] = responseBody.has('\"schools\":[{')"
             ],
             "type": "text/javascript"
           }
@@ -2984,8 +2984,8 @@
             "id": "c97c12cc-6477-4f7a-b5b4-f28fef693f59",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Schools found\"] = responseBody.has('\"schools\":');",
-              "tests[\"Classes found\"] = responseBody.has('\"classes\":');"
+              "tests[\"Schools found\"] = responseBody.has('\"schools\":[{');",
+              "tests[\"Classes found\"] = responseBody.has('\"classes\":[{');"
             ],
             "type": "text/javascript"
           }
@@ -7043,7 +7043,7 @@
   ],
   "variable": [
     {
-      "id": "191de053-c341-4bba-a02f-8c58de9e619d",
+      "id": "5a487348-bea3-4848-ba6f-dc140379009f",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
