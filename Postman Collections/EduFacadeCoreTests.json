@@ -2818,61 +2818,6 @@
       "response": []
     },
     {
-      "_postman_id": "5dd13551-1868-4690-b0e7-9787b088cb49",
-      "name": "Get EDU me schools",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "id": "f13db78c-ca50-4ee6-b3e8-a81049382f95",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
-            ],
-            "type": "text/javascript"
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "id": "69a57d83-2b10-4edd-a2f5-ac876feeb30a",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Schools found\"] = responseBody.has('\"id\":');",
-              "console.log(\"BUGBUG BUGBUG - only works in beta - cast fails to translate to AAD types in V1.0\");"
-            ],
-            "type": "text/javascript"
-          }
-        }
-      ],
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "url": "{{https}}://{{host}}/beta/education/me/schools"
-      },
-      "response": []
-    },
-    {
       "_postman_id": "04b9778f-ccc8-4324-8c93-5b47efe03973",
       "name": "Get EDU me expand classes",
       "event": [
@@ -7025,7 +6970,7 @@
   ],
   "variable": [
     {
-      "id": "35fc4dd4-153b-46ce-a6b5-066527cbc6fd",
+      "id": "0e13d8d9-7222-44f9-9fce-1b6e4d0152b0",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
