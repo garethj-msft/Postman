@@ -2840,7 +2840,8 @@
             "id": "69a57d83-2b10-4edd-a2f5-ac876feeb30a",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Schools found\"] = responseBody.has('\"id\":')"
+              "tests[\"Schools found\"] = responseBody.has('\"id\":');",
+              "console.log(\"BUGBUG BUGBUG - only works in beta - cast fails to translate to AAD types in V1.0\");"
             ],
             "type": "text/javascript"
           }
@@ -7024,7 +7025,7 @@
   ],
   "variable": [
     {
-      "id": "c1babbf7-b437-4448-85e4-f578427e1d6f",
+      "id": "1878d9b9-29f2-4620-85bf-ca8e83ca0e04",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
