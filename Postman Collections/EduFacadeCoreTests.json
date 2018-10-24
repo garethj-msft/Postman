@@ -2962,6 +2962,78 @@
       "response": []
     },
     {
+      "_postman_id": "997d7463-fc88-4d9f-916c-8d0a75215ee9",
+      "name": "Get EDU me Expand schools Copy",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "afc872d5-5a80-4aeb-a80a-1fd141e024b6",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "c97c12cc-6477-4f7a-b5b4-f28fef693f59",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "tests[\"Schools found\"] = responseBody.has('\"schools\":')"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}"
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "{{https}}://{{host}}/{{graphVersion}}/education/me?$expand=schools",
+          "protocol": "{{https}}",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "{{graphVersion}}",
+            "education",
+            "me"
+          ],
+          "query": [
+            {
+              "key": "$expand",
+              "value": "schools",
+              "equals": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
       "_postman_id": "ecedfc4a-cc68-517b-3677-7ed7689bed7a",
       "name": "T_PostME",
       "event": [
@@ -6944,78 +7016,6 @@
         "description": "Using this endpoint one can configure how long it takes for the server to come back with a response. Appending a number to the URL defines the time (in seconds) the server will wait before responding.\n\nNote that a maximum delay of 10 seconds is accepted by the server."
       },
       "response": []
-    },
-    {
-      "_postman_id": "997d7463-fc88-4d9f-916c-8d0a75215ee9",
-      "name": "Get EDU me Expand schools Copy",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "id": "afc872d5-5a80-4aeb-a80a-1fd141e024b6",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
-            ],
-            "type": "text/javascript"
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "id": "c97c12cc-6477-4f7a-b5b4-f28fef693f59",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Schools found\"] = responseBody.has('\"schools\":')"
-            ],
-            "type": "text/javascript"
-          }
-        }
-      ],
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "url": {
-          "raw": "{{https}}://{{host}}/{{graphVersion}}/education/me?$expand=schools",
-          "protocol": "{{https}}",
-          "host": [
-            "{{host}}"
-          ],
-          "path": [
-            "{{graphVersion}}",
-            "education",
-            "me"
-          ],
-          "query": [
-            {
-              "key": "$expand",
-              "value": "schools",
-              "equals": true
-            }
-          ]
-        }
-      },
-      "response": []
     }
   ],
   "event": [
@@ -7042,7 +7042,7 @@
   ],
   "variable": [
     {
-      "id": "663c4a8c-3f2c-497b-88fe-18e76ce42f7d",
+      "id": "0a403247-8be6-427d-810a-44e790c0878a",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
