@@ -2819,7 +2819,7 @@
     },
     {
       "_postman_id": "04b9778f-ccc8-4324-8c93-5b47efe03973",
-      "name": "Get EDU me expand classes",
+      "name": "Get EDU me Expand classes",
       "event": [
         {
           "listen": "prerequest",
@@ -2891,7 +2891,7 @@
     },
     {
       "_postman_id": "3c0c1ce8-159b-4bb5-a3fd-de3ff4715b3b",
-      "name": "Get EDU me expand schools",
+      "name": "Get EDU me Expand schools",
       "event": [
         {
           "listen": "prerequest",
@@ -6970,7 +6970,7 @@
   ],
   "variable": [
     {
-      "id": "41ecbd82-8ea5-47ea-a852-79343e6f67c6",
+      "id": "c998ec88-2478-4555-a29a-0c637eabe548",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
