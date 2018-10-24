@@ -2767,7 +2767,7 @@
     },
     {
       "_postman_id": "397a95c7-2bc6-eaf4-a054-220ab9bd7b1a",
-      "name": "Get EDU me classes",
+      "name": "Get EDU me Nav classes",
       "event": [
         {
           "listen": "prerequest",
@@ -6970,7 +6970,7 @@
   ],
   "variable": [
     {
-      "id": "bcc2f78f-79a3-4a4b-aec8-6d526a455161",
+      "id": "41ecbd82-8ea5-47ea-a852-79343e6f67c6",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
