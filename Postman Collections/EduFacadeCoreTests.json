@@ -2551,7 +2551,7 @@
     },
     {
       "_postman_id": "8fead806-38c3-45c4-b00b-4dbda3366fee",
-      "name": "Get A User  Nav Classes Copy",
+      "name": "Get A User  Nav Schools",
       "event": [
         {
           "listen": "prerequest",
@@ -7085,7 +7085,7 @@
   ],
   "variable": [
     {
-      "id": "327a7de2-c338-4a77-8dd1-e8fd059f6781",
+      "id": "db15b791-0942-4150-a217-a3077a665715",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
