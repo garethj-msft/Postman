@@ -2556,19 +2556,20 @@
         {
           "listen": "prerequest",
           "script": {
-            "type": "text/javascript",
+            "id": "2f3baff9-ec16-46c5-8c83-86d981a55720",
             "exec": [
               "if (typeof(GlobalFunctions) !== 'undefined' )",
               "{",
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
-            ]
+            ],
+            "type": "text/javascript"
           }
         },
         {
           "listen": "test",
           "script": {
-            "type": "text/javascript",
+            "id": "07a7c667-f23b-482f-8f5f-0b938c56735c",
             "exec": [
               "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
               "if(!expectedSuccess)",
@@ -2578,9 +2579,11 @@
               "else",
               "{",
               "    tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "    tests[\"Classes returned\"] = responseBody.has('value\":[{');",
+              "    tests[\"Schools returned\"] = responseBody.has('value\":[{');",
+              "    console.log(\"BUGBUG BUGBUG - only works in beta - cast fails to translate to AAD types in V1.0\");",
               "}"
-            ]
+            ],
+            "type": "text/javascript"
           }
         }
       ],
@@ -2605,7 +2608,7 @@
           "mode": "raw",
           "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}/classes"
+        "url": "{{https}}://{{host}}/beta/education/users/{{primaryTestUserId}}/schools"
       },
       "response": []
     },
@@ -7085,7 +7088,7 @@
   ],
   "variable": [
     {
-      "id": "db15b791-0942-4150-a217-a3077a665715",
+      "id": "396bcb60-aeac-4e25-8b3b-660329c2260d",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
