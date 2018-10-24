@@ -2824,23 +2824,25 @@
         {
           "listen": "prerequest",
           "script": {
-            "type": "text/javascript",
+            "id": "f13db78c-ca50-4ee6-b3e8-a81049382f95",
             "exec": [
               "if (typeof(GlobalFunctions) !== 'undefined' )",
               "{",
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
-            ]
+            ],
+            "type": "text/javascript"
           }
         },
         {
           "listen": "test",
           "script": {
-            "type": "text/javascript",
+            "id": "69a57d83-2b10-4edd-a2f5-ac876feeb30a",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Classes found\"] = responseBody.has('\"id\":')"
-            ]
+              "tests[\"Schools found\"] = responseBody.has('\"id\":')"
+            ],
+            "type": "text/javascript"
           }
         }
       ],
@@ -2865,7 +2867,7 @@
           "mode": "raw",
           "raw": ""
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/me/classes"
+        "url": "{{https}}://{{host}}/beta/education/me/schools"
       },
       "response": []
     },
@@ -2992,7 +2994,7 @@
           "raw": ""
         },
         "url": {
-          "raw": "{{https}}://{{host}}/{{graphVersion}}/education/me?$expand=classes",
+          "raw": "{{https}}://{{host}}/{{graphVersion}}/education/me?$expand=schoold",
           "protocol": "{{https}}",
           "host": [
             "{{host}}"
@@ -3005,7 +3007,7 @@
           "query": [
             {
               "key": "$expand",
-              "value": "classes",
+              "value": "schoold",
               "equals": true
             }
           ]
@@ -7022,7 +7024,7 @@
   ],
   "variable": [
     {
-      "id": "9f57efe2-ecda-4d22-95e6-447669d6dd45",
+      "id": "cf5113aa-2bfb-47b8-9b1c-f607855b1086",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
