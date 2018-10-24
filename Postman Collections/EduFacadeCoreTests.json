@@ -2963,7 +2963,7 @@
     },
     {
       "_postman_id": "997d7463-fc88-4d9f-916c-8d0a75215ee9",
-      "name": "Get EDU me Expand schools Copy",
+      "name": "Get EDU me Expand multi",
       "event": [
         {
           "listen": "prerequest",
@@ -3012,7 +3012,7 @@
           "raw": ""
         },
         "url": {
-          "raw": "{{https}}://{{host}}/{{graphVersion}}/education/me?$expand=schools",
+          "raw": "{{https}}://{{host}}/{{graphVersion}}/education/me?$expand=schools,classes",
           "protocol": "{{https}}",
           "host": [
             "{{host}}"
@@ -3025,7 +3025,7 @@
           "query": [
             {
               "key": "$expand",
-              "value": "schools",
+              "value": "schools,classes",
               "equals": true
             }
           ]
@@ -7042,7 +7042,7 @@
   ],
   "variable": [
     {
-      "id": "0a403247-8be6-427d-810a-44e790c0878a",
+      "id": "41ffdf2b-13a6-4146-8bca-7f9e021e78ee",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
