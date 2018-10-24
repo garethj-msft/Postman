@@ -2819,7 +2819,7 @@
     },
     {
       "_postman_id": "5dd13551-1868-4690-b0e7-9787b088cb49",
-      "name": "Get EDU me classes Copy",
+      "name": "Get EDU me schools",
       "event": [
         {
           "listen": "prerequest",
@@ -6924,6 +6924,78 @@
         "description": "Using this endpoint one can configure how long it takes for the server to come back with a response. Appending a number to the URL defines the time (in seconds) the server will wait before responding.\n\nNote that a maximum delay of 10 seconds is accepted by the server."
       },
       "response": []
+    },
+    {
+      "_postman_id": "3c0c1ce8-159b-4bb5-a3fd-de3ff4715b3b",
+      "name": "Get EDU me expand classes Copy",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "afc872d5-5a80-4aeb-a80a-1fd141e024b6",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "c97c12cc-6477-4f7a-b5b4-f28fef693f59",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "tests[\"Classes found\"] = responseBody.has('\"classes\":')"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}"
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "{{https}}://{{host}}/{{graphVersion}}/education/me?$expand=classes",
+          "protocol": "{{https}}",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "{{graphVersion}}",
+            "education",
+            "me"
+          ],
+          "query": [
+            {
+              "key": "$expand",
+              "value": "classes",
+              "equals": true
+            }
+          ]
+        }
+      },
+      "response": []
     }
   ],
   "event": [
@@ -6950,7 +7022,7 @@
   ],
   "variable": [
     {
-      "id": "a5f5ad7d-ba83-4f13-ad46-4b33845f3dc6",
+      "id": "4c6a996b-3880-460a-8fd7-b0a2558639ce",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
