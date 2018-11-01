@@ -905,16 +905,17 @@
         {
           "listen": "test",
           "script": {
-            "type": "text/javascript",
+            "id": "e2cb0764-df39-4b5e-80b8-558a32de81b7",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Rostering deployed\"] = responseBody.has('EducationRosteringAPI');",
+              "tests[\"Rostering deployed\"] = responseBody.has('EducationRosteringAPIS');",
               "if (responseBody.has('EducationRosteringAPIS'))",
               "{",
               "    var jsonData = JSON.parse(responseBody);",
               "    postman.setEnvironmentVariable(\"rosteringVersion\", jsonData['Microsoft.EducationRosteringAPIs']);",
               "}"
-            ]
+            ],
+            "type": "text/javascript"
           }
         }
       ],
@@ -7013,7 +7014,7 @@
   ],
   "variable": [
     {
-      "id": "a6a37830-0b72-45b1-ab55-1b1471f1ad6e",
+      "id": "af1be274-83f3-4d4f-bf82-30c6016156a2",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
