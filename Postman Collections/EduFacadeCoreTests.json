@@ -899,36 +899,6 @@
       "response": []
     },
     {
-      "_postman_id": "b749bc49-5335-665d-1103-905f0d98925b",
-      "name": "Get Versions",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;"
-            ]
-          }
-        }
-      ],
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "url": "{{https}}://{{host}}/versions"
-      },
-      "response": []
-    },
-    {
       "_postman_id": "63c99bda-f3df-136e-f2cf-a948431f0e61",
       "name": "Get Specific Version",
       "event": [
@@ -2840,7 +2810,7 @@
             "id": "c97c12cc-6477-4f7a-b5b4-f28fef693f59",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Classes found\"] = responseBody.has('\"classes\":')"
+              "tests[\"Classes found\"] = responseBody.has('\"classes\":[{')"
             ],
             "type": "text/javascript"
           }
@@ -7043,7 +7013,7 @@
   ],
   "variable": [
     {
-      "id": "5a487348-bea3-4848-ba6f-dc140379009f",
+      "id": "a6a37830-0b72-45b1-ab55-1b1471f1ad6e",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
