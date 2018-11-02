@@ -908,12 +908,9 @@
             "id": "e2cb0764-df39-4b5e-80b8-558a32de81b7",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Rostering deployed\"] = responseBody.has('EducationRosteringAPIS');",
-              "if (responseBody.has('EducationRosteringAPIS'))",
-              "{",
-              "    var jsonData = JSON.parse(responseBody);",
-              "    postman.setEnvironmentVariable(\"rosteringVersion\", jsonData['Microsoft.EducationRosteringAPIS']);",
-              "}"
+              "// Note no 's' on the end of the workload name because the case differs in canary and prod :-(",
+              "tests[\"Rostering deployed\"] = responseBody.has('EducationRosteringAPI');  ",
+              ""
             ],
             "type": "text/javascript"
           }
@@ -7014,7 +7011,7 @@
   ],
   "variable": [
     {
-      "id": "69cb0f2a-e350-4c02-af3b-68caa30d548c",
+      "id": "4b99c555-e439-4edf-be36-a0ca31972aa8",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
