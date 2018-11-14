@@ -3742,6 +3742,67 @@
       "response": []
     },
     {
+      "_postman_id": "7230927a-4a3f-45fe-b1c3-ef44d579cf94",
+      "name": "Get A School Nav Users Copy",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+              "if(!expectedSuccess)",
+              "{",
+              "    tests[\"Status code is 403\"] = responseCode.code === 403;",
+              "}",
+              "else",
+              "{",
+              "    tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "    tests[\"Users returned\"] = responseBody.has('value\":[{')",
+              "}",
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
+              "}"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}"
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
+          }
+        ],
+        "body": {},
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{primaryTestSchoolId}}/users"
+      },
+      "response": []
+    },
+    {
       "_postman_id": "94b4a1b3-6da7-a7cc-1cf5-81290834277c",
       "name": "Get Schools Expand Multi",
       "event": [
@@ -6684,7 +6745,7 @@
     },
     {
       "_postman_id": "01c4c71a-e486-4d9a-b9c9-cdb95b2479b9",
-      "name": "T_AppOnlyToken GraphNonEdu Copy",
+      "name": "CLEANUP T_AppOnlyToken GraphNonEdu",
       "event": [
         {
           "listen": "test",
@@ -6743,20 +6804,19 @@
           "listen": "prerequest",
           "script": {
             "id": "15681a8b-2401-440c-af86-f8956b4c1e7b",
-            "type": "text/javascript",
             "exec": [
               "if (typeof(GlobalFunctions) !== 'undefined' )",
               "{",
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
-            ]
+            ],
+            "type": "text/javascript"
           }
         },
         {
           "listen": "test",
           "script": {
             "id": "c1f6deda-c89d-42b6-8047-002ad295005b",
-            "type": "text/javascript",
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
               "if (responseBody.has('\"id\":'))",
@@ -6766,6 +6826,7 @@
               "    var handler = function (err, res) {",
               "             console.log(err ? err : 'OK');",
               "        };",
+              "    tests['Rows to delete = ' + jsonData.value.length] = true;",
               "    for (i=0; i < jsonData.value.length; i++)",
               "    {",
               "        var url = postman.getEnvironmentVariable('https') + '://' +",
@@ -6780,11 +6841,13 @@
               "              };",
               "",
               "        pm.sendRequest(echoPostRequest, handler);",
+              "        tests['DELETE ' + url] = true;",
               "    }",
               "}",
               "",
               ""
-            ]
+            ],
+            "type": "text/javascript"
           }
         }
       ],
@@ -6807,31 +6870,9 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
+          "raw": "{\n  \"@odata.type\": \"microsoft.graph.educationClass\",\n  \"displayName\":\"GarethClassTestRun60\",\n  \"mailNickname\":\"classtest60\",\n  \"period\":\"5\"\n}"
         },
-        "url": {
-          "raw": "{{https}}://{{host}}/beta/administrativeUnits?$filter=startswith(displayName,'SchoolTest')&$select=id",
-          "protocol": "{{https}}",
-          "host": [
-            "{{host}}"
-          ],
-          "path": [
-            "beta",
-            "administrativeUnits"
-          ],
-          "query": [
-            {
-              "key": "$filter",
-              "value": "startswith(displayName,'SchoolTest')",
-              "equals": true
-            },
-            {
-              "key": "$select",
-              "value": "id",
-              "equals": true
-            }
-          ]
-        }
+        "url": "{{https}}://{{host}}/beta/administrativeUnits"
       },
       "response": []
     },
@@ -7064,7 +7105,7 @@
   ],
   "variable": [
     {
-      "id": "bc95c8a9-d8b6-4670-8036-32e09fd27dd5",
+      "id": "e3759ef9-dca5-419c-bd0b-e63265cba04e",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
