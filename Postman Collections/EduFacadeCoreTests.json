@@ -1413,6 +1413,60 @@
       "response": []
     },
     {
+      "_postman_id": "7230927a-4a3f-45fe-b1c3-ef44d579cf94",
+      "name": "FAIL Get A School Nav Users",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "eb9b1ec2-434a-4e33-8229-583635155af7",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "fc07c654-9d41-4027-8104-2271f38a6081",
+            "exec": [
+              "tests[\"Status code is 403\"] = responseCode.code === 403;",
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}"
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
+          }
+        ],
+        "body": {},
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{primaryTestSchoolId}}/users"
+      },
+      "response": []
+    },
+    {
       "_postman_id": "c7258513-b673-b30c-0a6e-51638fbfa9e5",
       "name": "Get Classes",
       "event": [
@@ -3683,67 +3737,6 @@
     {
       "_postman_id": "5155ff78-21de-ad80-8784-bee86b4c857c",
       "name": "Get A School Nav Users",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-              "if(!expectedSuccess)",
-              "{",
-              "    tests[\"Status code is 403\"] = responseCode.code === 403;",
-              "}",
-              "else",
-              "{",
-              "    tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "    tests[\"Users returned\"] = responseBody.has('value\":[{')",
-              "}",
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
-              "}"
-            ]
-          }
-        }
-      ],
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
-          }
-        ],
-        "body": {},
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{primaryTestSchoolId}}/users"
-      },
-      "response": []
-    },
-    {
-      "_postman_id": "7230927a-4a3f-45fe-b1c3-ef44d579cf94",
-      "name": "Get A School Nav Users Copy",
       "event": [
         {
           "listen": "prerequest",
@@ -7079,6 +7072,36 @@
         "description": "Using this endpoint one can configure how long it takes for the server to come back with a response. Appending a number to the URL defines the time (in seconds) the server will wait before responding.\n\nNote that a maximum delay of 10 seconds is accepted by the server."
       },
       "response": []
+    },
+    {
+      "_postman_id": "b749bc49-5335-665d-1103-905f0d98925b",
+      "name": "Get Versions",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": "{{https}}://{{host}}/versions"
+      },
+      "response": []
     }
   ],
   "event": [
@@ -7105,7 +7128,7 @@
   ],
   "variable": [
     {
-      "id": "e3759ef9-dca5-419c-bd0b-e63265cba04e",
+      "id": "684f0d0a-56a8-4fe7-be8c-3be850d93385",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
