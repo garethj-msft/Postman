@@ -186,6 +186,59 @@
           "response": []
         },
         {
+          "_postman_id": "16afd2bd-a84a-4d7c-8580-26727bba162a",
+          "name": "T_AppOnlyToken GraphNonEdu Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Successful Request\"] = responseCode.code === 200;",
+                  "if(responseCode.code === 200)",
+                  "{",
+                  "    var data = JSON.parse(responseBody);",
+                  "    postman.setEnvironmentVariable(\"GraphAuth\", \"Bearer \" + data.access_token);",
+                  "    tests[\"New app-only nonEdu token written to environment\"] = true;",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials",
+                  "type": "text"
+                },
+                {
+                  "key": "client_id",
+                  "value": "{{GraphClientIdNonEdu}}",
+                  "type": "text"
+                },
+                {
+                  "key": "client_secret",
+                  "value": "{{GraphSecretNonEdu}}",
+                  "type": "text"
+                },
+                {
+                  "key": "resource",
+                  "value": "{{loginResource}}",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": "https://{{loginHost}}/{{tenantDomain}}/oauth2/token",
+            "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
+          },
+          "response": []
+        },
+        {
           "_postman_id": "1ef254ee-60e0-9dd3-394a-1200a6f78533",
           "name": "FIND A non-education Group",
           "event": [
@@ -4104,58 +4157,6 @@
       "response": []
     },
     {
-      "_postman_id": "f771d075-0efc-baa0-75ce-ef0b3ddac627",
-      "name": "Fail to Get Vanilla Users",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 403\"] = responseCode.code === 403;",
-              ""
-            ]
-          }
-        }
-      ],
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
-        },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/users"
-      },
-      "response": []
-    },
-    {
       "_postman_id": "807fa391-54f4-a1d9-535d-979bd7c20f28",
       "name": "T_PreReadWrite",
       "event": [
@@ -6627,12 +6628,12 @@
     },
     {
       "_postman_id": "1d737740-e51f-ece2-8856-01fba71d0a5b",
-      "name": "CLEANUP T_RefreshToken GraphNonEdu",
+      "name": "CLEANUP T_AppPlusUserToken GraphNonEdu",
       "event": [
         {
           "listen": "test",
           "script": {
-            "type": "text/javascript",
+            "id": "0091f1cf-6000-43b4-8936-ab78de3a0c7f",
             "exec": [
               "tests[\"Successful Request\"] = responseCode.code === 200;",
               "if(responseCode.code === 200)",
@@ -6642,7 +6643,8 @@
               "    postman.setEnvironmentVariable(\"GraphRefreshNonEdu\", data.refresh_token);",
               "    tests[\"New NonEdu tokens written to environment\"] = true;",
               "}"
-            ]
+            ],
+            "type": "text/javascript"
           }
         }
       ],
@@ -6654,27 +6656,38 @@
           "formdata": [
             {
               "key": "grant_type",
-              "value": "refresh_token",
-              "type": "text"
-            },
-            {
-              "key": "refresh_token",
-              "value": "{{GraphRefreshNonEdu}}",
-              "type": "text"
+              "value": "password",
+              "type": "text",
+              "description": ""
             },
             {
               "key": "client_id",
               "value": "{{GraphClientIdNonEdu}}",
-              "type": "text"
+              "type": "text",
+              "description": ""
             },
             {
               "key": "client_secret",
               "value": "{{GraphSecretNonEdu}}",
-              "type": "text"
+              "type": "text",
+              "description": ""
             },
             {
               "key": "resource",
               "value": "{{loginResource}}",
+              "type": "text",
+              "description": ""
+            },
+            {
+              "key": "username",
+              "value": "{{apiCaller}}",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "password",
+              "value": "{{apiCallerPwd}}",
+              "description": "",
               "type": "text"
             }
           ]
@@ -7135,7 +7148,7 @@
   ],
   "variable": [
     {
-      "id": "40f37543-d1ac-4d1c-a4e1-d72228a10e51",
+      "id": "ec8912ce-3bd6-42a9-9a83-d095fc4f1ca9",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
