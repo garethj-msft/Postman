@@ -963,36 +963,6 @@
       "response": []
     },
     {
-      "_postman_id": "36cbc88a-b458-3cf9-2d27-7472f42b5988",
-      "name": "Get Rostering Schemas",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;"
-            ]
-          }
-        }
-      ],
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "url": "{{https}}://{{host}}/schemas/Microsoft.EducationRosteringAPIS"
-      },
-      "response": []
-    },
-    {
       "_postman_id": "fe9f664b-4828-e86f-2d44-32cab1520424",
       "name": "Get Education",
       "event": [
@@ -7095,7 +7065,7 @@
   ],
   "variable": [
     {
-      "id": "8b7398d3-6d65-4f8f-9065-8c8a6bb9ec1a",
+      "id": "eb97d50b-0fa2-481d-8e91-e00680749b2d",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
