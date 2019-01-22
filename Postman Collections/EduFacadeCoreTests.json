@@ -18,13 +18,13 @@
             {
               "listen": "prerequest",
               "script": {
-                "type": "text/javascript",
+                "id": "60bf0268-68c6-4ff8-82b2-8281054b3ef7",
                 "exec": [
                   "postman.setEnvironmentVariable(\"retryCount\", \"0\");\r",
                   "postman.setEnvironmentVariable(\"retryDelay\", \"3\");\r",
                   "var authRandom = Math.floor(Math.random() * 10);\r",
                   "\r",
-                  "if (authRandom < 5)\r",
+                  "if (postman.getEnvironmentVariable(\"authOverride\" === \"appOnly\") || ( authRandom < 5 && postman.getEnvironmentVariable(\"authOverride\" !== \"appPlusUser\")))\r",
                   "{\r",
                   "  postman.setEnvironmentVariable(\"authType\", 'appOnly'); \r",
                   "  console.log(\"Running App-Only.\");\r",
@@ -108,25 +108,30 @@
                   "  }\r",
                   "}\r",
                   "};"
-                ]
+                ],
+                "type": "text/javascript"
               }
             },
             {
               "listen": "test",
               "script": {
-                "type": "text/javascript",
+                "id": "6a2cb93f-d2c4-4488-8202-307e57480b67",
                 "exec": [
                   "tests[\"GlobalsInitialized\"] = typeof(GlobalFunctions) !== 'undefined';",
                   "tests[postman.getEnvironmentVariable(\"authType\")] = true; ",
                   "GlobalFunctions.reportFails(tests);"
-                ]
+                ],
+                "type": "text/javascript"
               }
             }
           ],
           "request": {
             "method": "GET",
             "header": [],
-            "body": {},
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
             "url": "https://postman-echo.com/get",
             "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
           },
@@ -7065,7 +7070,7 @@
   ],
   "variable": [
     {
-      "id": "ad82fb05-db07-4410-b6d8-1798411024a3",
+      "id": "0ed4a951-00e1-4185-9175-e51a5abcc348",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
