@@ -24,7 +24,7 @@
                   "postman.setEnvironmentVariable(\"retryDelay\", \"3\");\r",
                   "var authRandom = Math.floor(Math.random() * 10);\r",
                   "\r",
-                  "if (postman.getEnvironmentVariable(\"authOverride\" === \"appOnly\") || ( authRandom < 5 && postman.getEnvironmentVariable(\"authOverride\" !== \"appPlusUser\")))\r",
+                  "if (postman.getEnvironmentVariable(\"authOverride\") === \"appOnly\" || ( authRandom < 5 && postman.getEnvironmentVariable(\"authOverride\") !== \"appPlusUser\"))\r",
                   "{\r",
                   "  postman.setEnvironmentVariable(\"authType\", 'appOnly'); \r",
                   "  console.log(\"Running App-Only.\");\r",
@@ -7070,7 +7070,7 @@
   ],
   "variable": [
     {
-      "id": "0ed4a951-00e1-4185-9175-e51a5abcc348",
+      "id": "80d95189-4d54-42a7-b0ea-4fd1cf211752",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
