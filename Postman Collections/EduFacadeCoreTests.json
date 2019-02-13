@@ -809,6 +809,84 @@
       "response": []
     },
     {
+      "_postman_id": "fe126b0a-6b17-4535-b9f2-789b83e19ab4",
+      "name": "T_AppPlusUserToken GraphReadBasic Copy",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "b09647cf-b7eb-464b-b020-6edbffc19837",
+            "exec": [
+              "postman.setNextRequest(\"T_PostReadBasic\");"
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "86161bc1-ecd3-4dc1-949d-5881fa6a82b3",
+            "exec": [
+              "tests[\"Successful Request\"] = responseCode.code === 200;",
+              "if(responseCode.code === 200)",
+              "{",
+              "    var data = JSON.parse(responseBody);",
+              "    postman.setEnvironmentVariable(\"GraphAuth\", \"Bearer \" + data.access_token);",
+              "    postman.setEnvironmentVariable(\"GraphRefreshReadBasic\", data.refresh_token);",
+              "    tests[\"New readbasic tokens written to environment\"] = true;",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "grant_type",
+              "value": "password",
+              "type": "text"
+            },
+            {
+              "key": "client_id",
+              "value": "{{GraphClientIdReadBasic}}",
+              "type": "text"
+            },
+            {
+              "key": "client_secret",
+              "value": "{{GraphSecretReadBasic}}",
+              "type": "text"
+            },
+            {
+              "key": "resource",
+              "value": "{{loginResource}}",
+              "type": "text"
+            },
+            {
+              "key": "username",
+              "value": "{{apiCaller}}",
+              "type": "text"
+            },
+            {
+              "key": "password",
+              "value": "{{apiCallerPwd}}",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "https://{{loginHost}}/common/oauth2/token",
+        "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
+      },
+      "response": []
+    },
+    {
       "_postman_id": "7ce03215-3584-1f9c-ed51-785c213fc2b2",
       "name": "T_AppOnlyToken GraphReadBasic",
       "event": [
@@ -5308,79 +5386,6 @@
       "response": []
     },
     {
-      "_postman_id": "7ddf751a-9b2f-48d6-8ebf-d14a27956ec5",
-      "name": "Make a Class Copy",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}",
-              "var currentRandom = Math.floor(Math.random() * 1000).toString();",
-              "var currentRandom2 = Math.floor(Math.random() * 1000).toString();",
-              "postman.setEnvironmentVariable(\"currentRandom\", currentRandom + currentRandom2);"
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-              "if(!expectedSuccess)",
-              "{",
-              "    tests[\"Status code is 403\"] = responseCode.code === 403;",
-              "    postman.setEnvironmentVariable(\"justCreatedId\", \"9900AA5E-8EBF-4407-B151-CBCF310F1383\"); // Dummy guid",
-              "}",
-              "else",
-              "{",
-              "    tests[\"Status code is 201\"] = responseCode.code === 201;",
-              "    tests[\"Class created\"] = responseBody.has('\"id\":')",
-              "    if (responseBody.has('\"id\":'))",
-              "    {",
-              "        var jsonData = JSON.parse(responseBody);",
-              "        postman.setEnvironmentVariable(\"justCreatedId\", jsonData.id);",
-              "    }",
-              "}"
-            ]
-          }
-        }
-      ],
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
-          },
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"ClassTestRun{{currentRandom}}\",\n\t\"mailNickname\":\"classtest{{currentRandom}}\",\n\t\"period\":\"5\",\n\t\"externalSource\": \"SIS\",\n\t\"term\": {\n\t\t\"externalId\": \"S2\",\n\t\t\"displayName\": \"Semester 2\"\n\t}\n}"
-        },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes"
-      },
-      "response": []
-    },
-    {
       "_postman_id": "2b51fd56-3ebd-7bfa-4b41-8570e451797b",
       "name": "Check just created Class retrievable",
       "event": [
@@ -7143,7 +7148,7 @@
   ],
   "variable": [
     {
-      "id": "23929c99-da10-4b3f-8654-be3238e5c60d",
+      "id": "c99c8931-da5b-4219-8d30-36211348bc43",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
