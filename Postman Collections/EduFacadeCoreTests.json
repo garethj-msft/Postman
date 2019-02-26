@@ -809,6 +809,84 @@
       "response": []
     },
     {
+      "_postman_id": "dd9969e8-4536-45ca-957d-1094a247824b",
+      "name": "T_AppPlusUserToken GraphReadBasic Copy",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "b09647cf-b7eb-464b-b020-6edbffc19837",
+            "exec": [
+              "postman.setNextRequest(\"T_PostReadBasic\");"
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "86161bc1-ecd3-4dc1-949d-5881fa6a82b3",
+            "exec": [
+              "tests[\"Successful Request\"] = responseCode.code === 200;",
+              "if(responseCode.code === 200)",
+              "{",
+              "    var data = JSON.parse(responseBody);",
+              "    postman.setEnvironmentVariable(\"GraphAuth\", \"Bearer \" + data.access_token);",
+              "    postman.setEnvironmentVariable(\"GraphRefreshReadBasic\", data.refresh_token);",
+              "    tests[\"New readbasic tokens written to environment\"] = true;",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "grant_type",
+              "value": "password",
+              "type": "text"
+            },
+            {
+              "key": "client_id",
+              "value": "{{GraphClientIdReadBasic}}",
+              "type": "text"
+            },
+            {
+              "key": "client_secret",
+              "value": "{{GraphSecretReadBasic}}",
+              "type": "text"
+            },
+            {
+              "key": "resource",
+              "value": "{{loginResource}}",
+              "type": "text"
+            },
+            {
+              "key": "username",
+              "value": "{{apiCaller}}",
+              "type": "text"
+            },
+            {
+              "key": "password",
+              "value": "{{apiCallerPwd}}",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "https://{{loginHost}}/common/oauth2/token",
+        "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
+      },
+      "response": []
+    },
+    {
       "_postman_id": "7ce03215-3584-1f9c-ed51-785c213fc2b2",
       "name": "T_AppOnlyToken GraphReadBasic",
       "event": [
@@ -6632,19 +6710,20 @@
         {
           "listen": "prerequest",
           "script": {
-            "type": "text/javascript",
+            "id": "3f6cdc1b-562b-40da-8bcb-690f6d97b74e",
             "exec": [
               "if (typeof(GlobalFunctions) !== 'undefined' )",
               "{",
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
-            ]
+            ],
+            "type": "text/javascript"
           }
         },
         {
           "listen": "test",
           "script": {
-            "type": "text/javascript",
+            "id": "8ada00cc-4dff-4921-94d8-b778f19c449b",
             "exec": [
               "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
               "if(!expectedSuccess)",
@@ -6656,9 +6735,10 @@
               "    tests[\"Status code is 200\"] = responseCode.code === 200;",
               "    tests[\"User created\"] = responseBody.has('\"id\":')",
               "    tests[\"Custom data created\"] = responseBody.has('\"Middle\"')",
-              "    tests[\"Custom teacher data created\"] = responseBody.has('\"teacherNumber\":\"456\"')",
+              "    tests[\"Custom student data created\"] = responseBody.has('\"studentNumber\":\"789\"')",
               "}"
-            ]
+            ],
+            "type": "text/javascript"
           }
         }
       ],
@@ -6690,6 +6770,31 @@
     {
       "_postman_id": "883c63b6-959d-4e71-9458-03675872b066",
       "name": "Patch-Education-User-Contacts Copy Copy",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "1cbf23a8-1bd6-4743-87e6-f2309db09ba9",
+            "exec": [
+              "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+              "if(!expectedSuccess)",
+              "{",
+              "    tests[\"Status code is 403\"] = responseCode.code === 403;",
+              "}",
+              "else",
+              "{",
+              "  //  tests[\"Status code is 200\"] = responseCode.code === 202;",
+              "    if (responseBody.has('\"relatedContacts\":'))",
+              "    {",
+              "        var jsonData = JSON.parse(responseBody);",
+              "      //  tests[\"Related count\"] = jsonData.relatedContacts.count === 3;",
+              "    }",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
       "request": {
         "method": "PATCH",
         "header": [
@@ -6710,7 +6815,7 @@
           "mode": "raw",
           "raw": "{\n\t\"relatedContacts\": [\n\t\t\t{\n\t\t\t\t\"displayName\": \"Test User 22\",\n\t            \"emailAddress\": \"user1@outlook.com\",\n\t            \"mobilePhone\": \"123-456-7890\",\n\t            \"relationship\": \"Parent\",\n\t            \"accessConsent\": \"True\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"displayName\": \"Test User 23\",\n\t            \"emailAddress\": \"user2@outlook.com\",\n\t            \"mobilePhone\": \"123-456-7890\",\n\t            \"relationship\": \"Parent\",\n\t            \"accessConsent\": \"True\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"displayName\": \"Test user 24\",\n\t            \"emailAddress\": \"user3@outlook.com\",\n\t            \"relationship\": \"Relative\",\n\t            \"accessConsent\": \"False\"\n\t\t\t}\n\t\t]\n}"
         },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{FoundUserId}}",
+        "url": "{{https}}://{{host}}/beta/education/users/{{justCreatedId}}",
         "description": "Patch"
       },
       "response": [
@@ -7332,7 +7437,7 @@
   ],
   "variable": [
     {
-      "id": "98901a20-32cb-4b64-985c-bfc611d77517",
+      "id": "ba7ac530-afb0-47a8-a2aa-110790d81afa",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string",
