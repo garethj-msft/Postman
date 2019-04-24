@@ -185,6 +185,62 @@
           "response": []
         },
         {
+          "name": "T_AppOnlyToken GraphNonEdu Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Successful Request\"] = responseCode.code === 200;",
+                  "if(responseCode.code === 200)",
+                  "{",
+                  "    var data = JSON.parse(responseBody);",
+                  "    postman.setEnvironmentVariable(\"GraphAuth\", \"Bearer \" + data.access_token);",
+                  "    tests[\"New app-only nonEdu token written to environment\"] = true;",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "_postman_id": "12d60b38-e7ce-4f1d-b11b-a4e18588e4f9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials",
+                  "type": "text"
+                },
+                {
+                  "key": "client_id",
+                  "value": "{{GraphClientIdNonEdu}}",
+                  "type": "text"
+                },
+                {
+                  "key": "client_secret",
+                  "value": "{{GraphSecretNonEdu}}",
+                  "type": "text"
+                },
+                {
+                  "key": "resource",
+                  "value": "{{loginResource}}",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": "https://{{loginHost}}/{{tenantDomain}}/oauth2/token",
+            "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
+          },
+          "response": []
+        },
+        {
           "name": "FIND A non-education Group",
           "event": [
             {
@@ -673,62 +729,6 @@
               "formdata": []
             },
             "url": "{{https}}://{{host}}/beta/users"
-          },
-          "response": []
-        },
-        {
-          "name": "T_AppOnlyToken GraphNonEdu Copy",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Successful Request\"] = responseCode.code === 200;",
-                  "if(responseCode.code === 200)",
-                  "{",
-                  "    var data = JSON.parse(responseBody);",
-                  "    postman.setEnvironmentVariable(\"GraphAuth\", \"Bearer \" + data.access_token);",
-                  "    tests[\"New app-only nonEdu token written to environment\"] = true;",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "_postman_id": "12d60b38-e7ce-4f1d-b11b-a4e18588e4f9",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "formdata",
-              "formdata": [
-                {
-                  "key": "grant_type",
-                  "value": "client_credentials",
-                  "type": "text"
-                },
-                {
-                  "key": "client_id",
-                  "value": "{{GraphClientIdNonEdu}}",
-                  "type": "text"
-                },
-                {
-                  "key": "client_secret",
-                  "value": "{{GraphSecretNonEdu}}",
-                  "type": "text"
-                },
-                {
-                  "key": "resource",
-                  "value": "{{loginResource}}",
-                  "type": "text"
-                }
-              ]
-            },
-            "url": "https://{{loginHost}}/{{tenantDomain}}/oauth2/token",
-            "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
           },
           "response": []
         }
@@ -7383,7 +7383,7 @@
   ],
   "variable": [
     {
-      "id": "527a56cc-1cf1-4f4b-92e8-f0f6abe24138",
+      "id": "29266e22-e221-41aa-9c6d-265131c305d9",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
