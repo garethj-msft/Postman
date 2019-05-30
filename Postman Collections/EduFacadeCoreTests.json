@@ -4228,6 +4228,71 @@
       "response": []
     },
     {
+      "name": "T_AppOnlyToken GraphReadWrite Copy",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "postman.setNextRequest(\"T_PostReadWrite\");"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Successful Request\"] = responseCode.code === 200;",
+              "if(responseCode.code === 200)",
+              "{",
+              "    var data = JSON.parse(responseBody);",
+              "    postman.setEnvironmentVariable(\"GraphAuth\", \"Bearer \" + data.access_token);",
+              "    tests[\"New app-only readwrite token written to environment\"] = true;",
+              "}"
+            ]
+          }
+        }
+      ],
+      "_postman_id": "66c3f3f1-56ea-417c-80db-3ec54d8ca07b",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "grant_type",
+              "value": "client_credentials",
+              "type": "text"
+            },
+            {
+              "key": "client_id",
+              "value": "{{GraphClientIdReadWrite}}",
+              "type": "text"
+            },
+            {
+              "key": "client_secret",
+              "value": "{{GraphSecretReadWrite}}",
+              "type": "text"
+            },
+            {
+              "key": "resource",
+              "value": "{{loginResource}}",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "https://{{loginHost}}/{{tenantDomain}}/oauth2/token",
+        "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
+      },
+      "response": []
+    },
+    {
       "name": "T_PostReadWrite",
       "event": [
         {
@@ -7327,7 +7392,7 @@
   ],
   "variable": [
     {
-      "id": "4e9a2a90-968c-47b0-bc49-e8899aa2199d",
+      "id": "6d863e04-ce1c-42e7-887a-d6f874aaa561",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
