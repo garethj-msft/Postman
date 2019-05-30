@@ -7301,6 +7301,57 @@
         "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
       },
       "response": []
+    },
+    {
+      "name": "Get EDU me Nav classes Copy",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "tests[\"Classes found\"] = responseBody.has('\"id\":')"
+            ]
+          }
+        }
+      ],
+      "_postman_id": "ff140912-92cf-4fc2-a90b-25859a458f79",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}"
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
+          }
+        ],
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/me/classes"
+      },
+      "response": []
     }
   ],
   "event": [
@@ -7327,7 +7378,7 @@
   ],
   "variable": [
     {
-      "id": "0dc18b70-6ead-4d81-84b0-1a8d77be7c21",
+      "id": "aff5925b-ebbe-46f8-b596-db4b077d6772",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
