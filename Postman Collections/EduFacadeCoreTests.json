@@ -7242,65 +7242,6 @@
         "url": "{{https}}://{{host}}/versions"
       },
       "response": []
-    },
-    {
-      "name": "T_RefreshToken GraphNonEdu",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Successful Request\"] = responseCode.code === 200;",
-              "if(responseCode.code === 200)",
-              "{",
-              "    var data = JSON.parse(responseBody);",
-              "    postman.setEnvironmentVariable(\"GraphAuth\", \"Bearer \" + data.access_token);",
-              "    postman.setEnvironmentVariable(\"GraphRefreshNonEdu\", data.refresh_token);",
-              "    tests[\"New NonEdu tokens written to environment\"] = true;",
-              "}"
-            ]
-          }
-        }
-      ],
-      "_postman_id": "c65bed50-ecba-0713-6b7c-e1c28c6a67d1",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "formdata",
-          "formdata": [
-            {
-              "key": "grant_type",
-              "value": "refresh_token",
-              "type": "text"
-            },
-            {
-              "key": "refresh_token",
-              "value": "{{GraphRefreshNonEdu}}",
-              "type": "text"
-            },
-            {
-              "key": "client_id",
-              "value": "{{GraphClientIdNonEdu}}",
-              "type": "text"
-            },
-            {
-              "key": "client_secret",
-              "value": "{{GraphSecretNonEdu}}",
-              "type": "text"
-            },
-            {
-              "key": "resource",
-              "value": "{{loginResource}}",
-              "type": "text"
-            }
-          ]
-        },
-        "url": "https://{{loginHost}}/common/oauth2/token",
-        "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
-      },
-      "response": []
     }
   ],
   "event": [
@@ -7327,7 +7268,7 @@
   ],
   "variable": [
     {
-      "id": "ab841f38-9584-4435-87db-d60483992456",
+      "id": "e56147f7-b369-44b2-80d6-912aaea69ca7",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
