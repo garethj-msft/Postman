@@ -4113,7 +4113,6 @@
               "{",
               "    var data = JSON.parse(responseBody);",
               "    postman.setEnvironmentVariable(\"GraphAuth\", \"Bearer \" + data.access_token);",
-              "    postman.setEnvironmentVariable(\"GraphRefreshReadWrite\", data.refresh_token);",
               "    tests[\"New readwrite tokens written to environment\"] = true;",
               "}"
             ],
@@ -6824,7 +6823,6 @@
               "{",
               "    var data = JSON.parse(responseBody);",
               "    postman.setEnvironmentVariable(\"GraphAuth\", \"Bearer \" + data.access_token);",
-              "    postman.setEnvironmentVariable(\"GraphRefreshNonEdu\", data.refresh_token);",
               "    tests[\"New NonEdu tokens written to environment\"] = true;",
               "}"
             ],
@@ -7124,7 +7122,7 @@
   ],
   "variable": [
     {
-      "id": "90d13197-958a-4e8e-aeb4-8537758bc1cf",
+      "id": "fd20d550-fa00-4f7a-a2c8-6ed03c219511",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
