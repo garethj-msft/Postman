@@ -4238,8 +4238,7 @@
           "mode": "raw",
           "raw": ""
         },
-        "url": "https://postman-echo.com/get",
-        "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
+        "url": "https://postman-echo.com/get"
       },
       "response": []
     },
@@ -7109,7 +7108,7 @@
   ],
   "variable": [
     {
-      "id": "92f2d39f-412a-460c-bd44-0371f5eddce2",
+      "id": "99472400-c785-436b-815b-cbf978e1c92a",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
