@@ -788,8 +788,7 @@
             }
           ]
         },
-        "url": "https://{{loginHost}}/common/oauth2/token",
-        "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
+        "url": "https://{{loginHost}}/common/oauth2/token"
       },
       "response": []
     },
@@ -7113,7 +7112,7 @@
   ],
   "variable": [
     {
-      "id": "6c419eed-627d-4a34-9a27-7170917f1f97",
+      "id": "7d6b9f01-70ea-43bd-8c04-a4012bf70b8c",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
