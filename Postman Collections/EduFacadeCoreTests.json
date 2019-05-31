@@ -6983,36 +6983,6 @@
         "description": "Using this endpoint one can configure how long it takes for the server to come back with a response. Appending a number to the URL defines the time (in seconds) the server will wait before responding.\n\nNote that a maximum delay of 10 seconds is accepted by the server."
       },
       "response": []
-    },
-    {
-      "name": "Get Versions",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;"
-            ]
-          }
-        }
-      ],
-      "_postman_id": "b749bc49-5335-665d-1103-905f0d98925b",
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "url": "{{https}}://{{host}}/versions"
-      },
-      "response": []
     }
   ],
   "event": [
@@ -7039,7 +7009,7 @@
   ],
   "variable": [
     {
-      "id": "2bb95a6c-43ca-4b95-92e5-a8968188da2f",
+      "id": "34f58613-3cd7-4bb4-b6c2-8eb5f378074f",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
