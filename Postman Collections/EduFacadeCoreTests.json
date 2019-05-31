@@ -740,7 +740,6 @@
               "{",
               "    var data = JSON.parse(responseBody);",
               "    postman.setEnvironmentVariable(\"GraphAuth\", \"Bearer \" + data.access_token);",
-              "    postman.setEnvironmentVariable(\"GraphRefreshReadBasic\", data.refresh_token);",
               "    tests[\"New readbasic tokens written to environment\"] = true;",
               "}"
             ],
@@ -7121,7 +7120,7 @@
   ],
   "variable": [
     {
-      "id": "8a90e225-1b1b-41fb-9ef8-4d3969bdc8bc",
+      "id": "50083ffd-74b7-4e4e-8087-e6c697eeae7f",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
