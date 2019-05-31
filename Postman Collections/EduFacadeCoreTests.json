@@ -126,8 +126,7 @@
           "request": {
             "method": "GET",
             "header": [],
-            "url": "https://postman-echo.com/get",
-            "description": "Use refreshToken variable to request a new access token for the user in PPE environment."
+            "url": "https://postman-echo.com/get"
           },
           "response": []
         },
@@ -6643,7 +6642,7 @@
       "response": []
     },
     {
-      "name": "Patch-Education-User-Contacts Copy Copy",
+      "name": "Patch-Education-User-Contacts",
       "event": [
         {
           "listen": "test",
@@ -6691,7 +6690,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n\t\"relatedContacts\": [\n\t\t\t{\n\t\t\t\t\"displayName\": \"Test User 22\",\n\t            \"emailAddress\": \"user1@outlook.com\",\n\t            \"mobilePhone\": \"123-456-7890\",\n\t            \"relationship\": \"Parent\",\n\t            \"accessConsent\": \"True\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"displayName\": \"Test User 23\",\n\t            \"emailAddress\": \"user2@outlook.com\",\n\t            \"mobilePhone\": \"123-456-7890\",\n\t            \"relationship\": \"Parent\",\n\t            \"accessConsent\": \"True\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"displayName\": \"Test user 24\",\n\t            \"emailAddress\": \"user3@outlook.com\",\n\t            \"relationship\": \"Relative\",\n\t            \"accessConsent\": \"False\"\n\t\t\t}\n\t\t]\n}"
+          "raw": "{\n\t\"relatedContacts\": [\n\t\t\t{\n\t\t\t\t\"displayName\": \"Test User 22\",\n\t            \"emailAddress\": \"user1@outlook.com\",\n\t            \"mobilePhone\": \"123-456-7890\",\n\t            \"relationship\": \"parent\",\n\t            \"accessConsent\": true\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"displayName\": \"Test User 23\",\n\t            \"emailAddress\": \"user2@outlook.com\",\n\t            \"mobilePhone\": \"123-456-7890\",\n\t            \"relationship\": \"parent\",\n\t            \"accessConsent\": true\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"displayName\": \"Test user 24\",\n\t            \"emailAddress\": \"user3@outlook.com\",\n\t            \"relationship\": \"relative\",\n\t            \"accessConsent\": false\n\t\t\t}\n\t\t]\n}"
         },
         "url": "{{https}}://{{host}}/beta/education/users/{{justCreatedId}}",
         "description": "Patch"
@@ -7103,7 +7102,7 @@
   ],
   "variable": [
     {
-      "id": "b0aa83a7-04f7-4800-8375-f0c202821345",
+      "id": "34b91335-85bb-424f-86f5-37b773d64381",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
