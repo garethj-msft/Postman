@@ -6793,58 +6793,6 @@
       ]
     },
     {
-      "name": "CLEANUP T_AppOnlyToken GraphNonEdu",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Successful Request\"] = responseCode.code === 200;",
-              "if(responseCode.code === 200)",
-              "{",
-              "    var data = JSON.parse(responseBody);",
-              "    postman.setEnvironmentVariable(\"GraphAuth\", \"Bearer \" + data.access_token);",
-              "    tests[\"New app-only nonEdu token written to environment\"] = true;",
-              "}"
-            ]
-          }
-        }
-      ],
-      "_postman_id": "01c4c71a-e486-4d9a-b9c9-cdb95b2479b9",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "formdata",
-          "formdata": [
-            {
-              "key": "grant_type",
-              "value": "client_credentials",
-              "type": "text"
-            },
-            {
-              "key": "client_id",
-              "value": "{{GraphClientIdNonEdu}}",
-              "type": "text"
-            },
-            {
-              "key": "client_secret",
-              "value": "{{GraphSecretNonEdu}}",
-              "type": "text"
-            },
-            {
-              "key": "resource",
-              "value": "{{loginResource}}",
-              "type": "text"
-            }
-          ]
-        },
-        "url": "https://{{loginHost}}/{{tenantDomain}}/oauth2/token"
-      },
-      "response": []
-    },
-    {
       "name": "CLEANUP GetDeleteSchoolList",
       "event": [
         {
@@ -7014,7 +6962,7 @@
   ],
   "variable": [
     {
-      "id": "024ea03c-9e91-4094-88d6-4289114e91f6",
+      "id": "7314627c-9cf6-47b2-8f06-6a12781bb1f8",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
