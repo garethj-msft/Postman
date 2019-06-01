@@ -6873,10 +6873,12 @@
               "    var handler = function (err, res) {",
               "             console.log(err ? err : \"ok\");",
               "        };",
-              "    tests['Rows to delete = ' + jsonData.value.length] = true;",
+              "    tests['Rows = ' + jsonData.value.length] = true;",
               "    for (i=0; i < jsonData.value.length; i++)",
               "    {",
-              "        var url = postman.getEnvironmentVariable('https') + '://' +",
+              "        if (jsonData.value[i].displayName.includes('SchoolTestRun')",
+              "        {",
+              "            var url = postman.getEnvironmentVariable('https') + '://' +",
               "        postman.getEnvironmentVariable('host') + '/' +",
               "        'beta/administrativeUnits/' +",
               "        jsonData.value[i].id;",
@@ -6889,6 +6891,7 @@
               "",
               "        pm.sendRequest(echoPostRequest, handler);",
               "        tests['DELETE ' + url] = true;",
+              "        }",
               "    }",
               "}",
               "",
@@ -6916,23 +6919,7 @@
             "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
-        "url": {
-          "raw": "{{https}}://{{host}}/beta/administrativeUnits?$filter=contains(displayName,'SchoolTestRun')",
-          "protocol": "{{https}}",
-          "host": [
-            "{{host}}"
-          ],
-          "path": [
-            "beta",
-            "administrativeUnits"
-          ],
-          "query": [
-            {
-              "key": "$filter",
-              "value": "contains(displayName,'SchoolTestRun')"
-            }
-          ]
-        }
+        "url": "{{https}}://{{host}}/beta/administrativeUnits"
       },
       "response": []
     },
@@ -7021,7 +7008,7 @@
   ],
   "variable": [
     {
-      "id": "812e17c1-72c6-48cb-bc90-5de4e426ffd5",
+      "id": "58e670da-2faa-479d-bc4c-d3ad78001e5c",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
