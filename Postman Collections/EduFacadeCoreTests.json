@@ -6876,7 +6876,7 @@
               "    tests['Rows = ' + jsonData.value.length] = true;",
               "    for (i=0; i < jsonData.value.length; i++)",
               "    {",
-              "        if (jsonData.value[i].displayName.includes('SchoolTestRun')",
+              "        if (jsonData.value[i].displayName.includes('SchoolTestRun'))",
               "        {",
               "            var url = postman.getEnvironmentVariable('https') + '://' +",
               "        postman.getEnvironmentVariable('host') + '/' +",
@@ -7008,7 +7008,7 @@
   ],
   "variable": [
     {
-      "id": "58e670da-2faa-479d-bc4c-d3ad78001e5c",
+      "id": "268c7584-c535-46a5-8bc7-33fdfb314150",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
