@@ -6873,7 +6873,7 @@
               "    var handler = function (err, res) {",
               "             console.log(err ? err : \"ok\");",
               "        };",
-              "    int d=0;",
+              "    var d=0;",
               "    for (i=0; i < jsonData.value.length; i++)",
               "    {",
               "        if (jsonData.value[i].displayName.includes('SchoolTestRun'))",
@@ -7011,7 +7011,7 @@
   ],
   "variable": [
     {
-      "id": "1ddc542a-2ae4-46e4-a200-3a339c0b18bb",
+      "id": "e5a5230b-dfab-40aa-a154-579a428dd65c",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
