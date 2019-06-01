@@ -6871,7 +6871,7 @@
               "    var jsonData = JSON.parse(responseBody);",
               "    var i;",
               "    var handler = function (err, res) {",
-              "             console.log(err ? err : \"ok\");",
+              "             console.log(err ? err : res);",
               "        };",
               "    var d=0;",
               "    for (i=0; i < jsonData.value.length; i++)",
@@ -7011,7 +7011,7 @@
   ],
   "variable": [
     {
-      "id": "e5a5230b-dfab-40aa-a154-579a428dd65c",
+      "id": "423955df-7a35-49ac-9358-f6a742471d7a",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
