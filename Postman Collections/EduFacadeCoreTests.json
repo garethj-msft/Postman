@@ -6871,7 +6871,7 @@
               "    var jsonData = JSON.parse(responseBody);",
               "    var i;",
               "    var handler = function (err, res) {",
-              "             console.log(err ? err : 'OK');",
+              "             console.log(err ? err : \"ok\");",
               "        };",
               "    tests['Rows to delete = ' + jsonData.value.length] = true;",
               "    for (i=0; i < jsonData.value.length; i++)",
@@ -6916,11 +6916,23 @@
             "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"@odata.type\": \"microsoft.graph.educationClass\",\n  \"displayName\":\"GarethClassTestRun60\",\n  \"mailNickname\":\"classtest60\",\n  \"period\":\"5\"\n}"
-        },
-        "url": "{{https}}://{{host}}/beta/administrativeUnits"
+        "url": {
+          "raw": "{{https}}://{{host}}/beta/administrativeUnits?$filter=contains(displayName,\"\")",
+          "protocol": "{{https}}",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "beta",
+            "administrativeUnits"
+          ],
+          "query": [
+            {
+              "key": "$filter",
+              "value": "contains(displayName,\"\")"
+            }
+          ]
+        }
       },
       "response": []
     },
@@ -7009,7 +7021,7 @@
   ],
   "variable": [
     {
-      "id": "71366fb9-460e-4b2e-b08e-9069ef754fbd",
+      "id": "f2393e03-6ece-41f0-a4cd-b07eb8c53f40",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
