@@ -6917,7 +6917,7 @@
           }
         ],
         "url": {
-          "raw": "{{https}}://{{host}}/beta/administrativeUnits?$filter=contains(displayName,\"\")",
+          "raw": "{{https}}://{{host}}/beta/administrativeUnits?$filter=contains(displayName,'SchoolTestRun')",
           "protocol": "{{https}}",
           "host": [
             "{{host}}"
@@ -6929,7 +6929,7 @@
           "query": [
             {
               "key": "$filter",
-              "value": "contains(displayName,\"\")"
+              "value": "contains(displayName,'SchoolTestRun')"
             }
           ]
         }
@@ -7021,7 +7021,7 @@
   ],
   "variable": [
     {
-      "id": "f2393e03-6ece-41f0-a4cd-b07eb8c53f40",
+      "id": "812e17c1-72c6-48cb-bc90-5de4e426ffd5",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
