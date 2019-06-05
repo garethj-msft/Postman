@@ -17,6 +17,8 @@
               "script": {
                 "id": "60bf0268-68c6-4ff8-82b2-8281054b3ef7",
                 "exec": [
+                  "pm.environment.set(\"RequestDelay\", 20000); // Default delay for propagation\r",
+                  "\r",
                   "postman.setEnvironmentVariable(\"retryCount\", \"0\");\r",
                   "postman.setEnvironmentVariable(\"retryDelay\", \"3\");\r",
                   "var authRandom = Math.floor(Math.random() * 10);\r",
@@ -891,9 +893,11 @@
           "script": {
             "id": "e2cb0764-df39-4b5e-80b8-558a32de81b7",
             "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "// Removed due to changes to canary (you can't poll versions)",
+              "// {{https}}://{{host}}/versions/{{graphVersion}}",
+              "//tests[\"Status code is 200\"] = responseCode.code === 200;",
               "// Note no 's' on the end of the workload name because the case differs in canary and prod :-(",
-              "tests[\"Rostering deployed\"] = responseBody.has('EducationRosteringAPI');  ",
+              "//tests[\"Rostering deployed\"] = responseBody.has('EducationRosteringAPI');  ",
               ""
             ],
             "type": "text/javascript"
@@ -909,11 +913,7 @@
             "value": "{{GraphAuth}}"
           }
         ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "url": "{{https}}://{{host}}/versions/{{graphVersion}}"
+        "url": "{{https}}://{{host}}/versions/"
       },
       "response": []
     },
@@ -4455,19 +4455,24 @@
         {
           "listen": "prerequest",
           "script": {
-            "type": "text/javascript",
+            "id": "ba64ae75-7194-4899-a026-b6e084173cd4",
             "exec": [
+              "// Delay to make sure propagation happens",
+              "setTimeout(function(err, res) {console.log(pm.environment.get(\"RequestDelay\") + \"ms delay\");}, pm.environment.get(\"RequestDelay\"));",
+              "",
+              "",
               "if (typeof(GlobalFunctions) !== 'undefined' )",
               "{",
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
-            ]
+            ],
+            "type": "text/javascript"
           }
         },
         {
           "listen": "test",
           "script": {
-            "type": "text/javascript",
+            "id": "6588c580-c1f0-40e3-9128-af84a15f01e7",
             "exec": [
               "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
               "if(!expectedSuccess)",
@@ -4484,7 +4489,8 @@
               "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
               "    GlobalFunctions.delayBefore(\"Check just added Class\", postman);",
               "}"
-            ]
+            ],
+            "type": "text/javascript"
           }
         }
       ],
@@ -4506,10 +4512,6 @@
             "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
-        },
         "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}"
       },
       "response": []
@@ -4520,19 +4522,23 @@
         {
           "listen": "prerequest",
           "script": {
-            "type": "text/javascript",
+            "id": "f6d2ce36-6187-4736-b0cb-0c8953fca227",
             "exec": [
+              "// Delay to make sure propagation happens",
+              "setTimeout(function(err, res) {console.log(pm.environment.get(\"RequestDelay\") + \"ms delay\");}, pm.environment.get(\"RequestDelay\"));",
+              "",
               "if (typeof(GlobalFunctions) !== 'undefined' )",
               "{",
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
-            ]
+            ],
+            "type": "text/javascript"
           }
         },
         {
           "listen": "test",
           "script": {
-            "type": "text/javascript",
+            "id": "fe4d0b5e-f3de-442b-a4ab-4274ca5e6495",
             "exec": [
               "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
               "if(!expectedSuccess)",
@@ -4561,7 +4567,8 @@
               "{",
               "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
               "}"
-            ]
+            ],
+            "type": "text/javascript"
           }
         }
       ],
@@ -4583,10 +4590,6 @@
             "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
-        },
         "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/classes"
       },
       "response": []
@@ -4597,19 +4600,23 @@
         {
           "listen": "prerequest",
           "script": {
-            "type": "text/javascript",
+            "id": "03ff21bf-e675-45c0-9b89-c3104d1ac7bb",
             "exec": [
+              "// Delay to make sure propagation happens",
+              "setTimeout(function(err, res) {console.log(pm.environment.get(\"RequestDelay\") + \"ms delay\");}, pm.environment.get(\"RequestDelay\"));",
+              "",
               "if (typeof(GlobalFunctions) !== 'undefined' )",
               "{",
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
-            ]
+            ],
+            "type": "text/javascript"
           }
         },
         {
           "listen": "test",
           "script": {
-            "type": "text/javascript",
+            "id": "5459275c-90b5-4148-b407-cefd91fc7821",
             "exec": [
               "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
               "if(!expectedSuccess)",
@@ -4630,7 +4637,8 @@
               "{",
               "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
               "}"
-            ]
+            ],
+            "type": "text/javascript"
           }
         }
       ],
@@ -4652,10 +4660,6 @@
             "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
-        },
         "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/users"
       },
       "response": []
@@ -4794,19 +4798,24 @@
         {
           "listen": "prerequest",
           "script": {
-            "type": "text/javascript",
+            "id": "32642968-020c-48a2-9efc-ecfa192ac4d6",
             "exec": [
+              "// Delay to make sure propagation happens",
+              "setTimeout(function(err, res) {console.log(pm.environment.get(\"RequestDelay\") + \"ms delay\");}, pm.environment.get(\"RequestDelay\"));",
+              "",
+              "",
               "if (typeof(GlobalFunctions) !== 'undefined' )",
               "{",
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
-            ]
+            ],
+            "type": "text/javascript"
           }
         },
         {
           "listen": "test",
           "script": {
-            "type": "text/javascript",
+            "id": "8efc0b86-f738-4566-808d-11a5d3f8f8f6",
             "exec": [
               "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
               "if(!expectedSuccess)",
@@ -4834,7 +4843,8 @@
               "{",
               "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
               "}"
-            ]
+            ],
+            "type": "text/javascript"
           }
         }
       ],
@@ -4856,10 +4866,6 @@
             "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
-        },
         "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/classes"
       },
       "response": []
@@ -4870,19 +4876,25 @@
         {
           "listen": "prerequest",
           "script": {
-            "type": "text/javascript",
+            "id": "abb13e04-1b01-4ed3-a38c-ad301129ed8d",
             "exec": [
+              "// Delay to make sure propagation happens",
+              "setTimeout(function(err, res) {console.log(pm.environment.get(\"RequestDelay\") + \"ms delay\");}, pm.environment.get(\"RequestDelay\"));",
+              "",
+              "",
+              "",
               "if (typeof(GlobalFunctions) !== 'undefined' )",
               "{",
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
-            ]
+            ],
+            "type": "text/javascript"
           }
         },
         {
           "listen": "test",
           "script": {
-            "type": "text/javascript",
+            "id": "f181dc0a-5be6-4e94-af77-8edc566e34bd",
             "exec": [
               "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
               "if(!expectedSuccess)",
@@ -4902,7 +4914,8 @@
               "{",
               "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
               "}"
-            ]
+            ],
+            "type": "text/javascript"
           }
         }
       ],
@@ -4924,10 +4937,6 @@
             "value": "application/json;odata.metadata={{MetadataLevel}}"
           }
         ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
-        },
         "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/users"
       },
       "response": []
@@ -6962,7 +6971,7 @@
   ],
   "variable": [
     {
-      "id": "9a0a55ec-c400-4adf-afdf-72470eca1246",
+      "id": "2a849e34-70e1-4471-9a70-ca537d14c06c",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
