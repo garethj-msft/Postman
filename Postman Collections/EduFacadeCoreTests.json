@@ -6922,14 +6922,26 @@
         {
           "listen": "test",
           "script": {
-            "type": "text/javascript",
+            "id": "111f12ed-ec4e-4ba1-9800-9a06b1b7dbd7",
             "exec": [
               "if (responseCode.code !== 200)",
               "{",
               "    tests[\"Status code is 200\"] = responseCode.code === 200;",
               "}",
               "postman.setNextRequest(postman.getEnvironmentVariable(\"returnRequest\"));"
-            ]
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "36c83363-cfe3-482a-a83a-498ec2e1b284",
+            "exec": [
+              "// Delay to make sure propagation happens",
+              "setTimeout(function(err, res) {console.log(\"10s delay\");}, 10);"
+            ],
+            "type": "text/javascript"
           }
         }
       ],
@@ -6937,10 +6949,6 @@
       "request": {
         "method": "GET",
         "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
         "url": "https://postman-echo.com/delay/10",
         "description": "Using this endpoint one can configure how long it takes for the server to come back with a response. Appending a number to the URL defines the time (in seconds) the server will wait before responding.\n\nNote that a maximum delay of 10 seconds is accepted by the server."
       },
@@ -6971,7 +6979,7 @@
   ],
   "variable": [
     {
-      "id": "2a849e34-70e1-4471-9a70-ca537d14c06c",
+      "id": "7e6d4de6-08e9-4dc5-b568-a4e0ea9a7483",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
