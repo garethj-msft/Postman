@@ -6964,75 +6964,6 @@
         "description": "Using this endpoint one can configure how long it takes for the server to come back with a response. Appending a number to the URL defines the time (in seconds) the server will wait before responding.\n\nNote that a maximum delay of 10 seconds is accepted by the server."
       },
       "response": []
-    },
-    {
-      "name": "T_AppOnlyToken GraphReadBasic Copy",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "id": "94a5401d-3b6a-4f0e-beb7-fd51b8328666",
-            "exec": [
-              "postman.setNextRequest(\"T_PostReadBasic\");"
-            ],
-            "type": "text/javascript"
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "id": "caefe05d-e0df-4435-92c3-36b80fbf57d8",
-            "exec": [
-              "tests[\"Successful Request\"] = responseCode.code === 200;",
-              "if(responseCode.code === 200)",
-              "{",
-              "    var data = JSON.parse(responseBody);",
-              "    postman.setEnvironmentVariable(\"GraphAuth\", \"Bearer \" + data.access_token);",
-              "    tests[\"New app-only readbasic token written to environment\"] = true;",
-              "}"
-            ],
-            "type": "text/javascript"
-          }
-        }
-      ],
-      "_postman_id": "05c8ee4e-3ac6-4b90-9e7d-25cc08894634",
-      "protocolProfileBehavior": {
-        "disableBodyPruning": true
-      },
-      "request": {
-        "auth": {
-          "type": "noauth"
-        },
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "formdata",
-          "formdata": [
-            {
-              "key": "grant_type",
-              "value": "client_credentials",
-              "type": "text"
-            },
-            {
-              "key": "client_id",
-              "value": "{{GraphClientIdReadBasic}}",
-              "type": "text"
-            },
-            {
-              "key": "client_secret",
-              "value": "{{GraphSecretReadBasic}}",
-              "type": "text"
-            },
-            {
-              "key": "resource",
-              "value": "{{loginResource}}",
-              "type": "text"
-            }
-          ]
-        },
-        "url": "https://{{loginHost}}/{{tenantDomain}}/oauth2/token"
-      },
-      "response": []
     }
   ],
   "event": [
@@ -7059,7 +6990,7 @@
   ],
   "variable": [
     {
-      "id": "12cdbb94-3eb0-4671-a740-39a7c052214f",
+      "id": "60d1d331-e9e5-42a1-9120-4f2b368c4fe3",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
