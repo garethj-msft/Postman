@@ -4242,7 +4242,7 @@
         {
           "listen": "prerequest",
           "script": {
-            "type": "text/javascript",
+            "id": "339ec8c3-05b3-4a57-8700-e6c4616125ef",
             "exec": [
               "if (typeof(GlobalFunctions) !== 'undefined' )",
               "{",
@@ -4251,13 +4251,14 @@
               "var currentRandom = Math.floor(Math.random() * 1000).toString();",
               "var currentRandom2 = Math.floor(Math.random() * 1000).toString();",
               "postman.setEnvironmentVariable(\"currentRandom\", currentRandom + currentRandom2);"
-            ]
+            ],
+            "type": "text/javascript"
           }
         },
         {
           "listen": "test",
           "script": {
-            "type": "text/javascript",
+            "id": "1c5c51d0-2e28-4d6e-a9d1-ef3875eb4c1f",
             "exec": [
               "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
               "if(!expectedSuccess)",
@@ -4278,8 +4279,10 @@
               "    {",
               "        GlobalFunctions.reportFails(tests, responseCode, responseBody);",
               "    }",
+              "    pm.sendRequest('https://postman-echo.com/delay/10', () => {});",
               "}"
-            ]
+            ],
+            "type": "text/javascript"
           }
         }
       ],
@@ -4319,19 +4322,20 @@
         {
           "listen": "prerequest",
           "script": {
-            "type": "text/javascript",
+            "id": "525f8184-de9c-4e8f-b665-35ce8d339e7d",
             "exec": [
               "if (typeof(GlobalFunctions) !== 'undefined' )",
               "{",
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
-            ]
+            ],
+            "type": "text/javascript"
           }
         },
         {
           "listen": "test",
           "script": {
-            "type": "text/javascript",
+            "id": "1d045900-f93c-454f-83e2-53de8866ff87",
             "exec": [
               "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
               "if(!expectedSuccess)",
@@ -4345,8 +4349,10 @@
               "    {",
               "        GlobalFunctions.reportFails(tests, responseCode, responseBody);",
               "    }",
+              "    pm.sendRequest('https://postman-echo.com/delay/10', () => {});",
               "}"
-            ]
+            ],
+            "type": "text/javascript"
           }
         }
       ],
@@ -4386,19 +4392,20 @@
         {
           "listen": "prerequest",
           "script": {
-            "type": "text/javascript",
+            "id": "78ad6a95-9370-49c8-86e5-bac45e27113d",
             "exec": [
               "if (typeof(GlobalFunctions) !== 'undefined' )",
               "{",
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
-            ]
+            ],
+            "type": "text/javascript"
           }
         },
         {
           "listen": "test",
           "script": {
-            "type": "text/javascript",
+            "id": "a3396931-b537-4d1b-bd9c-cc4da06e60ac",
             "exec": [
               "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
               "if(!expectedSuccess)",
@@ -4413,9 +4420,11 @@
               "    {",
               "        GlobalFunctions.reportFails(tests, responseCode, responseBody);",
               "    }    ",
+              "    pm.sendRequest('https://postman-echo.com/delay/10', () => {});",
               "}",
               ""
-            ]
+            ],
+            "type": "text/javascript"
           }
         }
       ],
@@ -4457,8 +4466,11 @@
           "script": {
             "id": "ba64ae75-7194-4899-a026-b6e084173cd4",
             "exec": [
-              "// Delay to make sure propagation happens",
-              "setTimeout(function(err, res) {console.log(pm.environment.get(\"RequestDelay\") + \"ms delay\");}, pm.environment.get(\"RequestDelay\"));",
+              "pm.sendRequest('https://postman-echo.com/delay/10', () => {",
+              "    pm.sendRequest('https://postman-echo.com/delay/10', () => {",
+              "        pm.sendRequest('https://postman-echo.com/delay/10', () => {});",
+              "    })",
+              "});",
               "",
               "",
               "if (typeof(GlobalFunctions) !== 'undefined' )",
@@ -4487,7 +4499,6 @@
               "if (typeof(GlobalFunctions) !== 'undefined' )",
               "{",
               "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
-              "    GlobalFunctions.delayBefore(\"Check just added Class\", postman);",
               "}"
             ],
             "type": "text/javascript"
@@ -4524,13 +4535,16 @@
           "script": {
             "id": "f6d2ce36-6187-4736-b0cb-0c8953fca227",
             "exec": [
-              "// Delay to make sure propagation happens",
-              "setTimeout(function(err, res) {console.log(pm.environment.get(\"RequestDelay\") + \"ms delay\");}, pm.environment.get(\"RequestDelay\"));",
               "",
               "if (typeof(GlobalFunctions) !== 'undefined' )",
               "{",
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
+              "}",
+              "",
+              "pm.sendRequest('https://postman-echo.com/delay/10', () => {",
+              "    pm.sendRequest('https://postman-echo.com/delay/10', () => {});",
+              "});",
+              ""
             ],
             "type": "text/javascript"
           }
@@ -4540,32 +4554,26 @@
           "script": {
             "id": "fe4d0b5e-f3de-442b-a4ab-4274ca5e6495",
             "exec": [
-              "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-              "if(!expectedSuccess)",
-              "{",
-              "    tests[\"Status code is 404\"] = responseCode.code === 404;",
-              "}",
-              "else",
-              "{",
-              "tests[\"Status code is 200 - iteration: \" + postman.getEnvironmentVariable(\"retryCount\")] = responseCode.code === 200;",
-              "if ( responseCode.code === 200)",
-              "{",
-              "    var jsonData = JSON.parse(responseBody);",
-              "    if (jsonData.value.length === 1)",
-              "    {",
-              "        tests[\"One Class\"] = true;",
-              "        tests[\"Class added\"] = jsonData.value.length === 1 && jsonData.value[0].id === postman.getEnvironmentVariable(\"primaryTestClassId\");",
-              "        postman.setEnvironmentVariable(\"retryCount\", \"0\");",
-              "    }",
-              "    else",
-              "    {   ",
-              "        GlobalFunctions.retryTest(\"Check just added Class\", \"One Class\", postman, tests);",
-              "    }",
-              "}",
-              "}",
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
+              "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');\r",
+              "if (!expectedSuccess) {\r",
+              "    tests[\"Status code is 404\"] = responseCode.code === 404;\r",
+              "}\r",
+              "else {\r",
+              "    tests[\"Status code is 200 - iteration: \" + postman.getEnvironmentVariable(\"retryCount\")] = responseCode.code === 200;\r",
+              "    if (responseCode.code === 200) {\r",
+              "        var jsonData = JSON.parse(responseBody);\r",
+              "        if (jsonData.value.length === 1) {\r",
+              "            tests[\"One Class\"] = true;\r",
+              "            tests[\"Class added\"] = jsonData.value.length === 1 && jsonData.value[0].id === postman.getEnvironmentVariable(\"primaryTestClassId\");\r",
+              "            postman.setEnvironmentVariable(\"retryCount\", \"0\");\r",
+              "        }\r",
+              "        else {\r",
+              "            GlobalFunctions.retryTest(\"Check just added Class\", \"One Class\", postman, tests);\r",
+              "        }\r",
+              "    }\r",
+              "}\r",
+              "if (typeof (GlobalFunctions) !== 'undefined') {\r",
+              "    GlobalFunctions.reportFails(tests, responseCode, responseBody);\r",
               "}"
             ],
             "type": "text/javascript"
@@ -4602,13 +4610,12 @@
           "script": {
             "id": "03ff21bf-e675-45c0-9b89-c3104d1ac7bb",
             "exec": [
-              "// Delay to make sure propagation happens",
-              "setTimeout(function(err, res) {console.log(pm.environment.get(\"RequestDelay\") + \"ms delay\");}, pm.environment.get(\"RequestDelay\"));",
-              "",
               "if (typeof(GlobalFunctions) !== 'undefined' )",
               "{",
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
+              "}",
+              "",
+              "pm.sendRequest('https://postman-echo.com/delay/10', () => {});"
             ],
             "type": "text/javascript"
           }
@@ -4629,8 +4636,13 @@
               "    if ( responseCode.code === 200)",
               "    {",
               "        var jsonData = JSON.parse(responseBody);",
-              "        tests[\"One User\"] = jsonData.value.length === 1;",
-              "        tests[\"User added\"] = jsonData.value.length === 1 && jsonData.value[0].id === postman.getEnvironmentVariable(\"primaryTestUserId\");",
+              "        if(jsonData.value.length === 1){",
+              "            tests[\"One User\"] = jsonData.value.length === 1;",
+              "            tests[\"User added\"] = jsonData.value.length === 1 && jsonData.value[0].id === postman.getEnvironmentVariable(\"primaryTestUserId\");",
+              "        }",
+              "        else {",
+              "            GlobalFunctions.retryTest(pm.info.requestName, \"One User\", postman, tests);",
+              "        }        ",
               "    }",
               "}",
               "if (typeof(GlobalFunctions) !== 'undefined' )",
@@ -4733,19 +4745,20 @@
         {
           "listen": "prerequest",
           "script": {
-            "type": "text/javascript",
+            "id": "dfa0bfff-c935-4f8f-8b81-fd97aa003853",
             "exec": [
               "if (typeof(GlobalFunctions) !== 'undefined' )",
               "{",
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
               "}"
-            ]
+            ],
+            "type": "text/javascript"
           }
         },
         {
           "listen": "test",
           "script": {
-            "type": "text/javascript",
+            "id": "ff476f66-ba90-4236-a51f-55b0508fe582",
             "exec": [
               "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
               "if(!expectedSuccess)",
@@ -4756,13 +4769,13 @@
               "{",
               "    tests[\"Status code is 204\"] = responseCode.code === 204;",
               "    postman.setEnvironmentVariable(\"retryCount\", \"0\");",
-              "    GlobalFunctions.delayBefore(\"Check Class removed\", postman);",
               "}",
               "if (typeof(GlobalFunctions) !== 'undefined' )",
               "{",
               "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
               "}"
-            ]
+            ],
+            "type": "text/javascript"
           }
         }
       ],
@@ -4800,14 +4813,15 @@
           "script": {
             "id": "32642968-020c-48a2-9efc-ecfa192ac4d6",
             "exec": [
-              "// Delay to make sure propagation happens",
-              "setTimeout(function(err, res) {console.log(pm.environment.get(\"RequestDelay\") + \"ms delay\");}, pm.environment.get(\"RequestDelay\"));",
-              "",
-              "",
               "if (typeof(GlobalFunctions) !== 'undefined' )",
               "{",
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
+              "}",
+              "pm.sendRequest('https://postman-echo.com/delay/10', () => {",
+              "    pm.sendRequest('https://postman-echo.com/delay/10', () => {",
+              "        pm.sendRequest('https://postman-echo.com/delay/10', () => {});",
+              "    });",
+              "});"
             ],
             "type": "text/javascript"
           }
@@ -4878,15 +4892,12 @@
           "script": {
             "id": "abb13e04-1b01-4ed3-a38c-ad301129ed8d",
             "exec": [
-              "// Delay to make sure propagation happens",
-              "setTimeout(function(err, res) {console.log(pm.environment.get(\"RequestDelay\") + \"ms delay\");}, pm.environment.get(\"RequestDelay\"));",
-              "",
-              "",
-              "",
               "if (typeof(GlobalFunctions) !== 'undefined' )",
               "{",
               "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
+              "}",
+              "",
+              "pm.sendRequest('https://postman-echo.com/delay/10', () => {});"
             ],
             "type": "text/javascript"
           }
@@ -6939,7 +6950,7 @@
             "id": "36c83363-cfe3-482a-a83a-498ec2e1b284",
             "exec": [
               "// Delay to make sure propagation happens",
-              "setTimeout(function(err, res) {console.log(\"10s delay\");}, 10);"
+              "//setTimeout(function(err, res) {console.log(\"10s delay\");}, 10);"
             ],
             "type": "text/javascript"
           }
@@ -6951,6 +6962,75 @@
         "header": [],
         "url": "https://postman-echo.com/delay/10",
         "description": "Using this endpoint one can configure how long it takes for the server to come back with a response. Appending a number to the URL defines the time (in seconds) the server will wait before responding.\n\nNote that a maximum delay of 10 seconds is accepted by the server."
+      },
+      "response": []
+    },
+    {
+      "name": "T_AppOnlyToken GraphReadBasic Copy",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "94a5401d-3b6a-4f0e-beb7-fd51b8328666",
+            "exec": [
+              "postman.setNextRequest(\"T_PostReadBasic\");"
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "caefe05d-e0df-4435-92c3-36b80fbf57d8",
+            "exec": [
+              "tests[\"Successful Request\"] = responseCode.code === 200;",
+              "if(responseCode.code === 200)",
+              "{",
+              "    var data = JSON.parse(responseBody);",
+              "    postman.setEnvironmentVariable(\"GraphAuth\", \"Bearer \" + data.access_token);",
+              "    tests[\"New app-only readbasic token written to environment\"] = true;",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "05c8ee4e-3ac6-4b90-9e7d-25cc08894634",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "grant_type",
+              "value": "client_credentials",
+              "type": "text"
+            },
+            {
+              "key": "client_id",
+              "value": "{{GraphClientIdReadBasic}}",
+              "type": "text"
+            },
+            {
+              "key": "client_secret",
+              "value": "{{GraphSecretReadBasic}}",
+              "type": "text"
+            },
+            {
+              "key": "resource",
+              "value": "{{loginResource}}",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "https://{{loginHost}}/{{tenantDomain}}/oauth2/token"
       },
       "response": []
     }
@@ -6979,7 +7059,7 @@
   ],
   "variable": [
     {
-      "id": "7e6d4de6-08e9-4dc5-b568-a4e0ea9a7483",
+      "id": "12cdbb94-3eb0-4671-a740-39a7c052214f",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
