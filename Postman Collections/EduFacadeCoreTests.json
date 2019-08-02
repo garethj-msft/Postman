@@ -3373,163 +3373,163 @@
             }
           },
           "response": []
+        },
+        {
+          "name": "Get Users Expand Schools",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (typeof(GlobalFunctions) !== 'undefined' )",
+                  "{",
+                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+                  "if(!expectedSuccess)",
+                  "{",
+                  "    tests[\"Status code is 403\"] = responseCode.code === 403;",
+                  "}",
+                  "else",
+                  "{",
+                  "    tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "    tests[\"Schools returned\"] = responseBody.has('schools\":[{'); ",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "_postman_id": "6ded900a-a062-1518-9343-4c2ad854a525",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{GraphAuth}}"
+              },
+              {
+                "key": "Workload-Authorization",
+                "value": "{{AADAuth}}",
+                "disabled": true
+              },
+              {
+                "key": "Accept",
+                "value": "application/json;odata.metadata={{MetadataLevel}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
+            },
+            "url": {
+              "raw": "{{https}}://{{host}}/{{graphVersion}}/education/users?$expand=schools",
+              "protocol": "{{https}}",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "{{graphVersion}}",
+                "education",
+                "users"
+              ],
+              "query": [
+                {
+                  "key": "$expand",
+                  "value": "schools"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Users Expand Classes",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (typeof(GlobalFunctions) !== 'undefined' )",
+                  "{",
+                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+                  "if(!expectedSuccess)",
+                  "{",
+                  "    tests[\"Status code is 403\"] = responseCode.code === 403;",
+                  "}",
+                  "else",
+                  "{",
+                  "    tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "    tests[\"Classes returned\"] = responseBody.has('classes\":[{'); ",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "_postman_id": "e2c417b3-9b67-b91c-b76b-6943c7164f26",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{GraphAuth}}"
+              },
+              {
+                "key": "Workload-Authorization",
+                "value": "{{AADAuth}}",
+                "disabled": true
+              },
+              {
+                "key": "Accept",
+                "value": "application/json;odata.metadata={{MetadataLevel}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
+            },
+            "url": {
+              "raw": "{{https}}://{{host}}/{{graphVersion}}/education/users?$expand=classes",
+              "protocol": "{{https}}",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "{{graphVersion}}",
+                "education",
+                "users"
+              ],
+              "query": [
+                {
+                  "key": "$expand",
+                  "value": "classes"
+                }
+              ]
+            }
+          },
+          "response": []
         }
       ],
       "_postman_id": "c9956579-d1c6-4384-96db-936bcf5a97aa"
-    },
-    {
-      "name": "Get Users Expand Schools",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-              "if(!expectedSuccess)",
-              "{",
-              "    tests[\"Status code is 403\"] = responseCode.code === 403;",
-              "}",
-              "else",
-              "{",
-              "    tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "    tests[\"Schools returned\"] = responseBody.has('schools\":[{'); ",
-              "}"
-            ]
-          }
-        }
-      ],
-      "_postman_id": "6ded900a-a062-1518-9343-4c2ad854a525",
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
-        },
-        "url": {
-          "raw": "{{https}}://{{host}}/{{graphVersion}}/education/users?$expand=schools",
-          "protocol": "{{https}}",
-          "host": [
-            "{{host}}"
-          ],
-          "path": [
-            "{{graphVersion}}",
-            "education",
-            "users"
-          ],
-          "query": [
-            {
-              "key": "$expand",
-              "value": "schools"
-            }
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Get Users Expand Classes",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-              "if(!expectedSuccess)",
-              "{",
-              "    tests[\"Status code is 403\"] = responseCode.code === 403;",
-              "}",
-              "else",
-              "{",
-              "    tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "    tests[\"Classes returned\"] = responseBody.has('classes\":[{'); ",
-              "}"
-            ]
-          }
-        }
-      ],
-      "_postman_id": "e2c417b3-9b67-b91c-b76b-6943c7164f26",
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
-        },
-        "url": {
-          "raw": "{{https}}://{{host}}/{{graphVersion}}/education/users?$expand=classes",
-          "protocol": "{{https}}",
-          "host": [
-            "{{host}}"
-          ],
-          "path": [
-            "{{graphVersion}}",
-            "education",
-            "users"
-          ],
-          "query": [
-            {
-              "key": "$expand",
-              "value": "classes"
-            }
-          ]
-        }
-      },
-      "response": []
     },
     {
       "name": "Get Users Expand Multi",
@@ -7063,7 +7063,7 @@
   ],
   "variable": [
     {
-      "id": "7618cf75-b7d7-46e0-aeec-3fd921b56ccf",
+      "id": "f7efb5c0-b38e-40b2-8535-c94b12746fd0",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
