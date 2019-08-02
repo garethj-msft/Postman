@@ -6435,69 +6435,69 @@
                 "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}"
               },
               "response": []
+            },
+            {
+              "name": "Delete just created Teacher",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+                      "if(!expectedSuccess)",
+                      "{",
+                      "    tests[\"Status code is 403\"] = responseCode.code === 403;",
+                      "}",
+                      "else",
+                      "{",
+                      "    tests[\"Status code is 204\"] = responseCode.code === 204;",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "1809ec1a-327e-1370-5fde-aa93cd77d949",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
+                },
+                "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}"
+              },
+              "response": []
             }
           ],
           "_postman_id": "638156a9-79b2-46b3-b1f3-4a3c43bc010f",
           "_postman_isSubFolder": true
-        },
-        {
-          "name": "Delete just created Teacher",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-                  "if(!expectedSuccess)",
-                  "{",
-                  "    tests[\"Status code is 403\"] = responseCode.code === 403;",
-                  "}",
-                  "else",
-                  "{",
-                  "    tests[\"Status code is 204\"] = responseCode.code === 204;",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "_postman_id": "1809ec1a-327e-1370-5fde-aa93cd77d949",
-          "request": {
-            "method": "DELETE",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
-            },
-            "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}"
-          },
-          "response": []
         },
         {
           "name": "Check Teacher deleted",
@@ -7146,7 +7146,7 @@
   ],
   "variable": [
     {
-      "id": "1031a642-b46d-452b-a305-8969dff42c61",
+      "id": "8e01325a-71c7-4e2a-bda8-46f3d8515f6f",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
