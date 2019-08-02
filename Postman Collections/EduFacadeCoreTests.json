@@ -2683,184 +2683,184 @@
             "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
           },
           "response": []
-        },
-        {
-          "name": "Get EDU me",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"User found\"] = responseBody.has('\"id\":')"
-                ]
-              }
-            }
-          ],
-          "_postman_id": "d755d8cb-1710-05d8-46fc-f090d9a0552a",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": "{{https}}://{{host}}/{{graphVersion}}/education/me"
-          },
-          "response": []
-        },
-        {
-          "name": "Get EDU me Nav classes",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Classes found\"] = responseBody.has('\"id\":')"
-                ]
-              }
-            }
-          ],
-          "_postman_id": "397a95c7-2bc6-eaf4-a054-220ab9bd7b1a",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": "{{https}}://{{host}}/{{graphVersion}}/education/me/classes"
-          },
-          "response": []
-        },
-        {
-          "name": "Get EDU me Expand classes",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "afc872d5-5a80-4aeb-a80a-1fd141e024b6",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
-                ],
-                "type": "text/javascript"
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "c97c12cc-6477-4f7a-b5b4-f28fef693f59",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Classes found\"] = responseBody.has('\"classes\":[{')"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "04b9778f-ccc8-4324-8c93-5b47efe03973",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": {
-              "raw": "{{https}}://{{host}}/{{graphVersion}}/education/me?$expand=classes",
-              "protocol": "{{https}}",
-              "host": [
-                "{{host}}"
-              ],
-              "path": [
-                "{{graphVersion}}",
-                "education",
-                "me"
-              ],
-              "query": [
-                {
-                  "key": "$expand",
-                  "value": "classes"
-                }
-              ]
-            }
-          },
-          "response": []
         }
       ],
       "_postman_id": "d649d1a4-c42c-4dae-ad7b-ef4fced317f9"
+    },
+    {
+      "name": "Get EDU me",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "tests[\"User found\"] = responseBody.has('\"id\":')"
+            ]
+          }
+        }
+      ],
+      "_postman_id": "d755d8cb-1710-05d8-46fc-f090d9a0552a",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}"
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/me"
+      },
+      "response": []
+    },
+    {
+      "name": "Get EDU me Nav classes",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "tests[\"Classes found\"] = responseBody.has('\"id\":')"
+            ]
+          }
+        }
+      ],
+      "_postman_id": "397a95c7-2bc6-eaf4-a054-220ab9bd7b1a",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}"
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": "{{https}}://{{host}}/{{graphVersion}}/education/me/classes"
+      },
+      "response": []
+    },
+    {
+      "name": "Get EDU me Expand classes",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "afc872d5-5a80-4aeb-a80a-1fd141e024b6",
+            "exec": [
+              "if (typeof(GlobalFunctions) !== 'undefined' )",
+              "{",
+              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "c97c12cc-6477-4f7a-b5b4-f28fef693f59",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "tests[\"Classes found\"] = responseBody.has('\"classes\":[{')"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "04b9778f-ccc8-4324-8c93-5b47efe03973",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{GraphAuth}}"
+          },
+          {
+            "key": "Workload-Authorization",
+            "value": "{{AADAuth}}",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json;odata.metadata={{MetadataLevel}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "{{https}}://{{host}}/{{graphVersion}}/education/me?$expand=classes",
+          "protocol": "{{https}}",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "{{graphVersion}}",
+            "education",
+            "me"
+          ],
+          "query": [
+            {
+              "key": "$expand",
+              "value": "classes"
+            }
+          ]
+        }
+      },
+      "response": []
     },
     {
       "name": "Get EDU me Expand schools",
@@ -7057,7 +7057,7 @@
   ],
   "variable": [
     {
-      "id": "8216dbc8-751f-42e3-9ea1-80dcf284176b",
+      "id": "834d7e14-6344-4914-91bc-8d7f5a885e8e",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
