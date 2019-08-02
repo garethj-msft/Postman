@@ -681,121 +681,122 @@
     },
     {
       "name": "ReadBasic",
-      "item": [],
-      "_postman_id": "d649d1a4-c42c-4dae-ad7b-ef4fced317f9"
-    },
-    {
-      "name": "T_PreReadBasic",
-      "event": [
+      "item": [
         {
-          "listen": "prerequest",
-          "script": {
-            "id": "59b746fe-89ac-42be-8b2b-3c2d2a29d96c",
-            "exec": [
-              "postman.setEnvironmentVariable(\"GraphAuth\", \"\");\r",
-              "var authType = postman.getEnvironmentVariable(\"authType\");\r",
-              "if (authType === 'appOnly')\r",
-              "{\r",
-              "    postman.setEnvironmentVariable(\"expectedSuccess\", false);\r",
-              "    postman.setNextRequest(\"T_AppOnlyToken GraphReadBasic\");\r",
-              "}\r",
-              "else\r",
-              "{\r",
-              "    postman.setEnvironmentVariable(\"expectedSuccess\", true);\r",
-              "    postman.setNextRequest(\"T_AppPlusUserToken GraphReadBasic\");\r",
-              "}"
-            ],
-            "type": "text/javascript"
-          }
-        }
-      ],
-      "_postman_id": "46d8d2aa-f4cc-0f81-1b7e-86919adcf612",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "url": "https://postman-echo.com/get"
-      },
-      "response": []
-    },
-    {
-      "name": "T_AppPlusUserToken GraphReadBasic",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "id": "b09647cf-b7eb-464b-b020-6edbffc19837",
-            "exec": [
-              "postman.setNextRequest(\"T_PostReadBasic\");"
-            ],
-            "type": "text/javascript"
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "id": "86161bc1-ecd3-4dc1-949d-5881fa6a82b3",
-            "exec": [
-              "tests[\"Successful Request\"] = responseCode.code === 200;",
-              "if(responseCode.code === 200)",
-              "{",
-              "    var data = JSON.parse(responseBody);",
-              "    postman.setEnvironmentVariable(\"GraphAuth\", \"Bearer \" + data.access_token);",
-              "    tests[\"New readbasic tokens written to environment\"] = true;",
-              "}"
-            ],
-            "type": "text/javascript"
-          }
-        }
-      ],
-      "_postman_id": "4be741a9-7cd6-0bad-2921-6021297a3970",
-      "request": {
-        "auth": {
-          "type": "noauth"
-        },
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "formdata",
-          "formdata": [
+          "name": "T_PreReadBasic",
+          "event": [
             {
-              "key": "grant_type",
-              "value": "password",
-              "type": "text"
-            },
-            {
-              "key": "client_id",
-              "value": "{{GraphClientIdReadBasic}}",
-              "type": "text"
-            },
-            {
-              "key": "client_secret",
-              "value": "{{GraphSecretReadBasic}}",
-              "type": "text"
-            },
-            {
-              "key": "resource",
-              "value": "{{loginResource}}",
-              "type": "text"
-            },
-            {
-              "key": "username",
-              "value": "{{apiCaller}}",
-              "type": "text"
-            },
-            {
-              "key": "password",
-              "value": "{{apiCallerPwd}}",
-              "type": "text"
+              "listen": "prerequest",
+              "script": {
+                "id": "59b746fe-89ac-42be-8b2b-3c2d2a29d96c",
+                "exec": [
+                  "postman.setEnvironmentVariable(\"GraphAuth\", \"\");\r",
+                  "var authType = postman.getEnvironmentVariable(\"authType\");\r",
+                  "if (authType === 'appOnly')\r",
+                  "{\r",
+                  "    postman.setEnvironmentVariable(\"expectedSuccess\", false);\r",
+                  "    postman.setNextRequest(\"T_AppOnlyToken GraphReadBasic\");\r",
+                  "}\r",
+                  "else\r",
+                  "{\r",
+                  "    postman.setEnvironmentVariable(\"expectedSuccess\", true);\r",
+                  "    postman.setNextRequest(\"T_AppPlusUserToken GraphReadBasic\");\r",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
             }
-          ]
+          ],
+          "_postman_id": "46d8d2aa-f4cc-0f81-1b7e-86919adcf612",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "https://postman-echo.com/get"
+          },
+          "response": []
         },
-        "url": "https://{{loginHost}}/common/oauth2/token"
-      },
-      "response": []
+        {
+          "name": "T_AppPlusUserToken GraphReadBasic",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "b09647cf-b7eb-464b-b020-6edbffc19837",
+                "exec": [
+                  "postman.setNextRequest(\"T_PostReadBasic\");"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "86161bc1-ecd3-4dc1-949d-5881fa6a82b3",
+                "exec": [
+                  "tests[\"Successful Request\"] = responseCode.code === 200;",
+                  "if(responseCode.code === 200)",
+                  "{",
+                  "    var data = JSON.parse(responseBody);",
+                  "    postman.setEnvironmentVariable(\"GraphAuth\", \"Bearer \" + data.access_token);",
+                  "    tests[\"New readbasic tokens written to environment\"] = true;",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "4be741a9-7cd6-0bad-2921-6021297a3970",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "grant_type",
+                  "value": "password",
+                  "type": "text"
+                },
+                {
+                  "key": "client_id",
+                  "value": "{{GraphClientIdReadBasic}}",
+                  "type": "text"
+                },
+                {
+                  "key": "client_secret",
+                  "value": "{{GraphSecretReadBasic}}",
+                  "type": "text"
+                },
+                {
+                  "key": "resource",
+                  "value": "{{loginResource}}",
+                  "type": "text"
+                },
+                {
+                  "key": "username",
+                  "value": "{{apiCaller}}",
+                  "type": "text"
+                },
+                {
+                  "key": "password",
+                  "value": "{{apiCallerPwd}}",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": "https://{{loginHost}}/common/oauth2/token"
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "d649d1a4-c42c-4dae-ad7b-ef4fced317f9"
     },
     {
       "name": "T_AppOnlyToken GraphReadBasic",
@@ -7056,7 +7057,7 @@
   ],
   "variable": [
     {
-      "id": "15acc956-0001-4d00-a817-572f371287df",
+      "id": "52a23447-ae2b-4f30-b5c3-261d43a907b7",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
