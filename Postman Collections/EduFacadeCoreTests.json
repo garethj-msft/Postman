@@ -2685,36 +2685,6 @@
           "response": []
         },
         {
-          "name": "T_PreME Copy",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "// Skip /me request for AppOnly\r",
-                  "var authType = postman.getEnvironmentVariable(\"authType\");\r",
-                  "if (authType === 'appOnly')\r",
-                  "{\r",
-                  "    postman.setNextRequest(\"T_PostME\");\r",
-                  "}\r",
-                  ""
-                ]
-              }
-            }
-          ],
-          "_postman_id": "9a657428-2cd4-4d47-b785-2f54d80396ed",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
-          },
-          "response": []
-        },
-        {
           "name": "Get EDU me",
           "event": [
             {
@@ -6853,6 +6823,36 @@
               "body": "{\"@odata.context\":\"https://graph.microsoft-ppe.com/testsdsobo/$metadata#educationUser/$entity\",\"id\":\"1eccbb96-6ede-403d-aa2f-97131b5e6efb\",\"relatedContacts\":[{\"displayName\":\"TestUser G\",\"emailAddress\":\"user@outlook.com\",\"mobilePhone\":\"123-456-7890\",\"relationship\":\"parent\",\"accessConsent\":false}]}"
             }
           ]
+        },
+        {
+          "name": "T_PreME Copy",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// Skip /me request for AppOnly\r",
+                  "var authType = postman.getEnvironmentVariable(\"authType\");\r",
+                  "if (authType === 'appOnly')\r",
+                  "{\r",
+                  "    postman.setNextRequest(\"T_PostME\");\r",
+                  "}\r",
+                  ""
+                ]
+              }
+            }
+          ],
+          "_postman_id": "9a657428-2cd4-4d47-b785-2f54d80396ed",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
+          },
+          "response": []
         }
       ],
       "_postman_id": "66537159-9385-416e-a89e-b858a0e64f4a"
@@ -7099,7 +7099,7 @@
   ],
   "variable": [
     {
-      "id": "de15cc92-bb8b-4a30-a8ce-c8ec064c5442",
+      "id": "f1032363-7f54-47ee-94af-6db91ebc849a",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
