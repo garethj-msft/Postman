@@ -3026,30 +3026,6 @@
             "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
           },
           "response": []
-        },
-        {
-          "name": "T_PostME Copy",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "// Just a placeholder."
-                ]
-              }
-            }
-          ],
-          "_postman_id": "6e95e319-cf04-4b51-9780-5bd83985c4ec",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
-          },
-          "response": []
         }
       ],
       "_postman_id": "d649d1a4-c42c-4dae-ad7b-ef4fced317f9"
@@ -7097,6 +7073,30 @@
         "description": "Using this endpoint one can configure how long it takes for the server to come back with a response. Appending a number to the URL defines the time (in seconds) the server will wait before responding.\n\nNote that a maximum delay of 10 seconds is accepted by the server."
       },
       "response": []
+    },
+    {
+      "name": "T_PostME Copy",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "// Just a placeholder."
+            ]
+          }
+        }
+      ],
+      "_postman_id": "6e95e319-cf04-4b51-9780-5bd83985c4ec",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
+      },
+      "response": []
     }
   ],
   "event": [
@@ -7123,7 +7123,7 @@
   ],
   "variable": [
     {
-      "id": "dac978bf-cf15-4bcf-9e1a-793fe6fb7e89",
+      "id": "21763dbc-35c7-426b-b2be-11149dfa93ec",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
