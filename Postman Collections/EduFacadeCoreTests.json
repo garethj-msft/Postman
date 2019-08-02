@@ -2896,153 +2896,153 @@
                 }
               },
               "response": []
+            },
+            {
+              "name": "Get EDU me Expand schools",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "afc872d5-5a80-4aeb-a80a-1fd141e024b6",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "c97c12cc-6477-4f7a-b5b4-f28fef693f59",
+                    "exec": [
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "tests[\"Schools found\"] = responseBody.has('\"schools\":[{')"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "3c0c1ce8-159b-4bb5-a3fd-de3ff4715b3b",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "{{https}}://{{host}}/{{graphVersion}}/education/me?$expand=schools",
+                  "protocol": "{{https}}",
+                  "host": [
+                    "{{host}}"
+                  ],
+                  "path": [
+                    "{{graphVersion}}",
+                    "education",
+                    "me"
+                  ],
+                  "query": [
+                    {
+                      "key": "$expand",
+                      "value": "schools"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get EDU me Expand multi",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "afc872d5-5a80-4aeb-a80a-1fd141e024b6",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "c97c12cc-6477-4f7a-b5b4-f28fef693f59",
+                    "exec": [
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "tests[\"Schools found\"] = responseBody.has('\"schools\":[{');",
+                      "tests[\"Classes found\"] = responseBody.has('\"classes\":[{');"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "997d7463-fc88-4d9f-916c-8d0a75215ee9",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "{{https}}://{{host}}/{{graphVersion}}/education/me?$expand=schools,classes",
+                  "protocol": "{{https}}",
+                  "host": [
+                    "{{host}}"
+                  ],
+                  "path": [
+                    "{{graphVersion}}",
+                    "education",
+                    "me"
+                  ],
+                  "query": [
+                    {
+                      "key": "$expand",
+                      "value": "schools,classes"
+                    }
+                  ]
+                }
+              },
+              "response": []
             }
           ],
           "_postman_id": "927bd4c3-b785-40e5-b066-087ba488a9a2",
           "_postman_isSubFolder": true
-        },
-        {
-          "name": "Get EDU me Expand schools",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "afc872d5-5a80-4aeb-a80a-1fd141e024b6",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
-                ],
-                "type": "text/javascript"
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "c97c12cc-6477-4f7a-b5b4-f28fef693f59",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Schools found\"] = responseBody.has('\"schools\":[{')"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "3c0c1ce8-159b-4bb5-a3fd-de3ff4715b3b",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": {
-              "raw": "{{https}}://{{host}}/{{graphVersion}}/education/me?$expand=schools",
-              "protocol": "{{https}}",
-              "host": [
-                "{{host}}"
-              ],
-              "path": [
-                "{{graphVersion}}",
-                "education",
-                "me"
-              ],
-              "query": [
-                {
-                  "key": "$expand",
-                  "value": "schools"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Get EDU me Expand multi",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "afc872d5-5a80-4aeb-a80a-1fd141e024b6",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
-                ],
-                "type": "text/javascript"
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "c97c12cc-6477-4f7a-b5b4-f28fef693f59",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Schools found\"] = responseBody.has('\"schools\":[{');",
-                  "tests[\"Classes found\"] = responseBody.has('\"classes\":[{');"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "997d7463-fc88-4d9f-916c-8d0a75215ee9",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": {
-              "raw": "{{https}}://{{host}}/{{graphVersion}}/education/me?$expand=schools,classes",
-              "protocol": "{{https}}",
-              "host": [
-                "{{host}}"
-              ],
-              "path": [
-                "{{graphVersion}}",
-                "education",
-                "me"
-              ],
-              "query": [
-                {
-                  "key": "$expand",
-                  "value": "schools,classes"
-                }
-              ]
-            }
-          },
-          "response": []
         },
         {
           "name": "T_PostME",
@@ -7202,7 +7202,7 @@
   ],
   "variable": [
     {
-      "id": "52af605c-d797-40b5-bcff-0b5e8c187874",
+      "id": "ebcdec57-7b61-4abd-b880-e2d05ff7657e",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
