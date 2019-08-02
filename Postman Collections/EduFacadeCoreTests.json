@@ -4165,177 +4165,184 @@
                 "url": "https://{{loginHost}}/common/oauth2/token"
               },
               "response": []
+            },
+            {
+              "name": "T_AppOnlyToken GraphReadWrite",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "postman.setNextRequest(\"T_PostReadWrite\");"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Successful Request\"] = responseCode.code === 200;",
+                      "if(responseCode.code === 200)",
+                      "{",
+                      "    var data = JSON.parse(responseBody);",
+                      "    postman.setEnvironmentVariable(\"GraphAuth\", \"Bearer \" + data.access_token);",
+                      "    tests[\"New app-only readwrite token written to environment\"] = true;",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "ca69d515-5067-be9e-16e9-13f96a9a8221",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "grant_type",
+                      "value": "client_credentials",
+                      "type": "text"
+                    },
+                    {
+                      "key": "client_id",
+                      "value": "{{GraphClientIdReadWrite}}",
+                      "type": "text"
+                    },
+                    {
+                      "key": "client_secret",
+                      "value": "{{GraphSecretReadWrite}}",
+                      "type": "text"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "{{loginResource}}",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": "https://{{loginHost}}/{{tenantDomain}}/oauth2/token"
+              },
+              "response": []
+            },
+            {
+              "name": "T_PostReadWrite",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "var auth = postman.getEnvironmentVariable(\"GraphAuth\");",
+                      "tests[\"Auth token acquired.\"] = (auth.length > 10);",
+                      ""
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "7e0a90f6-aef9-373d-4630-09c703427d8b",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://postman-echo.com/get"
+              },
+              "response": []
             }
           ],
           "_postman_id": "963703dd-7c85-474e-8152-90399039c8c1",
           "_postman_isSubFolder": true
         },
         {
-          "name": "T_AppOnlyToken GraphReadWrite",
-          "event": [
+          "name": "School",
+          "item": [
             {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "postman.setNextRequest(\"T_PostReadWrite\");"
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Successful Request\"] = responseCode.code === 200;",
-                  "if(responseCode.code === 200)",
-                  "{",
-                  "    var data = JSON.parse(responseBody);",
-                  "    postman.setEnvironmentVariable(\"GraphAuth\", \"Bearer \" + data.access_token);",
-                  "    tests[\"New app-only readwrite token written to environment\"] = true;",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "_postman_id": "ca69d515-5067-be9e-16e9-13f96a9a8221",
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "formdata",
-              "formdata": [
+              "name": "Make a School",
+              "event": [
                 {
-                  "key": "grant_type",
-                  "value": "client_credentials",
-                  "type": "text"
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "339ec8c3-05b3-4a57-8700-e6c4616125ef",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}",
+                      "var currentRandom = Math.floor(Math.random() * 1000).toString();",
+                      "var currentRandom2 = Math.floor(Math.random() * 1000).toString();",
+                      "postman.setEnvironmentVariable(\"currentRandom\", currentRandom + currentRandom2);"
+                    ],
+                    "type": "text/javascript"
+                  }
                 },
                 {
-                  "key": "client_id",
-                  "value": "{{GraphClientIdReadWrite}}",
-                  "type": "text"
-                },
-                {
-                  "key": "client_secret",
-                  "value": "{{GraphSecretReadWrite}}",
-                  "type": "text"
-                },
-                {
-                  "key": "resource",
-                  "value": "{{loginResource}}",
-                  "type": "text"
+                  "listen": "test",
+                  "script": {
+                    "id": "1c5c51d0-2e28-4d6e-a9d1-ef3875eb4c1f",
+                    "exec": [
+                      "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+                      "if(!expectedSuccess)",
+                      "{",
+                      "    tests[\"Status code is 403\"] = responseCode.code === 403;",
+                      "    postman.setEnvironmentVariable(\"justCreatedId\", \"9900AA5E-8EBF-4407-B151-CBCF310F1383\"); // Dummy guid",
+                      "}",
+                      "else",
+                      "{",
+                      "    tests[\"Status code is 201\"] = responseCode.code === 201;",
+                      "    tests[\"School created\"] = responseBody.has('\"id\":')",
+                      "    if (responseBody.has('\"id\":'))",
+                      "    {",
+                      "        var jsonData = JSON.parse(responseBody);",
+                      "        postman.setEnvironmentVariable(\"justCreatedId\", jsonData.id);",
+                      "    }",
+                      "    if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "    {",
+                      "        GlobalFunctions.reportFails(tests, responseCode, responseBody);",
+                      "    }",
+                      "}"
+                    ],
+                    "type": "text/javascript"
+                  }
                 }
-              ]
-            },
-            "url": "https://{{loginHost}}/{{tenantDomain}}/oauth2/token"
-          },
-          "response": []
-        },
-        {
-          "name": "T_PostReadWrite",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "var auth = postman.getEnvironmentVariable(\"GraphAuth\");",
-                  "tests[\"Auth token acquired.\"] = (auth.length > 10);",
-                  ""
-                ]
-              }
+              ],
+              "_postman_id": "99e5cb04-3362-3f90-53cb-769d57f6c80a",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationSchool\",\n\t\"displayName\":\"SchoolTestRun{{currentRandom}}\",\n\t\"description\": \"A lovely school to test.\",\n\t\"externalSource\": \"SIS\",\n\t\"address\": {\n\t    \"street\": \"1 Bash Street\",\n\t    \"city\": \"Redmond\",\n\t    \"state\": \"WA\",\n\t    \"countryOrRegion\": \"USA\",\n\t    \"postalCode\": \"98052\"\n \t}\n}"
+                },
+                "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools"
+              },
+              "response": []
             }
           ],
-          "_postman_id": "7e0a90f6-aef9-373d-4630-09c703427d8b",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": "https://postman-echo.com/get"
-          },
-          "response": []
-        },
-        {
-          "name": "Make a School",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "339ec8c3-05b3-4a57-8700-e6c4616125ef",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}",
-                  "var currentRandom = Math.floor(Math.random() * 1000).toString();",
-                  "var currentRandom2 = Math.floor(Math.random() * 1000).toString();",
-                  "postman.setEnvironmentVariable(\"currentRandom\", currentRandom + currentRandom2);"
-                ],
-                "type": "text/javascript"
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "1c5c51d0-2e28-4d6e-a9d1-ef3875eb4c1f",
-                "exec": [
-                  "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-                  "if(!expectedSuccess)",
-                  "{",
-                  "    tests[\"Status code is 403\"] = responseCode.code === 403;",
-                  "    postman.setEnvironmentVariable(\"justCreatedId\", \"9900AA5E-8EBF-4407-B151-CBCF310F1383\"); // Dummy guid",
-                  "}",
-                  "else",
-                  "{",
-                  "    tests[\"Status code is 201\"] = responseCode.code === 201;",
-                  "    tests[\"School created\"] = responseBody.has('\"id\":')",
-                  "    if (responseBody.has('\"id\":'))",
-                  "    {",
-                  "        var jsonData = JSON.parse(responseBody);",
-                  "        postman.setEnvironmentVariable(\"justCreatedId\", jsonData.id);",
-                  "    }",
-                  "    if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "    {",
-                  "        GlobalFunctions.reportFails(tests, responseCode, responseBody);",
-                  "    }",
-                  "}"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "99e5cb04-3362-3f90-53cb-769d57f6c80a",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationSchool\",\n\t\"displayName\":\"SchoolTestRun{{currentRandom}}\",\n\t\"description\": \"A lovely school to test.\",\n\t\"externalSource\": \"SIS\",\n\t\"address\": {\n\t    \"street\": \"1 Bash Street\",\n\t    \"city\": \"Redmond\",\n\t    \"state\": \"WA\",\n\t    \"countryOrRegion\": \"USA\",\n\t    \"postalCode\": \"98052\"\n \t}\n}"
-            },
-            "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools"
-          },
-          "response": []
+          "_postman_id": "396767d9-b95a-4b74-9b18-0f5249afdcf1",
+          "_postman_isSubFolder": true
         },
         {
           "name": "Check just created School",
@@ -7132,7 +7139,7 @@
   ],
   "variable": [
     {
-      "id": "49e800c6-c931-4149-8fcc-5608c76e6b90",
+      "id": "8aae0bdf-2b93-47d4-831e-22b677641857",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
