@@ -959,45 +959,51 @@
                 "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
               },
               "response": []
+            },
+            {
+              "name": "Get Education",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Expected fail\"] = responseCode.code === 400;"
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "fe9f664b-4828-e86f-2d44-32cab1520424",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{https}}://{{host}}/{{graphVersion}}/education"
+              },
+              "response": []
             }
           ],
           "_postman_id": "3685b634-0677-4f15-a73a-a92f1aaf27a7",
           "_postman_isSubFolder": true
         },
         {
-          "name": "Get Education",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Expected fail\"] = responseCode.code === 400;"
-                ]
-              }
-            }
-          ],
-          "_postman_id": "fe9f664b-4828-e86f-2d44-32cab1520424",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": "{{https}}://{{host}}/{{graphVersion}}/education"
-          },
-          "response": []
+          "name": "School",
+          "item": [],
+          "_postman_id": "9d2ad746-9b64-4eca-a45e-67d12d0234a8",
+          "_postman_isSubFolder": true
         },
         {
           "name": "Get Schools",
@@ -7174,7 +7180,7 @@
   ],
   "variable": [
     {
-      "id": "aa56bba5-5fa5-46ab-90a9-87af8dbb50f0",
+      "id": "a2a52d8a-0147-4eb3-9615-e29600ec9f44",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
