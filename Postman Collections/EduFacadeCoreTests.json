@@ -3001,34 +3001,34 @@
             }
           },
           "response": []
+        },
+        {
+          "name": "T_PostME",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// Just a placeholder."
+                ]
+              }
+            }
+          ],
+          "_postman_id": "ecedfc4a-cc68-517b-3677-7ed7689bed7a",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
+          },
+          "response": []
         }
       ],
       "_postman_id": "d649d1a4-c42c-4dae-ad7b-ef4fced317f9"
-    },
-    {
-      "name": "T_PostME",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "// Just a placeholder."
-            ]
-          }
-        }
-      ],
-      "_postman_id": "ecedfc4a-cc68-517b-3677-7ed7689bed7a",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
-      },
-      "response": []
     },
     {
       "name": "T_PreRead",
@@ -7057,7 +7057,7 @@
   ],
   "variable": [
     {
-      "id": "bc4a5ad5-fe47-41b1-b969-bc60ca26ebb6",
+      "id": "044584f2-db1c-46c1-9238-4bd9c65bc281",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
