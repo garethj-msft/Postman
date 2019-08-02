@@ -680,6 +680,11 @@
       "_postman_id": "0ae107f0-7101-45f6-8b8b-961abc83ecaa"
     },
     {
+      "name": "ReadBasic",
+      "item": [],
+      "_postman_id": "d649d1a4-c42c-4dae-ad7b-ef4fced317f9"
+    },
+    {
       "name": "T_PreReadBasic",
       "event": [
         {
@@ -7051,7 +7056,7 @@
   ],
   "variable": [
     {
-      "id": "847c05e8-4ec0-4f5a-a956-868fa1192095",
+      "id": "15acc956-0001-4d00-a817-572f371287df",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
