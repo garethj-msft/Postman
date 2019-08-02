@@ -4695,73 +4695,73 @@
                 "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/users"
               },
               "response": []
+            },
+            {
+              "name": "Delete School Class",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+                      "if(!expectedSuccess)",
+                      "{",
+                      "    tests[\"Status code is 403\"] = responseCode.code === 403;",
+                      "}",
+                      "else",
+                      "{",
+                      "    tests[\"Status code is 204\"] = responseCode.code === 204;",
+                      "}",
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "572bd557-8f68-a03d-c615-6c96f22796de",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/classes/{{primaryTestClassId}}/$ref"
+              },
+              "response": []
             }
           ],
           "_postman_id": "396767d9-b95a-4b74-9b18-0f5249afdcf1",
           "_postman_isSubFolder": true
-        },
-        {
-          "name": "Delete School Class",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-                  "if(!expectedSuccess)",
-                  "{",
-                  "    tests[\"Status code is 403\"] = responseCode.code === 403;",
-                  "}",
-                  "else",
-                  "{",
-                  "    tests[\"Status code is 204\"] = responseCode.code === 204;",
-                  "}",
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "_postman_id": "572bd557-8f68-a03d-c615-6c96f22796de",
-          "request": {
-            "method": "DELETE",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/classes/{{primaryTestClassId}}/$ref"
-          },
-          "response": []
         },
         {
           "name": "Delete School User",
@@ -7139,7 +7139,7 @@
   ],
   "variable": [
     {
-      "id": "462f4386-fe4e-4931-a9e6-511a7d4ca9da",
+      "id": "94ee9223-f2f2-49d3-874f-39349604975c",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
