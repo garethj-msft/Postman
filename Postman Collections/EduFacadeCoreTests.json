@@ -4814,292 +4814,292 @@
             "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/users/{{primaryTestUserId}}/$ref"
           },
           "response": []
+        },
+        {
+          "name": "Check Class removed",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "32642968-020c-48a2-9efc-ecfa192ac4d6",
+                "exec": [
+                  "if (typeof(GlobalFunctions) !== 'undefined' )",
+                  "{",
+                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "8efc0b86-f738-4566-808d-11a5d3f8f8f6",
+                "exec": [
+                  "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+                  "if(!expectedSuccess)",
+                  "{",
+                  "    tests[\"Status code is 404\"] = responseCode.code === 404;",
+                  "}",
+                  "else",
+                  "{",
+                  "    tests[\"Status code is 200 - iteration: \" + postman.getEnvironmentVariable(\"retryCount\")] = responseCode.code === 200;",
+                  "    if ( responseCode.code === 200)",
+                  "    {",
+                  "        var jsonData = JSON.parse(responseBody);",
+                  "        if (jsonData.value.length === 0)",
+                  "        {",
+                  "            tests[\"Class removed\"] = true;",
+                  "            postman.setEnvironmentVariable(\"retryCount\", \"0\");",
+                  "        }",
+                  "        else",
+                  "        {",
+                  "            GlobalFunctions.retryTest(\"Check Class removed\", \"Class removed\", postman, tests);",
+                  "        }",
+                  "    }",
+                  "}",
+                  "if (typeof(GlobalFunctions) !== 'undefined' )",
+                  "{",
+                  "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "2924f983-c329-5db2-2ff7-c2346becb343",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{GraphAuth}}"
+              },
+              {
+                "key": "Workload-Authorization",
+                "value": "{{AADAuth}}",
+                "disabled": true
+              },
+              {
+                "key": "Accept",
+                "value": "application/json;odata.metadata={{MetadataLevel}}"
+              }
+            ],
+            "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/classes"
+          },
+          "response": []
+        },
+        {
+          "name": "Check User removed",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "abb13e04-1b01-4ed3-a38c-ad301129ed8d",
+                "exec": [
+                  "if (typeof(GlobalFunctions) !== 'undefined' )",
+                  "{",
+                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "f181dc0a-5be6-4e94-af77-8edc566e34bd",
+                "exec": [
+                  "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+                  "if(!expectedSuccess)",
+                  "{",
+                  "    tests[\"Status code is 403\"] = responseCode.code === 403;",
+                  "}",
+                  "else",
+                  "{",
+                  "    tests[\"Status code is 200 - iteration: \" + postman.getEnvironmentVariable(\"retryCount\")] = responseCode.code === 200;",
+                  "    if ( responseCode.code === 200)",
+                  "    {",
+                  "        var jsonData = JSON.parse(responseBody);",
+                  "        if (jsonData.value.length === 0)",
+                  "        {",
+                  "            tests[\"User removed\"];",
+                  "            postman.setEnvironmentVariable(\"retryCount\", \"0\");",
+                  "        }",
+                  "        else",
+                  "        {",
+                  "            GlobalFunctions.retryTest(\"Check Class removed\", \"Class removed\", postman, tests);",
+                  "            GlobalFunctions.retryTest(pm.info.requestName, \"User removed\", postman, tests);",
+                  "        }",
+                  "    }",
+                  "}",
+                  "if (typeof(GlobalFunctions) !== 'undefined' )",
+                  "{",
+                  "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "6389b6ff-efff-46d6-20de-c245f66508d0",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{GraphAuth}}"
+              },
+              {
+                "key": "Workload-Authorization",
+                "value": "{{AADAuth}}",
+                "disabled": true
+              },
+              {
+                "key": "Accept",
+                "value": "application/json;odata.metadata={{MetadataLevel}}"
+              }
+            ],
+            "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/users"
+          },
+          "response": []
+        },
+        {
+          "name": "Modify just created School",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (typeof(GlobalFunctions) !== 'undefined' )",
+                  "{",
+                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+                  "if(!expectedSuccess)",
+                  "{",
+                  "    tests[\"Status code is 403\"] = responseCode.code === 403;",
+                  "}",
+                  "else",
+                  "{",
+                  "    tests[\"Status code is 204\"] = responseCode.code === 204;",
+                  "}",
+                  "if (typeof(GlobalFunctions) !== 'undefined' )",
+                  "{",
+                  "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "_postman_id": "bad0355c-48c0-8ec5-724f-0a15091fbef8",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{GraphAuth}}"
+              },
+              {
+                "key": "Workload-Authorization",
+                "value": "{{AADAuth}}",
+                "disabled": true
+              },
+              {
+                "key": "Accept",
+                "value": "application/json;odata.metadata={{MetadataLevel}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"description\": \"An even better school to test.\",\n\t\"externalSource\": \"Manual\",\n\t\"address\": {\n\t    \"city\": \"Seattle\"\n \t}\n}"
+            },
+            "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}"
+          },
+          "response": []
+        },
+        {
+          "name": "Check modification to School",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (typeof(GlobalFunctions) !== 'undefined' )",
+                  "{",
+                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+                  "if(!expectedSuccess)",
+                  "{",
+                  "    tests[\"Status code is 404\"] = responseCode.code === 404;",
+                  "}",
+                  "else",
+                  "{",
+                  "    tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "    tests[\"School present\"] = responseBody.has('\"id\":')",
+                  "    tests[\"Simple data modified\"] = responseBody.has('\"description\":\"An even better school to test.\"');",
+                  "    tests[\"Custom data modified\"] = responseBody.has('\"externalSource\":\"manual\"');",
+                  "    tests[\"Custom school data modified\"] = responseBody.has('\"city\":\"Seattle\"');",
+                  "}",
+                  "if (typeof(GlobalFunctions) !== 'undefined' )",
+                  "{",
+                  "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "_postman_id": "9352e1d1-234a-029e-bcf1-d27df317b97b",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{GraphAuth}}"
+              },
+              {
+                "key": "Workload-Authorization",
+                "value": "{{AADAuth}}",
+                "disabled": true
+              },
+              {
+                "key": "Accept",
+                "value": "application/json;odata.metadata={{MetadataLevel}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}"
+          },
+          "response": []
         }
       ],
       "_postman_id": "66537159-9385-416e-a89e-b858a0e64f4a"
-    },
-    {
-      "name": "Check Class removed",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "id": "32642968-020c-48a2-9efc-ecfa192ac4d6",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
-            ],
-            "type": "text/javascript"
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "id": "8efc0b86-f738-4566-808d-11a5d3f8f8f6",
-            "exec": [
-              "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-              "if(!expectedSuccess)",
-              "{",
-              "    tests[\"Status code is 404\"] = responseCode.code === 404;",
-              "}",
-              "else",
-              "{",
-              "    tests[\"Status code is 200 - iteration: \" + postman.getEnvironmentVariable(\"retryCount\")] = responseCode.code === 200;",
-              "    if ( responseCode.code === 200)",
-              "    {",
-              "        var jsonData = JSON.parse(responseBody);",
-              "        if (jsonData.value.length === 0)",
-              "        {",
-              "            tests[\"Class removed\"] = true;",
-              "            postman.setEnvironmentVariable(\"retryCount\", \"0\");",
-              "        }",
-              "        else",
-              "        {",
-              "            GlobalFunctions.retryTest(\"Check Class removed\", \"Class removed\", postman, tests);",
-              "        }",
-              "    }",
-              "}",
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
-              "}"
-            ],
-            "type": "text/javascript"
-          }
-        }
-      ],
-      "_postman_id": "2924f983-c329-5db2-2ff7-c2346becb343",
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
-          }
-        ],
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/classes"
-      },
-      "response": []
-    },
-    {
-      "name": "Check User removed",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "id": "abb13e04-1b01-4ed3-a38c-ad301129ed8d",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
-            ],
-            "type": "text/javascript"
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "id": "f181dc0a-5be6-4e94-af77-8edc566e34bd",
-            "exec": [
-              "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-              "if(!expectedSuccess)",
-              "{",
-              "    tests[\"Status code is 403\"] = responseCode.code === 403;",
-              "}",
-              "else",
-              "{",
-              "    tests[\"Status code is 200 - iteration: \" + postman.getEnvironmentVariable(\"retryCount\")] = responseCode.code === 200;",
-              "    if ( responseCode.code === 200)",
-              "    {",
-              "        var jsonData = JSON.parse(responseBody);",
-              "        if (jsonData.value.length === 0)",
-              "        {",
-              "            tests[\"User removed\"];",
-              "            postman.setEnvironmentVariable(\"retryCount\", \"0\");",
-              "        }",
-              "        else",
-              "        {",
-              "            GlobalFunctions.retryTest(\"Check Class removed\", \"Class removed\", postman, tests);",
-              "            GlobalFunctions.retryTest(pm.info.requestName, \"User removed\", postman, tests);",
-              "        }",
-              "    }",
-              "}",
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
-              "}"
-            ],
-            "type": "text/javascript"
-          }
-        }
-      ],
-      "_postman_id": "6389b6ff-efff-46d6-20de-c245f66508d0",
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
-          }
-        ],
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/users"
-      },
-      "response": []
-    },
-    {
-      "name": "Modify just created School",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-              "if(!expectedSuccess)",
-              "{",
-              "    tests[\"Status code is 403\"] = responseCode.code === 403;",
-              "}",
-              "else",
-              "{",
-              "    tests[\"Status code is 204\"] = responseCode.code === 204;",
-              "}",
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
-              "}"
-            ]
-          }
-        }
-      ],
-      "_postman_id": "bad0355c-48c0-8ec5-724f-0a15091fbef8",
-      "request": {
-        "method": "PATCH",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
-          },
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n\t\"description\": \"An even better school to test.\",\n\t\"externalSource\": \"Manual\",\n\t\"address\": {\n\t    \"city\": \"Seattle\"\n \t}\n}"
-        },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Check modification to School",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-              "if(!expectedSuccess)",
-              "{",
-              "    tests[\"Status code is 404\"] = responseCode.code === 404;",
-              "}",
-              "else",
-              "{",
-              "    tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "    tests[\"School present\"] = responseBody.has('\"id\":')",
-              "    tests[\"Simple data modified\"] = responseBody.has('\"description\":\"An even better school to test.\"');",
-              "    tests[\"Custom data modified\"] = responseBody.has('\"externalSource\":\"manual\"');",
-              "    tests[\"Custom school data modified\"] = responseBody.has('\"city\":\"Seattle\"');",
-              "}",
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
-              "}"
-            ]
-          }
-        }
-      ],
-      "_postman_id": "9352e1d1-234a-029e-bcf1-d27df317b97b",
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}"
-      },
-      "response": []
     },
     {
       "name": "Delete just created School",
@@ -7069,7 +7069,7 @@
   ],
   "variable": [
     {
-      "id": "a1c5cd19-69d7-4f8e-aea1-e2657ee69296",
+      "id": "b990b12d-6395-487f-a568-0ebeb0bc6893",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
