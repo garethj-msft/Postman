@@ -4165,71 +4165,71 @@
                 "url": "https://{{loginHost}}/common/oauth2/token"
               },
               "response": []
+            },
+            {
+              "name": "T_AppOnlyToken GraphReadWrite",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "postman.setNextRequest(\"T_PostReadWrite\");"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Successful Request\"] = responseCode.code === 200;",
+                      "if(responseCode.code === 200)",
+                      "{",
+                      "    var data = JSON.parse(responseBody);",
+                      "    postman.setEnvironmentVariable(\"GraphAuth\", \"Bearer \" + data.access_token);",
+                      "    tests[\"New app-only readwrite token written to environment\"] = true;",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "ca69d515-5067-be9e-16e9-13f96a9a8221",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "grant_type",
+                      "value": "client_credentials",
+                      "type": "text"
+                    },
+                    {
+                      "key": "client_id",
+                      "value": "{{GraphClientIdReadWrite}}",
+                      "type": "text"
+                    },
+                    {
+                      "key": "client_secret",
+                      "value": "{{GraphSecretReadWrite}}",
+                      "type": "text"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "{{loginResource}}",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": "https://{{loginHost}}/{{tenantDomain}}/oauth2/token"
+              },
+              "response": []
             }
           ],
           "_postman_id": "963703dd-7c85-474e-8152-90399039c8c1",
           "_postman_isSubFolder": true
-        },
-        {
-          "name": "T_AppOnlyToken GraphReadWrite",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "postman.setNextRequest(\"T_PostReadWrite\");"
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Successful Request\"] = responseCode.code === 200;",
-                  "if(responseCode.code === 200)",
-                  "{",
-                  "    var data = JSON.parse(responseBody);",
-                  "    postman.setEnvironmentVariable(\"GraphAuth\", \"Bearer \" + data.access_token);",
-                  "    tests[\"New app-only readwrite token written to environment\"] = true;",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "_postman_id": "ca69d515-5067-be9e-16e9-13f96a9a8221",
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "formdata",
-              "formdata": [
-                {
-                  "key": "grant_type",
-                  "value": "client_credentials",
-                  "type": "text"
-                },
-                {
-                  "key": "client_id",
-                  "value": "{{GraphClientIdReadWrite}}",
-                  "type": "text"
-                },
-                {
-                  "key": "client_secret",
-                  "value": "{{GraphSecretReadWrite}}",
-                  "type": "text"
-                },
-                {
-                  "key": "resource",
-                  "value": "{{loginResource}}",
-                  "type": "text"
-                }
-              ]
-            },
-            "url": "https://{{loginHost}}/{{tenantDomain}}/oauth2/token"
-          },
-          "response": []
         },
         {
           "name": "T_PostReadWrite",
@@ -7132,7 +7132,7 @@
   ],
   "variable": [
     {
-      "id": "c9c5c9d8-8b28-4223-a505-5493711ce7a2",
+      "id": "4b453f11-b9ab-415f-b995-b5de7170d1b7",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
