@@ -2690,40 +2690,41 @@
         },
         {
           "name": "Me",
-          "item": [],
-          "_postman_id": "927bd4c3-b785-40e5-b066-087ba488a9a2",
-          "_postman_isSubFolder": true
-        },
-        {
-          "name": "T_PreME",
-          "event": [
+          "item": [
             {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "// Skip /me request for AppOnly\r",
-                  "var authType = postman.getEnvironmentVariable(\"authType\");\r",
-                  "if (authType === 'appOnly')\r",
-                  "{\r",
-                  "    postman.setNextRequest(\"T_PostME\");\r",
-                  "}\r",
-                  ""
-                ]
-              }
+              "name": "T_PreME",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "// Skip /me request for AppOnly\r",
+                      "var authType = postman.getEnvironmentVariable(\"authType\");\r",
+                      "if (authType === 'appOnly')\r",
+                      "{\r",
+                      "    postman.setNextRequest(\"T_PostME\");\r",
+                      "}\r",
+                      ""
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "a2b66926-f1c6-0453-3de7-a884fbe3ecd6",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
+              },
+              "response": []
             }
           ],
-          "_postman_id": "a2b66926-f1c6-0453-3de7-a884fbe3ecd6",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
-          },
-          "response": []
+          "_postman_id": "927bd4c3-b785-40e5-b066-087ba488a9a2",
+          "_postman_isSubFolder": true
         },
         {
           "name": "Get EDU me",
@@ -7201,7 +7202,7 @@
   ],
   "variable": [
     {
-      "id": "dde62154-32db-424f-955f-100d485f1280",
+      "id": "f5827f7f-1d8b-4687-bc77-b2c722e5c07a",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
