@@ -5690,128 +5690,128 @@
                 "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/teachers"
               },
               "response": []
+            },
+            {
+              "name": "Delete Class member",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+                      "if(!expectedSuccess)",
+                      "{",
+                      "    tests[\"Status code is 403\"] = responseCode.code === 403;",
+                      "}",
+                      "else",
+                      "{",
+                      "    tests[\"Status code is 204\"] = responseCode.code === 204;",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "757514b8-2aa5-8f5c-62b8-4dc4dffcf8ab",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/members/{{primaryTestUserId}}/$ref"
+              },
+              "response": []
+            },
+            {
+              "name": "Delete Class teacher",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+                      "if(!expectedSuccess)",
+                      "{",
+                      "    tests[\"Status code is 403\"] = responseCode.code === 403;",
+                      "}",
+                      "else",
+                      "{",
+                      "    tests[\"Status code is 204\"] = responseCode.code === 204;",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "2e1cf5fb-ceed-468b-d43a-0408491194aa",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/teachers/{{primaryTestUserId}}/$ref"
+              },
+              "response": []
             }
           ],
           "_postman_id": "638156a9-79b2-46b3-b1f3-4a3c43bc010f",
           "_postman_isSubFolder": true
-        },
-        {
-          "name": "Delete Class member",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-                  "if(!expectedSuccess)",
-                  "{",
-                  "    tests[\"Status code is 403\"] = responseCode.code === 403;",
-                  "}",
-                  "else",
-                  "{",
-                  "    tests[\"Status code is 204\"] = responseCode.code === 204;",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "_postman_id": "757514b8-2aa5-8f5c-62b8-4dc4dffcf8ab",
-          "request": {
-            "method": "DELETE",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/members/{{primaryTestUserId}}/$ref"
-          },
-          "response": []
-        },
-        {
-          "name": "Delete Class teacher",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-                  "if(!expectedSuccess)",
-                  "{",
-                  "    tests[\"Status code is 403\"] = responseCode.code === 403;",
-                  "}",
-                  "else",
-                  "{",
-                  "    tests[\"Status code is 204\"] = responseCode.code === 204;",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "_postman_id": "2e1cf5fb-ceed-468b-d43a-0408491194aa",
-          "request": {
-            "method": "DELETE",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/teachers/{{primaryTestUserId}}/$ref"
-          },
-          "response": []
         },
         {
           "name": "Check member removed",
@@ -7146,7 +7146,7 @@
   ],
   "variable": [
     {
-      "id": "ff81385a-d088-4fab-a4bc-43435f3192ba",
+      "id": "ba400ec4-842f-4054-bb0a-1b486f724c45",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
