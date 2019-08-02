@@ -860,98 +860,98 @@
             "url": "https://{{loginHost}}/{{tenantDomain}}/oauth2/token"
           },
           "response": []
+        },
+        {
+          "name": "T_PostReadBasic",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var auth = postman.getEnvironmentVariable(\"GraphAuth\");",
+                  "tests[\"Auth token acquired.\"] = (auth.length > 10);",
+                  ""
+                ]
+              }
+            }
+          ],
+          "_postman_id": "d84dbf93-3a36-4abe-7ebf-5cb1779c6fca",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "https://postman-echo.com/get"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Specific Version",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "e2cb0764-df39-4b5e-80b8-558a32de81b7",
+                "exec": [
+                  "// Removed due to changes to canary (you can't poll versions)",
+                  "// {{https}}://{{host}}/versions/{{graphVersion}}",
+                  "//tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "// Note no 's' on the end of the workload name because the case differs in canary and prod :-(",
+                  "//tests[\"Rostering deployed\"] = responseBody.has('EducationRosteringAPI');  ",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "63c99bda-f3df-136e-f2cf-a948431f0e61",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{GraphAuth}}"
+              }
+            ],
+            "url": "{{https}}://{{host}}/versions/"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Metadata",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;"
+                ]
+              }
+            }
+          ],
+          "_postman_id": "fedd5f0c-856f-766a-cd70-88bef7a7ff7d",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{GraphAuth}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
+          },
+          "response": []
         }
       ],
       "_postman_id": "d649d1a4-c42c-4dae-ad7b-ef4fced317f9"
-    },
-    {
-      "name": "T_PostReadBasic",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "var auth = postman.getEnvironmentVariable(\"GraphAuth\");",
-              "tests[\"Auth token acquired.\"] = (auth.length > 10);",
-              ""
-            ]
-          }
-        }
-      ],
-      "_postman_id": "d84dbf93-3a36-4abe-7ebf-5cb1779c6fca",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "url": "https://postman-echo.com/get"
-      },
-      "response": []
-    },
-    {
-      "name": "Get Specific Version",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "id": "e2cb0764-df39-4b5e-80b8-558a32de81b7",
-            "exec": [
-              "// Removed due to changes to canary (you can't poll versions)",
-              "// {{https}}://{{host}}/versions/{{graphVersion}}",
-              "//tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "// Note no 's' on the end of the workload name because the case differs in canary and prod :-(",
-              "//tests[\"Rostering deployed\"] = responseBody.has('EducationRosteringAPI');  ",
-              ""
-            ],
-            "type": "text/javascript"
-          }
-        }
-      ],
-      "_postman_id": "63c99bda-f3df-136e-f2cf-a948431f0e61",
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          }
-        ],
-        "url": "{{https}}://{{host}}/versions/"
-      },
-      "response": []
-    },
-    {
-      "name": "Get Metadata",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;"
-            ]
-          }
-        }
-      ],
-      "_postman_id": "fedd5f0c-856f-766a-cd70-88bef7a7ff7d",
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
-      },
-      "response": []
     },
     {
       "name": "Get Education",
@@ -7057,7 +7057,7 @@
   ],
   "variable": [
     {
-      "id": "c0c69ed3-b99c-4a84-bba9-ae3847d711e1",
+      "id": "fe249ed7-ea19-4477-9069-c5b575af3b29",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
