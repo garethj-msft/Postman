@@ -4339,81 +4339,81 @@
                 "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools"
               },
               "response": []
-            },
-            {
-              "name": "Check just created School",
-              "event": [
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "ba64ae75-7194-4899-a026-b6e084173cd4",
-                    "exec": [
-                      "if (typeof(GlobalFunctions) !== 'undefined' )",
-                      "{",
-                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                      "}"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "6588c580-c1f0-40e3-9128-af84a15f01e7",
-                    "exec": [
-                      "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-                      "if(!expectedSuccess)",
-                      "{",
-                      "    tests[\"Status code is 404\"] = responseCode.code === 404;",
-                      "}",
-                      "else",
-                      "{",
-                      "    ",
-                      "    if(responseCode.code == 200 && parseInt(pm.environment.get(\"retryCount\")) < 8){",
-                      "        // Found ",
-                      "        tests[\"Status code is 200\"] = responseCode.code === 200;",
-                      "        tests[\"School created\"] = responseBody.has('\"id\":')",
-                      "        postman.setEnvironmentVariable(\"retryCount\", \"0\");",
-                      "    }",
-                      "    else{ ",
-                      "        // Not found, retry",
-                      "        GlobalFunctions.retryTest(pm.info.requestName, \"School created\", postman, tests);",
-                      "    }        ",
-                      "}",
-                      "if (typeof(GlobalFunctions) !== 'undefined' )",
-                      "{",
-                      "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
-                      "}"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "f0df30f3-92e6-dcb6-6909-a42dd1cd8368",
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "{{GraphAuth}}"
-                  },
-                  {
-                    "key": "Workload-Authorization",
-                    "value": "{{AADAuth}}",
-                    "disabled": true
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json;odata.metadata={{MetadataLevel}}"
-                  }
-                ],
-                "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}"
-              },
-              "response": []
             }
           ],
           "_postman_id": "396767d9-b95a-4b74-9b18-0f5249afdcf1",
           "_postman_isSubFolder": true
+        },
+        {
+          "name": "Check just created School",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "ba64ae75-7194-4899-a026-b6e084173cd4",
+                "exec": [
+                  "if (typeof(GlobalFunctions) !== 'undefined' )",
+                  "{",
+                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "6588c580-c1f0-40e3-9128-af84a15f01e7",
+                "exec": [
+                  "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+                  "if(!expectedSuccess)",
+                  "{",
+                  "    tests[\"Status code is 404\"] = responseCode.code === 404;",
+                  "}",
+                  "else",
+                  "{",
+                  "    ",
+                  "    if(responseCode.code == 200 && parseInt(pm.environment.get(\"retryCount\")) < 8){",
+                  "        // Found ",
+                  "        tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "        tests[\"School created\"] = responseBody.has('\"id\":')",
+                  "        postman.setEnvironmentVariable(\"retryCount\", \"0\");",
+                  "    }",
+                  "    else{ ",
+                  "        // Not found, retry",
+                  "        GlobalFunctions.retryTest(pm.info.requestName, \"School created\", postman, tests);",
+                  "    }        ",
+                  "}",
+                  "if (typeof(GlobalFunctions) !== 'undefined' )",
+                  "{",
+                  "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "f0df30f3-92e6-dcb6-6909-a42dd1cd8368",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{GraphAuth}}"
+              },
+              {
+                "key": "Workload-Authorization",
+                "value": "{{AADAuth}}",
+                "disabled": true
+              },
+              {
+                "key": "Accept",
+                "value": "application/json;odata.metadata={{MetadataLevel}}"
+              }
+            ],
+            "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}"
+          },
+          "response": []
         },
         {
           "name": "Add a School Class",
@@ -7139,7 +7139,7 @@
   ],
   "variable": [
     {
-      "id": "1b9a1136-aa7f-4fc3-a99a-e1c709fc6db8",
+      "id": "d225d570-5c09-4d57-86fd-98cc5e59bad1",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
