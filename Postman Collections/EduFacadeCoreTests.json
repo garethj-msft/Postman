@@ -6755,7 +6755,7 @@
               "mode": "raw",
               "raw": "{\n\t\"relatedContacts\": [\n\t\t\t{\n\t\t\t\t\"displayName\": \"Test User 22\",\n\t            \"emailAddress\": \"user1@outlook.com\",\n\t            \"mobilePhone\": \"123-456-7890\",\n\t            \"relationship\": \"parent\",\n\t            \"accessConsent\": true\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"displayName\": \"Test User 23\",\n\t            \"emailAddress\": \"user2@outlook.com\",\n\t            \"mobilePhone\": \"123-456-7890\",\n\t            \"relationship\": \"parent\",\n\t            \"accessConsent\": true\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"displayName\": \"Test user 24\",\n\t            \"emailAddress\": \"user3@outlook.com\",\n\t            \"relationship\": \"relative\",\n\t            \"accessConsent\": false\n\t\t\t}\n\t\t]\n}"
             },
-            "url": "{{https}}://{{host}}/beta/education/users/{{justCreatedId}}",
+            "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}",
             "description": "Patch"
           },
           "response": [
@@ -7124,7 +7124,7 @@
   ],
   "variable": [
     {
-      "id": "f6b574b9-d75f-4e34-85d9-d98c099a9fce",
+      "id": "e5892d0f-8199-442a-832b-c062c73e430d",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
