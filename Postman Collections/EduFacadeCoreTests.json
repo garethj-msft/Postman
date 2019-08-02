@@ -6855,7 +6855,7 @@
           ]
         },
         {
-          "name": "T_PostME Copy",
+          "name": "T_PostRelated",
           "event": [
             {
               "listen": "prerequest",
@@ -7123,7 +7123,7 @@
   ],
   "variable": [
     {
-      "id": "71b631b5-f3c3-49de-8406-530accce403e",
+      "id": "47287c3f-61aa-441e-95b4-659f624e0bb3",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
