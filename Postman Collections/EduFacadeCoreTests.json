@@ -3656,75 +3656,81 @@
                 }
               },
               "response": []
+            },
+            {
+              "name": "Get A User Check Detail",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+                      "var found = \"not found\";",
+                      "if (expectedSuccess === true)",
+                      "{",
+                      "    found = \"found\";",
+                      "}",
+                      "tests[\"ID found\"] = responseBody.has('\"id\":');",
+                      "tests[\"primaryRole found\"] = responseBody.has('\"primaryRole\":');",
+                      "tests[\"assignedLicenses \" + found] = !responseBody.has('\"assignedLicenses\":') != expectedSuccess;",
+                      "tests[\"assignedPlans \" + found] = !responseBody.has('\"assignedPlans\":') != expectedSuccess;",
+                      "tests[\"onPremisesImmutableId \" + found] = !responseBody.has('\"onPremisesImmutableId\":') != expectedSuccess;",
+                      "tests[\"student \" + found] = !responseBody.has('\"student\":') != expectedSuccess;",
+                      "tests[\"externalSource \" + found] = !responseBody.has('\"externalSource\":') != expectedSuccess;",
+                      ""
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "4ce8c89b-8149-1021-9bb5-6488b5c88151",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
+                },
+                "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}"
+              },
+              "response": []
             }
           ],
           "_postman_id": "4d5d8d58-e439-449a-b407-f70b08ff1418",
           "_postman_isSubFolder": true
         },
         {
-          "name": "Get A User Check Detail",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-                  "var found = \"not found\";",
-                  "if (expectedSuccess === true)",
-                  "{",
-                  "    found = \"found\";",
-                  "}",
-                  "tests[\"ID found\"] = responseBody.has('\"id\":');",
-                  "tests[\"primaryRole found\"] = responseBody.has('\"primaryRole\":');",
-                  "tests[\"assignedLicenses \" + found] = !responseBody.has('\"assignedLicenses\":') != expectedSuccess;",
-                  "tests[\"assignedPlans \" + found] = !responseBody.has('\"assignedPlans\":') != expectedSuccess;",
-                  "tests[\"onPremisesImmutableId \" + found] = !responseBody.has('\"onPremisesImmutableId\":') != expectedSuccess;",
-                  "tests[\"student \" + found] = !responseBody.has('\"student\":') != expectedSuccess;",
-                  "tests[\"externalSource \" + found] = !responseBody.has('\"externalSource\":') != expectedSuccess;",
-                  ""
-                ]
-              }
-            }
-          ],
-          "_postman_id": "4ce8c89b-8149-1021-9bb5-6488b5c88151",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
-            },
-            "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}"
-          },
-          "response": []
+          "name": "School",
+          "item": [],
+          "_postman_id": "9001b733-0e77-4e50-9daf-dfe2316deacf",
+          "_postman_isSubFolder": true
         },
         {
           "name": "Get A School Nav Users",
@@ -7216,7 +7222,7 @@
   ],
   "variable": [
     {
-      "id": "87120f43-673c-48e9-96af-a7df781f3ec2",
+      "id": "0d54bb45-a94f-45c1-9fba-5fb934de4a01",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
