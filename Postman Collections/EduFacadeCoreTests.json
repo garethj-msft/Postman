@@ -2689,146 +2689,139 @@
           "_postman_isSubFolder": true
         },
         {
-          "name": "Me",
-          "item": [
+          "name": "T_PreME",
+          "event": [
             {
-              "name": "T_PreME",
-              "event": [
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "type": "text/javascript",
-                    "exec": [
-                      "// Skip /me request for AppOnly\r",
-                      "var authType = postman.getEnvironmentVariable(\"authType\");\r",
-                      "if (authType === 'appOnly')\r",
-                      "{\r",
-                      "    postman.setNextRequest(\"T_PostME\");\r",
-                      "}\r",
-                      ""
-                    ]
-                  }
-                }
-              ],
-              "_postman_id": "a2b66926-f1c6-0453-3de7-a884fbe3ecd6",
-              "request": {
-                "method": "GET",
-                "header": [],
-                "body": {
-                  "mode": "raw",
-                  "raw": ""
-                },
-                "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
-              },
-              "response": []
-            },
-            {
-              "name": "Get EDU me",
-              "event": [
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "type": "text/javascript",
-                    "exec": [
-                      "if (typeof(GlobalFunctions) !== 'undefined' )",
-                      "{",
-                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                      "}"
-                    ]
-                  }
-                },
-                {
-                  "listen": "test",
-                  "script": {
-                    "type": "text/javascript",
-                    "exec": [
-                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                      "tests[\"User found\"] = responseBody.has('\"id\":')"
-                    ]
-                  }
-                }
-              ],
-              "_postman_id": "d755d8cb-1710-05d8-46fc-f090d9a0552a",
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "{{GraphAuth}}"
-                  },
-                  {
-                    "key": "Workload-Authorization",
-                    "value": "{{AADAuth}}",
-                    "disabled": true
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json;odata.metadata={{MetadataLevel}}"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": ""
-                },
-                "url": "{{https}}://{{host}}/{{graphVersion}}/education/me"
-              },
-              "response": []
-            },
-            {
-              "name": "Get EDU me Nav classes",
-              "event": [
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "type": "text/javascript",
-                    "exec": [
-                      "if (typeof(GlobalFunctions) !== 'undefined' )",
-                      "{",
-                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                      "}"
-                    ]
-                  }
-                },
-                {
-                  "listen": "test",
-                  "script": {
-                    "type": "text/javascript",
-                    "exec": [
-                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                      "tests[\"Classes found\"] = responseBody.has('\"id\":')"
-                    ]
-                  }
-                }
-              ],
-              "_postman_id": "397a95c7-2bc6-eaf4-a054-220ab9bd7b1a",
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "{{GraphAuth}}"
-                  },
-                  {
-                    "key": "Workload-Authorization",
-                    "value": "{{AADAuth}}",
-                    "disabled": true
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json;odata.metadata={{MetadataLevel}}"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": ""
-                },
-                "url": "{{https}}://{{host}}/{{graphVersion}}/education/me/classes"
-              },
-              "response": []
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// Skip /me request for AppOnly\r",
+                  "var authType = postman.getEnvironmentVariable(\"authType\");\r",
+                  "if (authType === 'appOnly')\r",
+                  "{\r",
+                  "    postman.setNextRequest(\"T_PostME\");\r",
+                  "}\r",
+                  ""
+                ]
+              }
             }
           ],
-          "_postman_id": "927bd4c3-b785-40e5-b066-087ba488a9a2",
-          "_postman_isSubFolder": true
+          "_postman_id": "a2b66926-f1c6-0453-3de7-a884fbe3ecd6",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
+          },
+          "response": []
+        },
+        {
+          "name": "Get EDU me",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (typeof(GlobalFunctions) !== 'undefined' )",
+                  "{",
+                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "tests[\"User found\"] = responseBody.has('\"id\":')"
+                ]
+              }
+            }
+          ],
+          "_postman_id": "d755d8cb-1710-05d8-46fc-f090d9a0552a",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{GraphAuth}}"
+              },
+              {
+                "key": "Workload-Authorization",
+                "value": "{{AADAuth}}",
+                "disabled": true
+              },
+              {
+                "key": "Accept",
+                "value": "application/json;odata.metadata={{MetadataLevel}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{https}}://{{host}}/{{graphVersion}}/education/me"
+          },
+          "response": []
+        },
+        {
+          "name": "Get EDU me Nav classes",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (typeof(GlobalFunctions) !== 'undefined' )",
+                  "{",
+                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "tests[\"Classes found\"] = responseBody.has('\"id\":')"
+                ]
+              }
+            }
+          ],
+          "_postman_id": "397a95c7-2bc6-eaf4-a054-220ab9bd7b1a",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{GraphAuth}}"
+              },
+              {
+                "key": "Workload-Authorization",
+                "value": "{{AADAuth}}",
+                "disabled": true
+              },
+              {
+                "key": "Accept",
+                "value": "application/json;odata.metadata={{MetadataLevel}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{https}}://{{host}}/{{graphVersion}}/education/me/classes"
+          },
+          "response": []
         },
         {
           "name": "Get EDU me Expand classes",
@@ -7202,7 +7195,7 @@
   ],
   "variable": [
     {
-      "id": "68637bc1-2f61-492f-97ba-d16dc37902e7",
+      "id": "fc522074-fc24-4553-ad0c-de3736bff063",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
