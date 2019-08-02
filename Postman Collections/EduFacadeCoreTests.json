@@ -6609,72 +6609,72 @@
             "url": "{{https}}://{{host}}/{{graphVersion}}/education/users"
           },
           "response": []
+        },
+        {
+          "name": "Check just created Student",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "3f6cdc1b-562b-40da-8bcb-690f6d97b74e",
+                "exec": [
+                  "if (typeof(GlobalFunctions) !== 'undefined' )",
+                  "{",
+                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "8ada00cc-4dff-4921-94d8-b778f19c449b",
+                "exec": [
+                  "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+                  "if(!expectedSuccess)",
+                  "{",
+                  "    tests[\"Status code is 404\"] = responseCode.code === 404;",
+                  "}",
+                  "else",
+                  "{",
+                  "    tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "    tests[\"User created\"] = responseBody.has('\"id\":')",
+                  "    tests[\"Custom data created\"] = responseBody.has('\"Middle\"')",
+                  "    tests[\"Custom student data created\"] = responseBody.has('\"studentNumber\":\"789\"')",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "0dcc1628-78c8-4d5f-84a6-9ee8e18cc7a0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{GraphAuth}}"
+              },
+              {
+                "key": "Workload-Authorization",
+                "value": "{{AADAuth}}",
+                "disabled": true
+              },
+              {
+                "key": "Accept",
+                "value": "application/json;odata.metadata={{MetadataLevel}}"
+              }
+            ],
+            "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}"
+          },
+          "response": []
         }
       ],
       "_postman_id": "66537159-9385-416e-a89e-b858a0e64f4a"
-    },
-    {
-      "name": "Check just created Student",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "id": "3f6cdc1b-562b-40da-8bcb-690f6d97b74e",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
-            ],
-            "type": "text/javascript"
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "id": "8ada00cc-4dff-4921-94d8-b778f19c449b",
-            "exec": [
-              "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-              "if(!expectedSuccess)",
-              "{",
-              "    tests[\"Status code is 404\"] = responseCode.code === 404;",
-              "}",
-              "else",
-              "{",
-              "    tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "    tests[\"User created\"] = responseBody.has('\"id\":')",
-              "    tests[\"Custom data created\"] = responseBody.has('\"Middle\"')",
-              "    tests[\"Custom student data created\"] = responseBody.has('\"studentNumber\":\"789\"')",
-              "}"
-            ],
-            "type": "text/javascript"
-          }
-        }
-      ],
-      "_postman_id": "0dcc1628-78c8-4d5f-84a6-9ee8e18cc7a0",
-      "protocolProfileBehavior": {
-        "disableBodyPruning": true
-      },
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
-          }
-        ],
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}"
-      },
-      "response": []
     },
     {
       "name": "Patch-Education-User-Contacts",
@@ -7069,7 +7069,7 @@
   ],
   "variable": [
     {
-      "id": "d052b55e-c6b1-4d0e-bde2-66458bf11587",
+      "id": "7f475e7d-7932-44b7-81d5-6217e9337192",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
