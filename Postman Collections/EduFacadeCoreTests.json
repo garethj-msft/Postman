@@ -3031,51 +3031,6 @@
       "_postman_id": "d649d1a4-c42c-4dae-ad7b-ef4fced317f9"
     },
     {
-      "name": "Read",
-      "item": [
-        {
-          "name": "T_PreRead",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "b67bc7b4-783f-4621-961a-0de7b1e9a992",
-                "exec": [
-                  "postman.setEnvironmentVariable(\"GraphAuth\", \"\");\r",
-                  "var authType = postman.getEnvironmentVariable(\"authType\");\r",
-                  "if (authType === 'appOnly')\r",
-                  "{\r",
-                  "    postman.setEnvironmentVariable(\"expectedSuccess\", true);\r",
-                  "    postman.setNextRequest(\"T_AppOnlyToken GraphRead\");\r",
-                  "}\r",
-                  "else\r",
-                  "{\r",
-                  "    // App + User only does readbasic.\r",
-                  "    postman.setEnvironmentVariable(\"expectedSuccess\", false);\r",
-                  "    postman.setNextRequest(\"T_AppPlusUserToken GraphRead\");\r",
-                  "\r",
-                  "}"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "7a31ab6a-082e-6bb8-7182-0fc66a9fd4be",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": "https://postman-echo.com/get"
-          },
-          "response": []
-        }
-      ],
-      "_postman_id": "c9956579-d1c6-4384-96db-936bcf5a97aa"
-    },
-    {
       "name": "T_AppPlusUserToken  GraphRead",
       "event": [
         {
@@ -7037,6 +6992,45 @@
         "description": "Using this endpoint one can configure how long it takes for the server to come back with a response. Appending a number to the URL defines the time (in seconds) the server will wait before responding.\n\nNote that a maximum delay of 10 seconds is accepted by the server."
       },
       "response": []
+    },
+    {
+      "name": "T_PreRead",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "b67bc7b4-783f-4621-961a-0de7b1e9a992",
+            "exec": [
+              "postman.setEnvironmentVariable(\"GraphAuth\", \"\");\r",
+              "var authType = postman.getEnvironmentVariable(\"authType\");\r",
+              "if (authType === 'appOnly')\r",
+              "{\r",
+              "    postman.setEnvironmentVariable(\"expectedSuccess\", true);\r",
+              "    postman.setNextRequest(\"T_AppOnlyToken GraphRead\");\r",
+              "}\r",
+              "else\r",
+              "{\r",
+              "    // App + User only does readbasic.\r",
+              "    postman.setEnvironmentVariable(\"expectedSuccess\", false);\r",
+              "    postman.setNextRequest(\"T_AppPlusUserToken GraphRead\");\r",
+              "\r",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "7a31ab6a-082e-6bb8-7182-0fc66a9fd4be",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": "https://postman-echo.com/get"
+      },
+      "response": []
     }
   ],
   "event": [
@@ -7063,7 +7057,7 @@
   ],
   "variable": [
     {
-      "id": "35912d30-f4ee-4346-a06f-ff400067ad15",
+      "id": "c953e2a1-1608-404c-8522-571885f638be",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
