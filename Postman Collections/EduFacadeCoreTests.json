@@ -1449,213 +1449,220 @@
           "_postman_isSubFolder": true
         },
         {
-          "name": "Get Classes",
-          "event": [
+          "name": "Class",
+          "item": [
             {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Classes found\"] = responseBody.has('\"id\":')",
-                  "if (!responseBody.has('\"PrimaryTestClass\"'))",
-                  "{",
-                  "    tests[\"Class named PrimaryTestClass required\"] = false;",
-                  "    postman.setNextRequest(null);",
-                  "}",
-                  "",
-                  "if (responseBody.has('\"id\":'))",
-                  "{",
-                  "    var jsonData = JSON.parse(responseBody);",
-                  "    var i;",
-                  "    for (i=0; i < jsonData.value.length; i++)",
-                  "    {",
-                  "        if (jsonData.value[i].displayName ===  'PrimaryTestClass')",
-                  "        {",
-                  "            console.log(\"Primary test class id: \" + jsonData.value[i].id)",
-                  "            postman.setEnvironmentVariable(\"primaryTestClassId\", jsonData.value[i].id)",
-                  "        }",
-                  "    }",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "_postman_id": "c7258513-b673-b30c-0a6e-51638fbfa9e5",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes"
-          },
-          "response": []
-        },
-        {
-          "name": "Get Classes with Filter",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Classes found\"] = responseBody.has('\"id\":')"
-                ]
-              }
-            }
-          ],
-          "_postman_id": "57334215-7b1e-a78c-b980-8f2c2cc04ba0",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": {
-              "raw": "{{https}}://{{host}}/{{graphVersion}}/education/classes?$filter=displayName eq 'PrimaryTestClass' and mailNickname eq 'PrimaryTestClass'",
-              "protocol": "{{https}}",
-              "host": [
-                "{{host}}"
-              ],
-              "path": [
-                "{{graphVersion}}",
-                "education",
-                "classes"
-              ],
-              "query": [
+              "name": "Get Classes",
+              "event": [
                 {
-                  "key": "$filter",
-                  "value": "displayName eq 'PrimaryTestClass' and mailNickname eq 'PrimaryTestClass'"
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "tests[\"Classes found\"] = responseBody.has('\"id\":')",
+                      "if (!responseBody.has('\"PrimaryTestClass\"'))",
+                      "{",
+                      "    tests[\"Class named PrimaryTestClass required\"] = false;",
+                      "    postman.setNextRequest(null);",
+                      "}",
+                      "",
+                      "if (responseBody.has('\"id\":'))",
+                      "{",
+                      "    var jsonData = JSON.parse(responseBody);",
+                      "    var i;",
+                      "    for (i=0; i < jsonData.value.length; i++)",
+                      "    {",
+                      "        if (jsonData.value[i].displayName ===  'PrimaryTestClass')",
+                      "        {",
+                      "            console.log(\"Primary test class id: \" + jsonData.value[i].id)",
+                      "            postman.setEnvironmentVariable(\"primaryTestClassId\", jsonData.value[i].id)",
+                      "        }",
+                      "    }",
+                      "}"
+                    ]
+                  }
                 }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Get Classes Expand Members",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
-                ]
-              }
+              ],
+              "_postman_id": "c7258513-b673-b30c-0a6e-51638fbfa9e5",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes"
+              },
+              "response": []
             },
             {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Members returned\"] = responseBody.has('members\":[{'); "
-                ]
-              }
+              "name": "Get Classes with Filter",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "tests[\"Classes found\"] = responseBody.has('\"id\":')"
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "57334215-7b1e-a78c-b980-8f2c2cc04ba0",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "{{https}}://{{host}}/{{graphVersion}}/education/classes?$filter=displayName eq 'PrimaryTestClass' and mailNickname eq 'PrimaryTestClass'",
+                  "protocol": "{{https}}",
+                  "host": [
+                    "{{host}}"
+                  ],
+                  "path": [
+                    "{{graphVersion}}",
+                    "education",
+                    "classes"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "displayName eq 'PrimaryTestClass' and mailNickname eq 'PrimaryTestClass'"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Classes Expand Members",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "tests[\"Members returned\"] = responseBody.has('members\":[{'); "
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "3974403b-78a9-eb74-b476-04cdb18935ce",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "{{https}}://{{host}}/{{graphVersion}}/education/classes?$expand=members",
+                  "protocol": "{{https}}",
+                  "host": [
+                    "{{host}}"
+                  ],
+                  "path": [
+                    "{{graphVersion}}",
+                    "education",
+                    "classes"
+                  ],
+                  "query": [
+                    {
+                      "key": "$expand",
+                      "value": "members"
+                    }
+                  ]
+                }
+              },
+              "response": []
             }
           ],
-          "_postman_id": "3974403b-78a9-eb74-b476-04cdb18935ce",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": {
-              "raw": "{{https}}://{{host}}/{{graphVersion}}/education/classes?$expand=members",
-              "protocol": "{{https}}",
-              "host": [
-                "{{host}}"
-              ],
-              "path": [
-                "{{graphVersion}}",
-                "education",
-                "classes"
-              ],
-              "query": [
-                {
-                  "key": "$expand",
-                  "value": "members"
-                }
-              ]
-            }
-          },
-          "response": []
+          "_postman_id": "b136c29b-141e-4a56-b9d7-68e77103bce5",
+          "_postman_isSubFolder": true
         },
         {
           "name": "Get Classes Expand Teachers",
@@ -7181,7 +7188,7 @@
   ],
   "variable": [
     {
-      "id": "35442daf-e500-4919-b934-5ef2aa8aff1e",
+      "id": "5f2bf491-5001-4dc5-a775-9b1b529a349e",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
