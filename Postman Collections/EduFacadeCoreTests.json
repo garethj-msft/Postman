@@ -6501,62 +6501,62 @@
                 "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}"
               },
               "response": []
+            },
+            {
+              "name": "Check Teacher deleted",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Status code is 404\"] = responseCode.code === 404;",
+                      ""
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "a911d370-603c-f395-36c0-c0affb303c90",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
+                },
+                "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}"
+              },
+              "response": []
             }
           ],
           "_postman_id": "c99d5056-ed8d-402a-a8f7-bbf1a8fb7de8",
           "_postman_isSubFolder": true
-        },
-        {
-          "name": "Check Teacher deleted",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 404\"] = responseCode.code === 404;",
-                  ""
-                ]
-              }
-            }
-          ],
-          "_postman_id": "a911d370-603c-f395-36c0-c0affb303c90",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
-            },
-            "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}"
-          },
-          "response": []
         },
         {
           "name": "Make a Student",
@@ -7153,7 +7153,7 @@
   ],
   "variable": [
     {
-      "id": "b901d7aa-93bf-49ba-8ef2-cfe571ac9d71",
+      "id": "21c5a0a4-ef7a-4daa-abd3-1b87fa5cb8ab",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
