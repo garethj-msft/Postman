@@ -6155,463 +6155,463 @@
             "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}"
           },
           "response": []
+        },
+        {
+          "name": "Make a Teacher",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (typeof(GlobalFunctions) !== 'undefined' )",
+                  "{",
+                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                  "}",
+                  "var currentRandom = Math.floor(Math.random() * 1000).toString();",
+                  "var currentRandom2 = Math.floor(Math.random() * 1000).toString();",
+                  "postman.setEnvironmentVariable(\"currentRandom\", currentRandom + currentRandom2);"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+                  "if(!expectedSuccess)",
+                  "{",
+                  "    tests[\"Status code is 403\"] = responseCode.code === 403;",
+                  "    postman.setEnvironmentVariable(\"justCreatedId\", \"9900AA5E-8EBF-4407-B151-CBCF310F1383\"); // Dummy GUID",
+                  "}",
+                  "else",
+                  "{",
+                  "    tests[\"Status code is 201\"] = responseCode.code === 201;",
+                  "    tests[\"User created\"] = responseBody.has('\"id\":')",
+                  "    if (responseBody.has('\"id\":'))",
+                  "    {",
+                  "        var jsonData = JSON.parse(responseBody);",
+                  "        tests[\"Role set\"] = jsonData.primaryRole === 'teacher';",
+                  "        tests[\"TeacherNumber set\"] = jsonData.teacher.teacherNumber === '456';",
+                  "        postman.setEnvironmentVariable(\"justCreatedId\", jsonData.id)",
+                  "    }",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "_postman_id": "989e7f39-a72a-71f6-c6ad-7aa831fdf5bb",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{GraphAuth}}"
+              },
+              {
+                "key": "Workload-Authorization",
+                "value": "{{AADAuth}}",
+                "disabled": true
+              },
+              {
+                "key": "Accept",
+                "value": "application/json;odata.metadata={{MetadataLevel}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationUser\",\n\t\"accountEnabled\": true,\n\t\"displayName\":\"Teacher TestRun{{currentRandom}}\",\n\t\"mailNickname\": \"TeacherTR{{currentRandom}}\",\n\t\"userPrincipalName\": \"TeacherTR{{currentRandom}}@{{tenantDomain}}\",\n\t\"middleName\": \"Middle\",\n\t\"passwordProfile\":{\n\t\t\"forceChangePasswordNextSignIn\": false,\n\t\t\"password\": \"!!abc123\"\n\t},\n\t\"primaryRole\": \"teacher\",\n\t\"teacher\": {\n\t\t\"teacherNumber\": \"456\",\n\t\t\"externalId\": \"123\"\n\t}\n}"
+            },
+            "url": "{{https}}://{{host}}/{{graphVersion}}/education/users"
+          },
+          "response": []
+        },
+        {
+          "name": "Check just created Teacher",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (typeof(GlobalFunctions) !== 'undefined' )",
+                  "{",
+                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+                  "if(!expectedSuccess)",
+                  "{",
+                  "    tests[\"Status code is 404\"] = responseCode.code === 404;",
+                  "}",
+                  "else",
+                  "{",
+                  "    tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "    tests[\"User created\"] = responseBody.has('\"id\":')",
+                  "    tests[\"Custom data created\"] = responseBody.has('\"Middle\"')",
+                  "    tests[\"Custom teacher data created\"] = responseBody.has('\"teacherNumber\":\"456\"')",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "_postman_id": "d23c9c76-c9ea-be76-7b6e-c70a994109b8",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{GraphAuth}}"
+              },
+              {
+                "key": "Workload-Authorization",
+                "value": "{{AADAuth}}",
+                "disabled": true
+              },
+              {
+                "key": "Accept",
+                "value": "application/json;odata.metadata={{MetadataLevel}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}"
+          },
+          "response": []
+        },
+        {
+          "name": "Modify just created Teacher",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (typeof(GlobalFunctions) !== 'undefined' )",
+                  "{",
+                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+                  "if(!expectedSuccess)",
+                  "{",
+                  "    tests[\"Status code is 403\"] = responseCode.code === 403;",
+                  "}",
+                  "else",
+                  "{",
+                  "    tests[\"Status code is 204\"] = responseCode.code === 204;",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "_postman_id": "8a742299-6530-016b-af73-003c9e35b702",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{GraphAuth}}"
+              },
+              {
+                "key": "Workload-Authorization",
+                "value": "{{AADAuth}}",
+                "disabled": true
+              },
+              {
+                "key": "Accept",
+                "value": "application/json;odata.metadata={{MetadataLevel}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"displayName\": \"Reacher TestRun\",\n\t\"middleName\": \"Hann\",\n\t\"teacher\": {\n\t\t\"teacherNumber\": \"102\"\n\t  }\n}"
+            },
+            "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}"
+          },
+          "response": []
+        },
+        {
+          "name": "Check modification to Teacher",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (typeof(GlobalFunctions) !== 'undefined' )",
+                  "{",
+                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+                  "if(!expectedSuccess)",
+                  "{",
+                  "    tests[\"Status code is 404\"] = responseCode.code === 404;",
+                  "}",
+                  "else",
+                  "{",
+                  "    tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "    tests[\"User present\"] = responseBody.has('\"id\":')",
+                  "    tests[\"Simple data modified\"] = responseBody.has('\"displayName\":\"Reacher TestRun\"');",
+                  "    tests[\"Custom data modified\"] = responseBody.has('\"Hann\"')",
+                  "    tests[\"Custom teacher data modified\"] = responseBody.has('\"teacherNumber\":\"102\"')",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "_postman_id": "09df8eb5-e298-cd2d-43ae-7e33ec3a0b13",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{GraphAuth}}"
+              },
+              {
+                "key": "Workload-Authorization",
+                "value": "{{AADAuth}}",
+                "disabled": true
+              },
+              {
+                "key": "Accept",
+                "value": "application/json;odata.metadata={{MetadataLevel}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete just created Teacher",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (typeof(GlobalFunctions) !== 'undefined' )",
+                  "{",
+                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+                  "if(!expectedSuccess)",
+                  "{",
+                  "    tests[\"Status code is 403\"] = responseCode.code === 403;",
+                  "}",
+                  "else",
+                  "{",
+                  "    tests[\"Status code is 204\"] = responseCode.code === 204;",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "_postman_id": "1809ec1a-327e-1370-5fde-aa93cd77d949",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{GraphAuth}}"
+              },
+              {
+                "key": "Workload-Authorization",
+                "value": "{{AADAuth}}",
+                "disabled": true
+              },
+              {
+                "key": "Accept",
+                "value": "application/json;odata.metadata={{MetadataLevel}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
+            },
+            "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}"
+          },
+          "response": []
+        },
+        {
+          "name": "Check Teacher deleted",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (typeof(GlobalFunctions) !== 'undefined' )",
+                  "{",
+                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Status code is 404\"] = responseCode.code === 404;",
+                  ""
+                ]
+              }
+            }
+          ],
+          "_postman_id": "a911d370-603c-f395-36c0-c0affb303c90",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{GraphAuth}}"
+              },
+              {
+                "key": "Workload-Authorization",
+                "value": "{{AADAuth}}",
+                "disabled": true
+              },
+              {
+                "key": "Accept",
+                "value": "application/json;odata.metadata={{MetadataLevel}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
+            },
+            "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}"
+          },
+          "response": []
+        },
+        {
+          "name": "Make a Student",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "3746e43e-59a7-4af8-b480-0533f51d1ef9",
+                "exec": [
+                  "if (typeof(GlobalFunctions) !== 'undefined' )",
+                  "{",
+                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                  "}",
+                  "var currentRandom = Math.floor(Math.random() * 1000).toString();",
+                  "var currentRandom2 = Math.floor(Math.random() * 1000).toString();",
+                  "postman.setEnvironmentVariable(\"currentRandom\", currentRandom + currentRandom2);"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "0c13f115-c51d-4fdd-aee3-7414ac16c8de",
+                "exec": [
+                  "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+                  "if(!expectedSuccess)",
+                  "{",
+                  "    tests[\"Status code is 403\"] = responseCode.code === 403;",
+                  "    postman.setEnvironmentVariable(\"justCreatedId\", \"9900AA5E-8EBF-4407-B151-CBCF310F1383\"); // Dummy GUID",
+                  "}",
+                  "else",
+                  "{",
+                  "    tests[\"Status code is 201\"] = responseCode.code === 201;",
+                  "    tests[\"Student created\"] = responseBody.has('\"id\":')",
+                  "    if (responseBody.has('\"id\":'))",
+                  "    {",
+                  "        var jsonData = JSON.parse(responseBody);",
+                  "        tests[\"Role set\"] = jsonData.primaryRole === 'student';",
+                  "        tests[\"StudentNumber set\"] = jsonData.student.studentNumber === '789';",
+                  "        postman.setEnvironmentVariable(\"justCreatedId\", jsonData.id)",
+                  "    }",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "15b88c93-2f04-486f-ab99-0b497006d219",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{GraphAuth}}"
+              },
+              {
+                "key": "Workload-Authorization",
+                "value": "{{AADAuth}}",
+                "disabled": true
+              },
+              {
+                "key": "Accept",
+                "value": "application/json;odata.metadata={{MetadataLevel}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationUser\",\n\t\"accountEnabled\": true,\n\t\"displayName\":\"Student TestRun{{currentRandom}}\",\n\t\"mailNickname\": \"StudentTR{{currentRandom}}\",\n\t\"userPrincipalName\": \"StudentTR{{currentRandom}}@{{tenantDomain}}\",\n\t\"middleName\": \"Middle\",\n\t\"passwordProfile\":{\n\t\t\"forceChangePasswordNextSignIn\": false,\n\t\t\"password\": \"!!abc123\"\n\t},\n\t\"primaryRole\": \"student\",\n\t\"student\": {\n\t\t\"studentNumber\": \"789\",\n\t\t\"externalId\": \"123\",\n\t\t\"graduationYear\": \"2022\",\n        \"grade\": \"12\",\n        \"gender\": \"female\"\n\n\t}\n}"
+            },
+            "url": "{{https}}://{{host}}/{{graphVersion}}/education/users"
+          },
+          "response": []
         }
       ],
       "_postman_id": "66537159-9385-416e-a89e-b858a0e64f4a"
-    },
-    {
-      "name": "Make a Teacher",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}",
-              "var currentRandom = Math.floor(Math.random() * 1000).toString();",
-              "var currentRandom2 = Math.floor(Math.random() * 1000).toString();",
-              "postman.setEnvironmentVariable(\"currentRandom\", currentRandom + currentRandom2);"
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-              "if(!expectedSuccess)",
-              "{",
-              "    tests[\"Status code is 403\"] = responseCode.code === 403;",
-              "    postman.setEnvironmentVariable(\"justCreatedId\", \"9900AA5E-8EBF-4407-B151-CBCF310F1383\"); // Dummy GUID",
-              "}",
-              "else",
-              "{",
-              "    tests[\"Status code is 201\"] = responseCode.code === 201;",
-              "    tests[\"User created\"] = responseBody.has('\"id\":')",
-              "    if (responseBody.has('\"id\":'))",
-              "    {",
-              "        var jsonData = JSON.parse(responseBody);",
-              "        tests[\"Role set\"] = jsonData.primaryRole === 'teacher';",
-              "        tests[\"TeacherNumber set\"] = jsonData.teacher.teacherNumber === '456';",
-              "        postman.setEnvironmentVariable(\"justCreatedId\", jsonData.id)",
-              "    }",
-              "}"
-            ]
-          }
-        }
-      ],
-      "_postman_id": "989e7f39-a72a-71f6-c6ad-7aa831fdf5bb",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
-          },
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationUser\",\n\t\"accountEnabled\": true,\n\t\"displayName\":\"Teacher TestRun{{currentRandom}}\",\n\t\"mailNickname\": \"TeacherTR{{currentRandom}}\",\n\t\"userPrincipalName\": \"TeacherTR{{currentRandom}}@{{tenantDomain}}\",\n\t\"middleName\": \"Middle\",\n\t\"passwordProfile\":{\n\t\t\"forceChangePasswordNextSignIn\": false,\n\t\t\"password\": \"!!abc123\"\n\t},\n\t\"primaryRole\": \"teacher\",\n\t\"teacher\": {\n\t\t\"teacherNumber\": \"456\",\n\t\t\"externalId\": \"123\"\n\t}\n}"
-        },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users"
-      },
-      "response": []
-    },
-    {
-      "name": "Check just created Teacher",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-              "if(!expectedSuccess)",
-              "{",
-              "    tests[\"Status code is 404\"] = responseCode.code === 404;",
-              "}",
-              "else",
-              "{",
-              "    tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "    tests[\"User created\"] = responseBody.has('\"id\":')",
-              "    tests[\"Custom data created\"] = responseBody.has('\"Middle\"')",
-              "    tests[\"Custom teacher data created\"] = responseBody.has('\"teacherNumber\":\"456\"')",
-              "}"
-            ]
-          }
-        }
-      ],
-      "_postman_id": "d23c9c76-c9ea-be76-7b6e-c70a994109b8",
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Modify just created Teacher",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-              "if(!expectedSuccess)",
-              "{",
-              "    tests[\"Status code is 403\"] = responseCode.code === 403;",
-              "}",
-              "else",
-              "{",
-              "    tests[\"Status code is 204\"] = responseCode.code === 204;",
-              "}"
-            ]
-          }
-        }
-      ],
-      "_postman_id": "8a742299-6530-016b-af73-003c9e35b702",
-      "request": {
-        "method": "PATCH",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
-          },
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n\t\"displayName\": \"Reacher TestRun\",\n\t\"middleName\": \"Hann\",\n\t\"teacher\": {\n\t\t\"teacherNumber\": \"102\"\n\t  }\n}"
-        },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Check modification to Teacher",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-              "if(!expectedSuccess)",
-              "{",
-              "    tests[\"Status code is 404\"] = responseCode.code === 404;",
-              "}",
-              "else",
-              "{",
-              "    tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "    tests[\"User present\"] = responseBody.has('\"id\":')",
-              "    tests[\"Simple data modified\"] = responseBody.has('\"displayName\":\"Reacher TestRun\"');",
-              "    tests[\"Custom data modified\"] = responseBody.has('\"Hann\"')",
-              "    tests[\"Custom teacher data modified\"] = responseBody.has('\"teacherNumber\":\"102\"')",
-              "}"
-            ]
-          }
-        }
-      ],
-      "_postman_id": "09df8eb5-e298-cd2d-43ae-7e33ec3a0b13",
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Delete just created Teacher",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-              "if(!expectedSuccess)",
-              "{",
-              "    tests[\"Status code is 403\"] = responseCode.code === 403;",
-              "}",
-              "else",
-              "{",
-              "    tests[\"Status code is 204\"] = responseCode.code === 204;",
-              "}"
-            ]
-          }
-        }
-      ],
-      "_postman_id": "1809ec1a-327e-1370-5fde-aa93cd77d949",
-      "request": {
-        "method": "DELETE",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
-        },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Check Teacher deleted",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 404\"] = responseCode.code === 404;",
-              ""
-            ]
-          }
-        }
-      ],
-      "_postman_id": "a911d370-603c-f395-36c0-c0affb303c90",
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
-        },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Make a Student",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "id": "3746e43e-59a7-4af8-b480-0533f51d1ef9",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}",
-              "var currentRandom = Math.floor(Math.random() * 1000).toString();",
-              "var currentRandom2 = Math.floor(Math.random() * 1000).toString();",
-              "postman.setEnvironmentVariable(\"currentRandom\", currentRandom + currentRandom2);"
-            ],
-            "type": "text/javascript"
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "id": "0c13f115-c51d-4fdd-aee3-7414ac16c8de",
-            "exec": [
-              "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-              "if(!expectedSuccess)",
-              "{",
-              "    tests[\"Status code is 403\"] = responseCode.code === 403;",
-              "    postman.setEnvironmentVariable(\"justCreatedId\", \"9900AA5E-8EBF-4407-B151-CBCF310F1383\"); // Dummy GUID",
-              "}",
-              "else",
-              "{",
-              "    tests[\"Status code is 201\"] = responseCode.code === 201;",
-              "    tests[\"Student created\"] = responseBody.has('\"id\":')",
-              "    if (responseBody.has('\"id\":'))",
-              "    {",
-              "        var jsonData = JSON.parse(responseBody);",
-              "        tests[\"Role set\"] = jsonData.primaryRole === 'student';",
-              "        tests[\"StudentNumber set\"] = jsonData.student.studentNumber === '789';",
-              "        postman.setEnvironmentVariable(\"justCreatedId\", jsonData.id)",
-              "    }",
-              "}"
-            ],
-            "type": "text/javascript"
-          }
-        }
-      ],
-      "_postman_id": "15b88c93-2f04-486f-ab99-0b497006d219",
-      "protocolProfileBehavior": {
-        "disableBodyPruning": true
-      },
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
-          },
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationUser\",\n\t\"accountEnabled\": true,\n\t\"displayName\":\"Student TestRun{{currentRandom}}\",\n\t\"mailNickname\": \"StudentTR{{currentRandom}}\",\n\t\"userPrincipalName\": \"StudentTR{{currentRandom}}@{{tenantDomain}}\",\n\t\"middleName\": \"Middle\",\n\t\"passwordProfile\":{\n\t\t\"forceChangePasswordNextSignIn\": false,\n\t\t\"password\": \"!!abc123\"\n\t},\n\t\"primaryRole\": \"student\",\n\t\"student\": {\n\t\t\"studentNumber\": \"789\",\n\t\t\"externalId\": \"123\",\n\t\t\"graduationYear\": \"2022\",\n        \"grade\": \"12\",\n        \"gender\": \"female\"\n\n\t}\n}"
-        },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users"
-      },
-      "response": []
     },
     {
       "name": "Check just created Student",
@@ -7069,7 +7069,7 @@
   ],
   "variable": [
     {
-      "id": "a0627163-b277-4a41-be3e-a06a11e97c78",
+      "id": "533a7319-3bac-4eb4-8dc4-4213d43532d6",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
