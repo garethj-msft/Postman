@@ -860,36 +860,36 @@
             "url": "https://{{loginHost}}/{{tenantDomain}}/oauth2/token"
           },
           "response": []
+        },
+        {
+          "name": "T_PostReadBasic",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var auth = postman.getEnvironmentVariable(\"GraphAuth\");",
+                  "tests[\"Auth token acquired.\"] = (auth.length > 10);",
+                  ""
+                ]
+              }
+            }
+          ],
+          "_postman_id": "d84dbf93-3a36-4abe-7ebf-5cb1779c6fca",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "https://postman-echo.com/get"
+          },
+          "response": []
         }
       ],
       "_postman_id": "d649d1a4-c42c-4dae-ad7b-ef4fced317f9"
-    },
-    {
-      "name": "T_PostReadBasic",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "var auth = postman.getEnvironmentVariable(\"GraphAuth\");",
-              "tests[\"Auth token acquired.\"] = (auth.length > 10);",
-              ""
-            ]
-          }
-        }
-      ],
-      "_postman_id": "d84dbf93-3a36-4abe-7ebf-5cb1779c6fca",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "url": "https://postman-echo.com/get"
-      },
-      "response": []
     },
     {
       "name": "Get Specific Version",
@@ -7057,7 +7057,7 @@
   ],
   "variable": [
     {
-      "id": "ae243e36-b5ef-4346-8931-6ec8dfeff104",
+      "id": "94df3d6f-8775-4382-a5eb-c8c9bf2991e1",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
