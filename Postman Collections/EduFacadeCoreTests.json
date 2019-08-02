@@ -2689,6 +2689,12 @@
           "_postman_isSubFolder": true
         },
         {
+          "name": "Me",
+          "item": [],
+          "_postman_id": "927bd4c3-b785-40e5-b066-087ba488a9a2",
+          "_postman_isSubFolder": true
+        },
+        {
           "name": "T_PreME",
           "event": [
             {
@@ -7195,7 +7201,7 @@
   ],
   "variable": [
     {
-      "id": "29ba752d-1e74-4595-b783-5975a82d98de",
+      "id": "14c1189d-f0ec-4d58-a62b-5c1fc072edcc",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
