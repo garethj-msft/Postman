@@ -1449,12 +1449,6 @@
           "_postman_isSubFolder": true
         },
         {
-          "name": "Class",
-          "item": [],
-          "_postman_id": "b136c29b-141e-4a56-b9d7-68e77103bce5",
-          "_postman_isSubFolder": true
-        },
-        {
           "name": "Get Classes",
           "event": [
             {
@@ -7187,7 +7181,7 @@
   ],
   "variable": [
     {
-      "id": "596c5cc8-52dd-4160-8b61-cf2c1aae5cc4",
+      "id": "35442daf-e500-4919-b934-5ef2aa8aff1e",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
