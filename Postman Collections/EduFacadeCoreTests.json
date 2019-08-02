@@ -863,37 +863,37 @@
                 "url": "https://{{loginHost}}/{{tenantDomain}}/oauth2/token"
               },
               "response": []
-            },
-            {
-              "name": "T_PostReadBasic",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "type": "text/javascript",
-                    "exec": [
-                      "var auth = postman.getEnvironmentVariable(\"GraphAuth\");",
-                      "tests[\"Auth token acquired.\"] = (auth.length > 10);",
-                      ""
-                    ]
-                  }
-                }
-              ],
-              "_postman_id": "d84dbf93-3a36-4abe-7ebf-5cb1779c6fca",
-              "request": {
-                "method": "GET",
-                "header": [],
-                "body": {
-                  "mode": "raw",
-                  "raw": ""
-                },
-                "url": "https://postman-echo.com/get"
-              },
-              "response": []
             }
           ],
           "_postman_id": "9294f44f-26a7-4b5d-962c-020094962b29",
           "_postman_isSubFolder": true
+        },
+        {
+          "name": "T_PostReadBasic",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var auth = postman.getEnvironmentVariable(\"GraphAuth\");",
+                  "tests[\"Auth token acquired.\"] = (auth.length > 10);",
+                  ""
+                ]
+              }
+            }
+          ],
+          "_postman_id": "d84dbf93-3a36-4abe-7ebf-5cb1779c6fca",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "https://postman-echo.com/get"
+          },
+          "response": []
         },
         {
           "name": "Get Specific Version",
@@ -7167,7 +7167,7 @@
   ],
   "variable": [
     {
-      "id": "cc6b5ddc-0186-49a6-8c05-0dbd3a869e6e",
+      "id": "f5f5eaaf-321c-40aa-a456-0ad2e207a2db",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
