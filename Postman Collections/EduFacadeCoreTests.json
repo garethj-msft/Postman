@@ -4056,45 +4056,46 @@
       "item": [
         {
           "name": "Auth",
-          "item": [],
-          "_postman_id": "963703dd-7c85-474e-8152-90399039c8c1",
-          "_postman_isSubFolder": true
-        },
-        {
-          "name": "T_PreReadWrite",
-          "event": [
+          "item": [
             {
-              "listen": "prerequest",
-              "script": {
-                "id": "462c72a5-720d-4ab2-b71d-3ada7aa327a9",
-                "exec": [
-                  "postman.setEnvironmentVariable(\"GraphAuth\", \"\");\r",
-                  "var authType = postman.getEnvironmentVariable(\"authType\");\r",
-                  "if (authType === 'appOnly')\r",
-                  "{\r",
-                  "    postman.setNextRequest(\"T_AppOnlyToken GraphReadWrite\");\r",
-                  "}\r",
-                  "else\r",
-                  "{\r",
-                  "    postman.setNextRequest(\"T_AppPlusUserToken GraphReadWrite\");\r",
-                  "\r",
-                  "}"
-                ],
-                "type": "text/javascript"
-              }
+              "name": "T_PreReadWrite",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "462c72a5-720d-4ab2-b71d-3ada7aa327a9",
+                    "exec": [
+                      "postman.setEnvironmentVariable(\"GraphAuth\", \"\");\r",
+                      "var authType = postman.getEnvironmentVariable(\"authType\");\r",
+                      "if (authType === 'appOnly')\r",
+                      "{\r",
+                      "    postman.setNextRequest(\"T_AppOnlyToken GraphReadWrite\");\r",
+                      "}\r",
+                      "else\r",
+                      "{\r",
+                      "    postman.setNextRequest(\"T_AppPlusUserToken GraphReadWrite\");\r",
+                      "\r",
+                      "}"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "807fa391-54f4-a1d9-535d-979bd7c20f28",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://postman-echo.com/get"
+              },
+              "response": []
             }
           ],
-          "_postman_id": "807fa391-54f4-a1d9-535d-979bd7c20f28",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": "https://postman-echo.com/get"
-          },
-          "response": []
+          "_postman_id": "963703dd-7c85-474e-8152-90399039c8c1",
+          "_postman_isSubFolder": true
         },
         {
           "name": "T_AppPlusUserToken GraphReadWrite",
@@ -7131,7 +7132,7 @@
   ],
   "variable": [
     {
-      "id": "c52a975b-e191-4a6f-8ed9-88b3c05c8725",
+      "id": "74d513dc-d161-4ee3-8b2f-ebdda35b2319",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
