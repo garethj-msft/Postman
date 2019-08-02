@@ -2418,84 +2418,84 @@
                 }
               },
               "response": []
+            },
+            {
+              "name": "Get A User  Expand Multi",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+                      "if(expectedSuccess)",
+                      "{",
+                      "    tests[\"Schools and classes present\"] = responseBody.has('classes\":[{') && responseBody.has('schools\":[{')  ;",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "3421dd70-5abe-661b-ae48-464fcfaeec2d",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
+                },
+                "url": {
+                  "raw": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}?$expand=schools,classes",
+                  "protocol": "{{https}}",
+                  "host": [
+                    "{{host}}"
+                  ],
+                  "path": [
+                    "{{graphVersion}}",
+                    "education",
+                    "users",
+                    "{{primaryTestUserId}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$expand",
+                      "value": "schools,classes"
+                    }
+                  ]
+                }
+              },
+              "response": []
             }
           ],
           "_postman_id": "3574fbf0-5e10-470c-a42a-c002f4abc97f",
           "_postman_isSubFolder": true
-        },
-        {
-          "name": "Get A User  Expand Multi",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-                  "if(expectedSuccess)",
-                  "{",
-                  "    tests[\"Schools and classes present\"] = responseBody.has('classes\":[{') && responseBody.has('schools\":[{')  ;",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "_postman_id": "3421dd70-5abe-661b-ae48-464fcfaeec2d",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
-            },
-            "url": {
-              "raw": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}?$expand=schools,classes",
-              "protocol": "{{https}}",
-              "host": [
-                "{{host}}"
-              ],
-              "path": [
-                "{{graphVersion}}",
-                "education",
-                "users",
-                "{{primaryTestUserId}}"
-              ],
-              "query": [
-                {
-                  "key": "$expand",
-                  "value": "schools,classes"
-                }
-              ]
-            }
-          },
-          "response": []
         },
         {
           "name": "Get A User  Nav Classes",
@@ -7195,7 +7195,7 @@
   ],
   "variable": [
     {
-      "id": "ce971ed0-0c9a-4893-8733-c4ec2461d023",
+      "id": "58a20775-7d12-440d-8b55-83c66a4d23a7",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
