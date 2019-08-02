@@ -6679,16 +6679,17 @@
             {
               "listen": "prerequest",
               "script": {
-                "type": "text/javascript",
+                "id": "cc4c7436-de7f-4fe0-bd17-454fd27a4e8b",
                 "exec": [
-                  "// Skip /me request for AppOnly\r",
-                  "var authType = postman.getEnvironmentVariable(\"authType\");\r",
-                  "if (authType === 'appOnly')\r",
+                  "// Skip /relatedContacts request for v1.0\r",
+                  "var graphVersion = postman.getEnvironmentVariable(\"graphVersion\");\r",
+                  "if (graphVersion === 'v1.0')\r",
                   "{\r",
-                  "    postman.setNextRequest(\"T_PostME\");\r",
+                  "    postman.setNextRequest(\"T_PostRelated\");\r",
                   "}\r",
                   ""
-                ]
+                ],
+                "type": "text/javascript"
               }
             }
           ],
@@ -7123,7 +7124,7 @@
   ],
   "variable": [
     {
-      "id": "47287c3f-61aa-441e-95b4-659f624e0bb3",
+      "id": "dc5c992b-3a5c-4c48-b638-684fb6ea89fa",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
