@@ -683,6 +683,12 @@
       "name": "ReadBasic",
       "item": [
         {
+          "name": "Auth",
+          "item": [],
+          "_postman_id": "9294f44f-26a7-4b5d-962c-020094962b29",
+          "_postman_isSubFolder": true
+        },
+        {
           "name": "T_PreReadBasic",
           "event": [
             {
@@ -6640,169 +6646,138 @@
                 "url": "{{https}}://{{host}}/{{graphVersion}}/education/users"
               },
               "response": []
-            }
-          ],
-          "_postman_id": "69660e9a-3e65-4405-bac9-42fbc484bda7",
-          "_postman_isSubFolder": true
-        },
-        {
-          "name": "Check just created Student",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "3f6cdc1b-562b-40da-8bcb-690f6d97b74e",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
-                ],
-                "type": "text/javascript"
-              }
             },
             {
-              "listen": "test",
-              "script": {
-                "id": "8ada00cc-4dff-4921-94d8-b778f19c449b",
-                "exec": [
-                  "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-                  "if(!expectedSuccess)",
-                  "{",
-                  "    tests[\"Status code is 404\"] = responseCode.code === 404;",
-                  "}",
-                  "else",
-                  "{",
-                  "    tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "    tests[\"User created\"] = responseBody.has('\"id\":')",
-                  "    tests[\"Custom data created\"] = responseBody.has('\"Middle\"')",
-                  "    tests[\"Custom student data created\"] = responseBody.has('\"studentNumber\":\"789\"')",
-                  "}"
+              "name": "Check just created Student",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "3f6cdc1b-562b-40da-8bcb-690f6d97b74e",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "8ada00cc-4dff-4921-94d8-b778f19c449b",
+                    "exec": [
+                      "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+                      "if(!expectedSuccess)",
+                      "{",
+                      "    tests[\"Status code is 404\"] = responseCode.code === 404;",
+                      "}",
+                      "else",
+                      "{",
+                      "    tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "    tests[\"User created\"] = responseBody.has('\"id\":')",
+                      "    tests[\"Custom data created\"] = responseBody.has('\"Middle\"')",
+                      "    tests[\"Custom student data created\"] = responseBody.has('\"studentNumber\":\"789\"')",
+                      "}"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "0dcc1628-78c8-4d5f-84a6-9ee8e18cc7a0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
                 ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "0dcc1628-78c8-4d5f-84a6-9ee8e18cc7a0",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
+                "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}"
               },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              }
-            ],
-            "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}"
-          },
-          "response": []
-        },
-        {
-          "name": "T_PreRelated",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "cc4c7436-de7f-4fe0-bd17-454fd27a4e8b",
-                "exec": [
-                  "// Skip /relatedContacts request for v1.0\r",
-                  "var graphVersion = postman.getEnvironmentVariable(\"graphVersion\");\r",
-                  "if (graphVersion === 'v1.0')\r",
-                  "{\r",
-                  "    postman.setNextRequest(\"T_PostRelated\");\r",
-                  "}\r",
-                  ""
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "9a657428-2cd4-4d47-b785-2f54d80396ed",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "https://postman-echo.com/get"
-          },
-          "response": []
-        },
-        {
-          "name": "Patch-Education-User-Contacts",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "1cbf23a8-1bd6-4743-87e6-f2309db09ba9",
-                "exec": [
-                  "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-                  "if(!expectedSuccess)",
-                  "{",
-                  "    tests[\"Status code is 403\"] = responseCode.code === 403;",
-                  "}",
-                  "else",
-                  "{",
-                  "    tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "    if (responseBody.has('\"relatedContacts\":'))",
-                  "    {",
-                  "        var jsonData = JSON.parse(responseBody);",
-                  "        tests[\"Related count\"] = jsonData.relatedContacts.count === 3;",
-                  "    }",
-                  "}"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "883c63b6-959d-4e71-9458-03675872b066",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "PATCH",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n\t\"relatedContacts\": [\n\t\t\t{\n\t\t\t\t\"displayName\": \"Test User 22\",\n\t            \"emailAddress\": \"user1@outlook.com\",\n\t            \"mobilePhone\": \"123-456-7890\",\n\t            \"relationship\": \"parent\",\n\t            \"accessConsent\": true\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"displayName\": \"Test User 23\",\n\t            \"emailAddress\": \"user2@outlook.com\",\n\t            \"mobilePhone\": \"123-456-7890\",\n\t            \"relationship\": \"parent\",\n\t            \"accessConsent\": true\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"displayName\": \"Test user 24\",\n\t            \"emailAddress\": \"user3@outlook.com\",\n\t            \"relationship\": \"relative\",\n\t            \"accessConsent\": false\n\t\t\t}\n\t\t]\n}"
+              "response": []
             },
-            "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}",
-            "description": "Patch"
-          },
-          "response": [
             {
-              "id": "587226fa-d27e-426c-8799-5c246db61265",
-              "name": "LocalGraph-PatchRC",
-              "originalRequest": {
+              "name": "T_PreRelated",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "cc4c7436-de7f-4fe0-bd17-454fd27a4e8b",
+                    "exec": [
+                      "// Skip /relatedContacts request for v1.0\r",
+                      "var graphVersion = postman.getEnvironmentVariable(\"graphVersion\");\r",
+                      "if (graphVersion === 'v1.0')\r",
+                      "{\r",
+                      "    postman.setNextRequest(\"T_PostRelated\");\r",
+                      "}\r",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "9a657428-2cd4-4d47-b785-2f54d80396ed",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": "https://postman-echo.com/get"
+              },
+              "response": []
+            },
+            {
+              "name": "Patch-Education-User-Contacts",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "1cbf23a8-1bd6-4743-87e6-f2309db09ba9",
+                    "exec": [
+                      "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+                      "if(!expectedSuccess)",
+                      "{",
+                      "    tests[\"Status code is 403\"] = responseCode.code === 403;",
+                      "}",
+                      "else",
+                      "{",
+                      "    tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "    if (responseBody.has('\"relatedContacts\":'))",
+                      "    {",
+                      "        var jsonData = JSON.parse(responseBody);",
+                      "        tests[\"Related count\"] = jsonData.relatedContacts.count === 3;",
+                      "    }",
+                      "}"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "883c63b6-959d-4e71-9458-03675872b066",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
                 "method": "PATCH",
                 "header": [
                   {
                     "key": "Authorization",
-                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFDeS1ZdnFFcEo3UjQxMkpRNlE3NWEwQ05WY1J2eHViNmJuNFFzTndRNzFMbXRpTkV4UjlybS04QTZ2NE9IWFZManE1OFRmZnlSRklEcHI0LWhLa1ZUaUpDNzJzU1FVMG9PcTlZUnJGb2ZqTGlBQSIsImFsZyI6IlJTMjU2IiwieDV0IjoiOS1pUXRmZGdmRFhrTnZRM01ibzF6UXZkb3RNIiwia2lkIjoiOS1pUXRmZGdmRFhrTnZRM01ibzF6UXZkb3RNIn0.eyJhdWQiOiJodHRwczovL2dyYXBoLm1pY3Jvc29mdC1wcGUuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy1wcGUubmV0LzI1YjQ3NzBhLWNkMmEtNDViZS04MjU2LTY5OGExYTAwYWViMS8iLCJpYXQiOjE1MzU0OTQwMDksIm5iZiI6MTUzNTQ5NDAwOSwiZXhwIjoxNTM1NDk3OTA5LCJhY2N0IjowLCJhY3IiOiIxIiwiYWlvIjoiNDJaZ1lGQ2IxaDNRSG41T0xNUWdNR09HcmVSRll4ZVh1a1dGVzhTdldjMFA3MWtzZkEwQSIsImFtciI6WyJwd2QiXSwiYXBwX2Rpc3BsYXluYW1lIjoiU0RTQVBJVGVzdFJXIiwiYXBwaWQiOiIxNzFjNjlkMC04ZDg0LTRkZTYtYTQzYS0zN2JiNWQ1ZjAxYTgiLCJhcHBpZGFjciI6IjEiLCJmYW1pbHlfbmFtZSI6IkJhcmF0IiwiZ2l2ZW5fbmFtZSI6IkthdXNoaWsiLCJpcGFkZHIiOiIxNjcuMjIwLjIuNSIsIm5hbWUiOiJLYXVzaGlrIEJhcmF0Iiwib2lkIjoiMzEwNWFhZGMtMDhmMy00MGQ2LWFmYjMtN2Q0NWJkYmM5YjVjIiwicGxhdGYiOiIxNCIsInB1aWQiOiIxMDAzMDAwMDkwODIyNDE5Iiwic2NwIjoiRWR1QWRtaW5pc3RyYXRpb24uUmVhZFdyaXRlIFVzZXIuUmVhZCIsInN1YiI6Ik5yRHNPdGJ2TDIydkRPYTRGZG1MMXBYNVB2ZUVPb1ltNm1hVnBIM2J1NDgiLCJ0aWQiOiIyNWI0NzcwYS1jZDJhLTQ1YmUtODI1Ni02OThhMWEwMGFlYjEiLCJ1bmlxdWVfbmFtZSI6InBvcnRhbGFkbWluQHpzZHRlc3QxNS5jY3NjdHAubmV0IiwidXBuIjoicG9ydGFsYWRtaW5AenNkdGVzdDE1LmNjc2N0cC5uZXQiLCJ1dGkiOiJHU3BoTHBnaktFS1h0SFItVUxvQkFBIiwidmVyIjoiMS4wIiwid2lkcyI6WyI2MmU5MDM5NC02OWY1LTQyMzctOTE5MC0wMTIxNzcxNDVlMTAiXX0.Aqf4OedRE2sgrVY33q3aw7A4KKSeUa_B-5yilAQlVWGBSO_EWWIWyzat5--KwkGV4a5uLj8V69P1jLjIHr2khvLHNUlwhl5e--8zJocrnG8ov4goVyzekBX6Mw_FoBEy603_qA4Avb2QQs-44qTajp9EWS355sbWcvlL3OX-ijRE2ZyqHJKG7qKiLWYuY8ekPcwINhOR2P0nadUyVncsmpQM6vxS6WL_aJiASkuMCLBoEvv5S571J-aaDHXqwYN066HJ1r5DuyZdjRGtvDICotf6FO38MOxtWVUT3A23eMaGIyEep6vYWhwGHjp7wUO-SL0z1FrYURWoQ_VpKa3c7w"
+                    "value": "{{GraphAuth}}"
                   },
                   {
                     "key": "Content-Type",
@@ -6815,105 +6790,200 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n\t\"relatedContacts\": [\n\t\t\t{\n\t\t\t\t\"displayName\": \"TestUser G\",\n\t\t\t\t\"emailAddress\": \"user@outlook.com\",\n            \t\"mobilePhone\": \"123-456-7890\",\n            \t\"relationship\": \"Parent\"\n\t\t\t}\n\t\t]\n}"
+                  "raw": "{\n\t\"relatedContacts\": [\n\t\t\t{\n\t\t\t\t\"displayName\": \"Test User 22\",\n\t            \"emailAddress\": \"user1@outlook.com\",\n\t            \"mobilePhone\": \"123-456-7890\",\n\t            \"relationship\": \"parent\",\n\t            \"accessConsent\": true\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"displayName\": \"Test User 23\",\n\t            \"emailAddress\": \"user2@outlook.com\",\n\t            \"mobilePhone\": \"123-456-7890\",\n\t            \"relationship\": \"parent\",\n\t            \"accessConsent\": true\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"displayName\": \"Test user 24\",\n\t            \"emailAddress\": \"user3@outlook.com\",\n\t            \"relationship\": \"relative\",\n\t            \"accessConsent\": false\n\t\t\t}\n\t\t]\n}"
                 },
-                "url": "https://{{host}}/{{version}}/educationUser/1eccbb96-6ede-403d-aa2f-97131b5e6efb"
+                "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}",
+                "description": "Patch"
               },
-              "status": "Accepted",
-              "code": 202,
-              "_postman_previewlanguage": "json",
-              "header": [
+              "response": [
                 {
-                  "key": "Cache-Control",
-                  "value": "private",
-                  "name": "Cache-Control",
-                  "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
-                },
+                  "id": "587226fa-d27e-426c-8799-5c246db61265",
+                  "name": "LocalGraph-PatchRC",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFDeS1ZdnFFcEo3UjQxMkpRNlE3NWEwQ05WY1J2eHViNmJuNFFzTndRNzFMbXRpTkV4UjlybS04QTZ2NE9IWFZManE1OFRmZnlSRklEcHI0LWhLa1ZUaUpDNzJzU1FVMG9PcTlZUnJGb2ZqTGlBQSIsImFsZyI6IlJTMjU2IiwieDV0IjoiOS1pUXRmZGdmRFhrTnZRM01ibzF6UXZkb3RNIiwia2lkIjoiOS1pUXRmZGdmRFhrTnZRM01ibzF6UXZkb3RNIn0.eyJhdWQiOiJodHRwczovL2dyYXBoLm1pY3Jvc29mdC1wcGUuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy1wcGUubmV0LzI1YjQ3NzBhLWNkMmEtNDViZS04MjU2LTY5OGExYTAwYWViMS8iLCJpYXQiOjE1MzU0OTQwMDksIm5iZiI6MTUzNTQ5NDAwOSwiZXhwIjoxNTM1NDk3OTA5LCJhY2N0IjowLCJhY3IiOiIxIiwiYWlvIjoiNDJaZ1lGQ2IxaDNRSG41T0xNUWdNR09HcmVSRll4ZVh1a1dGVzhTdldjMFA3MWtzZkEwQSIsImFtciI6WyJwd2QiXSwiYXBwX2Rpc3BsYXluYW1lIjoiU0RTQVBJVGVzdFJXIiwiYXBwaWQiOiIxNzFjNjlkMC04ZDg0LTRkZTYtYTQzYS0zN2JiNWQ1ZjAxYTgiLCJhcHBpZGFjciI6IjEiLCJmYW1pbHlfbmFtZSI6IkJhcmF0IiwiZ2l2ZW5fbmFtZSI6IkthdXNoaWsiLCJpcGFkZHIiOiIxNjcuMjIwLjIuNSIsIm5hbWUiOiJLYXVzaGlrIEJhcmF0Iiwib2lkIjoiMzEwNWFhZGMtMDhmMy00MGQ2LWFmYjMtN2Q0NWJkYmM5YjVjIiwicGxhdGYiOiIxNCIsInB1aWQiOiIxMDAzMDAwMDkwODIyNDE5Iiwic2NwIjoiRWR1QWRtaW5pc3RyYXRpb24uUmVhZFdyaXRlIFVzZXIuUmVhZCIsInN1YiI6Ik5yRHNPdGJ2TDIydkRPYTRGZG1MMXBYNVB2ZUVPb1ltNm1hVnBIM2J1NDgiLCJ0aWQiOiIyNWI0NzcwYS1jZDJhLTQ1YmUtODI1Ni02OThhMWEwMGFlYjEiLCJ1bmlxdWVfbmFtZSI6InBvcnRhbGFkbWluQHpzZHRlc3QxNS5jY3NjdHAubmV0IiwidXBuIjoicG9ydGFsYWRtaW5AenNkdGVzdDE1LmNjc2N0cC5uZXQiLCJ1dGkiOiJHU3BoTHBnaktFS1h0SFItVUxvQkFBIiwidmVyIjoiMS4wIiwid2lkcyI6WyI2MmU5MDM5NC02OWY1LTQyMzctOTE5MC0wMTIxNzcxNDVlMTAiXX0.Aqf4OedRE2sgrVY33q3aw7A4KKSeUa_B-5yilAQlVWGBSO_EWWIWyzat5--KwkGV4a5uLj8V69P1jLjIHr2khvLHNUlwhl5e--8zJocrnG8ov4goVyzekBX6Mw_FoBEy603_qA4Avb2QQs-44qTajp9EWS355sbWcvlL3OX-ijRE2ZyqHJKG7qKiLWYuY8ekPcwINhOR2P0nadUyVncsmpQM6vxS6WL_aJiASkuMCLBoEvv5S571J-aaDHXqwYN066HJ1r5DuyZdjRGtvDICotf6FO38MOxtWVUT3A23eMaGIyEep6vYWhwGHjp7wUO-SL0z1FrYURWoQ_VpKa3c7w"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n\t\"relatedContacts\": [\n\t\t\t{\n\t\t\t\t\"displayName\": \"TestUser G\",\n\t\t\t\t\"emailAddress\": \"user@outlook.com\",\n            \t\"mobilePhone\": \"123-456-7890\",\n            \t\"relationship\": \"Parent\"\n\t\t\t}\n\t\t]\n}"
+                    },
+                    "url": "https://{{host}}/{{version}}/educationUser/1eccbb96-6ede-403d-aa2f-97131b5e6efb"
+                  },
+                  "status": "Accepted",
+                  "code": 202,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Cache-Control",
+                      "value": "private",
+                      "name": "Cache-Control",
+                      "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+                      "name": "Content-Type",
+                      "description": "The mime type of this content"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Tue, 28 Aug 2018 22:46:30 GMT",
+                      "name": "Date",
+                      "description": "The date and time that the message was sent"
+                    },
+                    {
+                      "key": "Duration",
+                      "value": "15240.6609",
+                      "name": "Duration",
+                      "description": "Custom header"
+                    },
+                    {
+                      "key": "OData-Version",
+                      "value": "4.0",
+                      "name": "OData-Version",
+                      "description": "Custom header"
+                    },
+                    {
+                      "key": "Strict-Transport-Security",
+                      "value": "max-age=31536000",
+                      "name": "Strict-Transport-Security",
+                      "description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+                    },
+                    {
+                      "key": "Transfer-Encoding",
+                      "value": "chunked",
+                      "name": "Transfer-Encoding",
+                      "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+                    },
+                    {
+                      "key": "client-request-id",
+                      "value": "13a2a769-f570-43dd-b5bf-eea3efd38f0a",
+                      "name": "client-request-id",
+                      "description": "Custom header"
+                    },
+                    {
+                      "key": "request-id",
+                      "value": "13a2a769-f570-43dd-b5bf-eea3efd38f0a",
+                      "name": "request-id",
+                      "description": "Custom header"
+                    },
+                    {
+                      "key": "x-ms-ags-diagnostic",
+                      "value": "{\"ServerInfo\":{\"DataCenter\":\"North Central US\",\"Slice\":\"SliceC\",\"Ring\":\"0\",\"ScaleUnit\":\"001\",\"Host\":\"AGSFE_IN_2\",\"ADSiteName\":\"NCU\"}}",
+                      "name": "x-ms-ags-diagnostic",
+                      "description": "Custom header"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\"@odata.context\":\"https://graph.microsoft-ppe.com/testsdsobo/$metadata#educationUser/$entity\",\"id\":\"1eccbb96-6ede-403d-aa2f-97131b5e6efb\",\"relatedContacts\":[{\"displayName\":\"TestUser G\",\"emailAddress\":\"user@outlook.com\",\"mobilePhone\":\"123-456-7890\",\"relationship\":\"parent\",\"accessConsent\":false}]}"
+                }
+              ]
+            },
+            {
+              "name": "T_PostRelated",
+              "event": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
-                  "name": "Content-Type",
-                  "description": "The mime type of this content"
-                },
-                {
-                  "key": "Date",
-                  "value": "Tue, 28 Aug 2018 22:46:30 GMT",
-                  "name": "Date",
-                  "description": "The date and time that the message was sent"
-                },
-                {
-                  "key": "Duration",
-                  "value": "15240.6609",
-                  "name": "Duration",
-                  "description": "Custom header"
-                },
-                {
-                  "key": "OData-Version",
-                  "value": "4.0",
-                  "name": "OData-Version",
-                  "description": "Custom header"
-                },
-                {
-                  "key": "Strict-Transport-Security",
-                  "value": "max-age=31536000",
-                  "name": "Strict-Transport-Security",
-                  "description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
-                },
-                {
-                  "key": "Transfer-Encoding",
-                  "value": "chunked",
-                  "name": "Transfer-Encoding",
-                  "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
-                },
-                {
-                  "key": "client-request-id",
-                  "value": "13a2a769-f570-43dd-b5bf-eea3efd38f0a",
-                  "name": "client-request-id",
-                  "description": "Custom header"
-                },
-                {
-                  "key": "request-id",
-                  "value": "13a2a769-f570-43dd-b5bf-eea3efd38f0a",
-                  "name": "request-id",
-                  "description": "Custom header"
-                },
-                {
-                  "key": "x-ms-ags-diagnostic",
-                  "value": "{\"ServerInfo\":{\"DataCenter\":\"North Central US\",\"Slice\":\"SliceC\",\"Ring\":\"0\",\"ScaleUnit\":\"001\",\"Host\":\"AGSFE_IN_2\",\"ADSiteName\":\"NCU\"}}",
-                  "name": "x-ms-ags-diagnostic",
-                  "description": "Custom header"
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "00fce24d-69c3-495e-8ddb-fb5c7871f92e",
+                    "exec": [
+                      "// Just a placeholder."
+                    ],
+                    "type": "text/javascript"
+                  }
                 }
               ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\"@odata.context\":\"https://graph.microsoft-ppe.com/testsdsobo/$metadata#educationUser/$entity\",\"id\":\"1eccbb96-6ede-403d-aa2f-97131b5e6efb\",\"relatedContacts\":[{\"displayName\":\"TestUser G\",\"emailAddress\":\"user@outlook.com\",\"mobilePhone\":\"123-456-7890\",\"relationship\":\"parent\",\"accessConsent\":false}]}"
-            }
-          ]
-        },
-        {
-          "name": "T_PostRelated",
-          "event": [
+              "_postman_id": "6e95e319-cf04-4b51-9780-5bd83985c4ec",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": "https://postman-echo.com/get"
+              },
+              "response": []
+            },
             {
-              "listen": "prerequest",
-              "script": {
-                "id": "00fce24d-69c3-495e-8ddb-fb5c7871f92e",
-                "exec": [
-                  "// Just a placeholder."
+              "name": "Delete just created Student",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "b9d4805b-02e8-4c03-aaae-41ef75552617",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "c52f954a-033f-4a95-b850-5919ecb929fc",
+                    "exec": [
+                      "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+                      "if(!expectedSuccess)",
+                      "{",
+                      "    tests[\"Status code is 403\"] = responseCode.code === 403;",
+                      "}",
+                      "else",
+                      "{",
+                      "    tests[\"Status code is 204\"] = responseCode.code === 204;",
+                      "}"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "e83b05cc-41b2-4904-8f31-a90da9516605",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
                 ],
-                "type": "text/javascript"
-              }
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}"
+              },
+              "response": []
             }
           ],
-          "_postman_id": "6e95e319-cf04-4b51-9780-5bd83985c4ec",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "https://postman-echo.com/get"
-          },
-          "response": []
+          "_postman_id": "69660e9a-3e65-4405-bac9-42fbc484bda7",
+          "_postman_isSubFolder": true
         }
       ],
       "_postman_id": "66537159-9385-416e-a89e-b858a0e64f4a"
@@ -7000,70 +7070,6 @@
           }
         ],
         "url": "{{https}}://{{host}}/beta/education/schools"
-      },
-      "response": []
-    },
-    {
-      "name": "Delete just created Student",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "id": "b9d4805b-02e8-4c03-aaae-41ef75552617",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
-            ],
-            "type": "text/javascript"
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "id": "c52f954a-033f-4a95-b850-5919ecb929fc",
-            "exec": [
-              "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-              "if(!expectedSuccess)",
-              "{",
-              "    tests[\"Status code is 403\"] = responseCode.code === 403;",
-              "}",
-              "else",
-              "{",
-              "    tests[\"Status code is 204\"] = responseCode.code === 204;",
-              "}"
-            ],
-            "type": "text/javascript"
-          }
-        }
-      ],
-      "_postman_id": "e83b05cc-41b2-4904-8f31-a90da9516605",
-      "protocolProfileBehavior": {
-        "disableBodyPruning": true
-      },
-      "request": {
-        "method": "DELETE",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}"
       },
       "response": []
     },
@@ -7160,7 +7166,7 @@
   ],
   "variable": [
     {
-      "id": "4b029cdd-6975-4b5f-b226-edfcb4677faa",
+      "id": "8c7cf0e7-574f-4f6b-ae97-9154498998ed",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
