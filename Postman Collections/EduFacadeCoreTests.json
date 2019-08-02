@@ -2631,62 +2631,62 @@
                 }
               },
               "response": []
+            },
+            {
+              "name": "GET Non-education User as EduUser",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "tests[\"PrimaryRole appropriate\"] = !responseBody.has(\"primaryRole\");"
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "769923f0-21cb-ec44-b1a1-e70e734d017b",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{  \"@odata.type\":\"microsoft.graph.group\",\n   \"displayName\":\"GarethClass28\",\n   \"mailNickname\":\"class282\",\n   \"mailEnabled\":true,\n   \"securityEnabled\":false,\n   \"extension_fe2174665583431c953114ff7268b7b3_Education_Period\":\"5\",\n   \"groupTypes\":[\"Unified\"]}"
+                },
+                "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{nonEducationUserId}}"
+              },
+              "response": []
             }
           ],
           "_postman_id": "3574fbf0-5e10-470c-a42a-c002f4abc97f",
           "_postman_isSubFolder": true
-        },
-        {
-          "name": "GET Non-education User as EduUser",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"PrimaryRole appropriate\"] = !responseBody.has(\"primaryRole\");"
-                ]
-              }
-            }
-          ],
-          "_postman_id": "769923f0-21cb-ec44-b1a1-e70e734d017b",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{  \"@odata.type\":\"microsoft.graph.group\",\n   \"displayName\":\"GarethClass28\",\n   \"mailNickname\":\"class282\",\n   \"mailEnabled\":true,\n   \"securityEnabled\":false,\n   \"extension_fe2174665583431c953114ff7268b7b3_Education_Period\":\"5\",\n   \"groupTypes\":[\"Unified\"]}"
-            },
-            "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{nonEducationUserId}}"
-          },
-          "response": []
         },
         {
           "name": "T_PreME",
@@ -7195,7 +7195,7 @@
   ],
   "variable": [
     {
-      "id": "c96b2e07-15a9-411a-bf8a-6e329d9613c0",
+      "id": "29ba752d-1e74-4595-b783-5975a82d98de",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
