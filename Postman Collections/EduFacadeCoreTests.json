@@ -6700,7 +6700,7 @@
           "request": {
             "method": "GET",
             "header": [],
-            "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
+            "url": "https://postman-echo.com/get"
           },
           "response": []
         },
@@ -6719,11 +6719,11 @@
                   "}",
                   "else",
                   "{",
-                  "  //  tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "    tests[\"Status code is 200\"] = responseCode.code === 200;",
                   "    if (responseBody.has('\"relatedContacts\":'))",
                   "    {",
                   "        var jsonData = JSON.parse(responseBody);",
-                  "      //  tests[\"Related count\"] = jsonData.relatedContacts.count === 3;",
+                  "        tests[\"Related count\"] = jsonData.relatedContacts.count === 3;",
                   "    }",
                   "}"
                 ],
@@ -6861,10 +6861,11 @@
             {
               "listen": "prerequest",
               "script": {
-                "type": "text/javascript",
+                "id": "00fce24d-69c3-495e-8ddb-fb5c7871f92e",
                 "exec": [
                   "// Just a placeholder."
-                ]
+                ],
+                "type": "text/javascript"
               }
             }
           ],
@@ -6875,7 +6876,7 @@
           "request": {
             "method": "GET",
             "header": [],
-            "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
+            "url": "https://postman-echo.com/get"
           },
           "response": []
         }
@@ -7124,7 +7125,7 @@
   ],
   "variable": [
     {
-      "id": "e5892d0f-8199-442a-832b-c062c73e430d",
+      "id": "aa73b724-3468-40ab-be13-1119dcacfdbf",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
