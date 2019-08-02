@@ -683,1636 +683,1671 @@
       "name": "ReadBasic",
       "item": [
         {
-          "name": "T_PreReadBasic",
-          "event": [
+          "name": "Auth",
+          "item": [
             {
-              "listen": "prerequest",
-              "script": {
-                "id": "59b746fe-89ac-42be-8b2b-3c2d2a29d96c",
-                "exec": [
-                  "postman.setEnvironmentVariable(\"GraphAuth\", \"\");\r",
-                  "var authType = postman.getEnvironmentVariable(\"authType\");\r",
-                  "if (authType === 'appOnly')\r",
-                  "{\r",
-                  "    postman.setEnvironmentVariable(\"expectedSuccess\", false);\r",
-                  "    postman.setNextRequest(\"T_AppOnlyToken GraphReadBasic\");\r",
-                  "}\r",
-                  "else\r",
-                  "{\r",
-                  "    postman.setEnvironmentVariable(\"expectedSuccess\", true);\r",
-                  "    postman.setNextRequest(\"T_AppPlusUserToken GraphReadBasic\");\r",
-                  "}"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "46d8d2aa-f4cc-0f81-1b7e-86919adcf612",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": "https://postman-echo.com/get"
-          },
-          "response": []
-        },
-        {
-          "name": "T_AppPlusUserToken GraphReadBasic",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "b09647cf-b7eb-464b-b020-6edbffc19837",
-                "exec": [
-                  "postman.setNextRequest(\"T_PostReadBasic\");"
-                ],
-                "type": "text/javascript"
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "86161bc1-ecd3-4dc1-949d-5881fa6a82b3",
-                "exec": [
-                  "tests[\"Successful Request\"] = responseCode.code === 200;",
-                  "if(responseCode.code === 200)",
-                  "{",
-                  "    var data = JSON.parse(responseBody);",
-                  "    postman.setEnvironmentVariable(\"GraphAuth\", \"Bearer \" + data.access_token);",
-                  "    tests[\"New readbasic tokens written to environment\"] = true;",
-                  "}"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "4be741a9-7cd6-0bad-2921-6021297a3970",
-          "request": {
-            "auth": {
-              "type": "noauth"
-            },
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "formdata",
-              "formdata": [
+              "name": "T_PreReadBasic",
+              "event": [
                 {
-                  "key": "grant_type",
-                  "value": "password",
-                  "type": "text"
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "59b746fe-89ac-42be-8b2b-3c2d2a29d96c",
+                    "exec": [
+                      "postman.setEnvironmentVariable(\"GraphAuth\", \"\");\r",
+                      "var authType = postman.getEnvironmentVariable(\"authType\");\r",
+                      "if (authType === 'appOnly')\r",
+                      "{\r",
+                      "    postman.setEnvironmentVariable(\"expectedSuccess\", false);\r",
+                      "    postman.setNextRequest(\"T_AppOnlyToken GraphReadBasic\");\r",
+                      "}\r",
+                      "else\r",
+                      "{\r",
+                      "    postman.setEnvironmentVariable(\"expectedSuccess\", true);\r",
+                      "    postman.setNextRequest(\"T_AppPlusUserToken GraphReadBasic\");\r",
+                      "}"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "46d8d2aa-f4cc-0f81-1b7e-86919adcf612",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://postman-echo.com/get"
+              },
+              "response": []
+            },
+            {
+              "name": "T_AppPlusUserToken GraphReadBasic",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "b09647cf-b7eb-464b-b020-6edbffc19837",
+                    "exec": [
+                      "postman.setNextRequest(\"T_PostReadBasic\");"
+                    ],
+                    "type": "text/javascript"
+                  }
                 },
                 {
-                  "key": "client_id",
-                  "value": "{{GraphClientIdReadBasic}}",
-                  "type": "text"
-                },
-                {
-                  "key": "client_secret",
-                  "value": "{{GraphSecretReadBasic}}",
-                  "type": "text"
-                },
-                {
-                  "key": "resource",
-                  "value": "{{loginResource}}",
-                  "type": "text"
-                },
-                {
-                  "key": "username",
-                  "value": "{{apiCaller}}",
-                  "type": "text"
-                },
-                {
-                  "key": "password",
-                  "value": "{{apiCallerPwd}}",
-                  "type": "text"
+                  "listen": "test",
+                  "script": {
+                    "id": "86161bc1-ecd3-4dc1-949d-5881fa6a82b3",
+                    "exec": [
+                      "tests[\"Successful Request\"] = responseCode.code === 200;",
+                      "if(responseCode.code === 200)",
+                      "{",
+                      "    var data = JSON.parse(responseBody);",
+                      "    postman.setEnvironmentVariable(\"GraphAuth\", \"Bearer \" + data.access_token);",
+                      "    tests[\"New readbasic tokens written to environment\"] = true;",
+                      "}"
+                    ],
+                    "type": "text/javascript"
+                  }
                 }
-              ]
+              ],
+              "_postman_id": "4be741a9-7cd6-0bad-2921-6021297a3970",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "grant_type",
+                      "value": "password",
+                      "type": "text"
+                    },
+                    {
+                      "key": "client_id",
+                      "value": "{{GraphClientIdReadBasic}}",
+                      "type": "text"
+                    },
+                    {
+                      "key": "client_secret",
+                      "value": "{{GraphSecretReadBasic}}",
+                      "type": "text"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "{{loginResource}}",
+                      "type": "text"
+                    },
+                    {
+                      "key": "username",
+                      "value": "{{apiCaller}}",
+                      "type": "text"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{apiCallerPwd}}",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": "https://{{loginHost}}/common/oauth2/token"
+              },
+              "response": []
             },
-            "url": "https://{{loginHost}}/common/oauth2/token"
-          },
-          "response": []
+            {
+              "name": "T_AppOnlyToken GraphReadBasic",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "94a5401d-3b6a-4f0e-beb7-fd51b8328666",
+                    "exec": [
+                      "postman.setNextRequest(\"T_PostReadBasic\");"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "caefe05d-e0df-4435-92c3-36b80fbf57d8",
+                    "exec": [
+                      "tests[\"Successful Request\"] = responseCode.code === 200;",
+                      "if(responseCode.code === 200)",
+                      "{",
+                      "    var data = JSON.parse(responseBody);",
+                      "    postman.setEnvironmentVariable(\"GraphAuth\", \"Bearer \" + data.access_token);",
+                      "    tests[\"New app-only readbasic token written to environment\"] = true;",
+                      "}"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "7ce03215-3584-1f9c-ed51-785c213fc2b2",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "grant_type",
+                      "value": "client_credentials",
+                      "type": "text"
+                    },
+                    {
+                      "key": "client_id",
+                      "value": "{{GraphClientIdReadBasic}}",
+                      "type": "text"
+                    },
+                    {
+                      "key": "client_secret",
+                      "value": "{{GraphSecretReadBasic}}",
+                      "type": "text"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "{{loginResource}}",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": "https://{{loginHost}}/{{tenantDomain}}/oauth2/token"
+              },
+              "response": []
+            },
+            {
+              "name": "T_PostReadBasic",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "var auth = postman.getEnvironmentVariable(\"GraphAuth\");",
+                      "tests[\"Auth token acquired.\"] = (auth.length > 10);",
+                      ""
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "d84dbf93-3a36-4abe-7ebf-5cb1779c6fca",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://postman-echo.com/get"
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "9294f44f-26a7-4b5d-962c-020094962b29",
+          "_postman_isSubFolder": true
         },
         {
-          "name": "T_AppOnlyToken GraphReadBasic",
-          "event": [
+          "name": "Infrastructure",
+          "item": [
             {
-              "listen": "prerequest",
-              "script": {
-                "id": "94a5401d-3b6a-4f0e-beb7-fd51b8328666",
-                "exec": [
-                  "postman.setNextRequest(\"T_PostReadBasic\");"
+              "name": "Get Specific Version",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "e2cb0764-df39-4b5e-80b8-558a32de81b7",
+                    "exec": [
+                      "// Removed due to changes to canary (you can't poll versions)",
+                      "// {{https}}://{{host}}/versions/{{graphVersion}}",
+                      "//tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "// Note no 's' on the end of the workload name because the case differs in canary and prod :-(",
+                      "//tests[\"Rostering deployed\"] = responseBody.has('EducationRosteringAPI');  ",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "63c99bda-f3df-136e-f2cf-a948431f0e61",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  }
                 ],
-                "type": "text/javascript"
-              }
+                "url": "{{https}}://{{host}}/versions/"
+              },
+              "response": []
             },
             {
-              "listen": "test",
-              "script": {
-                "id": "caefe05d-e0df-4435-92c3-36b80fbf57d8",
-                "exec": [
-                  "tests[\"Successful Request\"] = responseCode.code === 200;",
-                  "if(responseCode.code === 200)",
-                  "{",
-                  "    var data = JSON.parse(responseBody);",
-                  "    postman.setEnvironmentVariable(\"GraphAuth\", \"Bearer \" + data.access_token);",
-                  "    tests[\"New app-only readbasic token written to environment\"] = true;",
-                  "}"
+              "name": "Get Metadata",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;"
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "fedd5f0c-856f-766a-cd70-88bef7a7ff7d",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  }
                 ],
-                "type": "text/javascript"
-              }
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
+              },
+              "response": []
+            },
+            {
+              "name": "Get Education",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Expected fail\"] = responseCode.code === 400;"
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "fe9f664b-4828-e86f-2d44-32cab1520424",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{https}}://{{host}}/{{graphVersion}}/education"
+              },
+              "response": []
             }
           ],
-          "_postman_id": "7ce03215-3584-1f9c-ed51-785c213fc2b2",
-          "request": {
-            "auth": {
-              "type": "noauth"
-            },
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "formdata",
-              "formdata": [
+          "_postman_id": "3685b634-0677-4f15-a73a-a92f1aaf27a7",
+          "_postman_isSubFolder": true
+        },
+        {
+          "name": "School",
+          "item": [
+            {
+              "name": "Get Schools",
+              "event": [
                 {
-                  "key": "grant_type",
-                  "value": "client_credentials",
-                  "type": "text"
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "7d740648-00ed-4123-8d40-d6a5956102ab",
+                    "type": "text/javascript",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ]
+                  }
                 },
                 {
-                  "key": "client_id",
-                  "value": "{{GraphClientIdReadBasic}}",
-                  "type": "text"
+                  "listen": "test",
+                  "script": {
+                    "id": "6689f920-0607-4ea2-946a-0d7c6759955c",
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "tests[\"Schools found\"] = responseBody.has('\"id\":');",
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
+                      "}",
+                      "console.log(pm.response.headers.get('x-ms-ags-diagnostic'));"
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "162ab4d2-c675-5f33-94ce-12e549a81ddb",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools"
+              },
+              "response": []
+            },
+            {
+              "name": "Get Schools with Filter",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ]
+                  }
                 },
                 {
-                  "key": "client_secret",
-                  "value": "{{GraphSecretReadBasic}}",
-                  "type": "text"
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "tests[\"Schools found\"] = responseBody.has('\"id\":');",
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "493db0b7-539e-df98-6414-8f3205d9572c",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "{{https}}://{{host}}/{{graphVersion}}/education/schools?$filter=displayName eq 'PrimaryTestSchool' ",
+                  "protocol": "{{https}}",
+                  "host": [
+                    "{{host}}"
+                  ],
+                  "path": [
+                    "{{graphVersion}}",
+                    "education",
+                    "schools"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "displayName eq 'PrimaryTestSchool' "
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Schools Expand Classes",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ]
+                  }
                 },
                 {
-                  "key": "resource",
-                  "value": "{{loginResource}}",
-                  "type": "text"
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "tests[\"Classes returned\"] = responseBody.has('classes\":[{'); ",
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
+                      "}"
+                    ]
+                  }
                 }
-              ]
-            },
-            "url": "https://{{loginHost}}/{{tenantDomain}}/oauth2/token"
-          },
-          "response": []
-        },
-        {
-          "name": "T_PostReadBasic",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "var auth = postman.getEnvironmentVariable(\"GraphAuth\");",
-                  "tests[\"Auth token acquired.\"] = (auth.length > 10);",
-                  ""
-                ]
-              }
-            }
-          ],
-          "_postman_id": "d84dbf93-3a36-4abe-7ebf-5cb1779c6fca",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": "https://postman-echo.com/get"
-          },
-          "response": []
-        },
-        {
-          "name": "Get Specific Version",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "e2cb0764-df39-4b5e-80b8-558a32de81b7",
-                "exec": [
-                  "// Removed due to changes to canary (you can't poll versions)",
-                  "// {{https}}://{{host}}/versions/{{graphVersion}}",
-                  "//tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "// Note no 's' on the end of the workload name because the case differs in canary and prod :-(",
-                  "//tests[\"Rostering deployed\"] = responseBody.has('EducationRosteringAPI');  ",
-                  ""
+              ],
+              "_postman_id": "3768f179-d806-9d9e-ffa3-ec899523cb44",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
                 ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "63c99bda-f3df-136e-f2cf-a948431f0e61",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              }
-            ],
-            "url": "{{https}}://{{host}}/versions/"
-          },
-          "response": []
-        },
-        {
-          "name": "Get Metadata",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;"
-                ]
-              }
-            }
-          ],
-          "_postman_id": "fedd5f0c-856f-766a-cd70-88bef7a7ff7d",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
-          },
-          "response": []
-        },
-        {
-          "name": "Get Education",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Expected fail\"] = responseCode.code === 400;"
-                ]
-              }
-            }
-          ],
-          "_postman_id": "fe9f664b-4828-e86f-2d44-32cab1520424",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": "{{https}}://{{host}}/{{graphVersion}}/education"
-          },
-          "response": []
-        },
-        {
-          "name": "Get Schools",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "7d740648-00ed-4123-8d40-d6a5956102ab",
-                "type": "text/javascript",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "6689f920-0607-4ea2-946a-0d7c6759955c",
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Schools found\"] = responseBody.has('\"id\":');",
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
-                  "}",
-                  "console.log(pm.response.headers.get('x-ms-ags-diagnostic'));"
-                ]
-              }
-            }
-          ],
-          "_postman_id": "162ab4d2-c675-5f33-94ce-12e549a81ddb",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              }
-            ],
-            "body": {
-              "mode": "formdata",
-              "formdata": []
-            },
-            "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools"
-          },
-          "response": []
-        },
-        {
-          "name": "Get Schools with Filter",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Schools found\"] = responseBody.has('\"id\":');",
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "_postman_id": "493db0b7-539e-df98-6414-8f3205d9572c",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": {
-              "raw": "{{https}}://{{host}}/{{graphVersion}}/education/schools?$filter=displayName eq 'PrimaryTestSchool' ",
-              "protocol": "{{https}}",
-              "host": [
-                "{{host}}"
-              ],
-              "path": [
-                "{{graphVersion}}",
-                "education",
-                "schools"
-              ],
-              "query": [
-                {
-                  "key": "$filter",
-                  "value": "displayName eq 'PrimaryTestSchool' "
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "{{https}}://{{host}}/{{graphVersion}}/education/schools?$expand=classes",
+                  "protocol": "{{https}}",
+                  "host": [
+                    "{{host}}"
+                  ],
+                  "path": [
+                    "{{graphVersion}}",
+                    "education",
+                    "schools"
+                  ],
+                  "query": [
+                    {
+                      "key": "$expand",
+                      "value": "classes"
+                    }
+                  ]
                 }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Get Schools Expand Classes",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
-                ]
-              }
+              },
+              "response": []
             },
             {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Classes returned\"] = responseBody.has('classes\":[{'); ",
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "_postman_id": "3768f179-d806-9d9e-ffa3-ec899523cb44",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": {
-              "raw": "{{https}}://{{host}}/{{graphVersion}}/education/schools?$expand=classes",
-              "protocol": "{{https}}",
-              "host": [
-                "{{host}}"
-              ],
-              "path": [
-                "{{graphVersion}}",
-                "education",
-                "schools"
-              ],
-              "query": [
+              "name": "Get A School",
+              "event": [
                 {
-                  "key": "$expand",
-                  "value": "classes"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Get A School",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "_postman_id": "6a6fea18-3383-f25c-a2a7-d70ba23d2ecc",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              },
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{primaryTestSchoolId}}"
-          },
-          "response": []
-        },
-        {
-          "name": "Get A School Expand Classes",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Classes returned\"] = responseBody.has('classes\":[{');",
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "_postman_id": "8a8f08d3-6e2c-e9ca-acac-7c8fa69dd0cb",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": {
-              "raw": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{primaryTestSchoolId}}?$expand=classes",
-              "protocol": "{{https}}",
-              "host": [
-                "{{host}}"
-              ],
-              "path": [
-                "{{graphVersion}}",
-                "education",
-                "schools",
-                "{{primaryTestSchoolId}}"
-              ],
-              "query": [
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ]
+                  }
+                },
                 {
-                  "key": "$expand",
-                  "value": "classes"
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
+                      "}"
+                    ]
+                  }
                 }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Get A School Nav Classes",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Classes returned\"] = responseBody.has('value\":[{');",
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "_postman_id": "3f199f54-e22e-afdd-34c6-869c490b36ac",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{primaryTestSchoolId}}/classes"
-          },
-          "response": []
-        },
-        {
-          "name": "FAIL Get A School Nav Users",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "eb9b1ec2-434a-4e33-8229-583635155af7",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
+              ],
+              "_postman_id": "6a6fea18-3383-f25c-a2a7-d70ba23d2ecc",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  }
                 ],
-                "type": "text/javascript"
-              }
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{primaryTestSchoolId}}"
+              },
+              "response": []
             },
             {
-              "listen": "test",
-              "script": {
-                "id": "fc07c654-9d41-4027-8104-2271f38a6081",
-                "exec": [
-                  "tests[\"Status code is 403\"] = responseCode.code === 403;",
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
-                  "}"
+              "name": "Get A School Expand Classes",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "tests[\"Classes returned\"] = responseBody.has('classes\":[{');",
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "8a8f08d3-6e2c-e9ca-acac-7c8fa69dd0cb",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
                 ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "7230927a-4a3f-45fe-b1c3-ef44d579cf94",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              }
-            ],
-            "body": {
-              "mode": "formdata",
-              "formdata": []
-            },
-            "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{primaryTestSchoolId}}/users"
-          },
-          "response": []
-        },
-        {
-          "name": "Get Classes",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Classes found\"] = responseBody.has('\"id\":')",
-                  "if (!responseBody.has('\"PrimaryTestClass\"'))",
-                  "{",
-                  "    tests[\"Class named PrimaryTestClass required\"] = false;",
-                  "    postman.setNextRequest(null);",
-                  "}",
-                  "",
-                  "if (responseBody.has('\"id\":'))",
-                  "{",
-                  "    var jsonData = JSON.parse(responseBody);",
-                  "    var i;",
-                  "    for (i=0; i < jsonData.value.length; i++)",
-                  "    {",
-                  "        if (jsonData.value[i].displayName ===  'PrimaryTestClass')",
-                  "        {",
-                  "            console.log(\"Primary test class id: \" + jsonData.value[i].id)",
-                  "            postman.setEnvironmentVariable(\"primaryTestClassId\", jsonData.value[i].id)",
-                  "        }",
-                  "    }",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "_postman_id": "c7258513-b673-b30c-0a6e-51638fbfa9e5",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes"
-          },
-          "response": []
-        },
-        {
-          "name": "Get Classes with Filter",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Classes found\"] = responseBody.has('\"id\":')"
-                ]
-              }
-            }
-          ],
-          "_postman_id": "57334215-7b1e-a78c-b980-8f2c2cc04ba0",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": {
-              "raw": "{{https}}://{{host}}/{{graphVersion}}/education/classes?$filter=displayName eq 'PrimaryTestClass' and mailNickname eq 'PrimaryTestClass'",
-              "protocol": "{{https}}",
-              "host": [
-                "{{host}}"
-              ],
-              "path": [
-                "{{graphVersion}}",
-                "education",
-                "classes"
-              ],
-              "query": [
-                {
-                  "key": "$filter",
-                  "value": "displayName eq 'PrimaryTestClass' and mailNickname eq 'PrimaryTestClass'"
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{primaryTestSchoolId}}?$expand=classes",
+                  "protocol": "{{https}}",
+                  "host": [
+                    "{{host}}"
+                  ],
+                  "path": [
+                    "{{graphVersion}}",
+                    "education",
+                    "schools",
+                    "{{primaryTestSchoolId}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$expand",
+                      "value": "classes"
+                    }
+                  ]
                 }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Get Classes Expand Members",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
-                ]
-              }
+              },
+              "response": []
             },
             {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Members returned\"] = responseBody.has('members\":[{'); "
-                ]
-              }
-            }
-          ],
-          "_postman_id": "3974403b-78a9-eb74-b476-04cdb18935ce",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": {
-              "raw": "{{https}}://{{host}}/{{graphVersion}}/education/classes?$expand=members",
-              "protocol": "{{https}}",
-              "host": [
-                "{{host}}"
-              ],
-              "path": [
-                "{{graphVersion}}",
-                "education",
-                "classes"
-              ],
-              "query": [
+              "name": "Get A School Nav Classes",
+              "event": [
                 {
-                  "key": "$expand",
-                  "value": "members"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Get Classes Expand Teachers",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Teachers returned\"] = responseBody.has('teachers\":[{'); "
-                ]
-              }
-            }
-          ],
-          "_postman_id": "4349e9e9-2746-4ad7-fad8-b189479db85f",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": {
-              "raw": "{{https}}://{{host}}/{{graphVersion}}/education/classes?$expand=teachers",
-              "protocol": "{{https}}",
-              "host": [
-                "{{host}}"
-              ],
-              "path": [
-                "{{graphVersion}}",
-                "education",
-                "classes"
-              ],
-              "query": [
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ]
+                  }
+                },
                 {
-                  "key": "$expand",
-                  "value": "teachers"
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "tests[\"Classes returned\"] = responseBody.has('value\":[{');",
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
+                      "}"
+                    ]
+                  }
                 }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Get Classes Expand Schools",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
-                ]
-              }
+              ],
+              "_postman_id": "3f199f54-e22e-afdd-34c6-869c490b36ac",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{primaryTestSchoolId}}/classes"
+              },
+              "response": []
             },
             {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Schools returned\"] = responseBody.has('schools\":[{'); "
-                ]
-              }
-            }
-          ],
-          "_postman_id": "53ad3705-0d5c-6179-9dce-ddd5de2565ce",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": {
-              "raw": "{{https}}://{{host}}/{{graphVersion}}/education/classes?$expand=schools",
-              "protocol": "{{https}}",
-              "host": [
-                "{{host}}"
-              ],
-              "path": [
-                "{{graphVersion}}",
-                "education",
-                "classes"
-              ],
-              "query": [
+              "name": "FAIL Get A School Nav Users",
+              "event": [
                 {
-                  "key": "$expand",
-                  "value": "schools"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Get A Class",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;"
-                ]
-              }
-            }
-          ],
-          "_postman_id": "32b7b07a-9c9c-a55a-c14c-941f284e47c7",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{primaryTestClassId}}"
-          },
-          "response": []
-        },
-        {
-          "name": "Get A Class Expand Members",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Members returned\"] = responseBody.has('members\":[{'); "
-                ]
-              }
-            }
-          ],
-          "_postman_id": "56b5c966-7fad-2430-978a-2f9f7f073142",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": {
-              "raw": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{primaryTestClassId}}?$expand=members",
-              "protocol": "{{https}}",
-              "host": [
-                "{{host}}"
-              ],
-              "path": [
-                "{{graphVersion}}",
-                "education",
-                "classes",
-                "{{primaryTestClassId}}"
-              ],
-              "query": [
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "eb9b1ec2-434a-4e33-8229-583635155af7",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
                 {
-                  "key": "$expand",
-                  "value": "members"
+                  "listen": "test",
+                  "script": {
+                    "id": "fc07c654-9d41-4027-8104-2271f38a6081",
+                    "exec": [
+                      "tests[\"Status code is 403\"] = responseCode.code === 403;",
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
+                      "}"
+                    ],
+                    "type": "text/javascript"
+                  }
                 }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Get A Class Expand Teachers",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Teachers returned\"] = responseBody.has('teachers\":[{'); "
-                ]
-              }
+              ],
+              "_postman_id": "7230927a-4a3f-45fe-b1c3-ef44d579cf94",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{primaryTestSchoolId}}/users"
+              },
+              "response": []
             }
           ],
-          "_postman_id": "1522d920-7c80-e492-89e5-60697556714f",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": {
-              "raw": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{primaryTestClassId}}?$expand=teachers",
-              "protocol": "{{https}}",
-              "host": [
-                "{{host}}"
-              ],
-              "path": [
-                "{{graphVersion}}",
-                "education",
-                "classes",
-                "{{primaryTestClassId}}"
-              ],
-              "query": [
+          "_postman_id": "9d2ad746-9b64-4eca-a45e-67d12d0234a8",
+          "_postman_isSubFolder": true
+        },
+        {
+          "name": "Class",
+          "item": [
+            {
+              "name": "Get Classes",
+              "event": [
                 {
-                  "key": "$expand",
-                  "value": "teachers"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Get A Class Expand Schools",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Schools returned\"] = responseBody.has('schools\":[{'); "
-                ]
-              }
-            }
-          ],
-          "_postman_id": "5ec1ce4e-1fda-77d6-f487-019b432b34d0",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": {
-              "raw": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{primaryTestClassId}}?$expand=schools",
-              "protocol": "{{https}}",
-              "host": [
-                "{{host}}"
-              ],
-              "path": [
-                "{{graphVersion}}",
-                "education",
-                "classes",
-                "{{primaryTestClassId}}"
-              ],
-              "query": [
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ]
+                  }
+                },
                 {
-                  "key": "$expand",
-                  "value": "schools"
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "tests[\"Classes found\"] = responseBody.has('\"id\":')",
+                      "if (!responseBody.has('\"PrimaryTestClass\"'))",
+                      "{",
+                      "    tests[\"Class named PrimaryTestClass required\"] = false;",
+                      "    postman.setNextRequest(null);",
+                      "}",
+                      "",
+                      "if (responseBody.has('\"id\":'))",
+                      "{",
+                      "    var jsonData = JSON.parse(responseBody);",
+                      "    var i;",
+                      "    for (i=0; i < jsonData.value.length; i++)",
+                      "    {",
+                      "        if (jsonData.value[i].displayName ===  'PrimaryTestClass')",
+                      "        {",
+                      "            console.log(\"Primary test class id: \" + jsonData.value[i].id)",
+                      "            postman.setEnvironmentVariable(\"primaryTestClassId\", jsonData.value[i].id)",
+                      "        }",
+                      "    }",
+                      "}"
+                    ]
+                  }
                 }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Get A Class Nav Members",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Members returned\"] = responseBody.has('value\":[{')"
-                ]
-              }
-            }
-          ],
-          "_postman_id": "1a70c82d-3d92-448a-63d5-3cafb6e39f29",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{primaryTestClassId}}/members"
-          },
-          "response": []
-        },
-        {
-          "name": "Get A Class Nav Teachers",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Teachers returned\"] = responseBody.has('value\":[{')"
-                ]
-              }
-            }
-          ],
-          "_postman_id": "eee14bab-d77c-9f33-5c2c-0f97dcd09527",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{primaryTestClassId}}/teachers"
-          },
-          "response": []
-        },
-        {
-          "name": "GET A non-education Group as Class",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}",
-                  ""
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 404\"] = responseCode.code === 404;",
-                  "tests[\"Good error\"] = responseBody.has(\"Resource not found\");"
-                ]
-              }
-            }
-          ],
-          "_postman_id": "ff455e9b-a8e9-0551-3012-ebcd71b95db6",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{  \"@odata.type\":\"microsoft.graph.group\",\n   \"displayName\":\"GarethClass28\",\n   \"mailNickname\":\"class282\",\n   \"mailEnabled\":true,\n   \"securityEnabled\":false,\n   \"extension_fe2174665583431c953114ff7268b7b3_Education_Period\":\"5\",\n   \"groupTypes\":[\"Unified\"]}"
-            },
-            "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{nonEducationGroupId}}"
-          },
-          "response": []
-        },
-        {
-          "name": "Get A User",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"User found\"] = responseBody.has('\"id\":')"
-                ]
-              }
-            }
-          ],
-          "_postman_id": "04a5af12-b803-8b3c-25b7-193ac7722d00",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
-            },
-            "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}"
-          },
-          "response": []
-        },
-        {
-          "name": "Get A User  Expand Schools",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Schools returned\"] = responseBody.has('schools\":[{'); "
-                ]
-              }
-            }
-          ],
-          "_postman_id": "4871ce83-81e4-bcf2-447a-34f510b3657c",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
-            },
-            "url": {
-              "raw": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}?$expand=schools",
-              "protocol": "{{https}}",
-              "host": [
-                "{{host}}"
               ],
-              "path": [
-                "{{graphVersion}}",
-                "education",
-                "users",
-                "{{primaryTestUserId}}"
-              ],
-              "query": [
+              "_postman_id": "c7258513-b673-b30c-0a6e-51638fbfa9e5",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes"
+              },
+              "response": []
+            },
+            {
+              "name": "Get Classes with Filter",
+              "event": [
                 {
-                  "key": "$expand",
-                  "value": "schools"
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "tests[\"Classes found\"] = responseBody.has('\"id\":')"
+                    ]
+                  }
                 }
-              ]
+              ],
+              "_postman_id": "57334215-7b1e-a78c-b980-8f2c2cc04ba0",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "{{https}}://{{host}}/{{graphVersion}}/education/classes?$filter=displayName eq 'PrimaryTestClass' and mailNickname eq 'PrimaryTestClass'",
+                  "protocol": "{{https}}",
+                  "host": [
+                    "{{host}}"
+                  ],
+                  "path": [
+                    "{{graphVersion}}",
+                    "education",
+                    "classes"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "displayName eq 'PrimaryTestClass' and mailNickname eq 'PrimaryTestClass'"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Classes Expand Members",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "tests[\"Members returned\"] = responseBody.has('members\":[{'); "
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "3974403b-78a9-eb74-b476-04cdb18935ce",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "{{https}}://{{host}}/{{graphVersion}}/education/classes?$expand=members",
+                  "protocol": "{{https}}",
+                  "host": [
+                    "{{host}}"
+                  ],
+                  "path": [
+                    "{{graphVersion}}",
+                    "education",
+                    "classes"
+                  ],
+                  "query": [
+                    {
+                      "key": "$expand",
+                      "value": "members"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Classes Expand Teachers",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "tests[\"Teachers returned\"] = responseBody.has('teachers\":[{'); "
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "4349e9e9-2746-4ad7-fad8-b189479db85f",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "{{https}}://{{host}}/{{graphVersion}}/education/classes?$expand=teachers",
+                  "protocol": "{{https}}",
+                  "host": [
+                    "{{host}}"
+                  ],
+                  "path": [
+                    "{{graphVersion}}",
+                    "education",
+                    "classes"
+                  ],
+                  "query": [
+                    {
+                      "key": "$expand",
+                      "value": "teachers"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Classes Expand Schools",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "tests[\"Schools returned\"] = responseBody.has('schools\":[{'); "
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "53ad3705-0d5c-6179-9dce-ddd5de2565ce",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "{{https}}://{{host}}/{{graphVersion}}/education/classes?$expand=schools",
+                  "protocol": "{{https}}",
+                  "host": [
+                    "{{host}}"
+                  ],
+                  "path": [
+                    "{{graphVersion}}",
+                    "education",
+                    "classes"
+                  ],
+                  "query": [
+                    {
+                      "key": "$expand",
+                      "value": "schools"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get A Class",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;"
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "32b7b07a-9c9c-a55a-c14c-941f284e47c7",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{primaryTestClassId}}"
+              },
+              "response": []
+            },
+            {
+              "name": "Get A Class Expand Members",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "tests[\"Members returned\"] = responseBody.has('members\":[{'); "
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "56b5c966-7fad-2430-978a-2f9f7f073142",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{primaryTestClassId}}?$expand=members",
+                  "protocol": "{{https}}",
+                  "host": [
+                    "{{host}}"
+                  ],
+                  "path": [
+                    "{{graphVersion}}",
+                    "education",
+                    "classes",
+                    "{{primaryTestClassId}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$expand",
+                      "value": "members"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get A Class Expand Teachers",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "tests[\"Teachers returned\"] = responseBody.has('teachers\":[{'); "
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "1522d920-7c80-e492-89e5-60697556714f",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{primaryTestClassId}}?$expand=teachers",
+                  "protocol": "{{https}}",
+                  "host": [
+                    "{{host}}"
+                  ],
+                  "path": [
+                    "{{graphVersion}}",
+                    "education",
+                    "classes",
+                    "{{primaryTestClassId}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$expand",
+                      "value": "teachers"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get A Class Expand Schools",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "tests[\"Schools returned\"] = responseBody.has('schools\":[{'); "
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "5ec1ce4e-1fda-77d6-f487-019b432b34d0",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{primaryTestClassId}}?$expand=schools",
+                  "protocol": "{{https}}",
+                  "host": [
+                    "{{host}}"
+                  ],
+                  "path": [
+                    "{{graphVersion}}",
+                    "education",
+                    "classes",
+                    "{{primaryTestClassId}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$expand",
+                      "value": "schools"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get A Class Nav Members",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "tests[\"Members returned\"] = responseBody.has('value\":[{')"
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "1a70c82d-3d92-448a-63d5-3cafb6e39f29",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{primaryTestClassId}}/members"
+              },
+              "response": []
+            },
+            {
+              "name": "Get A Class Nav Teachers",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "tests[\"Teachers returned\"] = responseBody.has('value\":[{')"
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "eee14bab-d77c-9f33-5c2c-0f97dcd09527",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{primaryTestClassId}}/teachers"
+              },
+              "response": []
+            },
+            {
+              "name": "GET A non-education Group as Class",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}",
+                      ""
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Status code is 404\"] = responseCode.code === 404;",
+                      "tests[\"Good error\"] = responseBody.has(\"Resource not found\");"
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "ff455e9b-a8e9-0551-3012-ebcd71b95db6",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{  \"@odata.type\":\"microsoft.graph.group\",\n   \"displayName\":\"GarethClass28\",\n   \"mailNickname\":\"class282\",\n   \"mailEnabled\":true,\n   \"securityEnabled\":false,\n   \"extension_fe2174665583431c953114ff7268b7b3_Education_Period\":\"5\",\n   \"groupTypes\":[\"Unified\"]}"
+                },
+                "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{nonEducationGroupId}}"
+              },
+              "response": []
             }
-          },
-          "response": []
+          ],
+          "_postman_id": "b136c29b-141e-4a56-b9d7-68e77103bce5",
+          "_postman_isSubFolder": true
+        },
+        {
+          "name": "User",
+          "item": [
+            {
+              "name": "Get A User",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "tests[\"User found\"] = responseBody.has('\"id\":')"
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "04a5af12-b803-8b3c-25b7-193ac7722d00",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
+                },
+                "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}"
+              },
+              "response": []
+            },
+            {
+              "name": "Get A User  Expand Schools",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "tests[\"Schools returned\"] = responseBody.has('schools\":[{'); "
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "4871ce83-81e4-bcf2-447a-34f510b3657c",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
+                },
+                "url": {
+                  "raw": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}?$expand=schools",
+                  "protocol": "{{https}}",
+                  "host": [
+                    "{{host}}"
+                  ],
+                  "path": [
+                    "{{graphVersion}}",
+                    "education",
+                    "users",
+                    "{{primaryTestUserId}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$expand",
+                      "value": "schools"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "3574fbf0-5e10-470c-a42a-c002f4abc97f",
+          "_postman_isSubFolder": true
         },
         {
           "name": "Get A User  Expand Classes",
@@ -6560,248 +6595,218 @@
         },
         {
           "name": "Student",
-          "item": [],
-          "_postman_id": "69660e9a-3e65-4405-bac9-42fbc484bda7",
-          "_postman_isSubFolder": true
-        },
-        {
-          "name": "Make a Student",
-          "event": [
+          "item": [
             {
-              "listen": "prerequest",
-              "script": {
-                "id": "3746e43e-59a7-4af8-b480-0533f51d1ef9",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}",
-                  "var currentRandom = Math.floor(Math.random() * 1000).toString();",
-                  "var currentRandom2 = Math.floor(Math.random() * 1000).toString();",
-                  "postman.setEnvironmentVariable(\"currentRandom\", currentRandom + currentRandom2);"
+              "name": "Make a Student",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "3746e43e-59a7-4af8-b480-0533f51d1ef9",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}",
+                      "var currentRandom = Math.floor(Math.random() * 1000).toString();",
+                      "var currentRandom2 = Math.floor(Math.random() * 1000).toString();",
+                      "postman.setEnvironmentVariable(\"currentRandom\", currentRandom + currentRandom2);"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "0c13f115-c51d-4fdd-aee3-7414ac16c8de",
+                    "exec": [
+                      "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+                      "if(!expectedSuccess)",
+                      "{",
+                      "    tests[\"Status code is 403\"] = responseCode.code === 403;",
+                      "    postman.setEnvironmentVariable(\"justCreatedId\", \"9900AA5E-8EBF-4407-B151-CBCF310F1383\"); // Dummy GUID",
+                      "}",
+                      "else",
+                      "{",
+                      "    tests[\"Status code is 201\"] = responseCode.code === 201;",
+                      "    tests[\"Student created\"] = responseBody.has('\"id\":')",
+                      "    if (responseBody.has('\"id\":'))",
+                      "    {",
+                      "        var jsonData = JSON.parse(responseBody);",
+                      "        tests[\"Role set\"] = jsonData.primaryRole === 'student';",
+                      "        tests[\"StudentNumber set\"] = jsonData.student.studentNumber === '789';",
+                      "        postman.setEnvironmentVariable(\"justCreatedId\", jsonData.id)",
+                      "    }",
+                      "}"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "15b88c93-2f04-486f-ab99-0b497006d219",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
                 ],
-                "type": "text/javascript"
-              }
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationUser\",\n\t\"accountEnabled\": true,\n\t\"displayName\":\"Student TestRun{{currentRandom}}\",\n\t\"mailNickname\": \"StudentTR{{currentRandom}}\",\n\t\"userPrincipalName\": \"StudentTR{{currentRandom}}@{{tenantDomain}}\",\n\t\"middleName\": \"Middle\",\n\t\"passwordProfile\":{\n\t\t\"forceChangePasswordNextSignIn\": false,\n\t\t\"password\": \"!!abc123\"\n\t},\n\t\"primaryRole\": \"student\",\n\t\"student\": {\n\t\t\"studentNumber\": \"789\",\n\t\t\"externalId\": \"123\",\n\t\t\"graduationYear\": \"2022\",\n        \"grade\": \"12\",\n        \"gender\": \"female\"\n\n\t}\n}"
+                },
+                "url": "{{https}}://{{host}}/{{graphVersion}}/education/users"
+              },
+              "response": []
             },
             {
-              "listen": "test",
-              "script": {
-                "id": "0c13f115-c51d-4fdd-aee3-7414ac16c8de",
-                "exec": [
-                  "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-                  "if(!expectedSuccess)",
-                  "{",
-                  "    tests[\"Status code is 403\"] = responseCode.code === 403;",
-                  "    postman.setEnvironmentVariable(\"justCreatedId\", \"9900AA5E-8EBF-4407-B151-CBCF310F1383\"); // Dummy GUID",
-                  "}",
-                  "else",
-                  "{",
-                  "    tests[\"Status code is 201\"] = responseCode.code === 201;",
-                  "    tests[\"Student created\"] = responseBody.has('\"id\":')",
-                  "    if (responseBody.has('\"id\":'))",
-                  "    {",
-                  "        var jsonData = JSON.parse(responseBody);",
-                  "        tests[\"Role set\"] = jsonData.primaryRole === 'student';",
-                  "        tests[\"StudentNumber set\"] = jsonData.student.studentNumber === '789';",
-                  "        postman.setEnvironmentVariable(\"justCreatedId\", jsonData.id)",
-                  "    }",
-                  "}"
+              "name": "Check just created Student",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "3f6cdc1b-562b-40da-8bcb-690f6d97b74e",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "8ada00cc-4dff-4921-94d8-b778f19c449b",
+                    "exec": [
+                      "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+                      "if(!expectedSuccess)",
+                      "{",
+                      "    tests[\"Status code is 404\"] = responseCode.code === 404;",
+                      "}",
+                      "else",
+                      "{",
+                      "    tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "    tests[\"User created\"] = responseBody.has('\"id\":')",
+                      "    tests[\"Custom data created\"] = responseBody.has('\"Middle\"')",
+                      "    tests[\"Custom student data created\"] = responseBody.has('\"studentNumber\":\"789\"')",
+                      "}"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "0dcc1628-78c8-4d5f-84a6-9ee8e18cc7a0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
                 ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "15b88c93-2f04-486f-ab99-0b497006d219",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
+                "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}"
               },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationUser\",\n\t\"accountEnabled\": true,\n\t\"displayName\":\"Student TestRun{{currentRandom}}\",\n\t\"mailNickname\": \"StudentTR{{currentRandom}}\",\n\t\"userPrincipalName\": \"StudentTR{{currentRandom}}@{{tenantDomain}}\",\n\t\"middleName\": \"Middle\",\n\t\"passwordProfile\":{\n\t\t\"forceChangePasswordNextSignIn\": false,\n\t\t\"password\": \"!!abc123\"\n\t},\n\t\"primaryRole\": \"student\",\n\t\"student\": {\n\t\t\"studentNumber\": \"789\",\n\t\t\"externalId\": \"123\",\n\t\t\"graduationYear\": \"2022\",\n        \"grade\": \"12\",\n        \"gender\": \"female\"\n\n\t}\n}"
-            },
-            "url": "{{https}}://{{host}}/{{graphVersion}}/education/users"
-          },
-          "response": []
-        },
-        {
-          "name": "Check just created Student",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "3f6cdc1b-562b-40da-8bcb-690f6d97b74e",
-                "exec": [
-                  "if (typeof(GlobalFunctions) !== 'undefined' )",
-                  "{",
-                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                  "}"
-                ],
-                "type": "text/javascript"
-              }
+              "response": []
             },
             {
-              "listen": "test",
-              "script": {
-                "id": "8ada00cc-4dff-4921-94d8-b778f19c449b",
-                "exec": [
-                  "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-                  "if(!expectedSuccess)",
-                  "{",
-                  "    tests[\"Status code is 404\"] = responseCode.code === 404;",
-                  "}",
-                  "else",
-                  "{",
-                  "    tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "    tests[\"User created\"] = responseBody.has('\"id\":')",
-                  "    tests[\"Custom data created\"] = responseBody.has('\"Middle\"')",
-                  "    tests[\"Custom student data created\"] = responseBody.has('\"studentNumber\":\"789\"')",
-                  "}"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "0dcc1628-78c8-4d5f-84a6-9ee8e18cc7a0",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
+              "name": "T_PreRelated",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "cc4c7436-de7f-4fe0-bd17-454fd27a4e8b",
+                    "exec": [
+                      "// Skip /relatedContacts request for v1.0\r",
+                      "var graphVersion = postman.getEnvironmentVariable(\"graphVersion\");\r",
+                      "if (graphVersion === 'v1.0')\r",
+                      "{\r",
+                      "    postman.setNextRequest(\"T_PostRelated\");\r",
+                      "}\r",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "9a657428-2cd4-4d47-b785-2f54d80396ed",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
               },
-              {
-                "key": "Workload-Authorization",
-                "value": "{{AADAuth}}",
-                "disabled": true
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": "https://postman-echo.com/get"
               },
-              {
-                "key": "Accept",
-                "value": "application/json;odata.metadata={{MetadataLevel}}"
-              }
-            ],
-            "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}"
-          },
-          "response": []
-        },
-        {
-          "name": "T_PreRelated",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "cc4c7436-de7f-4fe0-bd17-454fd27a4e8b",
-                "exec": [
-                  "// Skip /relatedContacts request for v1.0\r",
-                  "var graphVersion = postman.getEnvironmentVariable(\"graphVersion\");\r",
-                  "if (graphVersion === 'v1.0')\r",
-                  "{\r",
-                  "    postman.setNextRequest(\"T_PostRelated\");\r",
-                  "}\r",
-                  ""
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "9a657428-2cd4-4d47-b785-2f54d80396ed",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "https://postman-echo.com/get"
-          },
-          "response": []
-        },
-        {
-          "name": "Patch-Education-User-Contacts",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "1cbf23a8-1bd6-4743-87e6-f2309db09ba9",
-                "exec": [
-                  "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-                  "if(!expectedSuccess)",
-                  "{",
-                  "    tests[\"Status code is 403\"] = responseCode.code === 403;",
-                  "}",
-                  "else",
-                  "{",
-                  "    tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "    if (responseBody.has('\"relatedContacts\":'))",
-                  "    {",
-                  "        var jsonData = JSON.parse(responseBody);",
-                  "        tests[\"Related count\"] = jsonData.relatedContacts.count === 3;",
-                  "    }",
-                  "}"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "883c63b6-959d-4e71-9458-03675872b066",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "PATCH",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{GraphAuth}}"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n\t\"relatedContacts\": [\n\t\t\t{\n\t\t\t\t\"displayName\": \"Test User 22\",\n\t            \"emailAddress\": \"user1@outlook.com\",\n\t            \"mobilePhone\": \"123-456-7890\",\n\t            \"relationship\": \"parent\",\n\t            \"accessConsent\": true\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"displayName\": \"Test User 23\",\n\t            \"emailAddress\": \"user2@outlook.com\",\n\t            \"mobilePhone\": \"123-456-7890\",\n\t            \"relationship\": \"parent\",\n\t            \"accessConsent\": true\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"displayName\": \"Test user 24\",\n\t            \"emailAddress\": \"user3@outlook.com\",\n\t            \"relationship\": \"relative\",\n\t            \"accessConsent\": false\n\t\t\t}\n\t\t]\n}"
+              "response": []
             },
-            "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}",
-            "description": "Patch"
-          },
-          "response": [
             {
-              "id": "587226fa-d27e-426c-8799-5c246db61265",
-              "name": "LocalGraph-PatchRC",
-              "originalRequest": {
+              "name": "Patch-Education-User-Contacts",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "1cbf23a8-1bd6-4743-87e6-f2309db09ba9",
+                    "exec": [
+                      "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+                      "if(!expectedSuccess)",
+                      "{",
+                      "    tests[\"Status code is 403\"] = responseCode.code === 403;",
+                      "}",
+                      "else",
+                      "{",
+                      "    tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "    if (responseBody.has('\"relatedContacts\":'))",
+                      "    {",
+                      "        var jsonData = JSON.parse(responseBody);",
+                      "        tests[\"Related count\"] = jsonData.relatedContacts.count === 3;",
+                      "    }",
+                      "}"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "883c63b6-959d-4e71-9458-03675872b066",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
                 "method": "PATCH",
                 "header": [
                   {
                     "key": "Authorization",
-                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFDeS1ZdnFFcEo3UjQxMkpRNlE3NWEwQ05WY1J2eHViNmJuNFFzTndRNzFMbXRpTkV4UjlybS04QTZ2NE9IWFZManE1OFRmZnlSRklEcHI0LWhLa1ZUaUpDNzJzU1FVMG9PcTlZUnJGb2ZqTGlBQSIsImFsZyI6IlJTMjU2IiwieDV0IjoiOS1pUXRmZGdmRFhrTnZRM01ibzF6UXZkb3RNIiwia2lkIjoiOS1pUXRmZGdmRFhrTnZRM01ibzF6UXZkb3RNIn0.eyJhdWQiOiJodHRwczovL2dyYXBoLm1pY3Jvc29mdC1wcGUuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy1wcGUubmV0LzI1YjQ3NzBhLWNkMmEtNDViZS04MjU2LTY5OGExYTAwYWViMS8iLCJpYXQiOjE1MzU0OTQwMDksIm5iZiI6MTUzNTQ5NDAwOSwiZXhwIjoxNTM1NDk3OTA5LCJhY2N0IjowLCJhY3IiOiIxIiwiYWlvIjoiNDJaZ1lGQ2IxaDNRSG41T0xNUWdNR09HcmVSRll4ZVh1a1dGVzhTdldjMFA3MWtzZkEwQSIsImFtciI6WyJwd2QiXSwiYXBwX2Rpc3BsYXluYW1lIjoiU0RTQVBJVGVzdFJXIiwiYXBwaWQiOiIxNzFjNjlkMC04ZDg0LTRkZTYtYTQzYS0zN2JiNWQ1ZjAxYTgiLCJhcHBpZGFjciI6IjEiLCJmYW1pbHlfbmFtZSI6IkJhcmF0IiwiZ2l2ZW5fbmFtZSI6IkthdXNoaWsiLCJpcGFkZHIiOiIxNjcuMjIwLjIuNSIsIm5hbWUiOiJLYXVzaGlrIEJhcmF0Iiwib2lkIjoiMzEwNWFhZGMtMDhmMy00MGQ2LWFmYjMtN2Q0NWJkYmM5YjVjIiwicGxhdGYiOiIxNCIsInB1aWQiOiIxMDAzMDAwMDkwODIyNDE5Iiwic2NwIjoiRWR1QWRtaW5pc3RyYXRpb24uUmVhZFdyaXRlIFVzZXIuUmVhZCIsInN1YiI6Ik5yRHNPdGJ2TDIydkRPYTRGZG1MMXBYNVB2ZUVPb1ltNm1hVnBIM2J1NDgiLCJ0aWQiOiIyNWI0NzcwYS1jZDJhLTQ1YmUtODI1Ni02OThhMWEwMGFlYjEiLCJ1bmlxdWVfbmFtZSI6InBvcnRhbGFkbWluQHpzZHRlc3QxNS5jY3NjdHAubmV0IiwidXBuIjoicG9ydGFsYWRtaW5AenNkdGVzdDE1LmNjc2N0cC5uZXQiLCJ1dGkiOiJHU3BoTHBnaktFS1h0SFItVUxvQkFBIiwidmVyIjoiMS4wIiwid2lkcyI6WyI2MmU5MDM5NC02OWY1LTQyMzctOTE5MC0wMTIxNzcxNDVlMTAiXX0.Aqf4OedRE2sgrVY33q3aw7A4KKSeUa_B-5yilAQlVWGBSO_EWWIWyzat5--KwkGV4a5uLj8V69P1jLjIHr2khvLHNUlwhl5e--8zJocrnG8ov4goVyzekBX6Mw_FoBEy603_qA4Avb2QQs-44qTajp9EWS355sbWcvlL3OX-ijRE2ZyqHJKG7qKiLWYuY8ekPcwINhOR2P0nadUyVncsmpQM6vxS6WL_aJiASkuMCLBoEvv5S571J-aaDHXqwYN066HJ1r5DuyZdjRGtvDICotf6FO38MOxtWVUT3A23eMaGIyEep6vYWhwGHjp7wUO-SL0z1FrYURWoQ_VpKa3c7w"
+                    "value": "{{GraphAuth}}"
                   },
                   {
                     "key": "Content-Type",
@@ -6814,105 +6819,200 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n\t\"relatedContacts\": [\n\t\t\t{\n\t\t\t\t\"displayName\": \"TestUser G\",\n\t\t\t\t\"emailAddress\": \"user@outlook.com\",\n            \t\"mobilePhone\": \"123-456-7890\",\n            \t\"relationship\": \"Parent\"\n\t\t\t}\n\t\t]\n}"
+                  "raw": "{\n\t\"relatedContacts\": [\n\t\t\t{\n\t\t\t\t\"displayName\": \"Test User 22\",\n\t            \"emailAddress\": \"user1@outlook.com\",\n\t            \"mobilePhone\": \"123-456-7890\",\n\t            \"relationship\": \"parent\",\n\t            \"accessConsent\": true\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"displayName\": \"Test User 23\",\n\t            \"emailAddress\": \"user2@outlook.com\",\n\t            \"mobilePhone\": \"123-456-7890\",\n\t            \"relationship\": \"parent\",\n\t            \"accessConsent\": true\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"displayName\": \"Test user 24\",\n\t            \"emailAddress\": \"user3@outlook.com\",\n\t            \"relationship\": \"relative\",\n\t            \"accessConsent\": false\n\t\t\t}\n\t\t]\n}"
                 },
-                "url": "https://{{host}}/{{version}}/educationUser/1eccbb96-6ede-403d-aa2f-97131b5e6efb"
+                "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}",
+                "description": "Patch"
               },
-              "status": "Accepted",
-              "code": 202,
-              "_postman_previewlanguage": "json",
-              "header": [
+              "response": [
                 {
-                  "key": "Cache-Control",
-                  "value": "private",
-                  "name": "Cache-Control",
-                  "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
-                },
+                  "id": "587226fa-d27e-426c-8799-5c246db61265",
+                  "name": "LocalGraph-PatchRC",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFDeS1ZdnFFcEo3UjQxMkpRNlE3NWEwQ05WY1J2eHViNmJuNFFzTndRNzFMbXRpTkV4UjlybS04QTZ2NE9IWFZManE1OFRmZnlSRklEcHI0LWhLa1ZUaUpDNzJzU1FVMG9PcTlZUnJGb2ZqTGlBQSIsImFsZyI6IlJTMjU2IiwieDV0IjoiOS1pUXRmZGdmRFhrTnZRM01ibzF6UXZkb3RNIiwia2lkIjoiOS1pUXRmZGdmRFhrTnZRM01ibzF6UXZkb3RNIn0.eyJhdWQiOiJodHRwczovL2dyYXBoLm1pY3Jvc29mdC1wcGUuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy1wcGUubmV0LzI1YjQ3NzBhLWNkMmEtNDViZS04MjU2LTY5OGExYTAwYWViMS8iLCJpYXQiOjE1MzU0OTQwMDksIm5iZiI6MTUzNTQ5NDAwOSwiZXhwIjoxNTM1NDk3OTA5LCJhY2N0IjowLCJhY3IiOiIxIiwiYWlvIjoiNDJaZ1lGQ2IxaDNRSG41T0xNUWdNR09HcmVSRll4ZVh1a1dGVzhTdldjMFA3MWtzZkEwQSIsImFtciI6WyJwd2QiXSwiYXBwX2Rpc3BsYXluYW1lIjoiU0RTQVBJVGVzdFJXIiwiYXBwaWQiOiIxNzFjNjlkMC04ZDg0LTRkZTYtYTQzYS0zN2JiNWQ1ZjAxYTgiLCJhcHBpZGFjciI6IjEiLCJmYW1pbHlfbmFtZSI6IkJhcmF0IiwiZ2l2ZW5fbmFtZSI6IkthdXNoaWsiLCJpcGFkZHIiOiIxNjcuMjIwLjIuNSIsIm5hbWUiOiJLYXVzaGlrIEJhcmF0Iiwib2lkIjoiMzEwNWFhZGMtMDhmMy00MGQ2LWFmYjMtN2Q0NWJkYmM5YjVjIiwicGxhdGYiOiIxNCIsInB1aWQiOiIxMDAzMDAwMDkwODIyNDE5Iiwic2NwIjoiRWR1QWRtaW5pc3RyYXRpb24uUmVhZFdyaXRlIFVzZXIuUmVhZCIsInN1YiI6Ik5yRHNPdGJ2TDIydkRPYTRGZG1MMXBYNVB2ZUVPb1ltNm1hVnBIM2J1NDgiLCJ0aWQiOiIyNWI0NzcwYS1jZDJhLTQ1YmUtODI1Ni02OThhMWEwMGFlYjEiLCJ1bmlxdWVfbmFtZSI6InBvcnRhbGFkbWluQHpzZHRlc3QxNS5jY3NjdHAubmV0IiwidXBuIjoicG9ydGFsYWRtaW5AenNkdGVzdDE1LmNjc2N0cC5uZXQiLCJ1dGkiOiJHU3BoTHBnaktFS1h0SFItVUxvQkFBIiwidmVyIjoiMS4wIiwid2lkcyI6WyI2MmU5MDM5NC02OWY1LTQyMzctOTE5MC0wMTIxNzcxNDVlMTAiXX0.Aqf4OedRE2sgrVY33q3aw7A4KKSeUa_B-5yilAQlVWGBSO_EWWIWyzat5--KwkGV4a5uLj8V69P1jLjIHr2khvLHNUlwhl5e--8zJocrnG8ov4goVyzekBX6Mw_FoBEy603_qA4Avb2QQs-44qTajp9EWS355sbWcvlL3OX-ijRE2ZyqHJKG7qKiLWYuY8ekPcwINhOR2P0nadUyVncsmpQM6vxS6WL_aJiASkuMCLBoEvv5S571J-aaDHXqwYN066HJ1r5DuyZdjRGtvDICotf6FO38MOxtWVUT3A23eMaGIyEep6vYWhwGHjp7wUO-SL0z1FrYURWoQ_VpKa3c7w"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n\t\"relatedContacts\": [\n\t\t\t{\n\t\t\t\t\"displayName\": \"TestUser G\",\n\t\t\t\t\"emailAddress\": \"user@outlook.com\",\n            \t\"mobilePhone\": \"123-456-7890\",\n            \t\"relationship\": \"Parent\"\n\t\t\t}\n\t\t]\n}"
+                    },
+                    "url": "https://{{host}}/{{version}}/educationUser/1eccbb96-6ede-403d-aa2f-97131b5e6efb"
+                  },
+                  "status": "Accepted",
+                  "code": 202,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Cache-Control",
+                      "value": "private",
+                      "name": "Cache-Control",
+                      "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+                      "name": "Content-Type",
+                      "description": "The mime type of this content"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Tue, 28 Aug 2018 22:46:30 GMT",
+                      "name": "Date",
+                      "description": "The date and time that the message was sent"
+                    },
+                    {
+                      "key": "Duration",
+                      "value": "15240.6609",
+                      "name": "Duration",
+                      "description": "Custom header"
+                    },
+                    {
+                      "key": "OData-Version",
+                      "value": "4.0",
+                      "name": "OData-Version",
+                      "description": "Custom header"
+                    },
+                    {
+                      "key": "Strict-Transport-Security",
+                      "value": "max-age=31536000",
+                      "name": "Strict-Transport-Security",
+                      "description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+                    },
+                    {
+                      "key": "Transfer-Encoding",
+                      "value": "chunked",
+                      "name": "Transfer-Encoding",
+                      "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+                    },
+                    {
+                      "key": "client-request-id",
+                      "value": "13a2a769-f570-43dd-b5bf-eea3efd38f0a",
+                      "name": "client-request-id",
+                      "description": "Custom header"
+                    },
+                    {
+                      "key": "request-id",
+                      "value": "13a2a769-f570-43dd-b5bf-eea3efd38f0a",
+                      "name": "request-id",
+                      "description": "Custom header"
+                    },
+                    {
+                      "key": "x-ms-ags-diagnostic",
+                      "value": "{\"ServerInfo\":{\"DataCenter\":\"North Central US\",\"Slice\":\"SliceC\",\"Ring\":\"0\",\"ScaleUnit\":\"001\",\"Host\":\"AGSFE_IN_2\",\"ADSiteName\":\"NCU\"}}",
+                      "name": "x-ms-ags-diagnostic",
+                      "description": "Custom header"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\"@odata.context\":\"https://graph.microsoft-ppe.com/testsdsobo/$metadata#educationUser/$entity\",\"id\":\"1eccbb96-6ede-403d-aa2f-97131b5e6efb\",\"relatedContacts\":[{\"displayName\":\"TestUser G\",\"emailAddress\":\"user@outlook.com\",\"mobilePhone\":\"123-456-7890\",\"relationship\":\"parent\",\"accessConsent\":false}]}"
+                }
+              ]
+            },
+            {
+              "name": "T_PostRelated",
+              "event": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
-                  "name": "Content-Type",
-                  "description": "The mime type of this content"
-                },
-                {
-                  "key": "Date",
-                  "value": "Tue, 28 Aug 2018 22:46:30 GMT",
-                  "name": "Date",
-                  "description": "The date and time that the message was sent"
-                },
-                {
-                  "key": "Duration",
-                  "value": "15240.6609",
-                  "name": "Duration",
-                  "description": "Custom header"
-                },
-                {
-                  "key": "OData-Version",
-                  "value": "4.0",
-                  "name": "OData-Version",
-                  "description": "Custom header"
-                },
-                {
-                  "key": "Strict-Transport-Security",
-                  "value": "max-age=31536000",
-                  "name": "Strict-Transport-Security",
-                  "description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
-                },
-                {
-                  "key": "Transfer-Encoding",
-                  "value": "chunked",
-                  "name": "Transfer-Encoding",
-                  "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
-                },
-                {
-                  "key": "client-request-id",
-                  "value": "13a2a769-f570-43dd-b5bf-eea3efd38f0a",
-                  "name": "client-request-id",
-                  "description": "Custom header"
-                },
-                {
-                  "key": "request-id",
-                  "value": "13a2a769-f570-43dd-b5bf-eea3efd38f0a",
-                  "name": "request-id",
-                  "description": "Custom header"
-                },
-                {
-                  "key": "x-ms-ags-diagnostic",
-                  "value": "{\"ServerInfo\":{\"DataCenter\":\"North Central US\",\"Slice\":\"SliceC\",\"Ring\":\"0\",\"ScaleUnit\":\"001\",\"Host\":\"AGSFE_IN_2\",\"ADSiteName\":\"NCU\"}}",
-                  "name": "x-ms-ags-diagnostic",
-                  "description": "Custom header"
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "00fce24d-69c3-495e-8ddb-fb5c7871f92e",
+                    "exec": [
+                      "// Just a placeholder."
+                    ],
+                    "type": "text/javascript"
+                  }
                 }
               ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\"@odata.context\":\"https://graph.microsoft-ppe.com/testsdsobo/$metadata#educationUser/$entity\",\"id\":\"1eccbb96-6ede-403d-aa2f-97131b5e6efb\",\"relatedContacts\":[{\"displayName\":\"TestUser G\",\"emailAddress\":\"user@outlook.com\",\"mobilePhone\":\"123-456-7890\",\"relationship\":\"parent\",\"accessConsent\":false}]}"
-            }
-          ]
-        },
-        {
-          "name": "T_PostRelated",
-          "event": [
+              "_postman_id": "6e95e319-cf04-4b51-9780-5bd83985c4ec",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": "https://postman-echo.com/get"
+              },
+              "response": []
+            },
             {
-              "listen": "prerequest",
-              "script": {
-                "id": "00fce24d-69c3-495e-8ddb-fb5c7871f92e",
-                "exec": [
-                  "// Just a placeholder."
+              "name": "Delete just created Student",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "b9d4805b-02e8-4c03-aaae-41ef75552617",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "c52f954a-033f-4a95-b850-5919ecb929fc",
+                    "exec": [
+                      "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+                      "if(!expectedSuccess)",
+                      "{",
+                      "    tests[\"Status code is 403\"] = responseCode.code === 403;",
+                      "}",
+                      "else",
+                      "{",
+                      "    tests[\"Status code is 204\"] = responseCode.code === 204;",
+                      "}"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "e83b05cc-41b2-4904-8f31-a90da9516605",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
                 ],
-                "type": "text/javascript"
-              }
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}"
+              },
+              "response": []
             }
           ],
-          "_postman_id": "6e95e319-cf04-4b51-9780-5bd83985c4ec",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "https://postman-echo.com/get"
-          },
-          "response": []
+          "_postman_id": "69660e9a-3e65-4405-bac9-42fbc484bda7",
+          "_postman_isSubFolder": true
         }
       ],
       "_postman_id": "66537159-9385-416e-a89e-b858a0e64f4a"
@@ -6999,70 +7099,6 @@
           }
         ],
         "url": "{{https}}://{{host}}/beta/education/schools"
-      },
-      "response": []
-    },
-    {
-      "name": "Delete just created Student",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "id": "b9d4805b-02e8-4c03-aaae-41ef75552617",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
-            ],
-            "type": "text/javascript"
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "id": "c52f954a-033f-4a95-b850-5919ecb929fc",
-            "exec": [
-              "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-              "if(!expectedSuccess)",
-              "{",
-              "    tests[\"Status code is 403\"] = responseCode.code === 403;",
-              "}",
-              "else",
-              "{",
-              "    tests[\"Status code is 204\"] = responseCode.code === 204;",
-              "}"
-            ],
-            "type": "text/javascript"
-          }
-        }
-      ],
-      "_postman_id": "e83b05cc-41b2-4904-8f31-a90da9516605",
-      "protocolProfileBehavior": {
-        "disableBodyPruning": true
-      },
-      "request": {
-        "method": "DELETE",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}"
       },
       "response": []
     },
@@ -7159,7 +7195,7 @@
   ],
   "variable": [
     {
-      "id": "37a81bf8-0cf5-48c2-b755-f6596b8745d3",
+      "id": "b437600d-f6f1-4aad-9e3a-4efaa7716265",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
