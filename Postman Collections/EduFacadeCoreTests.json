@@ -2929,145 +2929,145 @@
             }
           },
           "response": []
+        },
+        {
+          "name": "Get EDU me Expand multi",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "afc872d5-5a80-4aeb-a80a-1fd141e024b6",
+                "exec": [
+                  "if (typeof(GlobalFunctions) !== 'undefined' )",
+                  "{",
+                  "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "c97c12cc-6477-4f7a-b5b4-f28fef693f59",
+                "exec": [
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "tests[\"Schools found\"] = responseBody.has('\"schools\":[{');",
+                  "tests[\"Classes found\"] = responseBody.has('\"classes\":[{');"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "997d7463-fc88-4d9f-916c-8d0a75215ee9",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{GraphAuth}}"
+              },
+              {
+                "key": "Workload-Authorization",
+                "value": "{{AADAuth}}",
+                "disabled": true
+              },
+              {
+                "key": "Accept",
+                "value": "application/json;odata.metadata={{MetadataLevel}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{https}}://{{host}}/{{graphVersion}}/education/me?$expand=schools,classes",
+              "protocol": "{{https}}",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "{{graphVersion}}",
+                "education",
+                "me"
+              ],
+              "query": [
+                {
+                  "key": "$expand",
+                  "value": "schools,classes"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "T_PostME",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// Just a placeholder."
+                ]
+              }
+            }
+          ],
+          "_postman_id": "ecedfc4a-cc68-517b-3677-7ed7689bed7a",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
+          },
+          "response": []
+        },
+        {
+          "name": "T_PreRead",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "b67bc7b4-783f-4621-961a-0de7b1e9a992",
+                "exec": [
+                  "postman.setEnvironmentVariable(\"GraphAuth\", \"\");\r",
+                  "var authType = postman.getEnvironmentVariable(\"authType\");\r",
+                  "if (authType === 'appOnly')\r",
+                  "{\r",
+                  "    postman.setEnvironmentVariable(\"expectedSuccess\", true);\r",
+                  "    postman.setNextRequest(\"T_AppOnlyToken GraphRead\");\r",
+                  "}\r",
+                  "else\r",
+                  "{\r",
+                  "    // App + User only does readbasic.\r",
+                  "    postman.setEnvironmentVariable(\"expectedSuccess\", false);\r",
+                  "    postman.setNextRequest(\"T_AppPlusUserToken GraphRead\");\r",
+                  "\r",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "7a31ab6a-082e-6bb8-7182-0fc66a9fd4be",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "https://postman-echo.com/get"
+          },
+          "response": []
         }
       ],
       "_postman_id": "d649d1a4-c42c-4dae-ad7b-ef4fced317f9"
-    },
-    {
-      "name": "Get EDU me Expand multi",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "id": "afc872d5-5a80-4aeb-a80a-1fd141e024b6",
-            "exec": [
-              "if (typeof(GlobalFunctions) !== 'undefined' )",
-              "{",
-              "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-              "}"
-            ],
-            "type": "text/javascript"
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "id": "c97c12cc-6477-4f7a-b5b4-f28fef693f59",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "tests[\"Schools found\"] = responseBody.has('\"schools\":[{');",
-              "tests[\"Classes found\"] = responseBody.has('\"classes\":[{');"
-            ],
-            "type": "text/javascript"
-          }
-        }
-      ],
-      "_postman_id": "997d7463-fc88-4d9f-916c-8d0a75215ee9",
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{GraphAuth}}"
-          },
-          {
-            "key": "Workload-Authorization",
-            "value": "{{AADAuth}}",
-            "disabled": true
-          },
-          {
-            "key": "Accept",
-            "value": "application/json;odata.metadata={{MetadataLevel}}"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "url": {
-          "raw": "{{https}}://{{host}}/{{graphVersion}}/education/me?$expand=schools,classes",
-          "protocol": "{{https}}",
-          "host": [
-            "{{host}}"
-          ],
-          "path": [
-            "{{graphVersion}}",
-            "education",
-            "me"
-          ],
-          "query": [
-            {
-              "key": "$expand",
-              "value": "schools,classes"
-            }
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "T_PostME",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "// Just a placeholder."
-            ]
-          }
-        }
-      ],
-      "_postman_id": "ecedfc4a-cc68-517b-3677-7ed7689bed7a",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
-      },
-      "response": []
-    },
-    {
-      "name": "T_PreRead",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "id": "b67bc7b4-783f-4621-961a-0de7b1e9a992",
-            "exec": [
-              "postman.setEnvironmentVariable(\"GraphAuth\", \"\");\r",
-              "var authType = postman.getEnvironmentVariable(\"authType\");\r",
-              "if (authType === 'appOnly')\r",
-              "{\r",
-              "    postman.setEnvironmentVariable(\"expectedSuccess\", true);\r",
-              "    postman.setNextRequest(\"T_AppOnlyToken GraphRead\");\r",
-              "}\r",
-              "else\r",
-              "{\r",
-              "    // App + User only does readbasic.\r",
-              "    postman.setEnvironmentVariable(\"expectedSuccess\", false);\r",
-              "    postman.setNextRequest(\"T_AppPlusUserToken GraphRead\");\r",
-              "\r",
-              "}"
-            ],
-            "type": "text/javascript"
-          }
-        }
-      ],
-      "_postman_id": "7a31ab6a-082e-6bb8-7182-0fc66a9fd4be",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "url": "https://postman-echo.com/get"
-      },
-      "response": []
     },
     {
       "name": "T_AppPlusUserToken  GraphRead",
@@ -7057,7 +7057,7 @@
   ],
   "variable": [
     {
-      "id": "ea47f6a2-18e8-4126-94cd-a570aaaf6418",
+      "id": "536f0fbc-9f6a-4cdc-9cb8-10597c489229",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
