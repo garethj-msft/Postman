@@ -3026,6 +3026,30 @@
             "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
           },
           "response": []
+        },
+        {
+          "name": "T_PostME Copy",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// Just a placeholder."
+                ]
+              }
+            }
+          ],
+          "_postman_id": "6e95e319-cf04-4b51-9780-5bd83985c4ec",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
+          },
+          "response": []
         }
       ],
       "_postman_id": "d649d1a4-c42c-4dae-ad7b-ef4fced317f9"
@@ -7099,7 +7123,7 @@
   ],
   "variable": [
     {
-      "id": "b588a5b5-ec36-49dc-97d7-243fd8d85207",
+      "id": "dac978bf-cf15-4bcf-9e1a-793fe6fb7e89",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
