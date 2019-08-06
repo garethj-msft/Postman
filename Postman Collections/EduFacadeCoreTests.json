@@ -4570,7 +4570,7 @@
                       "    tests[\"Status code is 404\"] = responseCode.code === 404;\r",
                       "}\r",
                       "else {\r",
-                      "    tests[\"Status code is 200 - iteration: \" + postman.getEnvironmentVariable(\"retryCount\")] = responseCode.code === 200;\r",
+                      "    //tests[\"Status code is 200 - iteration: \" + postman.getEnvironmentVariable(\"retryCount\")] = responseCode.code === 200;\r",
                       "    if (responseCode.code === 200) {\r",
                       "        var jsonData = JSON.parse(responseBody);\r",
                       "        if (jsonData.value.length === 1) {\r",
@@ -7234,7 +7234,7 @@
   ],
   "variable": [
     {
-      "id": "31d77f45-0b0f-458e-a1ef-a90d655f7ce6",
+      "id": "a2eb5879-5396-4e3c-875a-cc2c275d9e3c",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
