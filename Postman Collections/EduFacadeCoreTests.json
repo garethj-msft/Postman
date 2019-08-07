@@ -1760,28 +1760,30 @@
               "response": []
             },
             {
-              "name": "Get Classes Expand Teachers Copy",
+              "name": "DELEDDSD Get Classes Expand Teachers Copy",
               "event": [
                 {
                   "listen": "prerequest",
                   "script": {
-                    "type": "text/javascript",
+                    "id": "0b4b2585-c4ec-4c15-be13-672e2be22565",
                     "exec": [
                       "if (typeof(GlobalFunctions) !== 'undefined' )",
                       "{",
                       "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
                       "}"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 },
                 {
                   "listen": "test",
                   "script": {
-                    "type": "text/javascript",
+                    "id": "8788ac8b-c6b7-4dc3-8385-764f1aa73a55",
                     "exec": [
                       "tests[\"Status code is 200\"] = responseCode.code === 200;",
                       "tests[\"Teachers returned\"] = responseBody.has('teachers\":[{'); "
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -7332,7 +7334,7 @@
   ],
   "variable": [
     {
-      "id": "d8324bbb-a510-492f-80ff-f60b807f7dba",
+      "id": "544befbc-152b-4a5a-91d4-f78ed016ad6a",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
