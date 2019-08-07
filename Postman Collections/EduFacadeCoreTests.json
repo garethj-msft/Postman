@@ -961,15 +961,16 @@
               "response": []
             },
             {
-              "name": "Get CSDL",
+              "name": "Get Version",
               "event": [
                 {
                   "listen": "test",
                   "script": {
-                    "type": "text/javascript",
+                    "id": "e22fc326-de6e-433e-8040-ab598c151a11",
                     "exec": [
                       "tests[\"Status code is 200\"] = responseCode.code === 200;"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -985,7 +986,7 @@
                     "value": "{{GraphAuth}}"
                   }
                 ],
-                "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
+                "url": "{{https}}://{{host}}/versions/{{graphVersion}}"
               },
               "response": []
             },
@@ -7263,7 +7264,7 @@
   ],
   "variable": [
     {
-      "id": "ef02a815-6666-41a9-9588-ae4f93276e03",
+      "id": "00e67fd9-bee1-4c54-8e65-43c004888300",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
