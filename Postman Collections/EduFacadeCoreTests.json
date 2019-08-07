@@ -968,7 +968,7 @@
                   "script": {
                     "id": "e22fc326-de6e-433e-8040-ab598c151a11",
                     "exec": [
-                      "tests[\"Status code is 200\"] = responseCode.code === 200;"
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -7264,7 +7264,7 @@
   ],
   "variable": [
     {
-      "id": "00e67fd9-bee1-4c54-8e65-43c004888300",
+      "id": "66575895-5d10-4f5b-9ccc-032aef306a8d",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
