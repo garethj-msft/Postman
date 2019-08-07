@@ -961,6 +961,35 @@
               "response": []
             },
             {
+              "name": "Get Metadata Copy",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;"
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "5a999af9-f650-4dfc-a7e4-64f88da7fdd7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  }
+                ],
+                "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
+              },
+              "response": []
+            },
+            {
               "name": "Get Education",
               "event": [
                 {
@@ -992,35 +1021,6 @@
                   "raw": ""
                 },
                 "url": "{{https}}://{{host}}/{{graphVersion}}/education"
-              },
-              "response": []
-            },
-            {
-              "name": "Get Metadata Copy",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "type": "text/javascript",
-                    "exec": [
-                      "tests[\"Status code is 200\"] = responseCode.code === 200;"
-                    ]
-                  }
-                }
-              ],
-              "_postman_id": "5a999af9-f650-4dfc-a7e4-64f88da7fdd7",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "{{GraphAuth}}"
-                  }
-                ],
-                "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
               },
               "response": []
             }
@@ -7263,7 +7263,7 @@
   ],
   "variable": [
     {
-      "id": "bc2edefd-25ce-4a50-8d3b-50398f44a8ac",
+      "id": "d1c18db3-228a-457a-84ae-37cc2c308cd7",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
