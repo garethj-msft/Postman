@@ -961,7 +961,7 @@
               "response": []
             },
             {
-              "name": "Get Metadata Copy",
+              "name": "Get CSDL",
               "event": [
                 {
                   "listen": "test",
@@ -7263,7 +7263,7 @@
   ],
   "variable": [
     {
-      "id": "d1c18db3-228a-457a-84ae-37cc2c308cd7",
+      "id": "ef02a815-6666-41a9-9588-ae4f93276e03",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
