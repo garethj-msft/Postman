@@ -1809,13 +1809,13 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{https}}://{{host}}/{{graphVersion}}/education/classes?$expand=teachers",
+                  "raw": "{{https}}://{{host}}/beta/education/classes?$expand=teachers",
                   "protocol": "{{https}}",
                   "host": [
                     "{{host}}"
                   ],
                   "path": [
-                    "{{graphVersion}}",
+                    "beta",
                     "education",
                     "classes"
                   ],
@@ -7334,7 +7334,7 @@
   ],
   "variable": [
     {
-      "id": "544befbc-152b-4a5a-91d4-f78ed016ad6a",
+      "id": "f211d398-a0a6-4524-a51f-20cb1f200858",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
