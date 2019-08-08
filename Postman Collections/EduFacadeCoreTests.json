@@ -7317,7 +7317,7 @@
         "id": "ec1bde02-516d-4fe0-8cf2-3de18601daa8",
         "type": "text/javascript",
         "exec": [
-          ""
+          "pm.request.headers.add({key: 'Connection', value: 'close' });"
         ]
       }
     },
@@ -7334,7 +7334,7 @@
   ],
   "variable": [
     {
-      "id": "f211d398-a0a6-4524-a51f-20cb1f200858",
+      "id": "fc992eb7-470a-4093-8a59-dfaeb3835c83",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
