@@ -899,36 +899,6 @@
           "name": "Infrastructure",
           "item": [
             {
-              "name": "Get Version",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "e22fc326-de6e-433e-8040-ab598c151a11",
-                    "exec": [
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "5a999af9-f650-4dfc-a7e4-64f88da7fdd7",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "{{GraphAuth}}"
-                  }
-                ],
-                "url": "{{https}}://{{host}}/versions/{{graphVersion}}"
-              },
-              "response": []
-            },
-            {
               "name": "Get Education",
               "event": [
                 {
@@ -7272,7 +7242,7 @@
   ],
   "variable": [
     {
-      "id": "0393ce7c-f195-43c7-8dd6-476226acce2a",
+      "id": "edb80c88-8aeb-4105-aff8-48f1683437c7",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
