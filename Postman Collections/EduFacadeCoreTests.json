@@ -899,6 +899,41 @@
           "name": "Infrastructure",
           "item": [
             {
+              "name": "Get Specific Version",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "e2cb0764-df39-4b5e-80b8-558a32de81b7",
+                    "exec": [
+                      "// Removed due to changes to canary (you can't poll versions)",
+                      "// {{https}}://{{host}}/versions/{{graphVersion}}",
+                      "//tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "// Note no 's' on the end of the workload name because the case differs in canary and prod :-(",
+                      "//tests[\"Rostering deployed\"] = responseBody.has('EducationRosteringAPI');  ",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "f4483d10-ff4a-41d6-8fc8-81774cd6694b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  }
+                ],
+                "url": "{{https}}://{{host}}/versions/"
+              },
+              "response": []
+            },
+            {
               "name": "Get Education",
               "event": [
                 {
@@ -1023,41 +1058,6 @@
                   }
                 ],
                 "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
-              },
-              "response": []
-            },
-            {
-              "name": "Get Specific Version",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "e2cb0764-df39-4b5e-80b8-558a32de81b7",
-                    "exec": [
-                      "// Removed due to changes to canary (you can't poll versions)",
-                      "// {{https}}://{{host}}/versions/{{graphVersion}}",
-                      "//tests[\"Status code is 200\"] = responseCode.code === 200;",
-                      "// Note no 's' on the end of the workload name because the case differs in canary and prod :-(",
-                      "//tests[\"Rostering deployed\"] = responseBody.has('EducationRosteringAPI');  ",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "f4483d10-ff4a-41d6-8fc8-81774cd6694b",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "{{GraphAuth}}"
-                  }
-                ],
-                "url": "{{https}}://{{host}}/versions/"
               },
               "response": []
             }
@@ -7370,7 +7370,7 @@
   ],
   "variable": [
     {
-      "id": "8c56dec8-6b03-42a9-aac6-11d61970554f",
+      "id": "52bf95e4-8c40-4296-b9a0-d681e59dd0ec",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
