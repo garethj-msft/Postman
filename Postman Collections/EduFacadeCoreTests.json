@@ -899,36 +899,6 @@
           "name": "Infrastructure",
           "item": [
             {
-              "name": "Get Metadata",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "type": "text/javascript",
-                    "exec": [
-                      "tests[\"Status code is 200\"] = responseCode.code === 200;"
-                    ]
-                  }
-                }
-              ],
-              "_postman_id": "fedd5f0c-856f-766a-cd70-88bef7a7ff7d",
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "{{GraphAuth}}"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": ""
-                },
-                "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
-              },
-              "response": []
-            },
-            {
               "name": "Get Version",
               "event": [
                 {
@@ -7302,7 +7272,7 @@
   ],
   "variable": [
     {
-      "id": "bcd3010a-6b9f-4a06-b3ec-41a66cd0c7e3",
+      "id": "2e471f09-6a70-4045-aa30-aeba72d71baa",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
