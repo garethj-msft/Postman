@@ -7012,7 +7012,9 @@
                       "    }",
                       "    else{ ",
                       "        // Not found, retry",
-                      "        GlobalFunctions.retryTest(pm.info.requestName, pm.info.requestName, postman, tests);",
+                      "        if (typeof(GlobalFunctions) !== 'undefined' ) {",
+                      "            GlobalFunctions.retryTest(pm.info.requestName, pm.info.requestName, postman, tests);",
+                      "        }",
                       "    }   ",
                       "}"
                     ],
@@ -7418,7 +7420,7 @@
   ],
   "variable": [
     {
-      "id": "ffd94cb3-6de0-4b04-b96c-3181bc5737a6",
+      "id": "024c1910-e935-4d91-8afb-f0ea7a59110f",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
