@@ -996,6 +996,35 @@
                 "url": "{{https}}://{{host}}/{{graphVersion}}/education"
               },
               "response": []
+            },
+            {
+              "name": "Get Metadata",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;"
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "19f61e0d-2fdd-47cd-9768-ffcfe17f3a68",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  }
+                ],
+                "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
+              },
+              "response": []
             }
           ],
           "_postman_id": "3685b634-0677-4f15-a73a-a92f1aaf27a7",
@@ -7306,7 +7335,7 @@
   ],
   "variable": [
     {
-      "id": "e1d6ebe2-3336-44af-8ea9-cafdd3145ec9",
+      "id": "770b11b0-5dda-4d89-bb5d-7a94b7e80c31",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
