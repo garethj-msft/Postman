@@ -2714,6 +2714,57 @@
                 "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{nonEducationUserId}}"
               },
               "response": []
+            },
+            {
+              "name": "Get A User  Nav Schools",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "tests[\"Schools returned\"] = responseBody.has('value\":[{')"
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "a7c94e9d-3075-4042-b6b5-6a2be2ca4f5d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}/schools"
+              },
+              "response": []
             }
           ],
           "_postman_id": "3574fbf0-5e10-470c-a42a-c002f4abc97f",
@@ -7316,7 +7367,7 @@
   ],
   "variable": [
     {
-      "id": "5cf7e9e2-4b4a-4e41-bec4-2972124fe14e",
+      "id": "7e96fcc6-79f5-4775-a1dc-0a6ef4c3f20b",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
