@@ -962,6 +962,40 @@
                 "url": "{{https}}://{{host}}/versions/{{graphVersion}}"
               },
               "response": []
+            },
+            {
+              "name": "Get Education",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Expected fail\"] = responseCode.code === 400;"
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "9aff2892-0b0c-4015-b9f1-396bf2d68c36",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  }
+                ],
+                "url": "{{https}}://{{host}}/{{graphVersion}}/education"
+              },
+              "response": []
             }
           ],
           "_postman_id": "3685b634-0677-4f15-a73a-a92f1aaf27a7",
@@ -7272,7 +7306,7 @@
   ],
   "variable": [
     {
-      "id": "64c2236f-5e0f-4684-abe9-7e52bd093813",
+      "id": "e1d6ebe2-3336-44af-8ea9-cafdd3145ec9",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
