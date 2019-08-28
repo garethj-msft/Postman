@@ -899,35 +899,6 @@
           "name": "Infrastructure",
           "item": [
             {
-              "name": "Get Metadata",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "type": "text/javascript",
-                    "exec": [
-                      "tests[\"Status code is 200\"] = responseCode.code === 200;"
-                    ]
-                  }
-                }
-              ],
-              "_postman_id": "19f61e0d-2fdd-47cd-9768-ffcfe17f3a68",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "{{GraphAuth}}"
-                  }
-                ],
-                "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
-              },
-              "response": []
-            },
-            {
               "name": "Get Specific Version",
               "event": [
                 {
@@ -959,6 +930,35 @@
                   }
                 ],
                 "url": "{{https}}://{{host}}/versions/"
+              },
+              "response": []
+            },
+            {
+              "name": "Get Metadata",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;"
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "19f61e0d-2fdd-47cd-9768-ffcfe17f3a68",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  }
+                ],
+                "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
               },
               "response": []
             },
@@ -7335,7 +7335,7 @@
   ],
   "variable": [
     {
-      "id": "54c0136d-4e2d-429f-803f-5d05b2a2e517",
+      "id": "6ee2ec31-f4f8-490d-a93f-7edf0fab2a99",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
