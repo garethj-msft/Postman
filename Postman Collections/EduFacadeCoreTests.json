@@ -4624,7 +4624,9 @@
                       "    }",
                       "    else{ ",
                       "        // Not found, retry",
-                      "        GlobalFunctions.retryTest(pm.info.requestName, \"School created\", postman, tests);",
+                      "        if (typeof(GlobalFunctions) !== 'undefined' ) {",
+                      "            GlobalFunctions.retryTest(pm.info.requestName, \"School created\", postman, tests);",
+                      "        }",
                       "    }        ",
                       "}",
                       "if (typeof(GlobalFunctions) !== 'undefined' )",
@@ -7416,7 +7418,7 @@
   ],
   "variable": [
     {
-      "id": "40515ec8-a4c2-412b-8546-aeefc5edf3ba",
+      "id": "ffd94cb3-6de0-4b04-b96c-3181bc5737a6",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
