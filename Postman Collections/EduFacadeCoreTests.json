@@ -2858,6 +2858,57 @@
               "response": []
             },
             {
+              "name": "Get EDU me Nav schools",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "// tests[\"Schools found\"] = responseBody.has('\"id\":')"
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "8aebc54b-467d-4ff1-ac30-93ae03b0dc0b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "url": "{{https}}://{{host}}/{{graphVersion}}/education/me/schools"
+              },
+              "response": []
+            },
+            {
               "name": "Get EDU me Expand classes",
               "event": [
                 {
@@ -3093,57 +3144,6 @@
                   "raw": ""
                 },
                 "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
-              },
-              "response": []
-            },
-            {
-              "name": "Get EDU me Nav schools",
-              "event": [
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "type": "text/javascript",
-                    "exec": [
-                      "if (typeof(GlobalFunctions) !== 'undefined' )",
-                      "{",
-                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                      "}"
-                    ]
-                  }
-                },
-                {
-                  "listen": "test",
-                  "script": {
-                    "type": "text/javascript",
-                    "exec": [
-                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                      "// tests[\"Schools found\"] = responseBody.has('\"id\":')"
-                    ]
-                  }
-                }
-              ],
-              "_postman_id": "8aebc54b-467d-4ff1-ac30-93ae03b0dc0b",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "{{GraphAuth}}"
-                  },
-                  {
-                    "key": "Workload-Authorization",
-                    "value": "{{AADAuth}}",
-                    "disabled": true
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json;odata.metadata={{MetadataLevel}}"
-                  }
-                ],
-                "url": "{{https}}://{{host}}/{{graphVersion}}/education/me/schools"
               },
               "response": []
             }
@@ -7316,7 +7316,7 @@
   ],
   "variable": [
     {
-      "id": "ff0c0681-a289-4614-ba75-8d8820d5355d",
+      "id": "5cf7e9e2-4b4a-4e41-bec4-2972124fe14e",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
