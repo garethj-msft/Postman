@@ -932,6 +932,36 @@
                 "url": "{{https}}://{{host}}/{{graphVersion}}/education"
               },
               "response": []
+            },
+            {
+              "name": "Get Version",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "e22fc326-de6e-433e-8040-ab598c151a11",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "ce3fb861-10e8-4643-a49a-3727ec509914",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  }
+                ],
+                "url": "{{https}}://{{host}}/versions/{{graphVersion}}"
+              },
+              "response": []
             }
           ],
           "_postman_id": "3685b634-0677-4f15-a73a-a92f1aaf27a7",
@@ -7242,7 +7272,7 @@
   ],
   "variable": [
     {
-      "id": "d8cfc789-9101-4ba3-8f2b-86860846b00b",
+      "id": "c29a0f52-2346-4339-b787-7fb50a1c72c7",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
