@@ -899,6 +899,36 @@
           "name": "Infrastructure",
           "item": [
             {
+              "name": "Get Version",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "e22fc326-de6e-433e-8040-ab598c151a11",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "ce3fb861-10e8-4643-a49a-3727ec509914",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  }
+                ],
+                "url": "{{https}}://{{host}}/versions/{{graphVersion}}"
+              },
+              "response": []
+            },
+            {
               "name": "Get Specific Version",
               "event": [
                 {
@@ -965,36 +995,6 @@
                   "raw": ""
                 },
                 "url": "{{https}}://{{host}}/{{graphVersion}}/education"
-              },
-              "response": []
-            },
-            {
-              "name": "Get Version",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "e22fc326-de6e-433e-8040-ab598c151a11",
-                    "exec": [
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "ce3fb861-10e8-4643-a49a-3727ec509914",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "{{GraphAuth}}"
-                  }
-                ],
-                "url": "{{https}}://{{host}}/versions/{{graphVersion}}"
               },
               "response": []
             },
@@ -7370,7 +7370,7 @@
   ],
   "variable": [
     {
-      "id": "52bf95e4-8c40-4296-b9a0-d681e59dd0ec",
+      "id": "ae3ccb51-4292-421b-a317-e5bd8dc1a3cc",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
