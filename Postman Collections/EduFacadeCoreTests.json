@@ -1761,76 +1761,6 @@
               "response": []
             },
             {
-              "name": "DELEDDSD Get Classes Expand Teachers Copy",
-              "event": [
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "0b4b2585-c4ec-4c15-be13-672e2be22565",
-                    "exec": [
-                      "if (typeof(GlobalFunctions) !== 'undefined' )",
-                      "{",
-                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                      "}"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "8788ac8b-c6b7-4dc3-8385-764f1aa73a55",
-                    "exec": [
-                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                      "tests[\"Teachers returned\"] = responseBody.has('teachers\":[{'); "
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "41901f51-cea8-4d54-913a-950ee1f10eab",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "{{GraphAuth}}"
-                  },
-                  {
-                    "key": "Workload-Authorization",
-                    "value": "{{AADAuth}}",
-                    "disabled": true
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json;odata.metadata={{MetadataLevel}}"
-                  }
-                ],
-                "url": {
-                  "raw": "{{https}}://{{host}}/beta/education/classes?$expand=teachers",
-                  "protocol": "{{https}}",
-                  "host": [
-                    "{{host}}"
-                  ],
-                  "path": [
-                    "beta",
-                    "education",
-                    "classes"
-                  ],
-                  "query": [
-                    {
-                      "key": "$expand",
-                      "value": "teachers"
-                    }
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
               "name": "Get Classes Expand Schools",
               "event": [
                 {
@@ -7335,7 +7265,7 @@
   ],
   "variable": [
     {
-      "id": "6ee2ec31-f4f8-490d-a93f-7edf0fab2a99",
+      "id": "b3bc5544-60b8-4cac-93a3-57b2fb9c7967",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
