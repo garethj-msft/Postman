@@ -2195,6 +2195,57 @@
               "response": []
             },
             {
+              "name": "Get A Class Nav Schools",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "tests[\"Schools returned\"] = responseBody.has('value\":[{')"
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "471cbb92-1061-49c0-aaf4-7ccd324c82e8",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{primaryTestClassId}}/schools"
+              },
+              "response": []
+            },
+            {
               "name": "GET A non-education Group as Class",
               "event": [
                 {
@@ -2244,57 +2295,6 @@
                   "raw": "{  \"@odata.type\":\"microsoft.graph.group\",\n   \"displayName\":\"GarethClass28\",\n   \"mailNickname\":\"class282\",\n   \"mailEnabled\":true,\n   \"securityEnabled\":false,\n   \"extension_fe2174665583431c953114ff7268b7b3_Education_Period\":\"5\",\n   \"groupTypes\":[\"Unified\"]}"
                 },
                 "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{nonEducationGroupId}}"
-              },
-              "response": []
-            },
-            {
-              "name": "Get A Class Nav Schools",
-              "event": [
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "type": "text/javascript",
-                    "exec": [
-                      "if (typeof(GlobalFunctions) !== 'undefined' )",
-                      "{",
-                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                      "}"
-                    ]
-                  }
-                },
-                {
-                  "listen": "test",
-                  "script": {
-                    "type": "text/javascript",
-                    "exec": [
-                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                      "tests[\"Schools returned\"] = responseBody.has('value\":[{')"
-                    ]
-                  }
-                }
-              ],
-              "_postman_id": "471cbb92-1061-49c0-aaf4-7ccd324c82e8",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "{{GraphAuth}}"
-                  },
-                  {
-                    "key": "Workload-Authorization",
-                    "value": "{{AADAuth}}",
-                    "disabled": true
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json;odata.metadata={{MetadataLevel}}"
-                  }
-                ],
-                "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{primaryTestClassId}}/schools"
               },
               "response": []
             }
@@ -7418,7 +7418,7 @@
   ],
   "variable": [
     {
-      "id": "e5da6c9b-347e-41c1-8e42-099bc17d871b",
+      "id": "d54033f3-4514-4579-a18a-6f514da0eaf1",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
