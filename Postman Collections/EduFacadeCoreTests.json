@@ -6961,7 +6961,7 @@
                     "exec": [
                       "// Skip /relatedContacts request for v1.0\r",
                       "var graphVersion = postman.getEnvironmentVariable(\"graphVersion\");\r",
-                      "if (graphVersion === 'v1.0')\r",
+                      "if (graphVersion === 'v1.0' || graphVersion === 'testEduApi'|| graphVersion === 'testEduRostering')\r",
                       "{\r",
                       "    postman.setNextRequest(\"T_PostRelated\");\r",
                       "}\r",
@@ -7418,7 +7418,7 @@
   ],
   "variable": [
     {
-      "id": "e636f345-eba7-499e-b9fe-04fd337ad1ab",
+      "id": "dd459a4a-c0f6-4aaa-bff8-b1a20110ffa6",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
