@@ -7248,6 +7248,74 @@
       "_postman_id": "66537159-9385-416e-a89e-b858a0e64f4a"
     },
     {
+      "name": "FINAL TEST",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "// The Sole purpose of this FINAL TEST is to reset the environment variable Metadata level to minimal",
+              "// Keep it as the last test in any run.",
+              "postman.setEnvironmentVariable(\"MetadataLevel\", \"minimal\");",
+              "postman.setEnvironmentVariable('expectedSuccess', true);",
+              "postman.setNextRequest(null);",
+              ""
+            ]
+          }
+        }
+      ],
+      "_postman_id": "42bb7e6b-6e54-5cc1-a958-d4188670e593",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": "https://postman-echo.com/get"
+      },
+      "response": []
+    },
+    {
+      "name": "Delay",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "111f12ed-ec4e-4ba1-9800-9a06b1b7dbd7",
+            "exec": [
+              "if (responseCode.code !== 200)",
+              "{",
+              "    tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "}",
+              "postman.setNextRequest(postman.getEnvironmentVariable(\"returnRequest\"));"
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "36c83363-cfe3-482a-a83a-498ec2e1b284",
+            "exec": [
+              "// Delay to make sure propagation happens",
+              "//setTimeout(function(err, res) {console.log(\"10s delay\");}, 10);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "8f1511cc-11de-435c-fa66-36913ff6b704",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "https://postman-echo.com/delay/10",
+        "description": "Using this endpoint one can configure how long it takes for the server to come back with a response. Appending a number to the URL defines the time (in seconds) the server will wait before responding.\n\nNote that a maximum delay of 10 seconds is accepted by the server."
+      },
+      "response": []
+    },
+    {
       "name": "CLEANUP GetDeleteSchoolList",
       "event": [
         {
@@ -7331,74 +7399,6 @@
         "url": "{{https}}://{{host}}/beta/education/schools"
       },
       "response": []
-    },
-    {
-      "name": "FINAL TEST",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "// The Sole purpose of this FINAL TEST is to reset the environment variable Metadata level to minimal",
-              "// Keep it as the last test in any run.",
-              "postman.setEnvironmentVariable(\"MetadataLevel\", \"minimal\");",
-              "postman.setEnvironmentVariable('expectedSuccess', true);",
-              "postman.setNextRequest(null);",
-              ""
-            ]
-          }
-        }
-      ],
-      "_postman_id": "42bb7e6b-6e54-5cc1-a958-d4188670e593",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "url": "https://postman-echo.com/get"
-      },
-      "response": []
-    },
-    {
-      "name": "Delay",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "id": "111f12ed-ec4e-4ba1-9800-9a06b1b7dbd7",
-            "exec": [
-              "if (responseCode.code !== 200)",
-              "{",
-              "    tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "}",
-              "postman.setNextRequest(postman.getEnvironmentVariable(\"returnRequest\"));"
-            ],
-            "type": "text/javascript"
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "id": "36c83363-cfe3-482a-a83a-498ec2e1b284",
-            "exec": [
-              "// Delay to make sure propagation happens",
-              "//setTimeout(function(err, res) {console.log(\"10s delay\");}, 10);"
-            ],
-            "type": "text/javascript"
-          }
-        }
-      ],
-      "_postman_id": "8f1511cc-11de-435c-fa66-36913ff6b704",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": "https://postman-echo.com/delay/10",
-        "description": "Using this endpoint one can configure how long it takes for the server to come back with a response. Appending a number to the URL defines the time (in seconds) the server will wait before responding.\n\nNote that a maximum delay of 10 seconds is accepted by the server."
-      },
-      "response": []
     }
   ],
   "event": [
@@ -7425,7 +7425,7 @@
   ],
   "variable": [
     {
-      "id": "9a8e841f-073f-4421-a4d4-5cd02f374fca",
+      "id": "4eee11b6-1a8b-4ae4-8742-08860afb1947",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
