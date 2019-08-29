@@ -6962,7 +6962,10 @@
                     "id": "cc4c7436-de7f-4fe0-bd17-454fd27a4e8b",
                     "exec": [
                       "// Skip /relatedContacts request for v1.0\r",
+                      "\r",
+                      "// Failing, disabling while invesigating root cause\r",
                       "postman.setNextRequest(\"T_PostRelated\"); // Temp disabled due to failures\r",
+                      "\r",
                       "/*\r",
                       "var graphVersion = postman.getEnvironmentVariable(\"graphVersion\");\r",
                       "if (graphVersion === 'v1.0')\r",
@@ -7427,7 +7430,7 @@
   ],
   "variable": [
     {
-      "id": "f252b75f-364e-4483-ba44-73e42ce6c73a",
+      "id": "d556d055-33e3-4636-af4d-c8e36bf82c0a",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
