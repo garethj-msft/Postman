@@ -7013,7 +7013,7 @@
                       "    else if(responseCode.code === 204 && parseInt(pm.environment.get(\"retryCount\")) < 8) {",
                       "        // Found ",
                       "        postman.setEnvironmentVariable(\"retryCount\", \"0\");",
-                      "        tests[\"Patched User (204)\"] = responseCode.code === 204;",
+                      "        tests[\"Patched Student (204)\"] = responseCode.code === 204;",
                       "    }",
                       "    else {",
                       "        // Not found, retry",
@@ -7425,7 +7425,7 @@
   ],
   "variable": [
     {
-      "id": "1a84575d-93d6-4203-8eca-88ce2969ac8e",
+      "id": "030ac4a1-fe2d-48e4-ac4b-c0c289137d7d",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
