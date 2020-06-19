@@ -1714,7 +1714,7 @@
                     "value": "application/json;odata.metadata={{MetadataLevel}}"
                   }
                 ],
-                "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes"
+                "url": "{{odataNextLink}}"
               },
               "response": []
             },
@@ -7657,7 +7657,7 @@
   ],
   "variable": [
     {
-      "id": "94303711-a3ca-4b5e-8080-40b7d48cf969",
+      "id": "14168432-323e-4d98-970a-c2c45e77fb4a",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
