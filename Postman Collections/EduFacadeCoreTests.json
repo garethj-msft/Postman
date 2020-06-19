@@ -3540,20 +3540,20 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "type": "text/javascript",
+                    "id": "d210f93e-8037-406d-b43f-6a202115b92d",
                     "exec": [
                       "if (typeof(GlobalFunctions) !== 'undefined' )",
                       "{",
                       "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
                       "}"
                     ],
-                    "id": "d210f93e-8037-406d-b43f-6a202115b92d"
+                    "type": "text/javascript"
                   }
                 },
                 {
                   "listen": "test",
                   "script": {
-                    "type": "text/javascript",
+                    "id": "29a4ff91-c20f-4422-9fdd-10a0dfe878a5",
                     "exec": [
                       "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
                       "if(!expectedSuccess)",
@@ -3568,7 +3568,7 @@
                       "",
                       ""
                     ],
-                    "id": "29a4ff91-c20f-4422-9fdd-10a0dfe878a5"
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -3593,7 +3593,7 @@
                     "value": "application/json;odata.metadata={{MetadataLevel}}"
                   }
                 ],
-                "url": "{{https}}://{{host}}/{{graphVersion}}/education/users"
+                "url": "{{odataNextLink}}"
               },
               "response": []
             },
@@ -7490,7 +7490,7 @@
   ],
   "variable": [
     {
-      "id": "1f3a7370-e834-4024-ae8c-91a9431fdf92",
+      "id": "b85fec62-7e29-4db8-9e32-677e3f1fa367",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
