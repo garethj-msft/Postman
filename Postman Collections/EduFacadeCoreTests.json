@@ -1488,19 +1488,20 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "type": "text/javascript",
+                    "id": "e245a769-844b-4d84-a5d7-5dcb80e7a227",
                     "exec": [
                       "if (typeof(GlobalFunctions) !== 'undefined' )",
                       "{",
                       "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
                       "}"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 },
                 {
                   "listen": "test",
                   "script": {
-                    "type": "text/javascript",
+                    "id": "e2de357a-d195-403a-9ee5-68656f136684",
                     "exec": [
                       "tests[\"Status code is 200\"] = responseCode.code === 200;",
                       "tests[\"Classes found\"] = responseBody.has('\"id\":')",
@@ -1522,12 +1523,17 @@
                       "            postman.setEnvironmentVariable(\"primaryTestClassId\", jsonData.value[i].id)",
                       "        }",
                       "    }",
+                      "    postman.setEnvironmentVariable(\"odataNextLink\", jsonData[\"@odata.nextLink\"]);",
                       "}"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
               "_postman_id": "c7258513-b673-b30c-0a6e-51638fbfa9e5",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
               "request": {
                 "method": "GET",
                 "header": [
@@ -1545,10 +1551,6 @@
                     "value": "application/json;odata.metadata={{MetadataLevel}}"
                   }
                 ],
-                "body": {
-                  "mode": "raw",
-                  "raw": ""
-                },
                 "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes"
               },
               "response": []
@@ -7492,7 +7494,7 @@
   ],
   "variable": [
     {
-      "id": "c97acdad-61a3-418d-a004-1f6c67faac5b",
+      "id": "918b922c-6a19-4f83-a0fc-429c65794f20",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
