@@ -3498,7 +3498,7 @@
                       "else",
                       "{",
                       "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                      "tests[\"Users found\"] = responseBody.has('\"id\":')",
+                      "tests[\"Users found\"] = responseBody.has('\"id\":');",
                       " var data = JSON.parse(responseBody);",
                       " postman.setEnvironmentVariable(\"odataNextLink\", data[\"@odata.nextLink\"]);",
                       "}",
@@ -7492,7 +7492,7 @@
   ],
   "variable": [
     {
-      "id": "2693f8f6-3102-4956-8646-688faa731551",
+      "id": "c84641a4-b273-40e2-9adb-2085049415a7",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
