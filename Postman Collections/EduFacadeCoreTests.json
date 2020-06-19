@@ -2299,6 +2299,79 @@
                 "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{nonEducationGroupId}}"
               },
               "response": []
+            },
+            {
+              "name": "Get Classes Copy",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "3c14d0dc-5688-4a7c-97df-5556a0e4306c",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "22d84b7f-a8ce-4ed9-9a5a-42bc2e3477b5",
+                    "exec": [
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "tests[\"Classes found\"] = responseBody.has('\"id\":')",
+                      "if (!responseBody.has('\"PrimaryTestClass\"'))",
+                      "{",
+                      "    tests[\"Class named PrimaryTestClass required\"] = false;",
+                      "    postman.setNextRequest(null);",
+                      "}",
+                      "",
+                      "if (responseBody.has('\"id\":'))",
+                      "{",
+                      "    var jsonData = JSON.parse(responseBody);",
+                      "    var i;",
+                      "    for (i=0; i < jsonData.value.length; i++)",
+                      "    {",
+                      "        if (jsonData.value[i].displayName ===  'PrimaryTestClass')",
+                      "        {",
+                      "            console.log(\"Primary test class id: \" + jsonData.value[i].id)",
+                      "            postman.setEnvironmentVariable(\"primaryTestClassId\", jsonData.value[i].id)",
+                      "        }",
+                      "    }",
+                      "    postman.setEnvironmentVariable(\"odataNextLink\", jsonData[\"@odata.nextLink\"]);",
+                      "}"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "36a37417-30f0-4d75-a0a8-86ad644dd2b3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes"
+              },
+              "response": []
             }
           ],
           "_postman_id": "b136c29b-141e-4a56-b9d7-68e77103bce5",
@@ -7494,7 +7567,7 @@
   ],
   "variable": [
     {
-      "id": "918b922c-6a19-4f83-a0fc-429c65794f20",
+      "id": "9d5b7e76-a93a-49c2-9e2b-2dafe52c6c4d",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
