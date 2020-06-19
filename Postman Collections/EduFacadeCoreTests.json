@@ -1556,6 +1556,79 @@
               "response": []
             },
             {
+              "name": "Get Classes NEXT",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "3c14d0dc-5688-4a7c-97df-5556a0e4306c",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "22d84b7f-a8ce-4ed9-9a5a-42bc2e3477b5",
+                    "exec": [
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "tests[\"Classes found\"] = responseBody.has('\"id\":')",
+                      "if (!responseBody.has('\"PrimaryTestClass\"'))",
+                      "{",
+                      "    tests[\"Class named PrimaryTestClass required\"] = false;",
+                      "    postman.setNextRequest(null);",
+                      "}",
+                      "",
+                      "if (responseBody.has('\"id\":'))",
+                      "{",
+                      "    var jsonData = JSON.parse(responseBody);",
+                      "    var i;",
+                      "    for (i=0; i < jsonData.value.length; i++)",
+                      "    {",
+                      "        if (jsonData.value[i].displayName ===  'PrimaryTestClass')",
+                      "        {",
+                      "            console.log(\"Primary test class id: \" + jsonData.value[i].id)",
+                      "            postman.setEnvironmentVariable(\"primaryTestClassId\", jsonData.value[i].id)",
+                      "        }",
+                      "    }",
+                      "    postman.setEnvironmentVariable(\"odataNextLink\", jsonData[\"@odata.nextLink\"]);",
+                      "}"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "36a37417-30f0-4d75-a0a8-86ad644dd2b3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes"
+              },
+              "response": []
+            },
+            {
               "name": "Get Classes with Filter",
               "event": [
                 {
@@ -2297,79 +2370,6 @@
                   "raw": "{  \"@odata.type\":\"microsoft.graph.group\",\n   \"displayName\":\"GarethClass28\",\n   \"mailNickname\":\"class282\",\n   \"mailEnabled\":true,\n   \"securityEnabled\":false,\n   \"extension_fe2174665583431c953114ff7268b7b3_Education_Period\":\"5\",\n   \"groupTypes\":[\"Unified\"]}"
                 },
                 "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{nonEducationGroupId}}"
-              },
-              "response": []
-            },
-            {
-              "name": "Get Classes Copy",
-              "event": [
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "3c14d0dc-5688-4a7c-97df-5556a0e4306c",
-                    "exec": [
-                      "if (typeof(GlobalFunctions) !== 'undefined' )",
-                      "{",
-                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                      "}"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "22d84b7f-a8ce-4ed9-9a5a-42bc2e3477b5",
-                    "exec": [
-                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                      "tests[\"Classes found\"] = responseBody.has('\"id\":')",
-                      "if (!responseBody.has('\"PrimaryTestClass\"'))",
-                      "{",
-                      "    tests[\"Class named PrimaryTestClass required\"] = false;",
-                      "    postman.setNextRequest(null);",
-                      "}",
-                      "",
-                      "if (responseBody.has('\"id\":'))",
-                      "{",
-                      "    var jsonData = JSON.parse(responseBody);",
-                      "    var i;",
-                      "    for (i=0; i < jsonData.value.length; i++)",
-                      "    {",
-                      "        if (jsonData.value[i].displayName ===  'PrimaryTestClass')",
-                      "        {",
-                      "            console.log(\"Primary test class id: \" + jsonData.value[i].id)",
-                      "            postman.setEnvironmentVariable(\"primaryTestClassId\", jsonData.value[i].id)",
-                      "        }",
-                      "    }",
-                      "    postman.setEnvironmentVariable(\"odataNextLink\", jsonData[\"@odata.nextLink\"]);",
-                      "}"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "36a37417-30f0-4d75-a0a8-86ad644dd2b3",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "{{GraphAuth}}"
-                  },
-                  {
-                    "key": "Workload-Authorization",
-                    "value": "{{AADAuth}}",
-                    "disabled": true
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json;odata.metadata={{MetadataLevel}}"
-                  }
-                ],
-                "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes"
               },
               "response": []
             }
@@ -7567,7 +7567,7 @@
   ],
   "variable": [
     {
-      "id": "54c358c4-4658-4d1b-ab28-6d6c0aabdca7",
+      "id": "87f7e8ad-90ac-414e-9d15-dc23e5d4c232",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
