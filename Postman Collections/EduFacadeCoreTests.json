@@ -3532,6 +3532,69 @@
               "response": []
             },
             {
+              "name": "Get Users Copy",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ],
+                    "id": "d210f93e-8037-406d-b43f-6a202115b92d"
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+                      "if(!expectedSuccess)",
+                      "{",
+                      "    tests[\"Status code is 403\"] = responseCode.code === 403;",
+                      "}",
+                      "else",
+                      "{",
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "tests[\"Users found\"] = responseBody.has('\"id\":')",
+                      "}",
+                      "",
+                      ""
+                    ],
+                    "id": "29a4ff91-c20f-4422-9fdd-10a0dfe878a5"
+                  }
+                }
+              ],
+              "_postman_id": "974b954d-54cd-48b1-95a5-bf00c47d5935",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "url": "{{https}}://{{host}}/{{graphVersion}}/education/users"
+              },
+              "response": []
+            },
+            {
               "name": "Get Users with Filter",
               "event": [
                 {
@@ -7424,7 +7487,7 @@
   ],
   "variable": [
     {
-      "id": "c5ea0f21-46bf-4141-9066-48faac0d90ed",
+      "id": "c8d8452d-ddd2-4384-9ab9-2d607797aafd",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
