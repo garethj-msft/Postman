@@ -963,36 +963,6 @@
               "response": []
             },
             {
-              "name": "Get Version",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "e22fc326-de6e-433e-8040-ab598c151a11",
-                    "exec": [
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "ce3fb861-10e8-4643-a49a-3727ec509914",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "{{GraphAuth}}"
-                  }
-                ],
-                "url": "{{https}}://{{host}}/versions/{{graphVersion}}"
-              },
-              "response": []
-            },
-            {
               "name": "Get Education",
               "event": [
                 {
@@ -7657,7 +7627,7 @@
   ],
   "variable": [
     {
-      "id": "24a2ed74-04bf-4f83-a8e1-a40625e5aa40",
+      "id": "7cc30ffc-8d07-44ed-9cbb-64291a97ad15",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
