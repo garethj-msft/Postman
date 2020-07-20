@@ -3996,7 +3996,7 @@
                       "else",
                       "{",
                       "    tests[\"Status code is 200\"] = responseCode.code === 200;",
-                      "    tests[\"Classes returned\"] = responseBody.has('taughtClasses\":[{'); ",
+                      "    tests[\"Taught classes returned\"] = responseBody.has('taughtClasses\":[{'); ",
                       "}"
                     ],
                     "type": "text/javascript"
@@ -7709,7 +7709,7 @@
   ],
   "variable": [
     {
-      "id": "2d312481-f793-47b9-bfde-9f06c36ca0d9",
+      "id": "98a1e63f-8762-40cf-959e-d768c01f0bdd",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
