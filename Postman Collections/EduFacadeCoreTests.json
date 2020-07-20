@@ -3968,7 +3968,7 @@
               "response": []
             },
             {
-              "name": "Get Users Expand Classes Copy",
+              "name": "Get Users Expand TaughtClasses",
               "event": [
                 {
                   "listen": "prerequest",
@@ -7705,7 +7705,7 @@
   ],
   "variable": [
     {
-      "id": "51b6ef4f-fee1-4356-83dc-85874545b36d",
+      "id": "455a4027-d9fb-4975-89a0-8ca49e474ff9",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
