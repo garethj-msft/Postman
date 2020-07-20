@@ -3973,20 +3973,20 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "type": "text/javascript",
+                    "id": "2fc57483-b82d-4550-a849-9794e120c3b3",
                     "exec": [
                       "if (typeof(GlobalFunctions) !== 'undefined' )",
                       "{",
                       "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
                       "}"
                     ],
-                    "id": "2fc57483-b82d-4550-a849-9794e120c3b3"
+                    "type": "text/javascript"
                   }
                 },
                 {
                   "listen": "test",
                   "script": {
-                    "type": "text/javascript",
+                    "id": "ce161b77-54bc-4d9e-ba22-b237548e1947",
                     "exec": [
                       "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
                       "if(!expectedSuccess)",
@@ -3996,10 +3996,10 @@
                       "else",
                       "{",
                       "    tests[\"Status code is 200\"] = responseCode.code === 200;",
-                      "    tests[\"Classes returned\"] = responseBody.has('classes\":[{'); ",
+                      "    tests[\"Classes returned\"] = responseBody.has('taughtClasses\":[{'); ",
                       "}"
                     ],
-                    "id": "ce161b77-54bc-4d9e-ba22-b237548e1947"
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -4025,20 +4025,24 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{https}}://{{host}}/{{graphVersion}}/education/users?$expand=classes",
+                  "raw": "{{https}}://{{host}}/beta/education/users?$expand=taughtClasses&$select=id,taughtClasses",
                   "protocol": "{{https}}",
                   "host": [
                     "{{host}}"
                   ],
                   "path": [
-                    "{{graphVersion}}",
+                    "beta",
                     "education",
                     "users"
                   ],
                   "query": [
                     {
                       "key": "$expand",
-                      "value": "classes"
+                      "value": "taughtClasses"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "id,taughtClasses"
                     }
                   ]
                 }
@@ -7705,7 +7709,7 @@
   ],
   "variable": [
     {
-      "id": "455a4027-d9fb-4975-89a0-8ca49e474ff9",
+      "id": "2d312481-f793-47b9-bfde-9f06c36ca0d9",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
