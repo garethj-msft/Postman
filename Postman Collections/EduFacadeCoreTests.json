@@ -3968,6 +3968,84 @@
               "response": []
             },
             {
+              "name": "Get Users Expand Classes Copy",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ],
+                    "id": "2fc57483-b82d-4550-a849-9794e120c3b3"
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+                      "if(!expectedSuccess)",
+                      "{",
+                      "    tests[\"Status code is 403\"] = responseCode.code === 403;",
+                      "}",
+                      "else",
+                      "{",
+                      "    tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "    tests[\"Classes returned\"] = responseBody.has('classes\":[{'); ",
+                      "}"
+                    ],
+                    "id": "ce161b77-54bc-4d9e-ba22-b237548e1947"
+                  }
+                }
+              ],
+              "_postman_id": "ddbf9ec5-0224-41e4-ad35-0eaf72ca2993",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{https}}://{{host}}/{{graphVersion}}/education/users?$expand=classes",
+                  "protocol": "{{https}}",
+                  "host": [
+                    "{{host}}"
+                  ],
+                  "path": [
+                    "{{graphVersion}}",
+                    "education",
+                    "users"
+                  ],
+                  "query": [
+                    {
+                      "key": "$expand",
+                      "value": "classes"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
               "name": "Get Users Expand Multi",
               "event": [
                 {
@@ -4106,84 +4184,6 @@
                   "raw": "{\n    \"tags\": \"IncludeEntityAbstractBaseType;DeltaSyncSupported;EnableNoDollarSystemQueryParameters\",\n    \"Microsoft.DirectoryServices\": \"Beta20170306\",\n    \"Microsoft.EducationRosteringAPIS\": \"20170313.3\",\n}"
                 },
                 "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}"
-              },
-              "response": []
-            },
-            {
-              "name": "Get Users Expand Classes Copy",
-              "event": [
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "type": "text/javascript",
-                    "exec": [
-                      "if (typeof(GlobalFunctions) !== 'undefined' )",
-                      "{",
-                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                      "}"
-                    ],
-                    "id": "2fc57483-b82d-4550-a849-9794e120c3b3"
-                  }
-                },
-                {
-                  "listen": "test",
-                  "script": {
-                    "type": "text/javascript",
-                    "exec": [
-                      "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-                      "if(!expectedSuccess)",
-                      "{",
-                      "    tests[\"Status code is 403\"] = responseCode.code === 403;",
-                      "}",
-                      "else",
-                      "{",
-                      "    tests[\"Status code is 200\"] = responseCode.code === 200;",
-                      "    tests[\"Classes returned\"] = responseBody.has('classes\":[{'); ",
-                      "}"
-                    ],
-                    "id": "ce161b77-54bc-4d9e-ba22-b237548e1947"
-                  }
-                }
-              ],
-              "_postman_id": "ddbf9ec5-0224-41e4-ad35-0eaf72ca2993",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "{{GraphAuth}}"
-                  },
-                  {
-                    "key": "Workload-Authorization",
-                    "value": "{{AADAuth}}",
-                    "disabled": true
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json;odata.metadata={{MetadataLevel}}"
-                  }
-                ],
-                "url": {
-                  "raw": "{{https}}://{{host}}/{{graphVersion}}/education/users?$expand=classes",
-                  "protocol": "{{https}}",
-                  "host": [
-                    "{{host}}"
-                  ],
-                  "path": [
-                    "{{graphVersion}}",
-                    "education",
-                    "users"
-                  ],
-                  "query": [
-                    {
-                      "key": "$expand",
-                      "value": "classes"
-                    }
-                  ]
-                }
               },
               "response": []
             }
@@ -7705,7 +7705,7 @@
   ],
   "variable": [
     {
-      "id": "5cbf3e32-6774-49dd-bdcd-e214f7bf72ab",
+      "id": "51b6ef4f-fee1-4356-83dc-85874545b36d",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
