@@ -3819,20 +3819,20 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "type": "text/javascript",
+                    "id": "09bda22b-cd75-46c0-bd23-abe4845f44ca",
                     "exec": [
                       "if (typeof(GlobalFunctions) !== 'undefined' )",
                       "{",
                       "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
                       "}"
                     ],
-                    "id": "09bda22b-cd75-46c0-bd23-abe4845f44ca"
+                    "type": "text/javascript"
                   }
                 },
                 {
                   "listen": "test",
                   "script": {
-                    "type": "text/javascript",
+                    "id": "11d9c0c0-6ba6-4faf-a56b-1e012b56fa8d",
                     "exec": [
                       "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
                       "if(!expectedSuccess)",
@@ -3847,7 +3847,7 @@
                       "}",
                       ""
                     ],
-                    "id": "11d9c0c0-6ba6-4faf-a56b-1e012b56fa8d"
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -3870,6 +3870,12 @@
                   {
                     "key": "Accept",
                     "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  },
+                  {
+                    "key": "ConsistencyLevel",
+                    "value": "eventual",
+                    "description": "Mezzo",
+                    "type": "text"
                   }
                 ],
                 "url": {
@@ -7789,7 +7795,7 @@
   ],
   "variable": [
     {
-      "id": "d21cf47d-bc29-463c-bd02-2d7d2d566cbc",
+      "id": "b61579b7-9fe9-4b57-8095-08ede3a7aed6",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
