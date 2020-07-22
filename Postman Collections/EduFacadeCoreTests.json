@@ -3814,6 +3814,86 @@
               "response": []
             },
             {
+              "name": "Get Users with Filter Copy",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ],
+                    "id": "09bda22b-cd75-46c0-bd23-abe4845f44ca"
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+                      "if(!expectedSuccess)",
+                      "{",
+                      "tests[\"Status code is 403\"] = responseCode.code === 403;",
+                      "",
+                      "}",
+                      "else",
+                      "{",
+                      "    tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "    tests[\"Users found\"] = responseBody.has('\"id\":')",
+                      "}",
+                      ""
+                    ],
+                    "id": "11d9c0c0-6ba6-4faf-a56b-1e012b56fa8d"
+                  }
+                }
+              ],
+              "_postman_id": "8ed992a6-c608-4dc9-a85b-1003caa490f9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{https}}://{{host}}/{{graphVersion}}/education/users?$filter=displayName eq 'PrimaryTestUser'",
+                  "protocol": "{{https}}",
+                  "host": [
+                    "{{host}}"
+                  ],
+                  "path": [
+                    "{{graphVersion}}",
+                    "education",
+                    "users"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "displayName eq 'PrimaryTestUser'"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
               "name": "Get Users Expand Schools",
               "event": [
                 {
@@ -7709,7 +7789,7 @@
   ],
   "variable": [
     {
-      "id": "98a1e63f-8762-40cf-959e-d768c01f0bdd",
+      "id": "3278902e-096d-4fe8-80b7-b652ea3dc4b8",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
