@@ -3819,20 +3819,20 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "09bda22b-cd75-46c0-bd23-abe4845f44ca",
+                    "type": "text/javascript",
                     "exec": [
                       "if (typeof(GlobalFunctions) !== 'undefined' )",
                       "{",
                       "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
                       "}"
                     ],
-                    "type": "text/javascript"
+                    "id": "09bda22b-cd75-46c0-bd23-abe4845f44ca"
                   }
                 },
                 {
                   "listen": "test",
                   "script": {
-                    "id": "11d9c0c0-6ba6-4faf-a56b-1e012b56fa8d",
+                    "type": "text/javascript",
                     "exec": [
                       "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
                       "if(!expectedSuccess)",
@@ -3847,7 +3847,7 @@
                       "}",
                       ""
                     ],
-                    "type": "text/javascript"
+                    "id": "11d9c0c0-6ba6-4faf-a56b-1e012b56fa8d"
                   }
                 }
               ],
@@ -7789,7 +7789,7 @@
   ],
   "variable": [
     {
-      "id": "0330d6f4-b69e-4757-b1c4-ee42275979e8",
+      "id": "d21cf47d-bc29-463c-bd02-2d7d2d566cbc",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
