@@ -3814,92 +3814,6 @@
               "response": []
             },
             {
-              "name": "Get Users Count with Filter Mezzo",
-              "event": [
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "09bda22b-cd75-46c0-bd23-abe4845f44ca",
-                    "exec": [
-                      "if (typeof(GlobalFunctions) !== 'undefined' )",
-                      "{",
-                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                      "}"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "11d9c0c0-6ba6-4faf-a56b-1e012b56fa8d",
-                    "exec": [
-                      "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-                      "if(!expectedSuccess)",
-                      "{",
-                      "tests[\"Status code is 403\"] = responseCode.code === 403;",
-                      "",
-                      "}",
-                      "else",
-                      "{",
-                      "    tests[\"Status code is 200\"] = responseCode.code === 200;",
-                      "    tests[\"Users found\"] = responseBody.has('\"id\":')",
-                      "}",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "8ed992a6-c608-4dc9-a85b-1003caa490f9",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "{{GraphAuth}}"
-                  },
-                  {
-                    "key": "Workload-Authorization",
-                    "value": "{{AADAuth}}",
-                    "disabled": true
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json;odata.metadata={{MetadataLevel}}"
-                  },
-                  {
-                    "key": "ConsistencyLevel",
-                    "value": "eventual",
-                    "description": "Mezzo",
-                    "type": "text"
-                  }
-                ],
-                "url": {
-                  "raw": "{{https}}://{{host}}/{{graphVersion}}/education/users?$filter=displayName eq 'PrimaryTestUser'",
-                  "protocol": "{{https}}",
-                  "host": [
-                    "{{host}}"
-                  ],
-                  "path": [
-                    "{{graphVersion}}",
-                    "education",
-                    "users"
-                  ],
-                  "query": [
-                    {
-                      "key": "$filter",
-                      "value": "displayName eq 'PrimaryTestUser'"
-                    }
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
               "name": "Get Users Expand Schools",
               "event": [
                 {
@@ -7795,7 +7709,7 @@
   ],
   "variable": [
     {
-      "id": "a77801c1-dab5-4488-afbe-693a9eaa0c50",
+      "id": "c253dd78-881b-44d2-a59c-b707a8e1d8b7",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
