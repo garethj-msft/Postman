@@ -865,33 +865,6 @@
               "response": []
             },
             {
-              "name": "T_PostReadBasic",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "type": "text/javascript",
-                    "exec": [
-                      "var auth = postman.getEnvironmentVariable(\"GraphAuth\");",
-                      "tests[\"Auth token acquired.\"] = (auth.length > 10);",
-                      ""
-                    ]
-                  }
-                }
-              ],
-              "_postman_id": "d84dbf93-3a36-4abe-7ebf-5cb1779c6fca",
-              "request": {
-                "method": "GET",
-                "header": [],
-                "body": {
-                  "mode": "raw",
-                  "raw": ""
-                },
-                "url": "https://postman-echo.com/get"
-              },
-              "response": []
-            },
-            {
               "name": "T_AppOnlyToken GraphReadBasic Copy",
               "event": [
                 {
@@ -960,6 +933,33 @@
                   }
                 },
                 "url": "https://{{loginHost}}/{{tenantDomain}}/oauth2/token"
+              },
+              "response": []
+            },
+            {
+              "name": "T_PostReadBasic",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "var auth = postman.getEnvironmentVariable(\"GraphAuth\");",
+                      "tests[\"Auth token acquired.\"] = (auth.length > 10);",
+                      ""
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "d84dbf93-3a36-4abe-7ebf-5cb1779c6fca",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://postman-echo.com/get"
               },
               "response": []
             }
@@ -7781,7 +7781,7 @@
   ],
   "variable": [
     {
-      "id": "9352dbaf-48ee-4151-9e83-9ed8fe7b7f78",
+      "id": "f65d8171-2174-4f22-b770-818f4f936113",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
