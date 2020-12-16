@@ -4227,14 +4227,15 @@
                   "script": {
                     "id": "75aca3e2-4123-4499-9318-50a5a06482d2",
                     "exec": [
-                      "var expectedSuccess = (bool)postman.getEnvironmentVariable('expectedSuccess');",
+                      "var expectedSuccess = (postman.getEnvironmentVariable('expectedSuccess') == 'true');",
                       "console.log('expected success =@' + expectedSuccess + '@');",
-                      "if (expectedSuccess === 'true')",
+                      "if (expectedSuccess === true)",
                       "{",
                       "    tests[\"Status code is 200\"] = responseCode.code === 200;",
                       "    tests[\"ID found\"] = responseBody.has('\"id\":');",
                       "    tests[\"displayName found\"] = responseBody.has('\"displayName\":');",
                       "    tests[\"relatedContacts found\"] = responseBody.has('\"relatedContacts\":');",
+                      "    tests[\"relationship found\"] = responseBody.has('\"relationship\":');",
                       "}",
                       "else",
                       "{",
@@ -7806,7 +7807,7 @@
   ],
   "variable": [
     {
-      "id": "6563af57-ae22-4e25-a706-c2bffe26c356",
+      "id": "88cf26b2-3a09-4816-89df-0b47979eed98",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
