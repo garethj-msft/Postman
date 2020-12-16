@@ -4212,21 +4212,18 @@
                   "script": {
                     "id": "75aca3e2-4123-4499-9318-50a5a06482d2",
                     "exec": [
-                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
                       "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-                      "var found = \"not found\";",
                       "if (expectedSuccess === true)",
                       "{",
-                      "    found = \"found\";",
+                      "    tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "    tests[\"ID found\"] = responseBody.has('\"id\":');",
+                      "    tests[\"displayName found\"] = responseBody.has('\"displayName\":');",
+                      "    tests[\"relatedContacts found\"] = responseBody.has('\"relatedContacts\":');",
                       "}",
-                      "tests[\"ID found\"] = responseBody.has('\"id\":');",
-                      "tests[\"primaryRole found\"] = responseBody.has('\"primaryRole\":');",
-                      "tests[\"assignedLicenses \" + found] = !responseBody.has('\"assignedLicenses\":') != expectedSuccess;",
-                      "tests[\"assignedPlans \" + found] = !responseBody.has('\"assignedPlans\":') != expectedSuccess;",
-                      "tests[\"onPremisesImmutableId \" + found] = !responseBody.has('\"onPremisesImmutableId\":') != expectedSuccess;",
-                      "tests[\"student \" + found] = !responseBody.has('\"student\":') != expectedSuccess;",
-                      "tests[\"externalSource \" + found] = !responseBody.has('\"externalSource\":') != expectedSuccess;",
-                      ""
+                      "else",
+                      "{",
+                      "    tests[\"Status code is 403\"] = responseCode.code === 403;",
+                      "}"
                     ],
                     "type": "text/javascript"
                   }
@@ -7793,7 +7790,7 @@
   ],
   "variable": [
     {
-      "id": "6a519af3-9ca4-491b-9f61-b47baa97e3c6",
+      "id": "20c475df-653c-43d5-8ebb-0231a86a4c57",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
