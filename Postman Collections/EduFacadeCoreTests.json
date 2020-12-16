@@ -4254,7 +4254,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}?$select=id,displayName,relatedContacts1",
+                  "raw": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}?$select=id,displayName,relatedContacts",
                   "protocol": "{{https}}",
                   "host": [
                     "{{host}}"
@@ -4268,7 +4268,7 @@
                   "query": [
                     {
                       "key": "$select",
-                      "value": "id,displayName,relatedContacts1"
+                      "value": "id,displayName,relatedContacts"
                     }
                   ]
                 }
@@ -7793,7 +7793,7 @@
   ],
   "variable": [
     {
-      "id": "93f8b17b-4e14-48f5-a53c-08b758a67efa",
+      "id": "8463df08-f13d-4cc5-a80a-24434b3dd76b",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
