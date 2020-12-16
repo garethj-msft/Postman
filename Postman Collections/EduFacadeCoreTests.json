@@ -4228,6 +4228,7 @@
                     "id": "75aca3e2-4123-4499-9318-50a5a06482d2",
                     "exec": [
                       "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+                      "console.log('expected success =@' + expectedSuccess + '@');",
                       "if (expectedSuccess === true)",
                       "{",
                       "    tests[\"Status code is 200\"] = responseCode.code === 200;",
@@ -7805,7 +7806,7 @@
   ],
   "variable": [
     {
-      "id": "e92cb702-4001-49fc-aa00-3fe699a005b6",
+      "id": "0343a389-43d8-4dbc-9a1e-daea42e940b0",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
