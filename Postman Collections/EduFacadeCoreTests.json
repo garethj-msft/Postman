@@ -4192,7 +4192,7 @@
               "response": []
             },
             {
-              "name": "Get A User Check Detail Copy",
+              "name": "Get A User With RelatedContacts",
               "event": [
                 {
                   "listen": "prerequest",
@@ -7775,7 +7775,7 @@
   ],
   "variable": [
     {
-      "id": "22f8cdab-6f73-4973-a294-9c842965b086",
+      "id": "c065e263-8560-43e6-9ea1-6db153853ec5",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
