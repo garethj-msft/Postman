@@ -4197,20 +4197,20 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "type": "text/javascript",
+                    "id": "9647a976-ab8e-4814-8031-a730c45c1ca5",
                     "exec": [
                       "if (typeof(GlobalFunctions) !== 'undefined' )",
                       "{",
                       "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
                       "}"
                     ],
-                    "id": "9647a976-ab8e-4814-8031-a730c45c1ca5"
+                    "type": "text/javascript"
                   }
                 },
                 {
                   "listen": "test",
                   "script": {
-                    "type": "text/javascript",
+                    "id": "75aca3e2-4123-4499-9318-50a5a06482d2",
                     "exec": [
                       "tests[\"Status code is 200\"] = responseCode.code === 200;",
                       "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
@@ -4228,7 +4228,7 @@
                       "tests[\"externalSource \" + found] = !responseBody.has('\"externalSource\":') != expectedSuccess;",
                       ""
                     ],
-                    "id": "75aca3e2-4123-4499-9318-50a5a06482d2"
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -4253,7 +4253,25 @@
                     "value": "application/json;odata.metadata={{MetadataLevel}}"
                   }
                 ],
-                "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}"
+                "url": {
+                  "raw": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}?$select=id,displayName,relatedContacts1",
+                  "protocol": "{{https}}",
+                  "host": [
+                    "{{host}}"
+                  ],
+                  "path": [
+                    "{{graphVersion}}",
+                    "education",
+                    "users",
+                    "{{primaryTestUserId}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "id,displayName,relatedContacts1"
+                    }
+                  ]
+                }
               },
               "response": []
             }
@@ -7775,7 +7793,7 @@
   ],
   "variable": [
     {
-      "id": "c065e263-8560-43e6-9ea1-6db153853ec5",
+      "id": "93f8b17b-4e14-48f5-a53c-08b758a67efa",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
