@@ -4190,6 +4190,72 @@
                 "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}"
               },
               "response": []
+            },
+            {
+              "name": "Get A User Check Detail Copy",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ],
+                    "id": "9647a976-ab8e-4814-8031-a730c45c1ca5"
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+                      "var found = \"not found\";",
+                      "if (expectedSuccess === true)",
+                      "{",
+                      "    found = \"found\";",
+                      "}",
+                      "tests[\"ID found\"] = responseBody.has('\"id\":');",
+                      "tests[\"primaryRole found\"] = responseBody.has('\"primaryRole\":');",
+                      "tests[\"assignedLicenses \" + found] = !responseBody.has('\"assignedLicenses\":') != expectedSuccess;",
+                      "tests[\"assignedPlans \" + found] = !responseBody.has('\"assignedPlans\":') != expectedSuccess;",
+                      "tests[\"onPremisesImmutableId \" + found] = !responseBody.has('\"onPremisesImmutableId\":') != expectedSuccess;",
+                      "tests[\"student \" + found] = !responseBody.has('\"student\":') != expectedSuccess;",
+                      "tests[\"externalSource \" + found] = !responseBody.has('\"externalSource\":') != expectedSuccess;",
+                      ""
+                    ],
+                    "id": "75aca3e2-4123-4499-9318-50a5a06482d2"
+                  }
+                }
+              ],
+              "_postman_id": "46276bfc-faa7-4c4e-b2b4-922723f3e0c9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}"
+              },
+              "response": []
             }
           ],
           "_postman_id": "4d5d8d58-e439-449a-b407-f70b08ff1418",
@@ -7709,7 +7775,7 @@
   ],
   "variable": [
     {
-      "id": "4ed95288-a7c1-440d-b0d1-46a106c5eaf4",
+      "id": "75c03606-fcf3-4a6a-bd1a-3d4b73c332f6",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
