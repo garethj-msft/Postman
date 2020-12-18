@@ -4971,6 +4971,91 @@
               "response": []
             },
             {
+              "name": "Make a School Copy",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "5009d37b-bd4d-4293-bb4c-8ec569092a22",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}",
+                      "var currentRandom = Math.floor(Math.random() * 1000).toString();",
+                      "var currentRandom2 = Math.floor(Math.random() * 1000).toString();",
+                      "postman.setEnvironmentVariable(\"currentRandom\", currentRandom + currentRandom2);"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "bb819168-6852-4541-b935-87da70c433c9",
+                    "exec": [
+                      "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+                      "if(!expectedSuccess)",
+                      "{",
+                      "    tests[\"Status code is 403\"] = responseCode.code === 403;",
+                      "    postman.setEnvironmentVariable(\"justCreatedId\", \"9900AA5E-8EBF-4407-B151-CBCF310F1383\"); // Dummy guid",
+                      "}",
+                      "else",
+                      "{",
+                      "    tests[\"Status code is 201\"] = responseCode.code === 201;",
+                      "    tests[\"School created\"] = responseBody.has('\"id\":')",
+                      "    if (responseBody.has('\"id\":'))",
+                      "    {",
+                      "        var jsonData = JSON.parse(responseBody);",
+                      "        postman.setEnvironmentVariable(\"justCreatedId\", jsonData.id);",
+                      "    }",
+                      "    if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "    {",
+                      "        GlobalFunctions.reportFails(tests, responseCode, responseBody);",
+                      "    }",
+                      "}"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "8e9a869b-9717-42e8-9270-fb0c1bf0207a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationSchool\",\n\t\"displayName\":\"SchoolTestRun{{currentRandom}}\",\n\t\"description\": \"A lovely school to test.\",\n\t\"externalSource\": \"SIS\",\n\t\"address\": {\n\t    \"street\": \"1 Bash Street\",\n\t    \"city\": \"Redmond\",\n\t    \"state\": \"WA\",\n\t    \"countryOrRegion\": \"USA\",\n\t    \"postalCode\": \"98052\"\n \t}\n}",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools"
+              },
+              "response": []
+            },
+            {
               "name": "Check just created School",
               "event": [
                 {
@@ -5855,91 +5940,6 @@
                   "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
                 },
                 "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}"
-              },
-              "response": []
-            },
-            {
-              "name": "Make a School Copy",
-              "event": [
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "5009d37b-bd4d-4293-bb4c-8ec569092a22",
-                    "exec": [
-                      "if (typeof(GlobalFunctions) !== 'undefined' )",
-                      "{",
-                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                      "}",
-                      "var currentRandom = Math.floor(Math.random() * 1000).toString();",
-                      "var currentRandom2 = Math.floor(Math.random() * 1000).toString();",
-                      "postman.setEnvironmentVariable(\"currentRandom\", currentRandom + currentRandom2);"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "bb819168-6852-4541-b935-87da70c433c9",
-                    "exec": [
-                      "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-                      "if(!expectedSuccess)",
-                      "{",
-                      "    tests[\"Status code is 403\"] = responseCode.code === 403;",
-                      "    postman.setEnvironmentVariable(\"justCreatedId\", \"9900AA5E-8EBF-4407-B151-CBCF310F1383\"); // Dummy guid",
-                      "}",
-                      "else",
-                      "{",
-                      "    tests[\"Status code is 201\"] = responseCode.code === 201;",
-                      "    tests[\"School created\"] = responseBody.has('\"id\":')",
-                      "    if (responseBody.has('\"id\":'))",
-                      "    {",
-                      "        var jsonData = JSON.parse(responseBody);",
-                      "        postman.setEnvironmentVariable(\"justCreatedId\", jsonData.id);",
-                      "    }",
-                      "    if (typeof(GlobalFunctions) !== 'undefined' )",
-                      "    {",
-                      "        GlobalFunctions.reportFails(tests, responseCode, responseBody);",
-                      "    }",
-                      "}"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "8e9a869b-9717-42e8-9270-fb0c1bf0207a",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "{{GraphAuth}}"
-                  },
-                  {
-                    "key": "Workload-Authorization",
-                    "value": "{{AADAuth}}",
-                    "disabled": true
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json;odata.metadata={{MetadataLevel}}"
-                  },
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationSchool\",\n\t\"displayName\":\"SchoolTestRun{{currentRandom}}\",\n\t\"description\": \"A lovely school to test.\",\n\t\"externalSource\": \"SIS\",\n\t\"address\": {\n\t    \"street\": \"1 Bash Street\",\n\t    \"city\": \"Redmond\",\n\t    \"state\": \"WA\",\n\t    \"countryOrRegion\": \"USA\",\n\t    \"postalCode\": \"98052\"\n \t}\n}",
-                  "options": {
-                    "raw": {}
-                  }
-                },
-                "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools"
               },
               "response": []
             }
@@ -7892,7 +7892,7 @@
   ],
   "variable": [
     {
-      "id": "63c277bb-5b83-4bb3-98be-41a3c671c62f",
+      "id": "83970f4d-69f3-440c-86bc-683517d153d9",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e",
       "type": "string"
