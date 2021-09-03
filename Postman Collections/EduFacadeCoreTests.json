@@ -4367,31 +4367,6 @@
               "response": []
             },
             {
-              "name": "T_Post_GetUserWithRelated",
-              "event": [
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "82de1926-522e-4246-8d8d-c857cb9accf2",
-                    "exec": [
-                      "// Just a placeholder."
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "id": "19f8f81d-43ee-424f-b789-3d232d0bc14e",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [],
-                "url": "https://postman-echo.com/get"
-              },
-              "response": []
-            },
-            {
               "name": "Get A User With RelatedContacts Copy",
               "event": [
                 {
@@ -4471,6 +4446,31 @@
                     }
                   ]
                 }
+              },
+              "response": []
+            },
+            {
+              "name": "T_Post_GetUserWithRelated",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "82de1926-522e-4246-8d8d-c857cb9accf2",
+                    "exec": [
+                      "// Just a placeholder."
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "id": "19f8f81d-43ee-424f-b789-3d232d0bc14e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": "https://postman-echo.com/get"
               },
               "response": []
             }
@@ -7983,7 +7983,7 @@
   ],
   "variable": [
     {
-      "id": "b27b896e-6295-4547-bb75-b7cdfec777b4",
+      "id": "a17377c6-fcb0-454b-b0cb-f85a5fc2a493",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
