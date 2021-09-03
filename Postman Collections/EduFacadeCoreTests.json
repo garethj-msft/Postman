@@ -4365,31 +4365,6 @@
                 }
               },
               "response": []
-            },
-            {
-              "name": "T_PostRelated Copy",
-              "event": [
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "82de1926-522e-4246-8d8d-c857cb9accf2",
-                    "exec": [
-                      "// Just a placeholder."
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "id": "19f8f81d-43ee-424f-b789-3d232d0bc14e",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [],
-                "url": "https://postman-echo.com/get"
-              },
-              "response": []
             }
           ],
           "id": "4d5d8d58-e439-449a-b407-f70b08ff1418"
@@ -7654,6 +7629,31 @@
               "response": []
             },
             {
+              "name": "T_PostRelated Copy",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "82de1926-522e-4246-8d8d-c857cb9accf2",
+                    "exec": [
+                      "// Just a placeholder."
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "id": "19f8f81d-43ee-424f-b789-3d232d0bc14e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": "https://postman-echo.com/get"
+              },
+              "response": []
+            },
+            {
               "name": "Delete just created Student",
               "event": [
                 {
@@ -7901,7 +7901,7 @@
   ],
   "variable": [
     {
-      "id": "bdb544f5-3f50-47d5-83b1-caa8efdaef7b",
+      "id": "fda97bd8-f38c-42ae-917f-ddf743565a99",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
