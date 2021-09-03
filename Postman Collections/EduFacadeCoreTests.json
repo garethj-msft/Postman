@@ -7449,8 +7449,7 @@
                       "if (graphVersion === 'v1.0')\r",
                       "{\r",
                       "    postman.setNextRequest(\"T_PostRelated\");\r",
-                      "}\r",
-                      ""
+                      "}"
                     ],
                     "type": "text/javascript"
                   }
@@ -7901,7 +7900,7 @@
   ],
   "variable": [
     {
-      "id": "fc08b753-b873-4727-9fcf-beb57989127a",
+      "id": "6b0c403c-2c07-45fa-9bbe-c6d2c48ffea4",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
