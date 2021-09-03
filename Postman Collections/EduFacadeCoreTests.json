@@ -1631,17 +1631,11 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "type": "text/javascript",
+                    "id": "ec98aa77-1188-4d25-b7f7-a00b751a17c7",
                     "exec": [
-                      "// Skip /me request for AppOnly\r",
-                      "var authType = postman.getEnvironmentVariable(\"authType\");\r",
-                      "if (authType === 'appOnly')\r",
-                      "{\r",
-                      "    postman.setNextRequest(\"T_PostME\");\r",
-                      "}\r",
-                      ""
+                      "// Just a placeholder."
                     ],
-                    "id": "ec98aa77-1188-4d25-b7f7-a00b751a17c7"
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -7848,7 +7842,7 @@
   ],
   "variable": [
     {
-      "id": "a22e2208-3122-48e1-8c72-d0e2862fa579",
+      "id": "f624227c-e39d-4f2f-8dce-bee9573d1a6a",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
