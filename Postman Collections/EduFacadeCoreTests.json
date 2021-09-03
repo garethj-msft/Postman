@@ -1554,6 +1554,37 @@
               "response": []
             },
             {
+              "name": "T_PreNext Copy",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "// Skip /me request for AppOnly\r",
+                      "var authType = postman.getEnvironmentVariable(\"authType\");\r",
+                      "if (authType === 'appOnly')\r",
+                      "{\r",
+                      "    postman.setNextRequest(\"T_PostME\");\r",
+                      "}\r",
+                      ""
+                    ],
+                    "id": "ec98aa77-1188-4d25-b7f7-a00b751a17c7"
+                  }
+                }
+              ],
+              "id": "4efd5626-a048-47a9-b99e-da62cfe050af",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
+              },
+              "response": []
+            },
+            {
               "name": "Get Classes NEXT",
               "event": [
                 {
@@ -2459,37 +2490,6 @@
                   "raw": "{  \"@odata.type\":\"microsoft.graph.group\",\n   \"displayName\":\"GarethClass28\",\n   \"mailNickname\":\"class282\",\n   \"mailEnabled\":true,\n   \"securityEnabled\":false,\n   \"extension_fe2174665583431c953114ff7268b7b3_Education_Period\":\"5\",\n   \"groupTypes\":[\"Unified\"]}"
                 },
                 "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{nonEducationGroupId}}"
-              },
-              "response": []
-            },
-            {
-              "name": "T_PreNext Copy",
-              "event": [
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "type": "text/javascript",
-                    "exec": [
-                      "// Skip /me request for AppOnly\r",
-                      "var authType = postman.getEnvironmentVariable(\"authType\");\r",
-                      "if (authType === 'appOnly')\r",
-                      "{\r",
-                      "    postman.setNextRequest(\"T_PostME\");\r",
-                      "}\r",
-                      ""
-                    ],
-                    "id": "ec98aa77-1188-4d25-b7f7-a00b751a17c7"
-                  }
-                }
-              ],
-              "id": "4efd5626-a048-47a9-b99e-da62cfe050af",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [],
-                "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
               },
               "response": []
             }
@@ -7850,7 +7850,7 @@
   ],
   "variable": [
     {
-      "id": "b22ee8db-a3d9-4a60-96c6-5429daf4de18",
+      "id": "b2f159ee-9d2e-4f79-ae39-2d8b4a4a0f0c",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
