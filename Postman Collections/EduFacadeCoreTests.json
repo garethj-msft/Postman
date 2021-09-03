@@ -4367,31 +4367,6 @@
               "response": []
             },
             {
-              "name": "T_Post_GetUserWithRelated",
-              "event": [
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "82de1926-522e-4246-8d8d-c857cb9accf2",
-                    "exec": [
-                      "// Just a placeholder."
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "id": "19f8f81d-43ee-424f-b789-3d232d0bc14e",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [],
-                "url": "https://postman-echo.com/get"
-              },
-              "response": []
-            },
-            {
               "name": "T_Post_GetUserWithRelated Copy",
               "event": [
                 {
@@ -4406,6 +4381,31 @@
                 }
               ],
               "id": "fb8f33a2-70ff-4364-9e09-250f3a0c3f9a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": "https://postman-echo.com/get"
+              },
+              "response": []
+            },
+            {
+              "name": "T_Post_GetUserWithRelated",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "82de1926-522e-4246-8d8d-c857cb9accf2",
+                    "exec": [
+                      "// Just a placeholder."
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "id": "19f8f81d-43ee-424f-b789-3d232d0bc14e",
               "protocolProfileBehavior": {
                 "disableBodyPruning": true
               },
@@ -7925,7 +7925,7 @@
   ],
   "variable": [
     {
-      "id": "b8f3f6d8-fda3-4706-8ac9-8d65dcff9adf",
+      "id": "be793bd7-7150-483a-a1c0-3f032dc792d2",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
