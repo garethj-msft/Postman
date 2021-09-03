@@ -1531,7 +1531,7 @@
                     "id": "01420c56-d60a-4644-b007-48d4f08ac1de",
                     "exec": [
                       "var authType = postman.getEnvironmentVariable(\"authType\");\r",
-                      "if (pm.environment(\"odataNextLink\") === '')\r",
+                      "if (pm.environment.get(\"odataNextLink\") === '')\r",
                       "{\r",
                       "    postman.setNextRequest(\"T_PostNext\");\r",
                       "}"
@@ -7842,7 +7842,7 @@
   ],
   "variable": [
     {
-      "id": "f624227c-e39d-4f2f-8dce-bee9573d1a6a",
+      "id": "966e3a21-289c-4cbd-8716-cb080bcf1bbc",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
