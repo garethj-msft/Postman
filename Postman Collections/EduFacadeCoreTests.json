@@ -4365,31 +4365,6 @@
                 }
               },
               "response": []
-            },
-            {
-              "name": "T_Post_GetUserWithRelated",
-              "event": [
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "82de1926-522e-4246-8d8d-c857cb9accf2",
-                    "exec": [
-                      "// Just a placeholder."
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "id": "19f8f81d-43ee-424f-b789-3d232d0bc14e",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [],
-                "url": "https://postman-echo.com/get"
-              },
-              "response": []
             }
           ],
           "id": "4d5d8d58-e439-449a-b407-f70b08ff1418"
@@ -7716,6 +7691,31 @@
                 "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}"
               },
               "response": []
+            },
+            {
+              "name": "T_PostRelated Copy",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "82de1926-522e-4246-8d8d-c857cb9accf2",
+                    "exec": [
+                      "// Just a placeholder."
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "id": "19f8f81d-43ee-424f-b789-3d232d0bc14e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": "https://postman-echo.com/get"
+              },
+              "response": []
             }
           ],
           "id": "69660e9a-3e65-4405-bac9-42fbc484bda7"
@@ -7901,7 +7901,7 @@
   ],
   "variable": [
     {
-      "id": "b0c0c809-1bf5-4821-a7d4-6c1d678ee9c1",
+      "id": "e51049c5-7060-4549-8df1-2381fb23e403",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
