@@ -4249,6 +4249,41 @@
               "response": []
             },
             {
+              "name": "T_Pre_GetUserWithRelated",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "d396a01d-ae2c-479c-af9f-86eb6c362601",
+                    "exec": [
+                      "// Skip /relatedContacts request for v1.0\r",
+                      "\r",
+                      "// Failing, disabling while invesigating root cause\r",
+                      "//postman.setNextRequest(\"T_PostRelated\"); // Temp disabled due to failures\r",
+                      "\r",
+                      "var graphVersion = postman.getEnvironmentVariable(\"graphVersion\");\r",
+                      "if (graphVersion === 'v1.0')\r",
+                      "{\r",
+                      "    postman.setNextRequest(\"T_Post_GetUserWithRelated\");\r",
+                      "}\r",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "id": "fe986efb-adfb-4534-bfcd-61c72f0cd785",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": "https://postman-echo.com/get"
+              },
+              "response": []
+            },
+            {
               "name": "Get A User With RelatedContacts",
               "event": [
                 {
@@ -4328,6 +4363,31 @@
                     }
                   ]
                 }
+              },
+              "response": []
+            },
+            {
+              "name": "T_Post_GetUserWithRelated",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "82de1926-522e-4246-8d8d-c857cb9accf2",
+                    "exec": [
+                      "// Just a placeholder."
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "id": "19f8f81d-43ee-424f-b789-3d232d0bc14e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": "https://postman-echo.com/get"
               },
               "response": []
             }
@@ -7408,41 +7468,6 @@
               "response": []
             },
             {
-              "name": "T_PreRelated Copy",
-              "event": [
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "d396a01d-ae2c-479c-af9f-86eb6c362601",
-                    "exec": [
-                      "// Skip /relatedContacts request for v1.0\r",
-                      "\r",
-                      "// Failing, disabling while invesigating root cause\r",
-                      "//postman.setNextRequest(\"T_PostRelated\"); // Temp disabled due to failures\r",
-                      "\r",
-                      "var graphVersion = postman.getEnvironmentVariable(\"graphVersion\");\r",
-                      "if (graphVersion === 'v1.0')\r",
-                      "{\r",
-                      "    postman.setNextRequest(\"T_PostRelated\");\r",
-                      "}\r",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "id": "fe986efb-adfb-4534-bfcd-61c72f0cd785",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [],
-                "url": "https://postman-echo.com/get"
-              },
-              "response": []
-            },
-            {
               "name": "Patch-Education-User-Contacts",
               "event": [
                 {
@@ -7876,7 +7901,7 @@
   ],
   "variable": [
     {
-      "id": "31289e8a-47e8-4ce9-941f-89f3e6a23f1c",
+      "id": "fc08b753-b873-4727-9fcf-beb57989127a",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
