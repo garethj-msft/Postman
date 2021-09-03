@@ -4284,6 +4284,41 @@
               "response": []
             },
             {
+              "name": "T_Pre_GetUserWithRelated Copy",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "97b9a535-07e9-47c5-bf58-80719a2a4647",
+                    "exec": [
+                      "// Skip /relatedContacts request for v1.0\r",
+                      "\r",
+                      "// Failing, disabling while invesigating root cause\r",
+                      "//postman.setNextRequest(\"T_PostRelated\"); // Temp disabled due to failures\r",
+                      "\r",
+                      "var graphVersion = postman.getEnvironmentVariable(\"graphVersion\");\r",
+                      "if (graphVersion === 'v1.0')\r",
+                      "{\r",
+                      "    postman.setNextRequest(\"T_Post_GetUserWithRelated\");\r",
+                      "}\r",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "id": "289aa271-a55b-4b53-bd0e-5542e8ba499d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": "https://postman-echo.com/get"
+              },
+              "response": []
+            },
+            {
               "name": "Get A User With RelatedContacts",
               "event": [
                 {
@@ -4381,41 +4416,6 @@
                 }
               ],
               "id": "19f8f81d-43ee-424f-b789-3d232d0bc14e",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [],
-                "url": "https://postman-echo.com/get"
-              },
-              "response": []
-            },
-            {
-              "name": "T_Pre_GetUserWithRelated Copy",
-              "event": [
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "97b9a535-07e9-47c5-bf58-80719a2a4647",
-                    "exec": [
-                      "// Skip /relatedContacts request for v1.0\r",
-                      "\r",
-                      "// Failing, disabling while invesigating root cause\r",
-                      "//postman.setNextRequest(\"T_PostRelated\"); // Temp disabled due to failures\r",
-                      "\r",
-                      "var graphVersion = postman.getEnvironmentVariable(\"graphVersion\");\r",
-                      "if (graphVersion === 'v1.0')\r",
-                      "{\r",
-                      "    postman.setNextRequest(\"T_Post_GetUserWithRelated\");\r",
-                      "}\r",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "id": "289aa271-a55b-4b53-bd0e-5542e8ba499d",
               "protocolProfileBehavior": {
                 "disableBodyPruning": true
               },
@@ -7935,7 +7935,7 @@
   ],
   "variable": [
     {
-      "id": "2e7b58e2-ac67-44bd-9ef4-076499041560",
+      "id": "3cb89686-349c-4193-bf3d-1be60e923baf",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
