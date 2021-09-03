@@ -4390,31 +4390,6 @@
                 "url": "https://postman-echo.com/get"
               },
               "response": []
-            },
-            {
-              "name": "T_Post_GetUserWithRelated",
-              "event": [
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "82de1926-522e-4246-8d8d-c857cb9accf2",
-                    "exec": [
-                      "// Just a placeholder."
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "id": "19f8f81d-43ee-424f-b789-3d232d0bc14e",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [],
-                "url": "https://postman-echo.com/get"
-              },
-              "response": []
             }
           ],
           "id": "4d5d8d58-e439-449a-b407-f70b08ff1418"
@@ -7925,7 +7900,7 @@
   ],
   "variable": [
     {
-      "id": "be793bd7-7150-483a-a1c0-3f032dc792d2",
+      "id": "3d6ed898-03e3-45be-937a-2dd74e821c69",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
