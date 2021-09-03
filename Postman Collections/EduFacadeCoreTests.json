@@ -1535,7 +1535,7 @@
                       "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
                       "}",
                       "",
-                      "if ({odataNextLink} == 'undefined' || '')",
+                      "if ((pm.environment.get(\"odataNextLink\") == 'undefined' || '')",
                       "{",
                       "    postman.setNextRequest(\"Get Classes TOP\");",
                       "}"
@@ -7792,7 +7792,7 @@
   ],
   "variable": [
     {
-      "id": "1135ad83-775d-4282-9e58-1388a06cdd6a",
+      "id": "c3d0e810-18fc-4fc8-8a11-4a44ed6a4eeb",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
