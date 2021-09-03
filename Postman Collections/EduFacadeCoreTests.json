@@ -1554,37 +1554,6 @@
               "response": []
             },
             {
-              "name": "T_PreNext Copy",
-              "event": [
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "type": "text/javascript",
-                    "exec": [
-                      "// Skip /me request for AppOnly\r",
-                      "var authType = postman.getEnvironmentVariable(\"authType\");\r",
-                      "if (authType === 'appOnly')\r",
-                      "{\r",
-                      "    postman.setNextRequest(\"T_PostME\");\r",
-                      "}\r",
-                      ""
-                    ],
-                    "id": "ec98aa77-1188-4d25-b7f7-a00b751a17c7"
-                  }
-                }
-              ],
-              "id": "4efd5626-a048-47a9-b99e-da62cfe050af",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [],
-                "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
-              },
-              "response": []
-            },
-            {
               "name": "Get Classes NEXT",
               "event": [
                 {
@@ -1655,6 +1624,37 @@
                   }
                 ],
                 "url": "{{odataNextLink}}"
+              },
+              "response": []
+            },
+            {
+              "name": "T_PreNext Copy",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "// Skip /me request for AppOnly\r",
+                      "var authType = postman.getEnvironmentVariable(\"authType\");\r",
+                      "if (authType === 'appOnly')\r",
+                      "{\r",
+                      "    postman.setNextRequest(\"T_PostME\");\r",
+                      "}\r",
+                      ""
+                    ],
+                    "id": "ec98aa77-1188-4d25-b7f7-a00b751a17c7"
+                  }
+                }
+              ],
+              "id": "4efd5626-a048-47a9-b99e-da62cfe050af",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
               },
               "response": []
             },
@@ -7850,7 +7850,7 @@
   ],
   "variable": [
     {
-      "id": "b2f159ee-9d2e-4f79-ae39-2d8b4a4a0f0c",
+      "id": "233ee2eb-b1c2-4bc0-a43e-db1dbcfcca9f",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
