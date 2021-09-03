@@ -4367,7 +4367,7 @@
               "response": []
             },
             {
-              "name": "T_PostRelated Copy",
+              "name": "T_Post_GetUserWithRelated",
               "event": [
                 {
                   "listen": "prerequest",
@@ -7901,7 +7901,7 @@
   ],
   "variable": [
     {
-      "id": "b20fe123-da70-4fa2-9b61-89cbc53c53da",
+      "id": "b0c0c809-1bf5-4821-a7d4-6c1d678ee9c1",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
