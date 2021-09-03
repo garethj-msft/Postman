@@ -4367,89 +4367,6 @@
               "response": []
             },
             {
-              "name": "Get A User With RelatedContacts Copy",
-              "event": [
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "5ca63ebd-6334-431f-87be-878566c347ba",
-                    "exec": [
-                      "if (typeof(GlobalFunctions) !== 'undefined' )",
-                      "{",
-                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                      "}"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "abfd9b5c-63ad-4632-86b3-21c7ecf8c6e2",
-                    "exec": [
-                      "var expectedSuccess = (postman.getEnvironmentVariable('expectedSuccess') == 'true');",
-                      "console.log('expected success =@' + expectedSuccess + '@');",
-                      "if (expectedSuccess === true)",
-                      "{",
-                      "    tests[\"Status code is 200\"] = responseCode.code === 200;",
-                      "    tests[\"ID found\"] = responseBody.has('\"id\":');",
-                      "    tests[\"displayName found\"] = responseBody.has('\"displayName\":');",
-                      "    tests[\"relatedContacts found\"] = responseBody.has('\"relatedContacts\":');",
-                      "    tests[\"relationship found\"] = responseBody.has('\"relationship\":');",
-                      "}",
-                      "else",
-                      "{",
-                      "    tests[\"Status code is 403\"] = responseCode.code === 403;",
-                      "}"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "id": "6e1f1f2d-a37e-4240-8d24-b9dc40719aae",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "{{GraphAuth}}"
-                  },
-                  {
-                    "key": "Workload-Authorization",
-                    "value": "{{AADAuth}}",
-                    "disabled": true
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json;odata.metadata={{MetadataLevel}}"
-                  }
-                ],
-                "url": {
-                  "raw": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{primaryTestUserId}}?$select=id,displayName,relatedContacts",
-                  "protocol": "{{https}}",
-                  "host": [
-                    "{{host}}"
-                  ],
-                  "path": [
-                    "{{graphVersion}}",
-                    "education",
-                    "users",
-                    "{{primaryTestUserId}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "$select",
-                      "value": "id,displayName,relatedContacts"
-                    }
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
               "name": "T_Post_GetUserWithRelated",
               "event": [
                 {
@@ -7983,7 +7900,7 @@
   ],
   "variable": [
     {
-      "id": "a17377c6-fcb0-454b-b0cb-f85a5fc2a493",
+      "id": "c390d319-b13f-493f-b714-464c518f651d",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
