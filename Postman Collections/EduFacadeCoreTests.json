@@ -2987,6 +2987,37 @@
               "response": []
             },
             {
+              "name": "T_PreME Copy",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "// Skip /me request for AppOnly\r",
+                      "var authType = postman.getEnvironmentVariable(\"authType\");\r",
+                      "if (authType === 'appOnly')\r",
+                      "{\r",
+                      "    postman.setNextRequest(\"T_PostME\");\r",
+                      "}\r",
+                      ""
+                    ],
+                    "id": "01420c56-d60a-4644-b007-48d4f08ac1de"
+                  }
+                }
+              ],
+              "id": "02e50a34-c674-4378-a898-f491016bee99",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
+              },
+              "response": []
+            },
+            {
               "name": "Get EDU me",
               "event": [
                 {
@@ -7788,7 +7819,7 @@
   ],
   "variable": [
     {
-      "id": "1285f230-53a4-4578-a610-2635f49d219c",
+      "id": "c1a5eda1-0a08-4c3a-9dd0-36dcc1a86a86",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
