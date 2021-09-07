@@ -3415,22 +3415,22 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "type": "text/javascript",
+                    "id": "6c284721-9d8d-4fbe-9660-17903ff6df16",
                     "exec": [
                       "// Just a placeholder."
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
               "id": "ecedfc4a-cc68-517b-3677-7ed7689bed7a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
               "request": {
                 "method": "GET",
                 "header": [],
-                "body": {
-                  "mode": "raw",
-                  "raw": ""
-                },
-                "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
+                "url": "https://postman-echo.com/get"
               },
               "response": []
             }
@@ -7900,7 +7900,7 @@
   ],
   "variable": [
     {
-      "id": "0388f42d-5bdb-488c-b263-dd35953185de",
+      "id": "6b4e93eb-3954-45c3-b433-ac136b7f99b7",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
