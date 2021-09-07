@@ -3461,7 +3461,7 @@
                       "else\r",
                       "{\r",
                       "    // App + User only does readbasic.\r",
-                      "    postman.setNextRequest(\"T_PreReadWrite\");\r",
+                      "    postman.setNextRequest(\"T_AppPlusUserToken GraphRead\");\r",
                       "}"
                     ],
                     "type": "text/javascript"
@@ -7901,7 +7901,7 @@
   ],
   "variable": [
     {
-      "id": "694414dc-4341-42a4-bde4-5203e764ecae",
+      "id": "bd0862db-de3d-466a-948d-e4714abf0484",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
