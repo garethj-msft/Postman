@@ -7757,6 +7757,47 @@
       "response": []
     },
     {
+      "name": "Delay",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "d1f2d475-8218-4b8e-9bac-f560c139b1e2",
+            "exec": [
+              "if (responseCode.code !== 200)",
+              "{",
+              "    tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "}",
+              "postman.setNextRequest(postman.getEnvironmentVariable(\"returnRequest\"));"
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "71c11018-bf01-4d70-9158-18be452ba04d",
+            "exec": [
+              "// Delay to make sure propagation happens",
+              "//setTimeout(function(err, res) {console.log(\"10s delay\");}, 10);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "f0683698-ab2e-4c94-91ea-5cf867d26c2a",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "https://postman-echo.com/delay/10",
+        "description": "Using this endpoint one can configure how long it takes for the server to come back with a response. Appending a number to the URL defines the time (in seconds) the server will wait before responding.\n\nNote that a maximum delay of 10 seconds is accepted by the server."
+      },
+      "response": []
+    },
+    {
       "name": "CLEANUP GetDeleteSchoolList",
       "event": [
         {
@@ -7840,47 +7881,6 @@
         "url": "{{https}}://{{host}}/beta/education/schools"
       },
       "response": []
-    },
-    {
-      "name": "Delay",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "id": "d1f2d475-8218-4b8e-9bac-f560c139b1e2",
-            "exec": [
-              "if (responseCode.code !== 200)",
-              "{",
-              "    tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "}",
-              "postman.setNextRequest(postman.getEnvironmentVariable(\"returnRequest\"));"
-            ],
-            "type": "text/javascript"
-          }
-        },
-        {
-          "listen": "prerequest",
-          "script": {
-            "id": "71c11018-bf01-4d70-9158-18be452ba04d",
-            "exec": [
-              "// Delay to make sure propagation happens",
-              "//setTimeout(function(err, res) {console.log(\"10s delay\");}, 10);"
-            ],
-            "type": "text/javascript"
-          }
-        }
-      ],
-      "id": "f0683698-ab2e-4c94-91ea-5cf867d26c2a",
-      "protocolProfileBehavior": {
-        "disableBodyPruning": true
-      },
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": "https://postman-echo.com/delay/10",
-        "description": "Using this endpoint one can configure how long it takes for the server to come back with a response. Appending a number to the URL defines the time (in seconds) the server will wait before responding.\n\nNote that a maximum delay of 10 seconds is accepted by the server."
-      },
-      "response": []
     }
   ],
   "event": [
@@ -7907,7 +7907,7 @@
   ],
   "variable": [
     {
-      "id": "27ab2e43-30c6-4400-a653-673117e26977",
+      "id": "ff70a206-79fd-4013-a39d-2934aae6c440",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
