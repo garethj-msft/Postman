@@ -4981,6 +4981,41 @@
                 "url": "https://postman-echo.com/get"
               },
               "response": []
+            },
+            {
+              "name": "T_PreReadWrite Copy",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "45a30f9b-235c-4c44-8325-c519bd9b887b",
+                    "exec": [
+                      "postman.setEnvironmentVariable(\"GraphAuth\", \"\");\r",
+                      "var authType = postman.getEnvironmentVariable(\"authType\");\r",
+                      "if (authType === 'appOnly')\r",
+                      "{\r",
+                      "    postman.setNextRequest(\"T_AppOnlyToken GraphReadWrite\");\r",
+                      "}\r",
+                      "else\r",
+                      "{\r",
+                      "    postman.setNextRequest(\"T_AppPlusUserToken GraphReadWrite\");\r",
+                      "\r",
+                      "}"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "id": "4299957e-f374-47ec-b9f7-8c8d3d00bae2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": "https://postman-echo.com/get"
+              },
+              "response": []
             }
           ],
           "id": "963703dd-7c85-474e-8152-90399039c8c1"
@@ -7899,7 +7934,7 @@
   ],
   "variable": [
     {
-      "id": "3f9bbed6-a6ad-442c-9d3b-9427bad00466",
+      "id": "a41db5ea-7941-4a1c-ac84-177fceed9e4e",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
