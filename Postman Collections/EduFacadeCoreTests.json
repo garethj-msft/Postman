@@ -7757,36 +7757,6 @@
       "response": []
     },
     {
-      "name": "FINAL TEST Copy",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "// The Sole purpose of this FINAL TEST is to reset the environment variable Metadata level to minimal",
-              "// Keep it as the last test in any run.",
-              "postman.setEnvironmentVariable(\"MetadataLevel\", \"minimal\");",
-              "postman.setEnvironmentVariable('expectedSuccess', true);",
-              "postman.setNextRequest(null);",
-              ""
-            ],
-            "id": "7171742e-fe4b-49e9-8902-6f468d09cfd5"
-          }
-        }
-      ],
-      "id": "89e5b087-c2d0-4499-8c58-93770fbf0150",
-      "protocolProfileBehavior": {
-        "disableBodyPruning": true
-      },
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": "https://postman-echo.com/get"
-      },
-      "response": []
-    },
-    {
       "name": "CLEANUP GetDeleteSchoolList",
       "event": [
         {
@@ -7896,7 +7866,7 @@
   ],
   "variable": [
     {
-      "id": "0eb25ffc-c05b-4172-9405-a5e187c6e43e",
+      "id": "f7de6bdd-2e82-47ee-8f25-6fd4baad03b3",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
