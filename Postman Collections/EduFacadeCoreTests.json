@@ -7632,95 +7632,6 @@
               ]
             },
             {
-              "name": "T_PostRelated",
-              "event": [
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "00fce24d-69c3-495e-8ddb-fb5c7871f92e",
-                    "exec": [
-                      "// Just a placeholder."
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "id": "6e95e319-cf04-4b51-9780-5bd83985c4ec",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [],
-                "url": "https://postman-echo.com/get"
-              },
-              "response": []
-            },
-            {
-              "name": "Delete just created Student",
-              "event": [
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "b9d4805b-02e8-4c03-aaae-41ef75552617",
-                    "exec": [
-                      "if (typeof(GlobalFunctions) !== 'undefined' )",
-                      "{",
-                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                      "}"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "c52f954a-033f-4a95-b850-5919ecb929fc",
-                    "exec": [
-                      "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-                      "if(!expectedSuccess)",
-                      "{",
-                      "    tests[\"Status code is 403\"] = responseCode.code === 403;",
-                      "}",
-                      "else",
-                      "{",
-                      "    tests[\"Status code is 204\"] = responseCode.code === 204;",
-                      "}"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "id": "e83b05cc-41b2-4904-8f31-a90da9516605",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "DELETE",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "{{GraphAuth}}"
-                  },
-                  {
-                    "key": "Workload-Authorization",
-                    "value": "{{AADAuth}}",
-                    "disabled": true
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json;odata.metadata={{MetadataLevel}}"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": ""
-                },
-                "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}"
-              },
-              "response": []
-            },
-            {
               "name": "Patch-Education-User-Contacts Copy",
               "event": [
                 {
@@ -7880,6 +7791,95 @@
                   "body": "{\"@odata.context\":\"https://graph.microsoft-ppe.com/testsdsobo/$metadata#educationUser/$entity\",\"id\":\"1eccbb96-6ede-403d-aa2f-97131b5e6efb\",\"relatedContacts\":[{\"displayName\":\"TestUser G\",\"emailAddress\":\"user@outlook.com\",\"mobilePhone\":\"123-456-7890\",\"relationship\":\"parent\",\"accessConsent\":false}]}"
                 }
               ]
+            },
+            {
+              "name": "T_PostRelated",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "00fce24d-69c3-495e-8ddb-fb5c7871f92e",
+                    "exec": [
+                      "// Just a placeholder."
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "id": "6e95e319-cf04-4b51-9780-5bd83985c4ec",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": "https://postman-echo.com/get"
+              },
+              "response": []
+            },
+            {
+              "name": "Delete just created Student",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "b9d4805b-02e8-4c03-aaae-41ef75552617",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "c52f954a-033f-4a95-b850-5919ecb929fc",
+                    "exec": [
+                      "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+                      "if(!expectedSuccess)",
+                      "{",
+                      "    tests[\"Status code is 403\"] = responseCode.code === 403;",
+                      "}",
+                      "else",
+                      "{",
+                      "    tests[\"Status code is 204\"] = responseCode.code === 204;",
+                      "}"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "id": "e83b05cc-41b2-4904-8f31-a90da9516605",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{https}}://{{host}}/{{graphVersion}}/education/users/{{justCreatedId}}"
+              },
+              "response": []
             }
           ],
           "id": "69660e9a-3e65-4405-bac9-42fbc484bda7"
@@ -8068,7 +8068,7 @@
   ],
   "variable": [
     {
-      "id": "0515e7cd-f003-481c-8c1b-68368af39d3c",
+      "id": "a930d303-f9d1-4fb7-9cd9-e049c7e57f47",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
