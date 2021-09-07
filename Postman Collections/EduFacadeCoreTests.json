@@ -7722,6 +7722,216 @@
             }
           ],
           "id": "69660e9a-3e65-4405-bac9-42fbc484bda7"
+        },
+        {
+          "name": "Auth Copy",
+          "item": [
+            {
+              "name": "T_PreReadWrite",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "02f92da2-828d-422a-9afe-7cd23008ae12",
+                    "exec": [
+                      "postman.setEnvironmentVariable(\"GraphAuth\", \"\");\r",
+                      "var authType = postman.getEnvironmentVariable(\"authType\");\r",
+                      "if (authType === 'appOnly')\r",
+                      "{\r",
+                      "    postman.setNextRequest(\"T_AppOnlyToken GraphReadWrite\");\r",
+                      "}\r",
+                      "else\r",
+                      "{\r",
+                      "    postman.setNextRequest(\"T_AppPlusUserToken GraphReadWrite\");\r",
+                      "\r",
+                      "}"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "id": "130f1fa4-0410-4d59-8aba-dad4f99f369e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": "https://postman-echo.com/get"
+              },
+              "response": []
+            },
+            {
+              "name": "T_AppPlusUserToken GraphReadWrite",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "1909375a-cdbd-4338-8a1f-4eb762bb183b",
+                    "exec": [
+                      "postman.setNextRequest(\"T_PostReadWrite\");"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "535e3ecf-8726-4ff6-bd44-170c6d021740",
+                    "exec": [
+                      "tests[\"Successful Request\"] = responseCode.code === 200;",
+                      "if(responseCode.code === 200)",
+                      "{",
+                      "    var data = JSON.parse(responseBody);",
+                      "    postman.setEnvironmentVariable(\"GraphAuth\", \"Bearer \" + data.access_token);",
+                      "    tests[\"New readwrite tokens written to environment\"] = true;",
+                      "}"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "id": "ee9aa0f5-45e6-4947-b0dd-958207291e44",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "grant_type",
+                      "value": "password",
+                      "type": "text"
+                    },
+                    {
+                      "key": "client_id",
+                      "value": "{{GraphClientIdReadWrite}}",
+                      "type": "text"
+                    },
+                    {
+                      "key": "client_secret",
+                      "value": "{{GraphSecretReadWrite}}",
+                      "type": "text"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "{{loginResource}}",
+                      "type": "text"
+                    },
+                    {
+                      "key": "username",
+                      "value": "{{apiCaller}}",
+                      "type": "text"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{apiCallerPwd}}",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": "https://{{loginHost}}/common/oauth2/token"
+              },
+              "response": []
+            },
+            {
+              "name": "T_AppOnlyToken GraphReadWrite",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "postman.setNextRequest(\"T_PostReadWrite\");"
+                    ],
+                    "id": "cbce54c1-d34d-4db3-8c83-39275b47f21f"
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Successful Request\"] = responseCode.code === 200;",
+                      "if(responseCode.code === 200)",
+                      "{",
+                      "    var data = JSON.parse(responseBody);",
+                      "    postman.setEnvironmentVariable(\"GraphAuth\", \"Bearer \" + data.access_token);",
+                      "    tests[\"New app-only readwrite token written to environment\"] = true;",
+                      "}"
+                    ],
+                    "id": "429c51a3-36d2-4cd1-84d8-0e7bb1a76978"
+                  }
+                }
+              ],
+              "id": "37a6511b-3ca4-4fd8-a08c-45d5e1f35147",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "grant_type",
+                      "value": "client_credentials",
+                      "type": "text"
+                    },
+                    {
+                      "key": "client_id",
+                      "value": "{{GraphClientIdReadWrite}}",
+                      "type": "text"
+                    },
+                    {
+                      "key": "client_secret",
+                      "value": "{{GraphSecretReadWrite}}",
+                      "type": "text"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "{{loginResource}}",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": "https://{{loginHost}}/{{tenantDomain}}/oauth2/token"
+              },
+              "response": []
+            },
+            {
+              "name": "T_PostReadWrite",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "var auth = postman.getEnvironmentVariable(\"GraphAuth\");",
+                      "tests[\"Auth token acquired.\"] = (auth.length > 10);",
+                      ""
+                    ],
+                    "id": "b9a5b4fb-ec35-44fe-ada9-0c83c680b014"
+                  }
+                }
+              ],
+              "id": "4534fd37-0f8f-4bbc-af9b-a73d3335d7ce",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": "https://postman-echo.com/get"
+              },
+              "response": []
+            }
+          ],
+          "id": "cc5a6159-86ff-4477-8065-631640a98433"
         }
       ],
       "id": "66537159-9385-416e-a89e-b858a0e64f4a"
@@ -7907,7 +8117,7 @@
   ],
   "variable": [
     {
-      "id": "ff70a206-79fd-4013-a39d-2934aae6c440",
+      "id": "3b856f3c-1899-4476-90f7-02c1fcf4d567",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
