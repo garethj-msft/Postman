@@ -1547,7 +1547,7 @@
               "request": {
                 "method": "GET",
                 "header": [],
-                "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
+                "url": "https://postman-echo.com/get"
               },
               "response": []
             },
@@ -7900,7 +7900,7 @@
   ],
   "variable": [
     {
-      "id": "6b4e93eb-3954-45c3-b433-ac136b7f99b7",
+      "id": "86766f6c-cf43-4667-a4d0-bf4e73edcac3",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
