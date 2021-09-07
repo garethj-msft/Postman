@@ -5778,16 +5778,9 @@
                   "script": {
                     "id": "45a30f9b-235c-4c44-8325-c519bd9b887b",
                     "exec": [
-                      "postman.setEnvironmentVariable(\"GraphAuth\", \"\");\r",
-                      "var authType = postman.getEnvironmentVariable(\"authType\");\r",
-                      "if (authType === 'appOnly')\r",
+                      "if (typeof(GlobalFunctions) !== 'undefined' )\r",
                       "{\r",
-                      "    postman.setNextRequest(\"T_AppOnlyToken GraphReadWrite\");\r",
-                      "}\r",
-                      "else\r",
-                      "{\r",
-                      "    postman.setNextRequest(\"T_AppPlusUserToken GraphReadWrite\");\r",
-                      "\r",
+                      "    GlobalFunctions.pauseSeconds(5);\r",
                       "}"
                     ],
                     "type": "text/javascript"
@@ -7934,7 +7927,7 @@
   ],
   "variable": [
     {
-      "id": "3709fdde-b7ae-4ae8-addb-e9acca65ed1c",
+      "id": "118ee17d-396b-4ccf-9e19-3645393e6795",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
