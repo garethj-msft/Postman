@@ -7757,6 +7757,36 @@
       "response": []
     },
     {
+      "name": "FINAL TEST Copy",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "// The Sole purpose of this FINAL TEST is to reset the environment variable Metadata level to minimal",
+              "// Keep it as the last test in any run.",
+              "postman.setEnvironmentVariable(\"MetadataLevel\", \"minimal\");",
+              "postman.setEnvironmentVariable('expectedSuccess', true);",
+              "postman.setNextRequest(null);",
+              ""
+            ],
+            "id": "7171742e-fe4b-49e9-8902-6f468d09cfd5"
+          }
+        }
+      ],
+      "id": "89e5b087-c2d0-4499-8c58-93770fbf0150",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "https://postman-echo.com/get"
+      },
+      "response": []
+    },
+    {
       "name": "Delay",
       "event": [
         {
@@ -7878,36 +7908,6 @@
         "url": "{{https}}://{{host}}/beta/education/schools"
       },
       "response": []
-    },
-    {
-      "name": "FINAL TEST Copy",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "// The Sole purpose of this FINAL TEST is to reset the environment variable Metadata level to minimal",
-              "// Keep it as the last test in any run.",
-              "postman.setEnvironmentVariable(\"MetadataLevel\", \"minimal\");",
-              "postman.setEnvironmentVariable('expectedSuccess', true);",
-              "postman.setNextRequest(null);",
-              ""
-            ],
-            "id": "7171742e-fe4b-49e9-8902-6f468d09cfd5"
-          }
-        }
-      ],
-      "id": "89e5b087-c2d0-4499-8c58-93770fbf0150",
-      "protocolProfileBehavior": {
-        "disableBodyPruning": true
-      },
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": "https://postman-echo.com/get"
-      },
-      "response": []
     }
   ],
   "event": [
@@ -7934,7 +7934,7 @@
   ],
   "variable": [
     {
-      "id": "055810ae-42be-48d3-b830-fa8e62fdc6d7",
+      "id": "19538f59-40e4-4435-8a99-ba17b36d39a1",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
