@@ -5210,34 +5210,6 @@
               "response": []
             },
             {
-              "name": "T_Pause",
-              "event": [
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "45a30f9b-235c-4c44-8325-c519bd9b887b",
-                    "exec": [
-                      "if (typeof(GlobalFunctions) !== 'undefined' )\r",
-                      "{\r",
-                      "    GlobalFunctions.pauseSeconds(5);\r",
-                      "}"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "id": "4299957e-f374-47ec-b9f7-8c8d3d00bae2",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [],
-                "url": "https://postman-echo.com/get"
-              },
-              "response": []
-            },
-            {
               "name": "Check just added Class",
               "event": [
                 {
@@ -7927,7 +7899,7 @@
   ],
   "variable": [
     {
-      "id": "ef3d36f7-e12c-4ee6-b58f-eb77a006663c",
+      "id": "687d0538-ee8e-4e42-b883-abe158525333",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
