@@ -3015,7 +3015,7 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "type": "text/javascript",
+                    "id": "86f6eab8-294e-439f-bb35-0c3c0cee76a6",
                     "exec": [
                       "// Skip /me request for AppOnly\r",
                       "var authType = postman.getEnvironmentVariable(\"authType\");\r",
@@ -3024,19 +3024,19 @@
                       "    postman.setNextRequest(\"T_PostME\");\r",
                       "}\r",
                       ""
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
               "id": "a2b66926-f1c6-0453-3de7-a884fbe3ecd6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
               "request": {
                 "method": "GET",
                 "header": [],
-                "body": {
-                  "mode": "raw",
-                  "raw": ""
-                },
-                "url": "{{https}}://{{host}}/{{graphVersion}}/$metadata"
+                "url": "https://postman-echo.com/get"
               },
               "response": []
             },
@@ -7900,7 +7900,7 @@
   ],
   "variable": [
     {
-      "id": "86766f6c-cf43-4667-a4d0-bf4e73edcac3",
+      "id": "3977c5cf-5cbc-41c3-887d-c0d067b087b5",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
