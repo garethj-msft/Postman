@@ -94,7 +94,7 @@
                   "      console.log(responseBody);\r",
                   "    }\r",
                   "  },\r",
-                  "  pause: function (seconds) {\r",
+                  "  pauseSeconds: function (seconds) {\r",
                   "    var millis = seconds * 1000;\r",
                   "    var date = new Date();\r",
                   "    var curDate = null;\r",
@@ -7898,7 +7898,7 @@
   ],
   "variable": [
     {
-      "id": "7f71662e-38d3-4f8a-84f3-f28eb0be2050",
+      "id": "71bf5ec1-7649-4891-89db-44d462602741",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
