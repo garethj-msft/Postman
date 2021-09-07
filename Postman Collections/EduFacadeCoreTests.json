@@ -5096,6 +5096,75 @@
               "response": []
             },
             {
+              "name": "Add a School Class",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "525f8184-de9c-4e8f-b665-35ce8d339e7d",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "1d045900-f93c-454f-83e2-53de8866ff87",
+                    "exec": [
+                      "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
+                      "if(!expectedSuccess)",
+                      "{",
+                      "    tests[\"Status code is 403\"] = responseCode.code === 403;",
+                      "}",
+                      "else",
+                      "{",
+                      "    tests[\"Status code is 204\"] = responseCode.code === 204;",
+                      "    if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "    {",
+                      "        GlobalFunctions.reportFails(tests, responseCode, responseBody);",
+                      "    }",
+                      "}"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "id": "f8940693-a717-3c37-07ac-5a54b5cb62c3",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{GraphAuth}}"
+                  },
+                  {
+                    "key": "Workload-Authorization",
+                    "value": "{{AADAuth}}",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;odata.metadata={{MetadataLevel}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{  \n\t\"@odata.id\":\"https://{{host}}/{{graphVersion}}/education/classes/{{primaryTestClassId}}\" \n}\n"
+                },
+                "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/classes/$ref"
+              },
+              "response": []
+            },
+            {
               "name": "Check just created School",
               "event": [
                 {
@@ -5165,75 +5234,6 @@
                   }
                 ],
                 "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}"
-              },
-              "response": []
-            },
-            {
-              "name": "Add a School Class",
-              "event": [
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "525f8184-de9c-4e8f-b665-35ce8d339e7d",
-                    "exec": [
-                      "if (typeof(GlobalFunctions) !== 'undefined' )",
-                      "{",
-                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                      "}"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "1d045900-f93c-454f-83e2-53de8866ff87",
-                    "exec": [
-                      "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-                      "if(!expectedSuccess)",
-                      "{",
-                      "    tests[\"Status code is 403\"] = responseCode.code === 403;",
-                      "}",
-                      "else",
-                      "{",
-                      "    tests[\"Status code is 204\"] = responseCode.code === 204;",
-                      "    if (typeof(GlobalFunctions) !== 'undefined' )",
-                      "    {",
-                      "        GlobalFunctions.reportFails(tests, responseCode, responseBody);",
-                      "    }",
-                      "}"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "id": "f8940693-a717-3c37-07ac-5a54b5cb62c3",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "{{GraphAuth}}"
-                  },
-                  {
-                    "key": "Workload-Authorization",
-                    "value": "{{AADAuth}}",
-                    "disabled": true
-                  },
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json;odata.metadata={{MetadataLevel}}"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{  \n\t\"@odata.id\":\"https://{{host}}/{{graphVersion}}/education/classes/{{primaryTestClassId}}\" \n}\n"
-                },
-                "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/classes/$ref"
               },
               "response": []
             },
@@ -7927,7 +7927,7 @@
   ],
   "variable": [
     {
-      "id": "540cfdce-2c3e-4b16-a351-b3ed6603d833",
+      "id": "71b084e7-cab9-47dd-91be-7c4126458dbf",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
