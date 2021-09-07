@@ -5776,19 +5776,21 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "type": "text/javascript",
+                    "id": "5abe460f-053f-4bde-a284-b21f21efead3",
                     "exec": [
                       "if (typeof(GlobalFunctions) !== 'undefined' )",
                       "{",
                       "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "    GlobalFunctions.pauseSeconds(10);",
                       "}"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 },
                 {
                   "listen": "test",
                   "script": {
-                    "type": "text/javascript",
+                    "id": "83b8c036-792c-4936-9c36-0b2e72db5140",
                     "exec": [
                       "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
                       "if(!expectedSuccess)",
@@ -5807,11 +5809,15 @@
                       "{",
                       "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
                       "}"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
               "id": "9352e1d1-234a-029e-bcf1-d27df317b97b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
               "request": {
                 "method": "GET",
                 "header": [
@@ -5829,10 +5835,6 @@
                     "value": "application/json;odata.metadata={{MetadataLevel}}"
                   }
                 ],
-                "body": {
-                  "mode": "raw",
-                  "raw": ""
-                },
                 "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}"
               },
               "response": []
@@ -7898,7 +7900,7 @@
   ],
   "variable": [
     {
-      "id": "71bf5ec1-7649-4891-89db-44d462602741",
+      "id": "803d1a8c-e53c-41ac-84df-de59f3d2ec05",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
