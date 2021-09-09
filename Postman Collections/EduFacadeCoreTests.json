@@ -5366,6 +5366,7 @@
                       "if (typeof(GlobalFunctions) !== 'undefined' )",
                       "{",
                       "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "    pauseSeconds(10);",
                       "}",
                       "",
                       ""
@@ -5409,6 +5410,9 @@
                 }
               ],
               "id": "8b77fa24-4fd2-e12a-b220-c8594b14f09e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
               "request": {
                 "method": "GET",
                 "header": [
@@ -7907,7 +7911,7 @@
   ],
   "variable": [
     {
-      "id": "5f279b9d-7c96-4155-87b6-f44ce480e7fd",
+      "id": "e0d00e67-e953-4b28-9c42-2aeb1a6fa9d5",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
