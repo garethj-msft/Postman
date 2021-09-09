@@ -5819,7 +5819,7 @@
                       "    else",
                       "    {",
                       "        pm.test(\"Found Modified School\", function() {",
-                      "            pm.expect(responseCode.code).to.be(204);",
+                      "            pm.expect(responseCode.code).to.be(200);",
                       "            pm.expect(responseBody).has('\"id\":');",
                       "            pm.expect(responseBody).has('\"description\":\"An even better school to test.\"');",
                       "            pm.expect(responseBody).has('\"externalSource\":\"manual\"');",
@@ -7926,7 +7926,7 @@
   ],
   "variable": [
     {
-      "id": "4bc9b5d6-1bea-404f-89ab-500c625bc214",
+      "id": "6b868d8a-90da-4305-9d6b-9a4379dcae3f",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
