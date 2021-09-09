@@ -5077,6 +5077,7 @@
                       "if (typeof(GlobalFunctions) !== 'undefined' )",
                       "{",
                       "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "    pauseSeconds(10);",
                       "}"
                     ],
                     "type": "text/javascript"
@@ -5118,6 +5119,9 @@
                 }
               ],
               "id": "f0df30f3-92e6-dcb6-6909-a42dd1cd8368",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
               "request": {
                 "method": "GET",
                 "header": [
@@ -5220,6 +5224,7 @@
                       "if (typeof(GlobalFunctions) !== 'undefined' )",
                       "{",
                       "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "    pauseSeconds(10);",
                       "}"
                     ],
                     "type": "text/javascript"
@@ -7912,7 +7917,7 @@
   ],
   "variable": [
     {
-      "id": "65497035-e18f-43b3-9e8b-49d6f8a1d43c",
+      "id": "0004a1e8-ef38-4dbd-a292-9579af636d1c",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
