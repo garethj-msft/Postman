@@ -5806,10 +5806,9 @@
                       "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
                       "if(!expectedSuccess)",
                       "{",
-                      "    pm.test(\"Status code is 404\")",
-                      "    {",
+                      "    pm.test(\"Status code is 404\", function() {",
                       "        pm.expect(responseCode.code).to.be(404);",
-                      "    }",
+                      "    });",
                       "}",
                       "else",
                       "{",
@@ -5819,14 +5818,13 @@
                       "    }",
                       "    else",
                       "    {",
-                      "        pm.test(\"Found Modified School\")",
-                      "        {",
+                      "        pm.test(\"Found Modified School\", function() {",
                       "            pm.expect(responseCode.code).to.be(204);",
                       "            pm.expect(responseBody).has('\"id\":');",
                       "            pm.expect(responseBody).has('\"description\":\"An even better school to test.\"');",
                       "            pm.expect(responseBody).has('\"externalSource\":\"manual\"');",
                       "            pm.expect(responseBody).has('\"city\":\"Seattle\"');",
-                      "        }",
+                      "        });",
                       "    }",
                       "}",
                       "",
@@ -7928,7 +7926,7 @@
   ],
   "variable": [
     {
-      "id": "9bff2208-50d8-489b-a2ae-781a88a9a4ab",
+      "id": "4bc9b5d6-1bea-404f-89ab-500c625bc214",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
