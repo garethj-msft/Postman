@@ -5825,6 +5825,7 @@
                       "            pm.expect(responseBody).has('\"externalSource\":\"manual\"');",
                       "            pm.expect(responseBody).has('\"city\":\"Seattle\"');",
                       "        });",
+                      "        pm.environment.clear(\"retryCount\");",
                       "    }",
                       "}",
                       "",
@@ -7926,7 +7927,7 @@
   ],
   "variable": [
     {
-      "id": "6b868d8a-90da-4305-9d6b-9a4379dcae3f",
+      "id": "2014ff48-81b5-415c-aff8-4ec11ae9aa41",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
