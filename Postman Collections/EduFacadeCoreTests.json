@@ -5825,7 +5825,7 @@
                       "            pm.expect(responseBody).has('\"externalSource\":\"manual\"');",
                       "            pm.expect(responseBody).has('\"city\":\"Seattle\"');",
                       "        });",
-                      "        pm.environment.clear(\"retryCount\");",
+                      "        pm.environment.set(\"retryCount\", 0);",
                       "    }",
                       "    else {",
                       "        GlobalFunctions.retryTest(pm.info.requestName, \"Found Modified School\", postman, tests);    ",
@@ -7930,7 +7930,7 @@
   ],
   "variable": [
     {
-      "id": "62125f84-467b-4c48-977d-7c1907114fa2",
+      "id": "6db90c3f-cd72-44aa-a748-824897b5b9a1",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
