@@ -5078,7 +5078,7 @@
                       "if (typeof(GlobalFunctions) !== 'undefined' )",
                       "{",
                       "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                      "    GlobalFunctions.pauseSeconds(10);",
+                      "    GlobalFunctions.pauseSeconds(5);",
                       "}"
                     ],
                     "type": "text/javascript"
@@ -7918,7 +7918,7 @@
   ],
   "variable": [
     {
-      "id": "596a6d59-29c1-4e69-8318-ea1825edb850",
+      "id": "98858f2c-df28-46d2-996b-4a9bda1ba24f",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
