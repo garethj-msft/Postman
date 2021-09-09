@@ -5812,12 +5812,7 @@
                       "}",
                       "else",
                       "{",
-                      "    if(responseCode.code !== 200)",
-                      "    {",
-                      "        GlobalFunctions.retryTest(pm.info.requestName, \"Test\", postman, tests);",
-                      "    }",
-                      "    else",
-                      "    {",
+                      "    if(responseCode.code === 200)  {",
                       "        pm.test(\"Found Modified School\", function() {",
                       "            pm.expect(responseCode.code).to.be(200);",
                       "            pm.expect(responseBody).has('\"id\":');",
@@ -5826,6 +5821,9 @@
                       "            pm.expect(responseBody).has('\"city\":\"Seattle\"');",
                       "        });",
                       "        pm.environment.clear(\"retryCount\");",
+                      "    }",
+                      "    else {",
+                      "        GlobalFunctions.retryTest(pm.info.requestName, \"Found Modified School\", postman, tests);    ",
                       "    }",
                       "}",
                       "",
@@ -7927,7 +7925,7 @@
   ],
   "variable": [
     {
-      "id": "2014ff48-81b5-415c-aff8-4ec11ae9aa41",
+      "id": "f50cbeac-01ce-4a91-b879-6f744aafbc64",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
