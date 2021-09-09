@@ -5590,7 +5590,9 @@
                       "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
                       "if(!expectedSuccess)",
                       "{",
-                      "    tests[\"Status code is 404\"] = responseCode.code === 404;",
+                      "    pm.test(\"Status code is 404\", function() {",
+                      "        pm.expect(responseCode.code).to.be(404);",
+                      "    });",
                       "}",
                       "else",
                       "{",
@@ -5619,6 +5621,9 @@
                 }
               ],
               "id": "2924f983-c329-5db2-2ff7-c2346becb343",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
               "request": {
                 "method": "GET",
                 "header": [
@@ -7925,7 +7930,7 @@
   ],
   "variable": [
     {
-      "id": "f50cbeac-01ce-4a91-b879-6f744aafbc64",
+      "id": "62125f84-467b-4c48-977d-7c1907114fa2",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
