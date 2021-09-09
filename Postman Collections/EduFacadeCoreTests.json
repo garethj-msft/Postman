@@ -5808,7 +5808,7 @@
                       "{",
                       "    pm.test(\"Status code is 404\")",
                       "    {",
-                      "        pm.expect(responseCode.code).to().be(404);",
+                      "        pm.expect(responseCode.code).to.be(404);",
                       "    }",
                       "}",
                       "else",
@@ -5821,7 +5821,7 @@
                       "    {",
                       "        pm.test(\"Found Modified School\")",
                       "        {",
-                      "            pm.expect(responseCode.code).to().be(200);",
+                      "            pm.expect(responseCode.code).to.be(200);",
                       "            pm.expect(responseBody).has('\"id\":');",
                       "            pm.expect(responseBody).has('\"description\":\"An even better school to test.\"');",
                       "            pm.expect(responseBody).has('\"externalSource\":\"manual\"');",
@@ -7928,7 +7928,7 @@
   ],
   "variable": [
     {
-      "id": "422aeecb-efca-4857-a34a-d69c1fb6d8b6",
+      "id": "5dfd0263-39f0-4e52-b875-4612153f1693",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
