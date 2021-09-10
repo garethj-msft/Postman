@@ -5831,9 +5831,9 @@
                       "        pm.test(\"School was Modified\", function () {",
                       "            var jsonData = pm.response.json();",
                       "            pm.expect(jsonData.id).to.eql(pm.environment.get(\"justCreatedId\"));",
-                      "            pm.expect(jsonData.description).to.contain(pm.environment.get(\"An even better school to test\"));",
-                      "            pm.expect(jsonData.externalSource).to.eql(pm.environment.get(\"manual\"));",
-                      "            pm.expect(jsonData.city).to.eql(pm.environment.get(\"Seattle\"));",
+                      "            pm.expect(jsonData.description).to.contain(\"An even better school\");",
+                      "            pm.expect(jsonData.externalSource).to.eql(\"manual\");",
+                      "            pm.expect(jsonData.address.city).to.eql(\"Seattle\");",
                       "",
                       "        });",
                       "        pm.test(\"Found Modified School\", function () {",
@@ -7943,7 +7943,7 @@
   ],
   "variable": [
     {
-      "id": "a36a986c-dcbd-429b-899d-80da555f5e49",
+      "id": "9bb098a6-68f4-4671-8e45-8e79747f4199",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
