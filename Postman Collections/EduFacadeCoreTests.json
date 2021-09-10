@@ -5028,11 +5028,13 @@
                       "        pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
                       "    });",
                       "",
+                      "",
                       "    pm.test(\"School created\", function () {",
                       "        var jsonData = pm.response.json();",
                       "        pm.expect(jsonData.id).to.not.be.null;",
                       "        pm.environment.set(\"justCreatedId\", jsonData.id); ",
                       "    });",
+                      "",
                       "",
                       "    if (typeof(GlobalFunctions) !== 'undefined' )",
                       "    {",
@@ -7963,7 +7965,7 @@
   ],
   "variable": [
     {
-      "id": "a9f4ec84-8364-4038-938c-66330bc97e42",
+      "id": "cd02361d-d5f9-4c43-9bd3-e6c849dd52d3",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
