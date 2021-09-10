@@ -5015,18 +5015,25 @@
                       "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
                       "if(!expectedSuccess)",
                       "{",
-                      "    tests[\"Status code is 403\"] = responseCode.code === 403;",
-                      "    postman.setEnvironmentVariable(\"justCreatedId\", \"9900AA5E-8EBF-4407-B151-CBCF310F1383\"); // Dummy guid",
+                      "",
+                      "    pm.test(\"Status code is 403\", function () {",
+                      "        pm.response.to.have.status(403);",
+                      "    });",
+                      "",
+                      "    pm.environment.set(\"justCreatedId\", \"9900AA5E-8EBF-4407-B151-CBCF310F1383\"); // Dummy guid",
                       "}",
                       "else",
                       "{",
-                      "    tests[\"Status code is 201\"] = responseCode.code === 201;",
-                      "    tests[\"School created\"] = responseBody.has('\"id\":')",
-                      "    if (responseBody.has('\"id\":'))",
-                      "    {",
-                      "        var jsonData = JSON.parse(responseBody);",
-                      "        postman.setEnvironmentVariable(\"justCreatedId\", jsonData.id);",
-                      "    }",
+                      "    pm.test(\"Successful POST request\", function () {",
+                      "        pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
+                      "    });",
+                      "",
+                      "    pm.test(\"School created\", function () {",
+                      "        var jsonData = pm.response.json();",
+                      "        pm.expect(jsonData.id).to.not.be.null;",
+                      "        pm.environment.set(\"justCreatedId\", jsonData.id); ",
+                      "    });",
+                      "",
                       "    if (typeof(GlobalFunctions) !== 'undefined' )",
                       "    {",
                       "        GlobalFunctions.reportFails(tests, responseCode, responseBody);",
@@ -5038,6 +5045,9 @@
                 }
               ],
               "id": "99e5cb04-3362-3f90-53cb-769d57f6c80a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
               "request": {
                 "method": "POST",
                 "header": [
@@ -7953,7 +7963,7 @@
   ],
   "variable": [
     {
-      "id": "a1cc4127-9a81-49e3-a3c1-1f5bb095c437",
+      "id": "a9f4ec84-8364-4038-938c-66330bc97e42",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
