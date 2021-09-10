@@ -6498,40 +6498,57 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "type": "text/javascript",
+                    "id": "7ebfcddd-03d6-484b-957f-d7cde5908810",
                     "exec": [
                       "if (typeof(GlobalFunctions) !== 'undefined' )",
                       "{",
                       "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
                       "}"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 },
                 {
                   "listen": "test",
                   "script": {
-                    "type": "text/javascript",
+                    "id": "c51d9b40-13af-4cfb-9a3b-d00cd529a3e5",
                     "exec": [
                       "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-                      "if(!expectedSuccess)",
-                      "{",
-                      "    tests[\"Status code is 404\"] = responseCode.code === 404;",
+                      "if (!expectedSuccess) {",
+                      "",
+                      "  pm.test(\"Status code is 404\", function () {",
+                      "    pm.response.to.have.status(404);",
+                      "  });",
+                      "",
                       "}",
-                      "else",
-                      "{",
-                      "    tests[\"Status code is 200\"] = responseCode.code === 200;",
-                      "    if ( responseCode.code === 200)",
-                      "    {",
-                      "        var jsonData = JSON.parse(responseBody);",
-                      "        tests[\"A least one Teacher\"] = jsonData.value.length >= 1;",
-                      "        tests[\"Teacher added\"] = (jsonData.value.length >= 1 && jsonData.value[0].id === postman.getEnvironmentVariable(\"primaryTestUserId\")) || (jsonData.value.length === 2 &&jsonData.value[1].id === postman.getEnvironmentVariable(\"primaryTestUserId\"));",
-                      "    }",
+                      "else {",
+                      "",
+                      "  pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "  });",
+                      "  if (responseCode.code !== 200 && typeof (GlobalFunctions) !== 'undefined') {",
+                      "    GlobalFunctions.retryTest(pm.info.requestName, pm.info.requestName, postman, tests);",
+                      "  }",
+                      "  else {",
+                      "    var jsonData = JSON.parse(responseBody);",
+                      "    tests[\"A least one Teacher\"] = jsonData.value.length >= 1;",
+                      "    tests[\"Teacher added\"] = (jsonData.value.length >= 1 && jsonData.value[0].id === postman.getEnvironmentVariable(\"primaryTestUserId\"))",
+                      "      || (jsonData.value.length === 2 && jsonData.value[1].id === postman.getEnvironmentVariable(\"primaryTestUserId\"));",
+                      "  }",
+                      "}",
+                      "",
+                      "if (typeof (GlobalFunctions) !== 'undefined') {",
+                      "  GlobalFunctions.reportFails(tests, responseCode, responseBody);",
                       "}"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
               "id": "1afacacd-381d-d01c-1ee5-b0eca323798f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
               "request": {
                 "method": "GET",
                 "header": [
@@ -6549,10 +6566,6 @@
                     "value": "application/json;odata.metadata={{MetadataLevel}}"
                   }
                 ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
-                },
                 "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/teachers"
               },
               "response": []
@@ -8051,7 +8064,7 @@
   ],
   "variable": [
     {
-      "id": "0e3ea4bd-3293-4834-8548-faeaf4765dd2",
+      "id": "3dadc2a2-20eb-409b-b8bf-4d29c3772547",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
