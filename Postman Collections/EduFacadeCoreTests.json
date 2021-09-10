@@ -5828,19 +5828,14 @@
                       "        pm.test(\"Status code is 200\", function () {",
                       "            pm.response.to.have.status(200);",
                       "        });",
-                      "        pm.test(\"School was Modified\", function () {",
+                      "        ",
+                      "        pm.test(\"Found Modified School\", function () {",
                       "            var jsonData = pm.response.json();",
                       "            pm.expect(jsonData.id).to.eql(pm.environment.get(\"justCreatedId\"));",
-                      "            pm.expect(jsonData.description).to.contain(\"An even better school\");",
+                      "            pm.expect(jsonData.description).to.eql(\"An even better school to test.\");",
                       "            pm.expect(jsonData.externalSource).to.eql(\"manual\");",
                       "            pm.expect(jsonData.address.city).to.eql(\"Seattle\");",
                       "",
-                      "        });",
-                      "        pm.test(\"Found Modified School\", function () {",
-                      "            pm.expect(pm.response.text()).to.include('\"id\":');",
-                      "            pm.expect(pm.response.text()).to.include('\"description\":\"An even better school to test.\"');",
-                      "            pm.expect(pm.response.text()).to.include('\"externalSource\":\"manual\"');",
-                      "            pm.expect(pm.response.text()).to.include('\"city\":\"Seattle\"');",
                       "        });",
                       "    }",
                       "}",
@@ -7943,7 +7938,7 @@
   ],
   "variable": [
     {
-      "id": "9bb098a6-68f4-4671-8e45-8e79747f4199",
+      "id": "60bf4481-f017-4424-a7bc-0a914867bcf8",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
