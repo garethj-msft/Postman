@@ -8021,7 +8021,7 @@
     {
       "listen": "prerequest",
       "script": {
-        "id": "c1180877-b9e4-46d5-a605-8dbe77f54352",
+        "id": "b7ca5858-dc97-4f82-911e-cb53a39f793c",
         "type": "text/javascript",
         "exec": [
           "pm.request.headers.add({key: 'Connection', value: 'close' });",
@@ -8040,17 +8040,20 @@
     {
       "listen": "test",
       "script": {
-        "id": "118cdcd7-7478-4425-b1ad-2afbb1e1b935",
+        "id": "e08fb8a0-0951-4c40-a21c-38acacf77da1",
         "type": "text/javascript",
         "exec": [
-          ""
+          "pm.test(\"Iteration: \" + pm.info.iteration);",
+          "pm.test(\"Auth Type: \" + pm.environment.get(\"authType\"));",
+          "pm.test(\"Expect Success: \" + pm.environment.get(\"expectedSuccess\"));",
+          "pm.test(\"Graph Version: \" + pm.environment.get(\"graphVersion\"));"
         ]
       }
     }
   ],
   "variable": [
     {
-      "id": "8f250cf8-c0ce-44b5-b965-626b9990bd13",
+      "id": "e5983c45-6900-4dfd-b2f6-5a38310a5c34",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
