@@ -6421,40 +6421,58 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "type": "text/javascript",
+                    "id": "f5c2dca3-4d64-401a-ba17-3898d874d7a0",
                     "exec": [
                       "if (typeof(GlobalFunctions) !== 'undefined' )",
                       "{",
                       "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
                       "}"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 },
                 {
                   "listen": "test",
                   "script": {
-                    "type": "text/javascript",
+                    "id": "b93cf8fd-ddfe-49cb-bbf9-9709d4a1b03e",
                     "exec": [
                       "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-                      "if(!expectedSuccess)",
-                      "{",
-                      "    tests[\"Status code is 404\"] = responseCode.code === 404;",
+                      "if (!expectedSuccess) {",
+                      "",
+                      "  pm.test(\"Status code is 404\", function () {",
+                      "    pm.response.to.have.status(404);",
+                      "  });",
+                      "",
                       "}",
-                      "else",
-                      "{",
-                      "    tests[\"Status code is 200\"] = responseCode.code === 200;",
-                      "    if ( responseCode.code === 200)",
+                      "else {",
+                      "",
+                      "  pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "  });",
+                      "  if (responseCode.code !== 200 && typeof (GlobalFunctions) !== 'undefined') {",
+                      "    GlobalFunctions.retryTest(pm.info.requestName, pm.info.requestName, postman, tests);",
+                      "  }",
+                      "  else {",
                       "    {",
-                      "        var jsonData = JSON.parse(responseBody);",
-                      "        tests[\"One Member\"] = jsonData.value.length === 1;",
-                      "        tests[\"Member added\"] = jsonData.value.length === 1 && jsonData.value[0].id === postman.getEnvironmentVariable(\"primaryTestUserId\");",
+                      "      var jsonData = JSON.parse(responseBody);",
+                      "      tests[\"One Member\"] = jsonData.value.length === 1;",
+                      "      tests[\"Member added\"] = jsonData.value.length === 1 && jsonData.value[0].id === postman.getEnvironmentVariable(\"primaryTestUserId\");",
                       "    }",
+                      "  }",
+                      "}",
+                      "",
+                      "if (typeof (GlobalFunctions) !== 'undefined') {",
+                      "  GlobalFunctions.reportFails(tests, responseCode, responseBody);",
                       "}"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
               "id": "42b2cb84-4ea6-f947-eec5-bf12ec1ca41d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
               "request": {
                 "method": "GET",
                 "header": [
@@ -6472,10 +6490,6 @@
                     "value": "application/json;odata.metadata={{MetadataLevel}}"
                   }
                 ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
-                },
                 "url": "{{https}}://{{host}}/{{graphVersion}}/education/classes/{{justCreatedId}}/members"
               },
               "response": []
@@ -8036,7 +8050,7 @@
   ],
   "variable": [
     {
-      "id": "f303a569-928f-42ee-92c2-afd697ce90cf",
+      "id": "8f250cf8-c0ce-44b5-b965-626b9990bd13",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
