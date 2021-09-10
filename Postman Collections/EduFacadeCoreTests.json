@@ -46,6 +46,8 @@
                   "  }\r",
                   "}\r",
                   "\r",
+                  "console.log(\"Iteration:\" +  iteration);\r",
+                  "\r",
                   "GlobalFunctions = {\r",
                   "  setupMetadataLevel: function (iteration, postman) {\r",
                   "    if (iteration % 3 === 0) {\r",
@@ -7965,7 +7967,7 @@
   ],
   "variable": [
     {
-      "id": "e470714b-b2f6-43e6-bb0d-4b7a04ccd5dd",
+      "id": "cec64fb3-684a-4295-b8bc-eb90702f4b75",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
