@@ -5880,38 +5880,49 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "type": "text/javascript",
+                    "id": "823ff492-195c-4bd2-99b1-e2d245668e42",
                     "exec": [
                       "if (typeof(GlobalFunctions) !== 'undefined' )",
                       "{",
                       "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
                       "}"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 },
                 {
                   "listen": "test",
                   "script": {
-                    "type": "text/javascript",
+                    "id": "5f502671-c2cb-450f-90b5-05fd11d498e4",
                     "exec": [
                       "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
                       "if(!expectedSuccess)",
                       "{",
-                      "    tests[\"Status code is 403\"] = responseCode.code === 403;",
+                      "",
+                      "    pm.test(\"Status code is 403\", function () {",
+                      "        pm.response.to.have.status(403);",
+                      "    });",
                       "}",
                       "else",
                       "{",
-                      "    tests[\"Status code is 204\"] = responseCode.code === 204;",
+                      "",
+                      "    pm.test(\"Status code is 204\", function () {",
+                      "        pm.response.to.have.status(204);",
+                      "    });",
                       "}",
                       "if (typeof(GlobalFunctions) !== 'undefined' )",
                       "{",
                       "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
                       "}"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
               "id": "a5de584f-b497-3b24-60a3-01ea76302bad",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
               "request": {
                 "method": "DELETE",
                 "header": [
@@ -7942,7 +7953,7 @@
   ],
   "variable": [
     {
-      "id": "6a454341-3507-4b24-95f5-33602c7566ab",
+      "id": "a1cc4127-9a81-49e3-a3c1-1f5bb095c437",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
