@@ -7947,7 +7947,7 @@
     {
       "listen": "prerequest",
       "script": {
-        "id": "98af0cb6-c2ad-499d-8aa5-71d6fc7d9c7c",
+        "id": "6ab1f68e-1a04-40c6-9ad3-0c075377f22b",
         "type": "text/javascript",
         "exec": [
           "pm.request.headers.add({key: 'Connection', value: 'close' });",
@@ -7959,6 +7959,7 @@
           "    GraphVersion: pm.environment.get(\"graphVersion\")",
           "}",
           "console.log(TestRunData);",
+          "console.log(pm.environment);",
           ""
         ]
       }
@@ -7966,7 +7967,7 @@
     {
       "listen": "test",
       "script": {
-        "id": "4ab2de64-f703-4099-8e13-aa017fb23613",
+        "id": "accd0bb2-cfbf-4d3d-bdce-7f5134884f10",
         "type": "text/javascript",
         "exec": [
           ""
@@ -7976,7 +7977,7 @@
   ],
   "variable": [
     {
-      "id": "71d4af3f-f42a-48e7-b8d3-4988aea2a261",
+      "id": "2575ab40-7521-4ef0-9b0b-ff3db5fb6e4a",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
