@@ -6453,11 +6453,9 @@
                       "    GlobalFunctions.retryTest(pm.info.requestName, pm.info.requestName, postman, tests);",
                       "  }",
                       "  else {",
-                      "    {",
                       "      var jsonData = JSON.parse(responseBody);",
                       "      tests[\"One Member\"] = jsonData.value.length === 1;",
                       "      tests[\"Member added\"] = jsonData.value.length === 1 && jsonData.value[0].id === postman.getEnvironmentVariable(\"primaryTestUserId\");",
-                      "    }",
                       "  }",
                       "}",
                       "",
@@ -8053,7 +8051,7 @@
   ],
   "variable": [
     {
-      "id": "e5983c45-6900-4dfd-b2f6-5a38310a5c34",
+      "id": "0e3ea4bd-3293-4834-8548-faeaf4765dd2",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
