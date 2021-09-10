@@ -5828,7 +5828,14 @@
                       "        pm.test(\"Status code is 200\", function () {",
                       "            pm.response.to.have.status(200);",
                       "        });",
+                      "        pm.test(\"School was Modified\", function () {",
+                      "            var jsonData = pm.response.json();",
+                      "            pm.expect(jsonData.id).to.eql(pm.environment.get(\"justCreatedId\"));",
+                      "            pm.expect(jsonData.description).to.eql(pm.environment.get(\"An even better school to test.\"));",
+                      "            pm.expect(jsonData.externalSource).to.eql(pm.environment.get(\"manual\"));",
+                      "            pm.expect(jsonData.city).to.eql(pm.environment.get(\"Seattle\"));",
                       "",
+                      "        });",
                       "        pm.test(\"Found Modified School\", function () {",
                       "            pm.expect(pm.response.text()).to.include('\"id\":');",
                       "            pm.expect(pm.response.text()).to.include('\"description\":\"An even better school to test.\"');",
@@ -7936,7 +7943,7 @@
   ],
   "variable": [
     {
-      "id": "a2473184-8467-456f-8e1c-55c40a8d8b09",
+      "id": "1ce1ce47-5d68-4ce5-8ca4-7d73fc41bdab",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
