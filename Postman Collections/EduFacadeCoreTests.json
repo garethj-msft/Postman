@@ -5943,30 +5943,38 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "type": "text/javascript",
+                    "id": "2e82c529-05be-4b0a-8e27-85392508a258",
                     "exec": [
                       "if (typeof(GlobalFunctions) !== 'undefined' )",
                       "{",
                       "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
                       "}"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 },
                 {
                   "listen": "test",
                   "script": {
-                    "type": "text/javascript",
+                    "id": "e9d4410c-a772-4637-ac8b-e5985a18ef5f",
                     "exec": [
-                      "tests[\"Status code is 404\"] = responseCode.code === 404;",
+                      "pm.test(\"Status code is 404\", function () {",
+                      "    pm.response.to.have.status(404);",
+                      "});",
+                      "",
                       "if (typeof(GlobalFunctions) !== 'undefined' )",
                       "{",
                       "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
                       "}"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
               "id": "d1d3b040-09b7-a44d-54f9-75da9846b4dc",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
               "request": {
                 "method": "GET",
                 "header": [
@@ -5984,10 +5992,6 @@
                     "value": "application/json;odata.metadata={{MetadataLevel}}"
                   }
                 ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n\t\"@odata.type\": \"microsoft.graph.educationClass\",\n\t\"displayName\":\"GarethClassTestRun60\",\n\t\"mailNickname\":\"classtest60\",\n\t\"period\":\"5\"\n}"
-                },
                 "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}"
               },
               "response": []
@@ -7938,7 +7942,7 @@
   ],
   "variable": [
     {
-      "id": "60bf4481-f017-4424-a7bc-0a914867bcf8",
+      "id": "6a454341-3507-4b24-95f5-33602c7566ab",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
