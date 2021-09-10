@@ -6337,34 +6337,54 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "type": "text/javascript",
+                    "id": "3fd3e473-8dce-4a0a-941e-1435aa457a99",
                     "exec": [
                       "if (typeof(GlobalFunctions) !== 'undefined' )",
                       "{",
                       "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
                       "}"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 },
                 {
                   "listen": "test",
                   "script": {
-                    "type": "text/javascript",
+                    "id": "cb916b9e-39e1-4c06-9a94-acaeaf51a0bb",
                     "exec": [
                       "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-                      "if(!expectedSuccess)",
-                      "{",
-                      "    tests[\"Status code is 403\"] = responseCode.code === 403;",
+                      "if (!expectedSuccess) {",
+                      "",
+                      "  pm.test(\"Status code is 403\", function () {",
+                      "    pm.response.to.have.status(403);",
+                      "  });",
+                      "",
                       "}",
-                      "else",
-                      "{",
-                      "    tests[\"Status code is 204\"] = responseCode.code === 204;",
+                      "else {",
+                      "",
+                      "  if (responseCode.code !== 204 && typeof (GlobalFunctions) !== 'undefined') {",
+                      "    GlobalFunctions.retryTest(pm.info.requestName, pm.info.requestName, postman, tests);",
+                      "  }",
+                      "  else {",
+                      "    pm.test(\"Status code is 204\", function () {",
+                      "      pm.response.to.have.status(204);",
+                      "    });",
+                      "  }",
+                      "",
+                      "}",
+                      "",
+                      "if (typeof (GlobalFunctions) !== 'undefined') {",
+                      "  GlobalFunctions.reportFails(tests, responseCode, responseBody);",
                       "}"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
               "id": "ef80a6db-030e-d79b-7741-1fcff411ee27",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
               "request": {
                 "method": "POST",
                 "header": [
@@ -8016,7 +8036,7 @@
   ],
   "variable": [
     {
-      "id": "ed7efd53-4277-43ab-a74c-2a6ce7c01a82",
+      "id": "f303a569-928f-42ee-92c2-afd697ce90cf",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
