@@ -5452,84 +5452,6 @@
               "response": []
             },
             {
-              "name": "Check just added User Copy",
-              "event": [
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "6966fe7d-20ba-42f4-80c4-3664d00f262b",
-                    "exec": [
-                      "if (typeof(GlobalFunctions) !== 'undefined' )",
-                      "{",
-                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                      "}",
-                      "",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "da95714a-e8a2-4db4-b858-22dcd470a697",
-                    "exec": [
-                      "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
-                      "if(!expectedSuccess)",
-                      "{",
-                      "    tests[\"Status code is 403\"] = responseCode.code === 403;",
-                      "}",
-                      "else",
-                      "{",
-                      "    tests[\"Status code is 200\"] = responseCode.code === 200;",
-                      "    if ( responseCode.code === 200)",
-                      "    {",
-                      "        var jsonData = JSON.parse(responseBody);",
-                      "        if(jsonData.value.length === 1){",
-                      "            tests[\"One User\"] = jsonData.value.length === 1;",
-                      "            tests[\"User added\"] = jsonData.value.length === 1 && jsonData.value[0].id === postman.getEnvironmentVariable(\"primaryTestUserId\");",
-                      "            postman.setEnvironmentVariable(\"retryCount\", \"0\");",
-                      "        }",
-                      "        else {",
-                      "            GlobalFunctions.retryTest(pm.info.requestName, \"One User\", postman, tests);",
-                      "        }        ",
-                      "    }",
-                      "}",
-                      "if (typeof(GlobalFunctions) !== 'undefined' )",
-                      "{",
-                      "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
-                      "}"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "id": "68b2b925-1e35-4afb-849f-2d7d2bbeb090",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "{{GraphAuth}}"
-                  },
-                  {
-                    "key": "Workload-Authorization",
-                    "value": "{{AADAuth}}",
-                    "disabled": true
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json;odata.metadata={{MetadataLevel}}"
-                  }
-                ],
-                "url": "{{https}}://{{host}}/{{graphVersion}}/education/schools/{{justCreatedId}}/users"
-              },
-              "response": []
-            },
-            {
               "name": "Delete School Class",
               "event": [
                 {
@@ -8142,7 +8064,7 @@
   ],
   "variable": [
     {
-      "id": "662ee575-17d9-4d2f-8a8d-20338c8f4687",
+      "id": "fe7ebbc4-ed8d-4587-8ea8-91450db17e8f",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
