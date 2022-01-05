@@ -4897,6 +4897,82 @@
               "response": []
             },
             {
+              "name": "T_AppPlusUserToken GraphReadWrite Copy",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "a39daf8e-5adb-4f5d-85e8-456664219ece",
+                    "exec": [
+                      "postman.setNextRequest(\"T_PostReadWrite\");"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "ca403998-cf83-414d-b953-238cddcaa40a",
+                    "exec": [
+                      "tests[\"Successful Request\"] = responseCode.code === 200;",
+                      "if(responseCode.code === 200)",
+                      "{",
+                      "    var data = JSON.parse(responseBody);",
+                      "    postman.setEnvironmentVariable(\"GraphAuth\", \"Bearer \" + data.access_token);",
+                      "    tests[\"New readwrite tokens written to environment\"] = true;",
+                      "}"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "id": "89c63361-8fdb-49f2-b203-bb40a89b8375",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "grant_type",
+                      "value": "password",
+                      "type": "text"
+                    },
+                    {
+                      "key": "client_id",
+                      "value": "{{GraphClientIdReadWrite}}",
+                      "type": "text"
+                    },
+                    {
+                      "key": "client_secret",
+                      "value": "{{GraphSecretReadWrite}}",
+                      "type": "text"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "{{loginResource}}",
+                      "type": "text"
+                    },
+                    {
+                      "key": "username",
+                      "value": "{{apiCaller}}",
+                      "type": "text"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{apiCallerPwd}}",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": "https://{{loginHost}}/common/oauth2/token"
+              },
+              "response": []
+            },
+            {
               "name": "T_AppOnlyToken GraphReadWrite",
               "event": [
                 {
@@ -8064,7 +8140,7 @@
   ],
   "variable": [
     {
-      "id": "3dadc2a2-20eb-409b-b8bf-4d29c3772547",
+      "id": "c57152ee-d479-48ee-90c6-5b49d72fbad0",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
