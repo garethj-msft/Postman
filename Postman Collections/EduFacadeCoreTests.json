@@ -5377,26 +5377,10 @@
               "name": "Check just added User",
               "event": [
                 {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "03ff21bf-e675-45c0-9b89-c3104d1ac7bb",
-                    "exec": [
-                      "if (typeof(GlobalFunctions) !== 'undefined' )",
-                      "{",
-                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
-                      "}",
-                      "",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
                   "listen": "test",
                   "script": {
-                    "id": "5459275c-90b5-4148-b407-cefd91fc7821",
+                    "id": "e8ba83cc-fd4b-4185-88de-6ca293472d29",
                     "exec": [
-                      "var expectedSuccess = postman.getEnvironmentVariable('expectedSuccess');",
                       "if(!expectedSuccess)",
                       "{",
                       "    tests[\"Status code is 403\"] = responseCode.code === 403;",
@@ -5421,6 +5405,21 @@
                       "{",
                       "    GlobalFunctions.reportFails(tests, responseCode, responseBody);",
                       "}"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "42624949-fe3c-4474-afd4-5126e331577d",
+                    "exec": [
+                      "if (typeof(GlobalFunctions) !== 'undefined' )",
+                      "{",
+                      "    GlobalFunctions.setupMetadataLevel(iteration, postman);",
+                      "}",
+                      "",
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -8064,7 +8063,7 @@
   ],
   "variable": [
     {
-      "id": "fe7ebbc4-ed8d-4587-8ea8-91450db17e8f",
+      "id": "148ab4f2-f0cf-4302-ad5d-68014801fdc1",
       "key": "PostmanAPIKey",
       "value": "3bce6780829b4d7fa2f9906793822c6e"
     }
